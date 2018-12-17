@@ -45,3 +45,20 @@ $body-color: #fff
   margin-top: 0 !important
 
 @import "~bulma"
+
+.navbar-menu
+  display: none
+
+.navbar-menu.is-active
+  display: flex
+
++desktop
+  .is-visible-desktop
+    visibility: visible !important
+    display: flex
+
+nav.navbar
+  position: relative;
+  top: 100px;
+  display: inline;
+
