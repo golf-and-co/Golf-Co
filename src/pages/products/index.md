@@ -1,7 +1,7 @@
 ---
 image: /img/home.png
 templateKey: product-page
-title: Our Coffee
+title: Home
 heading: What we offer
 description: >-
   Kaldi is the ultimate spot for coffee lovers who want to learn about their
