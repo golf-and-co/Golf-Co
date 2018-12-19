@@ -63,6 +63,7 @@ const InfoWrap = styled.section`
   background-color: #F6F9F2;
   display:flex;
   justify-content: center;
+  padding-bottom:60px;
 `
 
 const Info = styled.div`
@@ -89,6 +90,23 @@ const InfoBody = styled.p`
   line-height: 16px;
 `
 
+const Featured = styled.section`
+  background-color: #cfddbb;
+  display:flex;
+  justify-content: center;
+  height:400px;
+  border-radius: 200%/195px 195px 0 0;
+  margin-top:-60px;
+`;
+
+const FeaturedHeading = styled.h3`
+
+`;
+const FeaturedHeadingTag = styled.strong`
+
+`;
+
+
 export default class IndexPage extends React.Component {
   render() {
     const data = this.props.data.allMarkdownRemark.edges[0].node.frontmatter
@@ -99,11 +117,7 @@ export default class IndexPage extends React.Component {
     return (
       <Layout>
         <Hero style={{
-                  backgroundImage: `url(${
-                    !!data.image.childImageSharp
-                      ? data.image.childImageSharp.fluid.src
-                      : data.image
-                  })`,
+                  backgroundImage: `url(${data.image})`,
                 }}>
           <div className="container content">
             <div className="column is-10 is-offset-1">
@@ -154,6 +168,14 @@ export default class IndexPage extends React.Component {
             <InfoBody>{data.info4.description}</InfoBody>
           </Info>
         </InfoWrap>
+
+        <Featured>
+          <FeaturedHeading className="title">
+            {data.featured.heading1}
+            <br />
+            <FeaturedHeadingTag>{data.featured.heading2}</FeaturedHeadingTag>
+          </FeaturedHeading>
+        </Featured>
       </Layout>
     )
   }
@@ -230,6 +252,10 @@ query HomePage {
             image {
               publicURL
             } 
+          }
+          featured {
+            heading1
+            heading2
           }
         }
       }
