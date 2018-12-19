@@ -169,13 +169,7 @@ export default class IndexPage extends React.Component {
           </Info>
         </InfoWrap>
 
-        <Featured>
-          <FeaturedHeading className="title">
-            {data.featured.heading1}
-            <br />
-            <FeaturedHeadingTag>{data.featured.heading2}</FeaturedHeadingTag>
-          </FeaturedHeading>
-        </Featured>
+      
       </Layout>
     )
   }
@@ -252,10 +246,6 @@ query HomePage {
             image {
               publicURL
             } 
-          }
-          featured {
-            heading1
-            heading2
           }
         }
       }
