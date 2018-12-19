@@ -22,5 +22,8 @@ info4:
   description: We strive to create long lasting memories by going above & beyond
   heading: TEE TIMES TO GOOD TIMES
   image: /img/golf_swing.svg
+featured:
+  heading1: Featured
+  heading2: Golf Courses
 ---
 
