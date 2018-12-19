@@ -1,5 +1,5 @@
 ---
-image: /img/home.png
+image: /img/og-image.jpg
 templateKey: product-page
 title: Home
 heading1: Enjoy the Ultimate
