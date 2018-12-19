@@ -39,6 +39,9 @@ collections:
           - {label: "Heading First Line", name: heading1, widget: string}
           - {label: "Heading Second Line", name: heading2, widget: string}
           - {label: "Info 1", name: info1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
+          - {label: "Info 2", name: info2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
+          - {label: "Info 3", name: info3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
+          - {label: "Info 4", name: info4, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
 
 #          - {label: Description, name: description, widget: string}
 #          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}

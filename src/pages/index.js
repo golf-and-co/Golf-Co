@@ -59,9 +59,34 @@ const Button = styled.a`
   font-size: 16px;
   font-weight: 700;
 `
-const Info = styled.section`
-  height: 757px;
+const InfoWrap = styled.section`
   background-color: #F6F9F2;
+  display:flex;
+  justify-content: center;
+`
+
+const Info = styled.div`
+  width:200px;
+  text-align:center;
+  margin: auto 45px;
+`
+
+const InfoHeading = styled.p`
+  height: 41px;
+  color: #1d8649;
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height:1;
+`
+
+const InfoBody = styled.p`
+  width: 200px;
+  height: 80px;
+  color: #4a4a4a;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16px;
 `
 
 export default class IndexPage extends React.Component {
@@ -104,9 +129,31 @@ export default class IndexPage extends React.Component {
           </Search>
         </Hero>
 
-        <Info>
-          <Img fixed={data.frontmatter.info1} />
-        </Info>
+        <InfoWrap>
+          <Info>
+            <img src={data.frontmatter.info1.image} alt="Tailor Made"/>
+            <InfoHeading>{data.frontmatter.info1.heading}</InfoHeading>
+            <InfoBody>{data.frontmatter.info1.description}</InfoBody>
+          </Info>
+        
+          <Info>
+            <img src={data.frontmatter.info2.image} alt="Tailor Made"/>
+            <InfoHeading>{data.frontmatter.info2.heading}</InfoHeading>
+            <InfoBody>{data.frontmatter.info2.description}</InfoBody>
+          </Info>
+
+          <Info>
+            <img src={data.frontmatter.info3.image} alt="Tailor Made"/>
+            <InfoHeading>{data.frontmatter.info3.heading}</InfoHeading>
+            <InfoBody>{data.frontmatter.info3.description}</InfoBody>
+          </Info>
+
+          <Info>
+            <img src={data.frontmatter.info4.image} alt="Tailor Made"/>
+            <InfoHeading>{data.frontmatter.info4.heading}</InfoHeading>
+            <InfoBody>{data.frontmatter.info4.description}</InfoBody>
+          </Info>
+        </InfoWrap>
       </Layout>
     )
   }
@@ -152,15 +199,26 @@ query HomePage {
         frontmatter{
           heading1
           heading2
-          image {
-            childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
+          image
           info1 {
-            
+            heading
+            description
+            image 
+          }
+          info2 {
+            heading
+            description
+            image 
+          }
+          info3 {
+            heading
+            description
+            image 
+          }
+          info4 {
+            heading
+            description
+            image 
           }
         }
       }
