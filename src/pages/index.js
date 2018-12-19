@@ -91,7 +91,7 @@ const InfoBody = styled.p`
 
 export default class IndexPage extends React.Component {
   render() {
-    const data = this.props.data.allMarkdownRemark.edges[0].node
+    const data = this.props.data.allMarkdownRemark.edges[0].node.frontmatter
     console.log("data is")
     console.log(data)
     
@@ -100,17 +100,17 @@ export default class IndexPage extends React.Component {
       <Layout>
         <Hero style={{
                   backgroundImage: `url(${
-                    !!data.frontmatter.image.childImageSharp
-                      ? data.frontmatter.image.childImageSharp.fluid.src
-                      : data.frontmatter.image
+                    !!data.image.childImageSharp
+                      ? data.image.childImageSharp.fluid.src
+                      : data.image
                   })`,
                 }}>
           <div className="container content">
             <div className="column is-10 is-offset-1">
               <Heading className="title">
-                {data.frontmatter.heading1}
+                {data.heading1}
                 <br />
-                <HeadingTag>{data.frontmatter.heading2}</HeadingTag>
+                <HeadingTag>{data.heading2}</HeadingTag>
               </Heading>
             </div>
           </div>
@@ -131,27 +131,27 @@ export default class IndexPage extends React.Component {
 
         <InfoWrap>
           <Info>
-            <img src={data.frontmatter.info1.image} alt="Tailor Made"/>
-            <InfoHeading>{data.frontmatter.info1.heading}</InfoHeading>
-            <InfoBody>{data.frontmatter.info1.description}</InfoBody>
+            <img src={data.info1.image.publicURL} alt="Tailor Made"/>
+            <InfoHeading>{data.info1.heading}</InfoHeading>
+            <InfoBody>{data.info1.description}</InfoBody>
           </Info>
         
           <Info>
-            <img src={data.frontmatter.info2.image} alt="Tailor Made"/>
-            <InfoHeading>{data.frontmatter.info2.heading}</InfoHeading>
-            <InfoBody>{data.frontmatter.info2.description}</InfoBody>
+            <img src={data.info2.image.publicURL} alt="Tailor Made"/>
+            <InfoHeading>{data.info2.heading}</InfoHeading>
+            <InfoBody>{data.info2.description}</InfoBody>
           </Info>
 
           <Info>
-            <img src={data.frontmatter.info3.image} alt="Tailor Made"/>
-            <InfoHeading>{data.frontmatter.info3.heading}</InfoHeading>
-            <InfoBody>{data.frontmatter.info3.description}</InfoBody>
+            <img src={data.info3.image.publicURL} alt="Tailor Made"/>
+            <InfoHeading>{data.info3.heading}</InfoHeading>
+            <InfoBody>{data.info3.description}</InfoBody>
           </Info>
 
           <Info>
-            <img src={data.frontmatter.info4.image} alt="Tailor Made"/>
-            <InfoHeading>{data.frontmatter.info4.heading}</InfoHeading>
-            <InfoBody>{data.frontmatter.info4.description}</InfoBody>
+            <img src={data.info4.image.publicURL} alt="Tailor Made"/>
+            <InfoHeading>{data.info4.heading}</InfoHeading>
+            <InfoBody>{data.info4.description}</InfoBody>
           </Info>
         </InfoWrap>
       </Layout>
@@ -175,7 +175,13 @@ export default class IndexPage extends React.Component {
                   </ul>
                 </div>
               ) : null}
-
+image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
 */
 
 IndexPage.propTypes = {
@@ -187,38 +193,43 @@ query HomePage {
   allMarkdownRemark(filter: {frontmatter: {title:{eq:"Home"}}}) {
     edges {
       node {
-        id
-        fields{
-          slug
-        }
-        tableOfContents
-        headings{
-          value
-          depth
-        }
         frontmatter{
           heading1
           heading2
-          image
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
           info1 {
             heading
             description
-            image 
+            image {
+              publicURL
+            } 
           }
           info2 {
             heading
             description
-            image 
+            image {
+              publicURL
+            } 
           }
           info3 {
             heading
             description
-            image 
+            image {
+              publicURL
+            } 
           }
           info4 {
             heading
             description
-            image 
+            image {
+              publicURL
+            } 
           }
         }
       }
