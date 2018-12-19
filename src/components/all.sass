@@ -58,7 +58,35 @@ $body-color: #fff
     display: flex
 
 nav.navbar
-  position: relative;
-  top: 100px;
-  display: inline;
+  position: absolute
+  top: 40px
+  background: none
+  left: 0
+  width: 100%
+  display: block
 
+.navbar > .container .navbar-brand
+  margin-left: 0
+  width: 100%
+
+.navbar-brand
+  flex-shrink: 0
+  justify-content: center
+
+.navbar-item img
+  width: 156px
+  height: 87px
+  max-height: none
+
+.navbar-burger
+  margin-left: 0
+  right: 0
+  position: absolute
+  color: #FFF
+
+.navbar-start
+  display: flex
+  margin: 0 auto
+
+.navbar-start a
+  color: white

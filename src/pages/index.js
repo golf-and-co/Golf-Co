@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import styled from "styled-components"
 
-const Wallpaper = styled.section`
+const Hero = styled.section`
   min-height: 757px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,15 +20,21 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <Wallpaper>
+        <Hero style={{
+                  backgroundImage: `url(${
+                    !!data.frontmatter.image.childImageSharp
+                      ? data.frontmatter.image.childImageSharp.fluid.src
+                      : data.frontmatter.image
+                  })`,
+                }}>
           <div className="container content">
             <div className="column is-10 is-offset-1">
               <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                {data.frontmatter.title}
+                {data.frontmatter.heading1}<br></br><strong>{data.frontmatter.heading2}</strong>
               </h1>
             </div>
           </div>
-        </Wallpaper>
+        </Hero>
       </Layout>
     )
   }
@@ -59,7 +65,7 @@ IndexPage.propTypes = {
 
 export const IndexQuery = graphql`
 query HomePage {
-  allMarkdownRemark(filter: {frontmatter: {title:{eq:"Enjoy the Ultimate"}}}) {
+  allMarkdownRemark(filter: {frontmatter: {title:{eq:"Home"}}}) {
     edges {
       node {
         id
@@ -75,6 +81,13 @@ query HomePage {
           title
           heading
           description
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }
