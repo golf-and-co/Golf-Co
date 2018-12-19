@@ -1,12 +1,24 @@
 @import "~bulma/sass/utilities/initial-variables"
 
+@font-face
+  font-family: "Gotham Book"
+  font-style: normal
+  font-weight: normal
+  src: url("/font/Gotham-Book.otf") format("opentype")
+
+@font-face
+  font-family: "Gotham Bold"
+  font-style: normal
+  font-weight: normal
+  src: url("/font/Gotham-Bold.otf") format("opentype")
+
 // Config vars
 // Kalidi logo brand color: #FD461E
 $kaldi-red: #D64000
 $kaldi-red-invert: #fff
 
-$primary: $kaldi-red
-$primary-invert: $kaldi-red-invert
+$primary: white
+$primary-invert: #1d8649
 $body-color: #fff
 
 .navbar .navbar-menu
@@ -45,6 +57,13 @@ $body-color: #fff
   margin-top: 0 !important
 
 @import "~bulma"
+
+body,
+button,
+input,
+select,
+textarea
+  font-family: "Gotham Book", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 
 .navbar-menu
   display: none
