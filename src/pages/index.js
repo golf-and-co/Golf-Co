@@ -41,6 +41,7 @@ const SelectWrap = styled.div`
   width: 180px;
   height: 50px !important;
   margin: auto 10px;
+  font-size: 1rem;
 `
 
 const Select = styled.select`
@@ -92,20 +93,47 @@ const InfoBody = styled.p`
 
 const Featured = styled.section`
   background-color: #cfddbb;
-  display:flex;
+  display:block;
   justify-content: center;
-  height:400px;
   border-radius: 200%/195px 195px 0 0;
   margin-top:-60px;
 `;
 
 const FeaturedHeading = styled.h3`
-
+  color: #1d8649;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align:center;
+  padding: 50px 0 50px 0;
 `;
 const FeaturedHeadingTag = styled.strong`
-
+  font-weight: bold;
+  font-family: "Gotham Bold";
 `;
 
+const FeaturedCard = styled.div`
+  width: 260px;
+  height: 320px;
+  margin: 0 auto;
+  border-radius: 6px;
+  background-color: #ffffff;
+`;
+
+const FeaturedCardImage = styled.img`
+  height:216px;
+`;
+
+const FeaturedCardContent = styled.div`
+  color: #000000;
+  font-size: 20px;
+  font-weight: 300;
+`;
+
+const FeaturedCardContentTag = styled.div`
+  color: #9b9b9b;
+  font-size: 14px;
+`;
 
 export default class IndexPage extends React.Component {
   render() {
@@ -178,8 +206,38 @@ export default class IndexPage extends React.Component {
             {data.featured.heading1}
             <br />
             <FeaturedHeadingTag>{data.featured.heading2}</FeaturedHeadingTag>
+            <br />
+            <SelectWrap className="select is-rounded">
+              <Select>
+                <option>UAE</option>
+              </Select>
+            </SelectWrap>
           </FeaturedHeading>
+          
+          <div class="columns">
+            <FeaturedCard class="card is-quarter">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <FeaturedCardImage src={
+                    !!data.course1.image.childImageSharp
+                      ? data.course1.image.childImageSharp.fluid.src
+                      : data.course1.image
+                  } alt="Placeholder" />
+                </figure>
+              </div>
+              <FeaturedCardContent class="card-content">
+                <div class="content">
+                  {data.course1.heading}
+                  <br />
+                  <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
+                </div>
+              </FeaturedCardContent>
+            </FeaturedCard>
+          </div>
         </Featured>
+
+
+        
       </Layout>
     )
   }
