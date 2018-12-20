@@ -117,7 +117,11 @@ export default class IndexPage extends React.Component {
     return (
       <Layout>
         <Hero style={{
-                  backgroundImage: `url(${data.image})`,
+                  backgroundImage: `url(${
+                    !!data.image.childImageSharp
+                      ? data.image.childImageSharp.fluid.src
+                      : data.image
+                  })`,
                 }}>
           <div className="container content">
             <div className="column is-10 is-offset-1">
