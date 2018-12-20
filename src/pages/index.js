@@ -133,6 +133,7 @@ const FeaturedCardContent = styled.div`
   font-size: 20px;
   font-weight: 300;
   margin: 16px auto auto 16px;
+  padding:0;
 `;
 
 const FeaturedCardContentTag = styled.div`
@@ -241,10 +242,10 @@ export default class IndexPage extends React.Component {
             </SelectWrap>
           </FeaturedHeading>
           
-          <div class="columns">
-            <FeaturedCard class="card is-quarter">
-              <FeaturedCardImageWrap class="card-image">
-                <figure class="image is-4by3">
+          <div className="columns">
+            <FeaturedCard className="card is-quarter">
+              <FeaturedCardImageWrap className="card-image">
+                <figure className="image is-4by3">
                   <FeaturedCardImage src={
                     !!data.course1.image.childImageSharp
                       ? data.course1.image.childImageSharp.fluid.src
@@ -253,8 +254,8 @@ export default class IndexPage extends React.Component {
                 </figure>
                 <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
               </FeaturedCardImageWrap>
-              <FeaturedCardContent class="card-content">
-                <div class="content">
+              <FeaturedCardContent className="card-content">
+                <div className="content">
                   {data.course1.heading}
                   <br />
                   <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
@@ -262,9 +263,9 @@ export default class IndexPage extends React.Component {
               </FeaturedCardContent>
             </FeaturedCard>
 
-            <FeaturedCard class="card is-quarter">
-              <FeaturedCardImageWrap class="card-image">
-                <figure class="image is-4by3">
+            <FeaturedCard className="card is-quarter">
+              <FeaturedCardImageWrap className="card-image">
+                <figure className="image is-4by3">
                   <FeaturedCardImage src={
                     !!data.course1.image.childImageSharp
                       ? data.course1.image.childImageSharp.fluid.src
@@ -273,8 +274,8 @@ export default class IndexPage extends React.Component {
                 </figure>
                 <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
               </FeaturedCardImageWrap>
-              <FeaturedCardContent class="card-content">
-                <div class="content">
+              <FeaturedCardContent className="card-content">
+                <div className="content">
                   {data.course1.heading}
                   <br />
                   <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
@@ -282,9 +283,9 @@ export default class IndexPage extends React.Component {
               </FeaturedCardContent>
             </FeaturedCard>
 
-            <FeaturedCard class="card is-quarter">
-              <FeaturedCardImageWrap class="card-image">
-                <figure class="image is-4by3">
+            <FeaturedCard className="card is-quarter">
+              <FeaturedCardImageWrap className="card-image">
+                <figure className="image is-4by3">
                   <FeaturedCardImage src={
                     !!data.course1.image.childImageSharp
                       ? data.course1.image.childImageSharp.fluid.src
@@ -293,8 +294,8 @@ export default class IndexPage extends React.Component {
                 </figure>
                 <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
               </FeaturedCardImageWrap>
-              <FeaturedCardContent class="card-content">
-                <div class="content">
+              <FeaturedCardContent className="card-content">
+                <div className="content">
                   {data.course1.heading}
                   <br />
                   <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
@@ -302,9 +303,9 @@ export default class IndexPage extends React.Component {
               </FeaturedCardContent>
             </FeaturedCard>
 
-            <FeaturedCard class="card is-quarter">
-              <FeaturedCardImageWrap class="card-image">
-                <figure class="image is-4by3">
+            <FeaturedCard className="card is-quarter">
+              <FeaturedCardImageWrap className="card-image">
+                <figure className="image is-4by3">
                   <FeaturedCardImage src={
                     !!data.course1.image.childImageSharp
                       ? data.course1.image.childImageSharp.fluid.src
@@ -313,8 +314,8 @@ export default class IndexPage extends React.Component {
                 </figure>
                 <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
               </FeaturedCardImageWrap>
-              <FeaturedCardContent class="card-content">
-                <div class="content">
+              <FeaturedCardContent className="card-content">
+                <div className="content">
                   {data.course1.heading}
                   <br />
                   <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
