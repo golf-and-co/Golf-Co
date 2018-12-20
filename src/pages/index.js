@@ -120,19 +120,46 @@ const FeaturedCard = styled.div`
   background-color: #ffffff;
 `;
 
-const FeaturedCardImage = styled.img`
+const FeaturedCardImageWrap = styled.div`
   height:216px;
+`;
+
+const FeaturedCardImage = styled.img`
+  height:216px !important;
 `;
 
 const FeaturedCardContent = styled.div`
   color: #000000;
   font-size: 20px;
   font-weight: 300;
+  margin: 16px auto auto 16px;
 `;
 
 const FeaturedCardContentTag = styled.div`
   color: #9b9b9b;
   font-size: 14px;
+  margin-top: 9px;
+`;
+
+const FeaturedCardCaption = styled.div`
+  width: 80px;
+  height: 20px;
+  border-radius: 8px;
+  background-color: #1d8649;
+  color: #ffffff;
+  font-family: "Gotham Book";
+  font-size: .7rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 10;
+  top: -185px;
+  left: 10px;
+  line-height: 1.1rem;
+  letter-spacing: .1px;
+  text-align:center;
+}
+
 `;
 
 export default class IndexPage extends React.Component {
@@ -216,7 +243,7 @@ export default class IndexPage extends React.Component {
           
           <div class="columns">
             <FeaturedCard class="card is-quarter">
-              <div class="card-image">
+              <FeaturedCardImageWrap class="card-image">
                 <figure class="image is-4by3">
                   <FeaturedCardImage src={
                     !!data.course1.image.childImageSharp
@@ -224,7 +251,68 @@ export default class IndexPage extends React.Component {
                       : data.course1.image
                   } alt="Placeholder" />
                 </figure>
-              </div>
+                <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
+              </FeaturedCardImageWrap>
+              <FeaturedCardContent class="card-content">
+                <div class="content">
+                  {data.course1.heading}
+                  <br />
+                  <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
+                </div>
+              </FeaturedCardContent>
+            </FeaturedCard>
+
+            <FeaturedCard class="card is-quarter">
+              <FeaturedCardImageWrap class="card-image">
+                <figure class="image is-4by3">
+                  <FeaturedCardImage src={
+                    !!data.course1.image.childImageSharp
+                      ? data.course1.image.childImageSharp.fluid.src
+                      : data.course1.image
+                  } alt="Placeholder" />
+                </figure>
+                <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
+              </FeaturedCardImageWrap>
+              <FeaturedCardContent class="card-content">
+                <div class="content">
+                  {data.course1.heading}
+                  <br />
+                  <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
+                </div>
+              </FeaturedCardContent>
+            </FeaturedCard>
+
+            <FeaturedCard class="card is-quarter">
+              <FeaturedCardImageWrap class="card-image">
+                <figure class="image is-4by3">
+                  <FeaturedCardImage src={
+                    !!data.course1.image.childImageSharp
+                      ? data.course1.image.childImageSharp.fluid.src
+                      : data.course1.image
+                  } alt="Placeholder" />
+                </figure>
+                <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
+              </FeaturedCardImageWrap>
+              <FeaturedCardContent class="card-content">
+                <div class="content">
+                  {data.course1.heading}
+                  <br />
+                  <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
+                </div>
+              </FeaturedCardContent>
+            </FeaturedCard>
+
+            <FeaturedCard class="card is-quarter">
+              <FeaturedCardImageWrap class="card-image">
+                <figure class="image is-4by3">
+                  <FeaturedCardImage src={
+                    !!data.course1.image.childImageSharp
+                      ? data.course1.image.childImageSharp.fluid.src
+                      : data.course1.image
+                  } alt="Placeholder" />
+                </figure>
+                <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
+              </FeaturedCardImageWrap>
               <FeaturedCardContent class="card-content">
                 <div class="content">
                   {data.course1.heading}
@@ -318,6 +406,17 @@ query HomePage {
           featured {
             heading1
             heading2
+          }
+          course1 {
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            heading
+            description
           }
         }
       }
