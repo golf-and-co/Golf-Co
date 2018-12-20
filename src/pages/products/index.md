@@ -25,5 +25,18 @@ info4:
 featured:
   heading1: Featured
   heading2: Golf Courses
+course1:
+  description: 'Yas Islands, Abu Dhabi'
+  heading: Yas Links Golf Course
+  image: /img/featured1.jpg
+course2:
+  description: 'Yas Islands, Abu Dhabi'
+  heading: Yas Links Golf Course
+course3:
+  description: 'Yas Islands, Abu Dhabi'
+  heading: Yas Links Golf Course
+course4:
+  description: 'Yas Islands, Abu Dhabi'
+  heading: Yas Links Golf Course
 ---
 
