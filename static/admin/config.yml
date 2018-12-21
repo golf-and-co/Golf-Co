@@ -30,4 +30,4 @@ collections:
           - {label: "Featured View All Text", name: featuredViewAll, widget: string}
           - {label: "Featured Banner", name: featuredBanner, widget: object, fields: [{label: Image, name: image, widget: image}, {label: "Heading Line 1", name: heading1, widget: string}, {label: "Heading Line 2", name: heading2, widget: string}]}
           - {label: "Featured Footer", name: featuredFooter, widget: object, fields: [{label: "Heading Line 1", name: heading1, widget: string}, {label: "Heading Line 2", name: heading2, widget: string}]}
-          - {label: "Featured Logos", name: featuredLogo, widget: list, fields:[{label: Image, name: image, widget: image}]} 
+          - {label: "Logos", name: logos, widget: list, fields:[{label: Image, name: image, widget: image}]} 
