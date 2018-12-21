@@ -10,14 +10,16 @@ export default class IndexPage extends React.Component {
   render() {
     const data = this.props.data.allMarkdownRemark.edges[0].node.frontmatter
     return (
-      <Layout>
-        <Hero data={data} />
-        <Info data={data} />
-        <Featured data={data} />
-      </Layout>
+      <IndexTemplate data={data} />
     )
   }
 }
+
+export const IndexTemplate = ({data}) => <Layout>
+  <Hero data={data} />
+  <Info data={data} />
+  <Featured data={data} />
+</Layout>
 
 IndexPage.propTypes = {
   data: PropTypes.object.isRequired,
