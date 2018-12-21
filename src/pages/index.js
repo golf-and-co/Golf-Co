@@ -166,8 +166,6 @@ const FeaturedCardCaption = styled.div`
 export default class IndexPage extends React.Component {
   render() {
     const data = this.props.data.allMarkdownRemark.edges[0].node.frontmatter
-    console.log("data is")
-    console.log(data)
     
 
     return (
