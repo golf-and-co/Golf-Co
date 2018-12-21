@@ -1,4 +1,5 @@
 import React from 'react'
+import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 
@@ -59,8 +60,48 @@ const Info = ({data}) => <InfoWrap>
     </Infographic>
 </InfoWrap>;
 
+export default props => (
+    <StaticQuery
+      query={graphql`{
+        allMarkdownRemark(filter: {frontmatter: {title: {eq: "Home"}}}) {
+          edges {
+            node {
+              frontmatter {
+                info1 {
+                  heading
+                  description
+                  image {
+                    publicURL
+                  }
+                }
+                info2 {
+                  heading
+                  description
+                  image {
+                    publicURL
+                  }
+                }
+                info3 {
+                  heading
+                  description
+                  image {
+                    publicURL
+                  }
+                }
+                info4 {
+                  heading
+                  description
+                  image {
+                    publicURL
+                  }
+                }
+              }
+            }
+          }
+        }
+      }`} render={data => <InfoWrap data={data.allMarkdownRemark.edges[0].node.frontmatter} {...props} />} />
+)
+            
 Info.propTypes = {
     data: PropTypes.object.isRequired,
 }
-
-export default Info;

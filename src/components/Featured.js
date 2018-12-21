@@ -1,4 +1,5 @@
 import React from 'react'
+import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
@@ -163,10 +164,39 @@ const Featured = ({data}) => <FeaturedWrap>
             </FeaturedCardContent>
         </FeaturedCard>
     </div>
-</FeaturedWrap>;
+
+    <button class="button is-rounded"></button>
+</FeaturedWrap>
+
+export default props => (
+    <StaticQuery
+      query={graphql`{
+        allMarkdownRemark(filter: {frontmatter: {title: {eq: "Home"}}}) {
+          edges {
+            node {
+              frontmatter {
+                featured {
+                  heading1
+                  heading2
+                }
+                course1 {
+                  image {
+                    childImageSharp {
+                      fluid(maxWidth: 2048, quality: 100) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
+                  heading
+                  description
+                }
+              }
+            }
+          }
+        }
+      }`} render={data => <Featured data={data.allMarkdownRemark.edges[0].node.frontmatter} {...props} />} />
+)
 
 Featured.propTypes = {
     data: PropTypes.object.isRequired,
 }
-
-export default Featured;

@@ -1,4 +1,5 @@
 import React from 'react'
+import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
@@ -68,8 +69,29 @@ const Hero = ({data}) => <HeroWrap style={{
   </Search>
 </HeroWrap>
 
+export default props => (
+  <StaticQuery
+    query={graphql`{
+      allMarkdownRemark(filter: {frontmatter: {title: {eq: "Home"}}}) {
+        edges {
+          node {
+            frontmatter {
+              heading1
+              heading2
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 2048, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }`} render={data => <Hero data={data.allMarkdownRemark.edges[0].node.frontmatter} {...props} />} />
+)
+
 Hero.propTypes = {
   data: PropTypes.object.isRequired,
 }
-
-export default Hero;
