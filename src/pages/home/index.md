@@ -1,6 +1,6 @@
 ---
 image: /img/home.png
-templateKey: product-page
+templateKey: page
 title: Home
 heading1: Enjoy the Ultimate
 heading2: Golf Experience
