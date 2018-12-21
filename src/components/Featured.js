@@ -165,7 +165,7 @@ const Featured = ({data}) => <FeaturedWrap>
         </FeaturedCard>
     </div>
 
-    <button class="button is-rounded">{data.featuredViewAll}</button>
+    <button class="button is-rounded">{data.featuredViewAl}</button>
 </FeaturedWrap>
 
 export default props => (
