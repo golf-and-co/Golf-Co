@@ -34,31 +34,34 @@ const InfoBody = styled.p`
   line-height: 16px;
 `
 
-const Info = ({data}) => <InfoWrap>
-    <Infographic>
-        <img src={data.info1.image.publicURL} alt="Tailor Made"/>
-        <InfoHeading>{data.info1.heading}</InfoHeading>
-        <InfoBody>{data.info1.description}</InfoBody>
-    </Infographic>
+const Info = ({data}) => {
+  data = data.allMarkdownRemark.edges[0].node.frontmatter;
+  return <InfoWrap>
+      <Infographic>
+          <img src={data.info1.image.publicURL} alt="Tailor Made"/>
+          <InfoHeading>{data.info1.heading}</InfoHeading>
+          <InfoBody>{data.info1.description}</InfoBody>
+      </Infographic>
 
-    <Infographic>
-        <img src={data.info2.image.publicURL} alt="Tailor Made"/>
-        <InfoHeading>{data.info2.heading}</InfoHeading>
-        <InfoBody>{data.info2.description}</InfoBody>
-    </Infographic>
+      <Infographic>
+          <img src={data.info2.image.publicURL} alt="Tailor Made"/>
+          <InfoHeading>{data.info2.heading}</InfoHeading>
+          <InfoBody>{data.info2.description}</InfoBody>
+      </Infographic>
 
-    <Infographic>
-        <img src={data.info3.image.publicURL} alt="Tailor Made"/>
-        <InfoHeading>{data.info3.heading}</InfoHeading>
-        <InfoBody>{data.info3.description}</InfoBody>
-    </Infographic>
+      <Infographic>
+          <img src={data.info3.image.publicURL} alt="Tailor Made"/>
+          <InfoHeading>{data.info3.heading}</InfoHeading>
+          <InfoBody>{data.info3.description}</InfoBody>
+      </Infographic>
 
-    <Infographic>
-        <img src={data.info4.image.publicURL} alt="Tailor Made"/>
-        <InfoHeading>{data.info4.heading}</InfoHeading>
-        <InfoBody>{data.info4.description}</InfoBody>
-    </Infographic>
-</InfoWrap>;
+      <Infographic>
+          <img src={data.info4.image.publicURL} alt="Tailor Made"/>
+          <InfoHeading>{data.info4.heading}</InfoHeading>
+          <InfoBody>{data.info4.description}</InfoBody>
+      </Infographic>
+  </InfoWrap>;
+}
 
 export default props => (
     <StaticQuery
@@ -99,7 +102,7 @@ export default props => (
             }
           }
         }
-      }`} render={data => <InfoWrap data={data.allMarkdownRemark.edges[0].node.frontmatter} {...props} />} />
+      }`} render={data => <InfoWrap data={data} {...props} />} />
 )
             
 Info.propTypes = {

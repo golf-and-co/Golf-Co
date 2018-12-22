@@ -74,127 +74,130 @@ const FeaturedCardCaption = styled.div`
   text-align:center;
 }`;
 
-const Featured = ({data}) => <FeaturedWrap>
-    <FeaturedHeading className="title">
-    {data.featured.heading1}
-    <br />
-    <FeaturedHeadingTag>{data.featured.heading2}</FeaturedHeadingTag>
-    <br />
-    <Select options={[{value:"UAE"}]} />
-    </FeaturedHeading>
-    
-    <div className="columns">
-        <FeaturedCard className="card is-quarter">
-            <FeaturedCardImageWrap className="card-image">
-            <figure className="image is-4by3">
-                <FeaturedCardImage src={
-                !!data.course1.image.childImageSharp
-                    ? data.course1.image.childImageSharp.fluid.src
-                    : data.course1.image
-                } alt="Placeholder" />
-            </figure>
-            <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
-            </FeaturedCardImageWrap>
-            <FeaturedCardContent className="card-content">
-            <div className="content">
-                {data.course1.heading}
-                <br />
-                <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
-            </div>
-            </FeaturedCardContent>
-        </FeaturedCard>
+const Featured = ({data}) => {
+    data = data.allMarkdownRemark.edges[0].node.frontmatter;
+    return <FeaturedWrap>
+        <FeaturedHeading className="title">
+        {data.featured.heading1}
+        <br />
+        <FeaturedHeadingTag>{data.featured.heading2}</FeaturedHeadingTag>
+        <br />
+        <Select options={[{value:"UAE"}]} />
+        </FeaturedHeading>
+        
+        <div className="columns">
+            <FeaturedCard className="card is-quarter">
+                <FeaturedCardImageWrap className="card-image">
+                <figure className="image is-4by3">
+                    <FeaturedCardImage src={
+                    !!data.course1.image.childImageSharp
+                        ? data.course1.image.childImageSharp.fluid.src
+                        : data.course1.image
+                    } alt="Placeholder" />
+                </figure>
+                <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
+                </FeaturedCardImageWrap>
+                <FeaturedCardContent className="card-content">
+                <div className="content">
+                    {data.course1.heading}
+                    <br />
+                    <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
+                </div>
+                </FeaturedCardContent>
+            </FeaturedCard>
 
-        <FeaturedCard className="card is-quarter">
-            <FeaturedCardImageWrap className="card-image">
-            <figure className="image is-4by3">
-                <FeaturedCardImage src={
-                !!data.course1.image.childImageSharp
-                    ? data.course1.image.childImageSharp.fluid.src
-                    : data.course1.image
-                } alt="Placeholder" />
-            </figure>
-            <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
-            </FeaturedCardImageWrap>
-            <FeaturedCardContent className="card-content">
-            <div className="content">
-                {data.course1.heading}
-                <br />
-                <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
-            </div>
-            </FeaturedCardContent>
-        </FeaturedCard>
+            <FeaturedCard className="card is-quarter">
+                <FeaturedCardImageWrap className="card-image">
+                <figure className="image is-4by3">
+                    <FeaturedCardImage src={
+                    !!data.course1.image.childImageSharp
+                        ? data.course1.image.childImageSharp.fluid.src
+                        : data.course1.image
+                    } alt="Placeholder" />
+                </figure>
+                <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
+                </FeaturedCardImageWrap>
+                <FeaturedCardContent className="card-content">
+                <div className="content">
+                    {data.course1.heading}
+                    <br />
+                    <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
+                </div>
+                </FeaturedCardContent>
+            </FeaturedCard>
 
-        <FeaturedCard className="card is-quarter">
-            <FeaturedCardImageWrap className="card-image">
-            <figure className="image is-4by3">
-                <FeaturedCardImage src={
-                !!data.course1.image.childImageSharp
-                    ? data.course1.image.childImageSharp.fluid.src
-                    : data.course1.image
-                } alt="Placeholder" />
-            </figure>
-            <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
-            </FeaturedCardImageWrap>
-            <FeaturedCardContent className="card-content">
-            <div className="content">
-                {data.course1.heading}
-                <br />
-                <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
-            </div>
-            </FeaturedCardContent>
-        </FeaturedCard>
+            <FeaturedCard className="card is-quarter">
+                <FeaturedCardImageWrap className="card-image">
+                <figure className="image is-4by3">
+                    <FeaturedCardImage src={
+                    !!data.course1.image.childImageSharp
+                        ? data.course1.image.childImageSharp.fluid.src
+                        : data.course1.image
+                    } alt="Placeholder" />
+                </figure>
+                <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
+                </FeaturedCardImageWrap>
+                <FeaturedCardContent className="card-content">
+                <div className="content">
+                    {data.course1.heading}
+                    <br />
+                    <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
+                </div>
+                </FeaturedCardContent>
+            </FeaturedCard>
 
-        <FeaturedCard className="card is-quarter">
-            <FeaturedCardImageWrap className="card-image">
-            <figure className="image is-4by3">
-                <FeaturedCardImage src={
-                !!data.course1.image.childImageSharp
-                    ? data.course1.image.childImageSharp.fluid.src
-                    : data.course1.image
-                } alt="Placeholder" />
-            </figure>
-            <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
-            </FeaturedCardImageWrap>
-            <FeaturedCardContent className="card-content">
-            <div className="content">
-                {data.course1.heading}
-                <br />
-                <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
-            </div>
-            </FeaturedCardContent>
-        </FeaturedCard>
-    </div>
+            <FeaturedCard className="card is-quarter">
+                <FeaturedCardImageWrap className="card-image">
+                <figure className="image is-4by3">
+                    <FeaturedCardImage src={
+                    !!data.course1.image.childImageSharp
+                        ? data.course1.image.childImageSharp.fluid.src
+                        : data.course1.image
+                    } alt="Placeholder" />
+                </figure>
+                <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
+                </FeaturedCardImageWrap>
+                <FeaturedCardContent className="card-content">
+                <div className="content">
+                    {data.course1.heading}
+                    <br />
+                    <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
+                </div>
+                </FeaturedCardContent>
+            </FeaturedCard>
+        </div>
 
-    <button class="button is-rounded">{data.featuredViewAl}</button>
-</FeaturedWrap>
+        <button class="button is-rounded"></button>
+    </FeaturedWrap>;
+}
 
 export default props => (
     <StaticQuery
       query={graphql`{
-        allMarkdownRemark(filter: {frontmatter: {title: {eq: "Home"}}}) {
-          edges {
-            node {
-              frontmatter {
-                featured {
-                  heading1
-                  heading2
-                }
-                course1 {
-                  image {
-                    childImageSharp {
-                      fluid(maxWidth: 2048, quality: 100) {
-                        ...GatsbyImageSharpFluid
-                      }
-                    }
-                  }
-                  heading
-                  description
+  allMarkdownRemark(filter: {frontmatter: {title: {eq: "Home"}}}) {
+    edges {
+      node {
+        frontmatter {
+          featured {
+            heading1
+            heading2
+          }
+          course1 {
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  base64
                 }
               }
             }
+            heading
+            description
           }
         }
-      }`} render={data => <Featured data={data.allMarkdownRemark.edges[0].node.frontmatter} {...props} />} />
+      }
+    }
+  }
+}`} render={data => <Featured data={data} {...props} />} />
 )
 
 Featured.propTypes = {
