@@ -189,9 +189,6 @@ export default props => (
                   }
                   heading
                   description
-                  featuredViewAll
-                  featuredBanner
-                  featuredFooter
                 }
               }
             }

@@ -4,7 +4,7 @@ import Hero from '../components/Hero';
 import Info from '../components/Info';
 import Featured from '../components/Featured';
 
-export default () => <Layout>
+export const IndexTemplate = () => <Layout>
   <Hero />
   <Info />
   <Featured />

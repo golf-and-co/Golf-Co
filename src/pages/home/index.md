@@ -38,5 +38,6 @@ course3:
 course4:
   description: 'Yas Islands, Abu Dhabi'
   heading: Yas Links Golf Course
+featuredViewAll: "View All Golf Courses in"
 ---
 
