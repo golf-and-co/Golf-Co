@@ -38,6 +38,15 @@ course3:
 course4:
   description: 'Yas Islands, Abu Dhabi'
   heading: Yas Links Golf Course
-featuredViewAll: "View All Golf Courses in"
+featuredViewAll: View All Golf Courses in
+featuredBanner:
+  image: /img/featured-banner.png
+  heading1: Tee Off With Our
+  heading2: Customized Packages
+featuredFooter:
+  heading1: We Are Covered
+  heading2: In Media
+logos:
+  - image: /img/logo1.png
 ---
 
