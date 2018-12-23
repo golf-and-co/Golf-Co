@@ -41,11 +41,13 @@ course4:
 featuredViewAll: View All Golf Courses in
 featuredBanner:
   image: /img/featured-banner.png
-  heading1: Tee Off With Our
+  heading1: TEE-OFF With Our
   heading2: Customized Packages
 featuredFooter:
   heading1: We Are Covered
   heading2: In Media
+featuredLogo:
+  - image: /img/golfasia.png
 logos:
   - image: /img/logo1.png
 ---
