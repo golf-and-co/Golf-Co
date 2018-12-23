@@ -7,7 +7,7 @@ const InfoWrap = styled.section`
   background-color: #F6F9F2;
   display:flex;
   justify-content: center;
-  padding-bottom:60px;
+  padding:90px 0 150px 0;
 `
 
 const Infographic = styled.div`
@@ -34,75 +34,73 @@ const InfoBody = styled.p`
   line-height: 16px;
 `
 
-const Info = ({data}) => {
-  data = data.allMarkdownRemark.edges[0].node.frontmatter;
-  return <InfoWrap>
-      <Infographic>
-          <img src={data.info1.image.publicURL} alt="Tailor Made"/>
-          <InfoHeading>{data.info1.heading}</InfoHeading>
-          <InfoBody>{data.info1.description}</InfoBody>
-      </Infographic>
+const Info = ({data}) => <InfoWrap>
+    <Infographic>
+        <img src={data.info1.image.publicURL} alt="Tailor Made"/>
+        <InfoHeading>{data.info1.heading}</InfoHeading>
+        <InfoBody>{data.info1.description}</InfoBody>
+    </Infographic>
 
-      <Infographic>
-          <img src={data.info2.image.publicURL} alt="Tailor Made"/>
-          <InfoHeading>{data.info2.heading}</InfoHeading>
-          <InfoBody>{data.info2.description}</InfoBody>
-      </Infographic>
+    <Infographic>
+        <img src={data.info2.image.publicURL} alt="Tailor Made"/>
+        <InfoHeading>{data.info2.heading}</InfoHeading>
+        <InfoBody>{data.info2.description}</InfoBody>
+    </Infographic>
 
-      <Infographic>
-          <img src={data.info3.image.publicURL} alt="Tailor Made"/>
-          <InfoHeading>{data.info3.heading}</InfoHeading>
-          <InfoBody>{data.info3.description}</InfoBody>
-      </Infographic>
+    <Infographic>
+        <img src={data.info3.image.publicURL} alt="Tailor Made"/>
+        <InfoHeading>{data.info3.heading}</InfoHeading>
+        <InfoBody>{data.info3.description}</InfoBody>
+    </Infographic>
 
-      <Infographic>
-          <img src={data.info4.image.publicURL} alt="Tailor Made"/>
-          <InfoHeading>{data.info4.heading}</InfoHeading>
-          <InfoBody>{data.info4.description}</InfoBody>
-      </Infographic>
-  </InfoWrap>;
-}
+    <Infographic>
+        <img src={data.info4.image.publicURL} alt="Tailor Made"/>
+        <InfoHeading>{data.info4.heading}</InfoHeading>
+        <InfoBody>{data.info4.description}</InfoBody>
+    </Infographic>
+</InfoWrap>
+
 
 export default props => (
     <StaticQuery
       query={graphql`{
-        allMarkdownRemark(filter: {frontmatter: {title: {eq: "Home"}}}) {
-          edges {
-            node {
-              frontmatter {
-                info1 {
-                  heading
-                  description
-                  image {
-                    publicURL
-                  }
+      allMarkdownRemark(filter: {frontmatter: {title: {eq: "Home"}}}) {
+        edges {
+          node {
+            frontmatter {
+              info1 {
+                heading
+                description
+                image {
+                  publicURL
                 }
-                info2 {
-                  heading
-                  description
-                  image {
-                    publicURL
-                  }
+              }
+              info2 {
+                heading
+                description
+                image {
+                  publicURL
                 }
-                info3 {
-                  heading
-                  description
-                  image {
-                    publicURL
-                  }
+              }
+              info3 {
+                heading
+                description
+                image {
+                  publicURL
                 }
-                info4 {
-                  heading
-                  description
-                  image {
-                    publicURL
-                  }
+              }
+              info4 {
+                heading
+                description
+                image {
+                  publicURL
                 }
               }
             }
           }
         }
-      }`} render={data => <InfoWrap data={data} {...props} />} />
+      }
+    }`} render={data => <Info data={data.allMarkdownRemark.edges[0].node.frontmatter} {...props} />} />
 )
             
 Info.propTypes = {
