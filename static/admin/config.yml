@@ -31,3 +31,17 @@ collections:
           - {label: "Featured Banner", name: featuredBanner, widget: object, fields: [{label: Image, name: image, widget: image}, {label: "Heading Line 1", name: heading1, widget: string}, {label: "Heading Line 2", name: heading2, widget: string}]}
           - {label: "Featured Footer", name: featuredFooter, widget: object, fields: [{label: "Heading Line 1", name: heading1, widget: string}, {label: "Heading Line 2", name: heading2, widget: string}]}
           - {label: "Featured Logos", name: featuredLogo, widget: list, fields:[{label: Image, name: image, widget: image}]} 
+          - {label: "Recent Posts", name: featuredLogo, widget: object, fields: [{label: "Heading 1", name: heading1, widget: string}, {label: "Heading 2", name: heading2, widget: string}]}
+          - {label: "Recent Calendar", name: featuredLogo, widget: object, fields: [{label: "Heading 1", name: heading1, widget: string}, {label: "Heading 2", name: heading2, widget: string}]}
+ 
+      - name: "post"
+        label: "Posts"
+        folder: "src/pages/post"
+        create: true
+        slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Publish Date", name: "date", widget: "datetime"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Body", name: "body", widget: "markdown"}
