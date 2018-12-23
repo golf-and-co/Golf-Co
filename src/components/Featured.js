@@ -130,6 +130,13 @@ const FeaturedFooterStrong = styled.footer`
     font-weight: 900;
 `;
 
+const FeaturedLogos = styled.section`
+    background-color: #aec3b2;
+    display:flex;
+    justify-content: center;
+    padding: 75px 0;
+`;
+
 const Featured = ({data}) => <FeaturedWrap>
     <FeaturedHeading className="title">
     {data.featured.heading1}
@@ -241,6 +248,14 @@ const Featured = ({data}) => <FeaturedWrap>
         <br />
         <FeaturedFooterStrong>{data.featuredFooter.heading2}</FeaturedFooterStrong>
     </FeaturedFooter>
+
+    <FeaturedLogos>
+        {data.featuredLogo.map(logo=><img src={
+        !!logo.image.childImageSharp
+            ? logo.image.childImageSharp.fluid.src
+            : logo.image
+        } />)}
+    </FeaturedLogos>
 </FeaturedWrap>
 
 export default props => (
@@ -280,6 +295,15 @@ export default props => (
           featuredFooter {
             heading1
             heading2
+          },
+          featuredLogo {
+              image{
+              childImageSharp{
+                fluid(maxWidth: 2048, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
