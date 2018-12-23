@@ -91,6 +91,9 @@ const FeaturedBanner = styled.aside`
     height: 90px;
     color: #FFF;
     font-size: 28px;
+
+    :hover
+        cursor:pointer;
 `;
 
 const FeaturedBannerHeader = styled.p`
@@ -107,6 +110,24 @@ const FeaturedBannerHeaderStrong = styled.strong`
     font-weight:700;
     color:#FFF;
     text-transform:uppercase;
+`;
+
+const FeaturedFooter = styled.footer`
+    display: block;
+    margin: 0 auto;
+    color: #1d8649;
+    font-family: "Gotham Light";
+    font-size: 30px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.25;
+    padding-bottom: 20px;
+`;
+
+const FeaturedFooterStrong = styled.footer`
+    font-family: "Gotham Black";
+    font-weight: 900;
 `;
 
 const Featured = ({data}) => <FeaturedWrap>
@@ -201,7 +222,7 @@ const Featured = ({data}) => <FeaturedWrap>
     </div>
 
     <FeaturedButton className="button is-rounded">{data.featuredViewAll}</FeaturedButton>
-    <FeaturedBanner className="is-rounded" style={{
+    <FeaturedBanner onClick={() => console.log("FeaturedBanner click")} className="is-rounded" style={{
         backgroundImage: `url(${
         !!data.featuredBanner.image.childImageSharp
             ? data.featuredBanner.image.childImageSharp.fluid.src
@@ -214,6 +235,12 @@ const Featured = ({data}) => <FeaturedWrap>
             <FeaturedBannerHeaderStrong>{data.featuredBanner.heading2}</FeaturedBannerHeaderStrong>
         </FeaturedBannerHeader>
     </FeaturedBanner>
+
+    <FeaturedFooter>
+        {data.featuredFooter.heading1}
+        <br />
+        <FeaturedFooterStrong>{data.featuredFooter.heading2}</FeaturedFooterStrong>
+    </FeaturedFooter>
 </FeaturedWrap>
 
 export default props => (
@@ -249,6 +276,10 @@ export default props => (
                 }
               }
             }
+          },
+          featuredFooter {
+            heading1
+            heading2
           }
         }
       }
