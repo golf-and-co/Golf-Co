@@ -48,7 +48,11 @@ featuredFooter:
   heading2: In Media
 featuredLogo:
   - image: /img/golfasia.png
-logos:
-  - image: /img/logo1.png
+recentPosts:
+  heading1: LET’S TALK GOLF
+  heading2: WITH GOLF NEWS & BLOG
+recentCalendar:
+  heading1: UPCOMING
+  heading2: GOLF EVENTS
 ---
 
