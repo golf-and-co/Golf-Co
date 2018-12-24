@@ -1,5 +1,7 @@
 import React from 'react'
+import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
+import Blog from "../components/Blog";
 
 const RecentWrap = styled.section`
   background-color: #f6f9f2;
@@ -10,7 +12,6 @@ const RecentWrap = styled.section`
 
 export const Recent = ({data}) => <RecentWrap>
     <Blog headline={data.recentPosts}/>
-    <Calendar />
 </RecentWrap>
 
 

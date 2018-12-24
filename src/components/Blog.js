@@ -16,7 +16,7 @@ const BlogCard = styled.section`
 `
 
 const Blog = ({data, headline}) => <BlogCards>
-    <BlogHeader>{data.headline.headline1}</BlogHeader>
+    <BlogHeader>{headline.headline1}</BlogHeader>
     <BlogCard />
 </BlogCards>
 
@@ -37,6 +37,6 @@ export default props => (
       }`} render={data => <Blog data={data.allMarkdownRemark.edges[0].node.frontmatter} {...props} />} />
 )
             
-Info.propTypes = {
+Blog.propTypes = {
     data: PropTypes.object.isRequired,
 }
