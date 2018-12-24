@@ -1,4 +1,5 @@
 ---
+templateKey: post
 title: Insider’s Guide to Summer Golf in Dubai
 image: /img/blog-insider-guide.png
 date: 2018-12-23T16:54:38.867Z

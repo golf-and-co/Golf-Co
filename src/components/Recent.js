@@ -9,9 +9,25 @@ const RecentWrap = styled.section`
 `
 
 export const Recent = ({data}) => <RecentWrap>
-    <Blog />
+    <Blog headline={data.recentPosts}/>
     <Calendar />
 </RecentWrap>
 
 
-export default Recent;
+export default props => (
+  <StaticQuery
+    query={graphql`{
+      allMarkdownRemark(filter: {frontmatter: {title: {eq: "Home"}}}) {
+        edges {
+          node {
+            frontmatter {
+              recentPosts {
+                heading1
+                heading2
+              }
+            }
+          }
+        }
+      }
+    }`} render={data => <Recent data={data.allMarkdownRemark.edges[0].node.frontmatter} {...props} />} />
+)

@@ -250,7 +250,7 @@ const Featured = ({data}) => <FeaturedWrap>
     </FeaturedFooter>
 
     <FeaturedLogos>
-        {data.featuredLogo.map(logo=><img src={
+        {data.featuredLogo.map(logo=><img alt={logo.alt} src={
         !!logo.image.childImageSharp
             ? logo.image.childImageSharp.fluid.src
             : logo.image

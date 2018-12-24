@@ -46,31 +46,28 @@ const Button = styled.a`
   font-weight: 700;
 `
 
-const Hero = ({data}) => {
-  data = data.allMarkdownRemark.edges[0].node.frontmatter;
-  return <HeroWrap style={{
-    backgroundImage: `url(${
-      !!data.image.childImageSharp
-        ? data.image.childImageSharp.fluid.src
-        : data.image
-    })`,
-  }}>
-    <div className="container content">
-    <div className="column is-10 is-offset-1">
-    <Heading className="title">
-      {data.heading1}
-      <br />
-      <HeadingTag>{data.heading2}</HeadingTag>
-    </Heading>
-    </div>
-    </div>
-    <Search>
-    <Select options={[{value:"UAE"}]} />
-    <Select options={[{value:"Select City"}]} />
-    <Button className="button is-link is-rounded">View Golf Course</Button>
-    </Search>
-  </HeroWrap>;
-}
+const Hero = ({data}) => <HeroWrap style={{
+  backgroundImage: `url(${
+    !!data.image.childImageSharp
+      ? data.image.childImageSharp.fluid.src
+      : data.image
+  })`,
+}}>
+  <div className="container content">
+  <div className="column is-10 is-offset-1">
+  <Heading className="title">
+    {data.heading1}
+    <br />
+    <HeadingTag>{data.heading2}</HeadingTag>
+  </Heading>
+  </div>
+  </div>
+  <Search>
+  <Select options={[{value:"UAE"}]} />
+  <Select options={[{value:"Select City"}]} />
+  <Button className="button is-link is-rounded">View Golf Course</Button>
+  </Search>
+</HeroWrap>;
 
 export default props => (
   <StaticQuery
@@ -92,7 +89,7 @@ export default props => (
           }
         }
       }
-    }`} render={data => <Hero data={data} {...props} />} />
+    }`} render={data => <Hero data={data.allMarkdownRemark.edges[0].node.frontmatter} {...props} />} />
 )
 
 Hero.propTypes = {

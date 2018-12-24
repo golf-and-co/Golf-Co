@@ -17,7 +17,7 @@ PageTemplate.propTypes = {
   title: PropTypes.string,
 }
 
-const Post = ({ data }) => {
+const ProductPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
@@ -29,7 +29,7 @@ const Post = ({ data }) => {
   )
 }
 
-Post.propTypes = {
+ProductPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
@@ -37,10 +37,10 @@ Post.propTypes = {
   }),
 }
 
-export default Post
+export default ProductPage
 
-export const postQuery = graphql`
-  query Post($id: String!) {
+export const productPageQuery = graphql`
+  query ProductPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
