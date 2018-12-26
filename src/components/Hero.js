@@ -19,7 +19,7 @@ const Heading = styled.h1`
   font-size: 30px;
   font-weight: 300;`
 
-const HeadingTag = styled.strong`
+const HeadingStrong = styled.strong`
   font-size: 60px;
   font-weight: 700;
 `
@@ -58,7 +58,7 @@ const Hero = ({data}) => <HeroWrap style={{
   <Heading className="title">
     {data.heading1}
     <br />
-    <HeadingTag>{data.heading2}</HeadingTag>
+    <HeadingStrong>{data.heading2}</HeadingStrong>
   </Heading>
   </div>
   </div>

@@ -8,17 +8,40 @@ const BlogCards = styled.section`
 `
 
 const BlogHeader = styled.section`
-  justify-content: center;
+  color: #1d8649;
+  /* Text style for "LET’S TALK" */
+  font-family: "Gotham Light";
+  font-weight: 300;
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+`
+
+const BlogHeaderStrong = styled.strong`
+  color: #1d8649;
+  font-family: "Gotham Black";
+  font-weight: 900;
 `
 
 const BlogCard = styled.section`
-  justify-content: center;
+  color: #9b9b9b;
+  font-family: "Gotham Book";
+  font-size: 14px;
+  font-weight: 300;
 `
 
-const Blog = ({data, headline}) => <BlogCards>
-    <BlogHeader>{headline.headline1}</BlogHeader>
+const Blog = ({data, headline}) =>{
+console.log(data);
+console.log(headline);
+return <BlogCards>
+    <BlogHeader>
+      {headline.heading1}
+      <br />
+      <BlogHeaderStrong>{headline.heading2}</BlogHeaderStrong>
+    </BlogHeader>
     <BlogCard />
 </BlogCards>
+}
 
 
 export default props => (
