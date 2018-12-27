@@ -63,10 +63,7 @@ const Card = ({card}) => <CardWrap>
   <CardDescription>{card.description}</CardDescription>
 </CardWrap>;
 
-const  Blog = ({data, headline}) =>{
-console.log(data.edges[1].node.frontmatter);
-console.log(headline);
-return <Cards>
+const  Blog = ({data, headline}) => <Cards>
     <Header>
       {headline.heading1}
       <br />
@@ -77,8 +74,6 @@ return <Cards>
     </div>
     <ViewAllButton className="button is-rounded" onClick="console.log(`Blog View All Click`">View All</ViewAllButton>
 </Cards>
-}
-
 
 export default props => (
     <StaticQuery

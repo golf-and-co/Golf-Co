@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import PropTypes from 'prop-types'
+import moment from 'moment';
 
 const CalendarWrapper = styled.section`
   justify-content: center;
@@ -29,8 +30,7 @@ const EventWrap = styled.section`
   font-size: 14px;
   font-weight: 300;
   background-color: #FFF;
-  width: 260px;
-  margin: 25px;
+  margin: 12px 25px;
 `
 
 const EventDate = styled.section`
@@ -39,15 +39,23 @@ const EventDate = styled.section`
   font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
+  border-radius: 6px;
+  background-color: #cfddbb;
+  padding: 20px;
 `
 
 const EventDateLabel = styled.section`
   font-size: 11px;
+  line-height: 0.8;
 `
 
 const EventTitle = styled.section`
-  font-size: 14px;
-  padding: 12px 20px 15px 15px;
+  padding: 25px 20;
+  color: #1a428a;
+  font-family: "Gotham Book";
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 20px;
 `
 
 const ViewAllButton = styled.button`
@@ -61,25 +69,20 @@ const ViewAllButton = styled.button`
     padding: 0 30px !important;
 `;
 
-const Event = ({card}) => <EventWrap>
-  <EventDate>{card.from} <EventDateLabel>to</EventDateLabel>{card.to}</EventDate>
-  <EventTitle>{card.title}</EventTitle>
+const Event = ({event}) => <EventWrap className="columns">
+  <EventDate className="column is-one-quarter">{moment(event.from).format('D MMM')} <EventDateLabel>to</EventDateLabel>{moment(event.to).format('D MMM')}</EventDate>
+  <EventTitle className="column is-three-quarter">{event.title}</EventTitle>
 </EventWrap>;
 
-const  Calendar = ({data, headline}) =>{
-console.log(data.edges[1].node.frontmatter);
-console.log(headline);
-return <CalendarWrapper>
+const  Calendar = ({data, headline}) =><CalendarWrapper>
     <Header>
       {headline.heading1}
       <br />
       <HeaderStrong>{headline.heading2}</HeaderStrong>
     </Header>
-      {data.edges.map( (data) => <Event class="columns" key={data.node.frontmatter.title} event={data.node.frontmatter} /> )}
+    {data.edges.map( (data) => <Event key={data.node.frontmatter.title} event={data.node.frontmatter} /> )}
     <ViewAllButton className="button is-rounded" onClick="console.log(`Blog View All Click`">View All</ViewAllButton>
 </CalendarWrapper>
-}
-
 
 export default props => (
     <StaticQuery
@@ -98,6 +101,6 @@ export default props => (
       }`} render={data => <Calendar data={data.allMarkdownRemark} {...props} />} />
 )
             
-Blog.propTypes = {
+Calendar.propTypes = {
     data: PropTypes.object.isRequired,
 }

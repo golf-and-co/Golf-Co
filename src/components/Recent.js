@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Blog from "../components/Blog";
+import Calendar from "../components/Event"
 
 const RecentWrap = styled.section`
   background-color: #f6f9f2;
@@ -10,8 +11,9 @@ const RecentWrap = styled.section`
   padding:70px 0 90px 0;
 `
 
-export const Recent = ({data}) => <RecentWrap>
-    <Blog headline={data.recentPosts}/>
+export const Recent = ({data}) => <RecentWrap className="columns">
+    <Blog className="column one-half" headline={data.recentPosts} />
+    <Calendar className="column one-half" headline={data.recentCalendar} />
 </RecentWrap>
 
 
@@ -23,6 +25,10 @@ export default props => (
           node {
             frontmatter {
               recentPosts {
+                heading1
+                heading2
+              }
+              recentCalendar {
                 heading1
                 heading2
               }
