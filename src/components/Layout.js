@@ -18,7 +18,7 @@ const TemplateWrapper = ({ children }) => (
         }
     `}
     render={data => (
-      <div className="container">
+      <div className="container is-fluid no-margin">
         <Helmet>
           <html lang="en" />
           <title>{data.site.siteMetadata.title}</title>

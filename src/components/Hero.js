@@ -6,9 +6,11 @@ import Select from '../utilities/Select'
 
 const HeroWrap = styled.section`
   height: 805px;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-color: #F6F9F2;
+  max-width: none;
+  background-position-y: -320px;
 `
 const Heading = styled.h1`
   margin-top: 500px;
@@ -17,7 +19,8 @@ const Heading = styled.h1`
   font-family: "Gotham Book";
   text-transform: uppercase;
   font-size: 30px;
-  font-weight: 300;`
+  font-weight: 300;
+`
 
 const HeadingStrong = styled.strong`
   font-size: 60px;
@@ -53,7 +56,7 @@ const Hero = ({data}) => <HeroWrap style={{
       : data.image
   })`,
 }}>
-  <div className="container content">
+  <div className="container content is-fluid">
   <div className="column is-10 is-offset-1">
   <Heading className="title">
     {data.heading1}

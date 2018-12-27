@@ -31,7 +31,7 @@ const Navbar = class extends React.Component {
    return (
   
   <nav className="navbar is-transparent" role="navigation" aria-label="main-navigation">
-    <div className="container">
+    <div className="container is-fluid no-margin">
       <div className="navbar-brand">
         <Link to="/" className="navbar-item" title="Logo">
           <img src={logo} alt="GolfAndCo" />

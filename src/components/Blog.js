@@ -30,7 +30,7 @@ const CardWrap = styled.section`
   font-weight: 300;
   background-color: #FFF;
   width: 260px;
-  margin: 25px;
+  margin: 25px 25px 0 25px;
 `
 
 const CardHeader = styled.section`

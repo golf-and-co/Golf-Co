@@ -80,7 +80,7 @@ const  Calendar = ({data, headline}) =><CalendarWrapper>
       <br />
       <HeaderStrong>{headline.heading2}</HeaderStrong>
     </Header>
-    {data.edges.map( (data) => <Event key={data.node.frontmatter.title} event={data.node.frontmatter} /> )}
+    {data.edges.map( (data) => <Event key={data.node.frontmatter.date} event={data.node.frontmatter} /> )}
     <ViewAllButton className="button is-rounded" onClick="console.log(`Blog View All Click`">View All</ViewAllButton>
 </CalendarWrapper>
 
@@ -93,6 +93,7 @@ export default props => (
               title
               from
               to
+              date
             }
             
           }
