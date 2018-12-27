@@ -45,3 +45,16 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "event"
+    label: "Events"
+    folder: "src/pages/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "From", name: "from", widget: "datetime"}
+      - {label: "To", name: "to", widget: "datetime"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
