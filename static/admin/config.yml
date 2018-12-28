@@ -33,7 +33,7 @@ collections:
           - {label: "Featured Logos", name: featuredLogo, widget: list, fields:[{label: Image, name: image, widget: image}, {label: "Alt Text", name: alt, widget: string}]} 
           - {label: "Recent Posts", name: recentPosts, widget: object, fields: [{label: "Heading 1", name: heading1, widget: string}, {label: "Heading 2", name: heading2, widget: string}]}
           - {label: "Recent Calendar", name: recentCalendar, widget: object, fields: [{label: "Heading 1", name: heading1, widget: string}, {label: "Heading 2", name: heading2, widget: string}]}
-          - {label: "Footer Logo", name: footerLogo, widget: image}
+          - {label: "Footer Logo", name: footerLogo, widget: object, fields: [{label: Image, name: image, widget: image},{label: "Alt", name: alt, widget: string}]}
           - {label: "Footer Column 1", name: footerColumn1, widget: list, fields:[{label: "Text", name: text, widget: string}, {label: "href", name: href, widget: string}, {label: "Children", name: children, widget: list, fields:[{label: "Text", name: text, widget: string}, {label: "href", name: href, widget: string}]}]} 
           - {label: "Footer Column 2", name: footerColumn2, widget: list, fields:[{label: "Text", name: text, widget: string}, {label: "href", name: href, widget: string}, {label: "Children", name: children, widget: list, fields:[{label: "Text", name: text, widget: string}, {label: "href", name: href, widget: string}]}]} 
           - {label: "Footer Social Heading", name: footerSocialHeading, widget: string}
