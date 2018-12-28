@@ -7,7 +7,7 @@ const InfoWrap = styled.section`
   background-color: #F6F9F2;
   display:flex;
   justify-content: center;
-  padding:90px 0 150px 0;
+  padding:90px 0 220px 0;
 `
 
 const Infographic = styled.div`

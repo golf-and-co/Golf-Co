@@ -8,8 +8,8 @@ const FeaturedWrap = styled.section`
   background-color: #cfddbb;
   display:block;
   justify-content: center;
-  border-radius: 200%/195px 195px 0 0;
-  margin-top:-60px;
+  border-radius: 90%/300px 300px 0 0;
+  margin-top:-160px;
 `;
 
 const FeaturedHeading = styled.h3`

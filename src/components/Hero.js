@@ -10,7 +10,7 @@ const HeroWrap = styled.section`
   background-repeat: no-repeat;
   background-color: #F6F9F2;
   max-width: none;
-  background-position-y: -320px;
+  background-position-y: -450px;
 `
 const Heading = styled.h1`
   margin-top: 500px;
