@@ -54,5 +54,27 @@ recentPosts:
 recentCalendar:
   heading1: UPCOMING
   heading2: GOLF EVENTS
+footerLogo: /img/logo.png
+footerColumn1:
+  - children:
+      - href: '#uae'
+        text: UAE
+      - href: '#oman'
+        text: Oman
+    href: '#'
+    text: Golf Courses
+footerColumn2:
+  - href: '#about'
+    text: About Golf & Co.
+footerSocialHeading: Connect With Us
+footerSocial:
+  - href: '#'
+    text: facebook-f
+  - href: '#'
+    text: twitter
+  - href: '#'
+    text: linkedin-in
+  - href: '#'
+    text: instagram
 ---
 
