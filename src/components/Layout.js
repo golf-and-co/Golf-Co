@@ -27,7 +27,8 @@ const TemplateWrapper = ({ children }) => (
           <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
 	        <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32" />
 	        <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16" />
-	
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+
 	        <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#ff4400" />
 	        <meta name="theme-color" content="#fff" />
 

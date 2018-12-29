@@ -8,7 +8,7 @@ const RecentWrap = styled.section`
   background-color: #f6f9f2;
   display:flex;
   justify-content: center;
-  padding:70px 0 90px 0;
+  padding:70px 0 200px 0;
 `
 
 export const Recent = ({data}) => <RecentWrap className="columns">

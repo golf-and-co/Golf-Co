@@ -69,10 +69,10 @@ const  Blog = ({data, headline}) => <Cards>
       <br />
       <HeaderStrong>{headline.heading2}</HeaderStrong>
     </Header>
-    <div class="columns">
-      {data.edges.map( (data) => <Card class="column is-half" key={data.node.frontmatter.title} card={data.node.frontmatter} />)}
+    <div className="columns">
+      {data.edges.map( (data) => <Card className="column is-half" key={data.node.frontmatter.title} card={data.node.frontmatter} />)}
     </div>
-    <ViewAllButton className="button is-rounded" onClick="console.log(`Blog View All Click`">View All</ViewAllButton>
+    <ViewAllButton className="button is-rounded" onClick={() => console.log(`Blog View All Click`)}>View All</ViewAllButton>
 </Cards>
 
 export default props => (
