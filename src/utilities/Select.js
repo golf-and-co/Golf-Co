@@ -3,7 +3,7 @@ import styled from "styled-components"
 import PropTypes from 'prop-types'
 
 const SelectWrap = styled.div`
-  vertical-align: middle;
+  vertical-align: middle !important;
   width: 180px;
   height: 50px !important;
   margin: auto 10px;

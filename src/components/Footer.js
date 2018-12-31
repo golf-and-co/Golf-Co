@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 import { Link } from "gatsby"
+import { v4 } from 'uuid'
 
 const FooterWrap = styled.section`
   background-color: #1a428a;
@@ -51,29 +52,17 @@ const FontAwesome = styled.i`
   vertical-align: middle;
 `;
 
-const Social = ({link}) => {
-  let children = '';
-  if(typeof link.children !== 'undefined') {
-    children = link.children.map( (child, index) => <li>
-      <MenuLink key={index} to={child.href} link={child} style={{"fontWeight":"300", "fontFamily": "Gotham Book", "marginLeft":"10px"}}>{child.text}</MenuLink>
-    </li>);
-  }
-  children = <ul>{children}</ul>
-  link.text = <FontAwesome className={`fab fa-${link.text}`} />
-
-  return <FontAwesomeItem>
-    <MenuLink to={link.href}>
-      {link.text}
-    </MenuLink>
-    {children}
-  </FontAwesomeItem>
-}
+const Social = ({link}) => <FontAwesomeItem>
+  <MenuLink to={link.href}>
+    <FontAwesome className={`fab fa-${link.text}`} />
+  </MenuLink>
+</FontAwesomeItem>
 
 const Menu = ({link}) => {
   let children = '';
   if(typeof link.children !== 'undefined') {
-    children = link.children.map( (child, index) => <li>
-      <MenuLink key={index} to={child.href} link={child} style={{"fontWeight":"300", "fontFamily": "Gotham Book", "marginLeft":"10px"}}>{child.text}</MenuLink>
+    children = link.children.map( (child, index) => <li key={v4()}>
+      <MenuLink to={child.href} link={child} style={{"fontWeight":"300", "fontFamily": "Gotham Book", "marginLeft":"10px"}}>{child.text}</MenuLink>
     </li>)
     children = <ul>{children}</ul>
   }
@@ -96,14 +85,14 @@ return <FooterWrap>
             : data.footerLogo.image
         } />}</div>
         <div className="column one-quarter">
-          <ul>{data.footerColumn1.map( (link, index) => <Menu key={index} link={link} /> )}</ul>
+          <ul>{data.footerColumn1.map( link => <Menu key={v4()} link={link} /> )}</ul>
         </div>
         <div className="column one-quarter">
-          <ul>{data.footerColumn2.map( (link, index) => <Menu key={index} link={link} /> )}</ul>
+          <ul>{data.footerColumn2.map( link => <Menu key={v4()} link={link} /> )}</ul>
         </div>
         <div className="column one-quarter">
           <h3>{data.footerSocialHeading}</h3>
-          <FontAwesomeList>{data.footerSocial.map( (link, index) => <Social key={index} link={link} /> )}</FontAwesomeList>
+          <FontAwesomeList>{data.footerSocial.map( link => <Social key={v4()} link={link} /> )}</FontAwesomeList>
         </div>
     </div>
   </div>  

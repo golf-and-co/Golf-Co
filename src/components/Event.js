@@ -30,7 +30,7 @@ const EventWrap = styled.section`
   font-size: 14px;
   font-weight: 300;
   background-color: #FFF;
-  margin: 12px 25px;
+  margin: 12px 25px !important;
 `
 
 const EventDate = styled.section`

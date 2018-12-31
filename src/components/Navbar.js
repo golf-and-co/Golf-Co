@@ -1,67 +1,76 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import logo from '../img/logo.svg'
+import styled from "styled-components"
+import { StaticQuery, graphql } from "gatsby"
+import PropTypes from 'prop-types'
 
-const Navbar = class extends React.Component {
+const SideMenu = styled.nav`
+  position: fixed !important;
+  width: 25vw;
+  height: 102vh;
+  right: 0;
+  background: rgba(255,255,255,0.5) !important;
+  padding: 20px;
+`;
 
-  componentDidMount() {
-    // Get all "navbar-burger" elements
-   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-    // Check if there are any navbar burgers
-   if ($navbarBurgers.length > 0) {
- 
-     // Add a click event on each of them
-     $navbarBurgers.forEach( el => {
-       el.addEventListener('click', () => {
- 
-         // Get the target from the "data-target" attribute
-         const target = el.dataset.target;
-         const $target = document.getElementById(target);
- 
-         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-         el.classList.toggle('is-active');
-         $target.classList.toggle('is-active');
- 
-       });
-     });
-   }
- }
- 
- render() {
-   return (
-  
-  <nav className="navbar is-transparent" role="navigation" aria-label="main-navigation">
-    <div className="container is-fluid no-margin">
-      <div className="navbar-brand">
-        <Link to="/" className="navbar-item" title="Logo">
-          <img src={logo} alt="GolfAndCo" />
+const Navbar = ({data}) => <SideMenu className="navbar" role="navigation" aria-label="main-navigation" id="nav" style={{display:"none"}}>
+      <div className="navbar-start has-text-centered">
+        <Link className="navbar-item" to="/about">
+          About
         </Link>
-        {/* Hamburger menu */}
-        <div className="navbar-burger burger is-visible-desktop" data-target="navMenu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <Link className="navbar-item" to="/products">
+          Products
+        </Link>
+        <Link className="navbar-item" to="/contact">
+          Contact
+        </Link>
+        <Link className="navbar-item" to="/contact/examples">
+          Form Examples
+        </Link>
       </div>
-    </div>
-    <div id="navMenu" className="navbar-menu">
-        <div className="navbar-start has-text-centered">
-          <Link className="navbar-item" to="/about">
-            About
-          </Link>
-          <Link className="navbar-item" to="/products">
-            Products
-          </Link>
-          <Link className="navbar-item" to="/contact">
-            Contact
-          </Link>
-          <Link className="navbar-item" to="/contact/examples">
-            Form Examples
-          </Link>
-        </div>
-      </div>
-  </nav>
-  )}
-}
+</SideMenu>
 
-export default Navbar
+export default props => (
+  <StaticQuery
+    query={graphql`{
+      allMarkdownRemark(filter: {frontmatter: {title: {eq: "Home"}}}) {
+        edges {
+          node {
+            frontmatter {
+              footerLogo{
+                image {
+                  childImageSharp {
+                    fluid(maxWidth: 2048, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+                alt
+              }
+              footerColumn1{
+                text,
+                href,
+                children{
+                  text,
+                  href
+                }
+              }
+              footerColumn2{
+                text,
+                href,
+              }
+              footerSocialHeading
+              footerSocial{
+                text,
+                href
+              }
+            }
+          }
+        }
+      }
+    }`} render={data => <Navbar data={data.allMarkdownRemark.edges[0].node.frontmatter} {...props} />} />
+)
+
+Navbar.propTypes = {
+  data: PropTypes.object.isRequired,
+}

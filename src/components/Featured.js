@@ -8,7 +8,9 @@ const FeaturedWrap = styled.section`
   background-color: #cfddbb;
   display:block;
   justify-content: center;
-  border-radius: 90%/300px 300px 0 0;
+  border-radius: 0 0 45% 45%;
+  width: 140%;
+  margin-left: -20%;
   margin-top:-160px;
 `;
 
@@ -46,7 +48,7 @@ const FeaturedCardContent = styled.div`
   font-size: 20px;
   font-weight: 300;
   margin: 16px auto auto 16px;
-  padding:0;
+  padding:0 !important;
 `;
 
 const FeaturedCardContentTag = styled.div`
