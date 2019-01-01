@@ -63,10 +63,10 @@ const Button = styled.a`
 
 const Logo = styled(Link)`
   justify-content: center;
-  background-color: rgba(0,0,0,0.02) !important;
-
+  background-color: rgba(0,0,0,0.01) !important;
+  padding-top: 45px !important;
   :hover {
-    background-color: rgba(0,0,0,0.02) !important;
+    background-color: rgba(0,0,0,0.01) !important;
     color: #FFF !important;
   }
 `

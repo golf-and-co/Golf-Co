@@ -15,7 +15,7 @@ const FeaturedWrap = styled.section`
 `;
 
 const FeaturedHeading = styled.h3`
-  color: #1d8649;
+  color: #1d8649 !important;
   font-size: 30px;
   text-transform: uppercase;
   font-weight: 300;
@@ -93,7 +93,8 @@ const FeaturedBanner = styled.aside`
     height: 90px;
     color: #FFF;
     font-size: 28px;
-
+    cursor: pointer;
+    
     :hover
         cursor:pointer;
 `;

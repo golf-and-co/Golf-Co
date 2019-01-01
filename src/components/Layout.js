@@ -13,6 +13,29 @@ const Container = styled.section`
 const HamburgerWrap = styled.div`
   z-index: 30;
   color: #000;
+  margin: 45px 60px;
+
+  :hover {
+    background-color: transparent !important;
+  }
+`;
+
+const HamburgerLine1 = styled.span`
+  top: calc(50% - 8px) !important;
+  height: 3px !important;
+  width: 24px !important;
+`;
+
+const HamburgerLine2 = styled.span`
+  top: calc(50%) !important;
+  height: 3px !important;
+  width: 24px !important;
+`;
+
+const HamburgerLine3 = styled.span`
+  top: calc(50% + 8px) !important;
+  height: 3px !important;
+  width: 24px !important;
 `;
 
 const navClick = () => {
@@ -32,9 +55,9 @@ const navClick = () => {
 }
 
 const Hamburger = () => <HamburgerWrap id="hb" className="navbar-burger burger is-visible-desktop" data-target="navMenu" onClick={navClick}>
-  <span></span>
-  <span></span>
-  <span></span>
+  <HamburgerLine1></HamburgerLine1>
+  <HamburgerLine2></HamburgerLine2>
+  <HamburgerLine3></HamburgerLine3>
 </HamburgerWrap>;
 
 const TemplateWrapper = ({ children }) => (
