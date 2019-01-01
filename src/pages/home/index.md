@@ -54,9 +54,11 @@ recentPosts:
 recentCalendar:
   heading1: UPCOMING
   heading2: GOLF EVENTS
-footerLogo: 
-  image: /img/logo.png
+menuLogo:
+  image: /img/129-layers.png
+footerLogo:
   alt: Golf & Co.
+  image: /img/logo.png
 footerColumn1:
   - children:
       - href: '#uae'
