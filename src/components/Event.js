@@ -30,7 +30,7 @@ const EventWrap = styled.section`
   font-size: 14px;
   font-weight: 300;
   background-color: #FFF;
-  margin: 12px 25px !important;
+  margin: 12px 25px 36px 25px !important;
 `
 
 const EventDate = styled.section`
@@ -59,7 +59,7 @@ const EventTitle = styled.section`
 `
 
 const ViewAllButton = styled.button`
-    display: block;
+    display: block !important;
     margin: 44px auto 0px auto;
     background:none;
     color: #1d8649;

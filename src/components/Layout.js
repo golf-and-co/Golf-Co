@@ -17,18 +17,21 @@ const HamburgerWrap = styled.div`
 
 const navClick = () => {
   const nav = document.getElementById("nav");
+  const hb = document.getElementById("hb");
   console.log(nav.style.display);
   if (nav.style.display === 'block') {
     console.log(" to none");
     nav.style.display = 'none';
+    hb.style.display = 'flex';
   } else {
     // nav hidden, open nav
     console.log(" to block");
     nav.style.display = 'block';
+    hb.style.display = 'none';
   }
 }
 
-const Hamburger = () => <HamburgerWrap className="navbar-burger burger is-visible-desktop" data-target="navMenu" onClick={navClick}>
+const Hamburger = () => <HamburgerWrap id="hb" className="navbar-burger burger is-visible-desktop" data-target="navMenu" onClick={navClick}>
   <span></span>
   <span></span>
   <span></span>
@@ -67,7 +70,7 @@ const TemplateWrapper = ({ children }) => (
           <meta property="og:image" content="/img/og-image.jpg" />
         </Helmet>
         <Container id="main">{children}</Container>
-        <Navbar />
+        <Navbar close={navClick} />
         <Hamburger id="menu" />        
       </div>
     )}

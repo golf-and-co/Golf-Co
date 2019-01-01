@@ -9,24 +9,28 @@ const SideMenu = styled.nav`
   width: 25vw;
   height: 102vh;
   right: 0;
-  background: rgba(255,255,255,0.5) !important;
+  background: rgba(0,0,0,0.5) !important;
   padding: 20px;
 `;
 
-const Navbar = ({data}) => <SideMenu className="navbar" role="navigation" aria-label="main-navigation" id="nav" style={{display:"none"}}>
+const Navbar = ({data, close}) => <SideMenu className="navbar" role="navigation" aria-label="main-navigation" id="nav" style={{display:"none"}}>
       <div className="navbar-start has-text-centered">
         <Link className="navbar-item" to="/about">
-          About
+          {<img alt={data.footerLogo.alt} src={
+          !!data.footerLogo.image.childImageSharp
+              ? data.footerLogo.image.childImageSharp.fluid.src
+              : data.footerLogo.image
+          } />}
         </Link>
-        <Link className="navbar-item" to="/products">
-          Products
-        </Link>
-        <Link className="navbar-item" to="/contact">
-          Contact
-        </Link>
-        <Link className="navbar-item" to="/contact/examples">
-          Form Examples
-        </Link>
+        <Link className="navbar-item" to="/"><i class="fas fa-home"></i></Link>
+        <Link className="navbar-item" to="#" onClick={close}><i class="fas fa-times-circle "></i></Link>
+      </div>
+      <hr />
+      <div className="columns">
+          <div className="column is-half">
+          </div>
+          <div className="column is-half">
+          </div>
       </div>
 </SideMenu>
 

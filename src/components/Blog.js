@@ -47,7 +47,7 @@ const CardDescription = styled.section`
 `
 
 const ViewAllButton = styled.button`
-    display: block;
+    display: block !important;
     margin: 44px auto 0px auto;
     background:none;
     color: #1d8649;
