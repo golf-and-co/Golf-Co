@@ -41,7 +41,6 @@ course4:
 featuredViewAll: View All Golf Courses in
 featuredBanner:
   image: /img/featured-banner.png
-  mobileImage: /img/featured-banner.png
   heading1: TEE-OFF With Our
   heading2: Customized Packages
   mobileImage: /img/mobile_featured_banner.png
