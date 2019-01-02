@@ -43,7 +43,7 @@ featuredBanner:
   image: /img/featured-banner.png
   heading1: TEE-OFF With Our
   heading2: Customized Packages
-  mobileImage: /img/featured_banner.png
+  mobileImage: /img/mobile_featured_banner.png
 featuredFooter:
   heading1: We Are Covered
   heading2: In Media
