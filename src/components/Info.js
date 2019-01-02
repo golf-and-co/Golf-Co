@@ -16,6 +16,11 @@ const Infographic = styled.div`
     max-width:200px;
     margin: auto 45px;
   }
+
+  @media (max-width: 768px) {
+    max-width:200px;
+    margin: auto;
+  }
 `
 
 const InfoHeading = styled.p`

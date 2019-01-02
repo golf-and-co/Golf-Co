@@ -8,10 +8,16 @@ const FeaturedWrap = styled.section`
   background-color: #cfddbb;
   display:block;
   justify-content: center;
-  border-radius: 0 0 45% 45%;
+  border-radius: 45% 45% 0 0;
   width: 140%;
   margin-left: -20%;
   margin-top:-160px;
+
+  @media (max-width: 768px) {
+    border-radius: 35% 35% 0 0;
+    width: 200%;
+    margin-left: -50%;
+  }
 `;
 
 const FeaturedHeading = styled.h3`
@@ -33,6 +39,10 @@ const FeaturedCard = styled.div`
   margin: 0 auto;
   border-radius: 6px;
   background-color: #ffffff;
+
+  @media (max-width: 768px) {
+    margin: 0px auto 40px auto;
+  }
 `;
 
 const FeaturedCardImageWrap = styled.div`
@@ -77,13 +87,13 @@ const FeaturedCardCaption = styled.div`
 }`;
 
 const FeaturedButton = styled.button`
-    display: block;
+    display: block !important;
     margin: 50px auto 0px auto;
-    background:none;
-    color: #1d8649;
+    background:none !important;
+    color: #1d8649 !important;
     font-weight: 300;
     text-transform: uppercase;
-    border-color: #1d8649;
+    border-color: #1d8649 !important;
 `;
 
 const FeaturedBanner = styled.aside`
@@ -99,12 +109,23 @@ const FeaturedBanner = styled.aside`
         cursor:pointer;
 `;
 
+const FeaturedBannerMobile = styled.aside`
+    width: 260px;
+    height: 70px;
+    font-size: 18px;
+    background-size: 545px;
+`;
+
 const FeaturedBannerHeader = styled.p`
     font-family: "Gotham Thin";
     margin-left: 240px;
     padding-top: 10px;
     font-weight: bold;
     line-height:1.25;
+
+    @media (max-width: 768px) {
+        font-size: 18px;
+    }
 `;
 
 const FeaturedBannerHeaderStrong = styled.strong`
@@ -234,7 +255,8 @@ const Featured = ({data}) => <FeaturedWrap>
     </div>
 
     <FeaturedButton className="button is-rounded">{data.featuredViewAll}</FeaturedButton>
-    <FeaturedBanner onClick={() => console.log("FeaturedBanner click")} className="is-rounded" style={{
+
+    <FeaturedBanner onClick={() => console.log("FeaturedBanner click")} className="is-rounded is-hidden-mobile" style={{
         backgroundImage: `url(${
         !!data.featuredBanner.image.childImageSharp
             ? data.featuredBanner.image.childImageSharp.fluid.src
@@ -247,6 +269,20 @@ const Featured = ({data}) => <FeaturedWrap>
             <FeaturedBannerHeaderStrong>{data.featuredBanner.heading2}</FeaturedBannerHeaderStrong>
         </FeaturedBannerHeader>
     </FeaturedBanner>
+
+    <FeaturedBannerMobile onClick={() => console.log("FeaturedBanner click")} className="is-rounded is-block-mobile" style={{
+        backgroundImage: `url(${
+        !!data.featuredBanner.image.childImageSharp
+            ? data.featuredBanner.image.childImageSharp.fluid.src
+            : data.featuredBanner.image
+        })`,
+    }}>
+        <FeaturedBannerHeader>
+            {data.featuredBanner.heading1}
+            <br />
+            <FeaturedBannerHeaderStrong>{data.featuredBanner.heading2}</FeaturedBannerHeaderStrong>
+        </FeaturedBannerHeader>
+    </FeaturedBannerMobile>
 
     <FeaturedFooter>
         {data.featuredFooter.heading1}
@@ -290,6 +326,13 @@ export default props => (
             heading1
             heading2
             image{
+              childImageSharp{
+                fluid(maxWidth: 2048, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            mobileImage{
               childImageSharp{
                 fluid(maxWidth: 2048, quality: 100) {
                     ...GatsbyImageSharpFluid

@@ -28,7 +28,7 @@ collections:
           - {label: "Featured Course 3", name: course3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
           - {label: "Featured Course 4", name: course4, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
           - {label: "Featured View All Text", name: featuredViewAll, widget: string}
-          - {label: "Featured Banner", name: featuredBanner, widget: object, fields: [{label: Image, name: image, widget: image}, {label: "Heading Line 1", name: heading1, widget: string}, {label: "Heading Line 2", name: heading2, widget: string}]}
+          - {label: "Featured Banner", name: featuredBanner, widget: object, fields: [{label: Desktop Image, name: image, widget: image}, {label: Mobile Image, name: mobileImage, widget: image}, {label: "Heading Line 1", name: heading1, widget: string}, {label: "Heading Line 2", name: heading2, widget: string}]}
           - {label: "Featured Footer", name: featuredFooter, widget: object, fields: [{label: "Heading Line 1", name: heading1, widget: string}, {label: "Heading Line 2", name: heading2, widget: string}]}
           - {label: "Featured Logos", name: featuredLogo, widget: list, fields:[{label: Image, name: image, widget: image}, {label: "Alt Text", name: alt, widget: string}]} 
           - {label: "Recent Posts", name: recentPosts, widget: object, fields: [{label: "Heading 1", name: heading1, widget: string}, {label: "Heading 2", name: heading2, widget: string}]}
