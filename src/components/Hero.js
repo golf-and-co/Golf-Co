@@ -16,10 +16,14 @@ const HeroWrap = styled.section`
   background-repeat: no-repeat;
   background-color: #F6F9F2;
   max-width: none;
-  border-radius: 0 0 45% 45%;
+  border-radius: 0 0 30% 30%;
   width: 140%;
   margin-left: -20%;
-  background-position-y: -50vh;
+
+  @media (min-width: 768px) {
+    background-position-y: -50vh;
+    border-radius: 0 0 45% 45%;
+  }
 
 `
 const Heading = styled.h1`
@@ -29,18 +33,25 @@ const Heading = styled.h1`
   color: white !important;
   font-family: "Gotham Book";
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 15px !important;
   font-weight: 300;
+
+  @media (min-width: 768px) {
+    font-size: 30px !important;
+  }
 `
 
 const HeadingStrong = styled.strong`
-  font-size: 60px;
+  font-size: 30px !important;
   font-weight: 700;
+
+  @media (min-width: 768px) {
+    font-size: 60px !important;
+    font-weight: 700;
+  }
 `
 
 const Search = styled.aside`
-  width: 640px;
-  height: 90px;
   margin: 0 auto;
   margin-top: -45px;
   border-radius: 45px;
@@ -49,6 +60,16 @@ const Search = styled.aside`
   line-height: 90px;
   text-align: center;
   vertical-align: middle !important;
+  position: relative;
+
+  @media (min-width: 768px) {
+    width: 640px;
+    height: 90px;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 340px;
+  }
 `
 
 const Button = styled.a`
@@ -59,6 +80,12 @@ const Button = styled.a`
   height: 50px;
   font-size: 16px;
   font-weight: 700;
+
+  @media (max-width: 768px) {
+    position: absolute !important;
+    top: 75px;
+    left: calc(50% - 100px);
+  }
 `
 
 const Logo = styled(Link)`

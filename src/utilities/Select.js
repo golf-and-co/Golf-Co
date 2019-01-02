@@ -4,10 +4,15 @@ import PropTypes from 'prop-types'
 
 const SelectWrap = styled.div`
   vertical-align: middle !important;
-  width: 180px;
+  width: 150px;
   height: 50px !important;
-  margin: auto 10px;
+  margin: auto 5px;
   font-size: 1rem;
+
+  @media (min-width: 768px) {
+    width: 180px;
+    margin: auto 10px;
+  }
 `
 
 const SelectBox = styled.select`

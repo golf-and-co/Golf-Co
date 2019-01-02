@@ -5,15 +5,17 @@ import PropTypes from 'prop-types'
 
 const InfoWrap = styled.section`
   background-color: #F6F9F2;
-  display:flex;
-  justify-content: center;
   padding:90px 0 220px 0;
+  justify-content: center;
 `
 
 const Infographic = styled.div`
-  width:200px;
   text-align:center;
-  margin: auto 45px;
+
+  @media (min-width: 768px) {
+    max-width:200px;
+    margin: auto 45px;
+  }
 `
 
 const InfoHeading = styled.p`
@@ -26,34 +28,37 @@ const InfoHeading = styled.p`
 `
 
 const InfoBody = styled.p`
-  width: 200px;
-  height: 80px;
   color: #4a4a4a;
   font-size: 14px;
   font-weight: 300;
   line-height: 16px;
+
+  @media (min-width: 768px) {
+    width: 200px;
+    height: 80px;
+  }
 `
 
-const Info = ({data}) => <InfoWrap>
-    <Infographic>
+const Info = ({data}) => <InfoWrap className="columns is-desktop">
+    <Infographic className="column is-one-quarter">
         <img src={data.info1.image.publicURL} alt="Tailor Made"/>
         <InfoHeading>{data.info1.heading}</InfoHeading>
         <InfoBody>{data.info1.description}</InfoBody>
     </Infographic>
 
-    <Infographic>
+    <Infographic className="column is-one-quarter">
         <img src={data.info2.image.publicURL} alt="Tailor Made"/>
         <InfoHeading>{data.info2.heading}</InfoHeading>
         <InfoBody>{data.info2.description}</InfoBody>
     </Infographic>
 
-    <Infographic>
+    <Infographic className="column is-one-quarter">
         <img src={data.info3.image.publicURL} alt="Tailor Made"/>
         <InfoHeading>{data.info3.heading}</InfoHeading>
         <InfoBody>{data.info3.description}</InfoBody>
     </Infographic>
 
-    <Infographic>
+    <Infographic className="column is-one-quarter">
         <img src={data.info4.image.publicURL} alt="Tailor Made"/>
         <InfoHeading>{data.info4.heading}</InfoHeading>
         <InfoBody>{data.info4.description}</InfoBody>
