@@ -31,6 +31,10 @@ const CardWrap = styled.section`
   background-color: #FFF;
   width: 260px;
   margin: 25px 25px 0 25px;
+
+  @media (max-width: 768px) {
+    margin: 25px auto;
+  }
 `
 
 const CardHeader = styled.section`
@@ -48,13 +52,17 @@ const CardDescription = styled.section`
 
 const ViewAllButton = styled.button`
     display: block !important;
-    margin: 44px auto 0px auto;
+    margin: 44px auto 44px auto;
     background:none;
     color: #1d8649;
     font-weight: 300;
     text-transform: uppercase;
     border-color: #1d8649;
     padding: 0 30px !important;
+`;
+
+const Columns = styled.div `
+  justify-content: center;
 `;
 
 const Card = ({card}) => <CardWrap>
@@ -69,9 +77,9 @@ const  Blog = ({data, headline}) => <Cards>
       <br />
       <HeaderStrong>{headline.heading2}</HeaderStrong>
     </Header>
-    <div className="columns">
+    <Columns className="columns">
       {data.edges.map( (data) => <Card className="column is-half" key={data.node.frontmatter.title} card={data.node.frontmatter} />)}
-    </div>
+    </Columns>
     <ViewAllButton className="button is-rounded" onClick={() => console.log(`Blog View All Click`)}>View All</ViewAllButton>
 </Cards>
 

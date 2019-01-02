@@ -18,12 +18,18 @@ const SideMenu = styled.nav`
   position: fixed !important;
   width: 30vw;
   height: 102vh;
+  top: 0;
   right: 0;
   background: #FFF !important;  
   color: #444 !important;
   font-size:30px;
   box-shadow: inset 0 0 5px #CCC;
   /* animation: ${width25} 0s ease-in-out 1s 1; */
+
+  @media (max-width: 768px) {
+    position: absolute;
+    width: 96vw;
+  }
 `;
 
 const MenuLinks = styled.div`
@@ -137,8 +143,8 @@ const Navbar = ({data, close}) => <SideMenu className="navbar" role="navigation"
           } />}
         </HeaderLink>
         <div>
-          <HeaderLink className="navbar-item" to="/"><i class="fas fa-home"></i></HeaderLink>
-          <HeaderLink className="navbar-item" to="#" onClick={close}><i class="fas fa-times-circle "></i></HeaderLink>
+          <HeaderLink className="navbar-item" to="/"><i className="fas fa-home"></i></HeaderLink>
+          <HeaderLink className="navbar-item" to="#" onClick={close}><i className="fas fa-times-circle "></i></HeaderLink>
         </div>
       </Heading>
       <DottedLine />

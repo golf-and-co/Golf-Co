@@ -6,12 +6,15 @@ import Calendar from "../components/Event"
 
 const RecentWrap = styled.section`
   background-color: #f6f9f2;
-  display:flex;
-  justify-content: center;
   padding:70px 0 200px 0;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    padding:70px 0;
+  }
 `
 
-export const Recent = ({data}) => <RecentWrap className="columns">
+export const Recent = ({data}) => <RecentWrap className="columns is-desktop">
     <Blog className="column one-half" headline={data.recentPosts} />
     <Calendar className="column one-half" headline={data.recentCalendar} />
 </RecentWrap>

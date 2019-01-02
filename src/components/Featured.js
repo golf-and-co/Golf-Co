@@ -110,10 +110,12 @@ const FeaturedBanner = styled.aside`
 `;
 
 const FeaturedBannerMobile = styled.aside`
-    width: 260px;
+    width: 95vw;
+    max-width: 400px;
     height: 70px;
     font-size: 18px;
-    background-size: 545px;
+    margin: 70px auto;
+    border-radius: 50px;
 `;
 
 const FeaturedBannerHeader = styled.p`
@@ -125,6 +127,7 @@ const FeaturedBannerHeader = styled.p`
 
     @media (max-width: 768px) {
         font-size: 18px;
+        margin-left: 105px;
     }
 `;
 
@@ -270,11 +273,11 @@ const Featured = ({data}) => <FeaturedWrap>
         </FeaturedBannerHeader>
     </FeaturedBanner>
 
-    <FeaturedBannerMobile onClick={() => console.log("FeaturedBanner click")} className="is-rounded is-block-mobile" style={{
+    <FeaturedBannerMobile onClick={() => console.log("FeaturedBanner click")} className="is-rounded is-hidden-tablet" style={{
         backgroundImage: `url(${
-        !!data.featuredBanner.image.childImageSharp
-            ? data.featuredBanner.image.childImageSharp.fluid.src
-            : data.featuredBanner.image
+        !!data.featuredBanner.mobileImage.childImageSharp
+            ? data.featuredBanner.mobileImage.childImageSharp.fluid.src
+            : data.featuredBanner.mobileImage
         })`,
     }}>
         <FeaturedBannerHeader>

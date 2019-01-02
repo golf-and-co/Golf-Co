@@ -54,7 +54,7 @@ const navClick = () => {
   }
 }
 
-const Hamburger = () => <HamburgerWrap id="hb" className="navbar-burger burger is-visible-desktop" data-target="navMenu" onClick={navClick}>
+const Hamburger = () => <HamburgerWrap id="hb" className="navbar-burger burger is-visible-desktop is-hidden-mobile" data-target="navMenu" onClick={navClick}>
   <HamburgerLine1></HamburgerLine1>
   <HamburgerLine2></HamburgerLine2>
   <HamburgerLine3></HamburgerLine3>

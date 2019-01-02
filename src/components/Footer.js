@@ -15,6 +15,15 @@ const FooterWrap = styled.section`
   margin-left: -10%;
   min-height: 150px;
   padding-top:100px;
+  padding-left: 10%;
+  padding-right: 10%;
+
+  @media (max-width: 768px) {
+    margin-top: -45px;
+    border-radius: 20% 20% 0 0;
+    padding-top: 0px;
+    text-align: center;
+  }
 `;
 
 
@@ -32,6 +41,9 @@ const MenuLink = styled(Link)`
 
 const FontAwesomeList = styled.ul`
   display: flex;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 const FontAwesomeItem = styled.li`
@@ -78,19 +90,32 @@ const Menu = ({link}) => {
 const Footer = ({data}) => {
 return <FooterWrap> 
   <div className="container">
-    <div className="columns">
+    <div className="columns is-desktop">
         <div className="column one-quater">{<img alt={data.footerLogo.alt} src={
         !!data.footerLogo.image.childImageSharp
             ? data.footerLogo.image.childImageSharp.fluid.src
             : data.footerLogo.image
         } />}</div>
-        <div className="column one-quarter">
+        <div className="column one-quarter is-hidden-tablet">
+          <h3>{data.footerSocialHeading}</h3>
+          <FontAwesomeList>{data.footerSocial.map( link => <Social key={v4()} link={link} /> )}</FontAwesomeList>
+        </div>
+        <div className="columns is-mobile is-hidden-tablet" style={{marginTop:"40px"}}>
+          <div className="column one-half is-hidden-tablet">
+            <ul>{data.footerColumn1.map( link => <Menu key={v4()} link={link} /> )}</ul>
+          </div>
+          <div className="column one-half is-hidden-tablet">
+            <ul>{data.footerColumn2.map( link => <Menu key={v4()} link={link} /> )}</ul>
+          </div>
+        </div>
+
+        <div className="column one-quarter is-hidden-mobile">
           <ul>{data.footerColumn1.map( link => <Menu key={v4()} link={link} /> )}</ul>
         </div>
-        <div className="column one-quarter">
+        <div className="column one-quarter is-hidden-mobile">
           <ul>{data.footerColumn2.map( link => <Menu key={v4()} link={link} /> )}</ul>
         </div>
-        <div className="column one-quarter">
+        <div className="column one-quarter is-hidden-mobile">
           <h3>{data.footerSocialHeading}</h3>
           <FontAwesomeList>{data.footerSocial.map( link => <Social key={v4()} link={link} /> )}</FontAwesomeList>
         </div>
