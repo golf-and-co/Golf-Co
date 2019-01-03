@@ -1,5 +1,5 @@
 ---
-templateKey: event
+templateKey: course
 title: The Emirates Golf Club Course
 city: Dubai
 region: Dubai

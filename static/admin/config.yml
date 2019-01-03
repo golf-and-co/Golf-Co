@@ -78,7 +78,7 @@ collections:
     folder: "src/pages/courses/details"
     create: true
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "course"}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "City", name: "city", widget: "string"}
       - {label: "Region", name: "region", widget: "string"}
