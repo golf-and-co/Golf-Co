@@ -80,7 +80,7 @@ collections:
     slug: "{{name}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
-      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Name", name: "title", widget: "string"}
       - {label: "City", name: "city", widget: "string"}
       - {label: "Region", name: "region", widget: "string"}
       - {label: "Country", name: "country", widget: "string"}
