@@ -1,5 +1,5 @@
 ---
-templateKey: page
+templateKey: course
 viewGallery: View Gallery
 info1:
   description: All Golf & Co packages are bespoke and customised to match your requirements

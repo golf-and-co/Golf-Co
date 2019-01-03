@@ -44,9 +44,10 @@ collections:
         name: "courses"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "course"}
-          - {label: Title, name: title, widget: string}
+          - {label: "Add to Golf Cart", name: addGolfCart, widget: list, fields[{label: "Heading", name: text, widget: string}, {label: "Instructions", name: text, widget: string}, {label: "Button", name: text, widget: string}]}
+          - {label: "Share", name: share, widget: string}          
           - {label: "View Gallery", name: viewGallery, widget: string}
-
+          - {label: "Gallery", name: gallery, widget: string}
   - name: "post"
     label: "Posts"
     folder: "src/pages/post"
@@ -72,3 +73,19 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "course"
+    label: "Courses"
+    folder: "src/pages/events"
+    create: true
+    slug: "{{name}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "City", name: "city", widget: "string"}
+      - {label: "Region", name: "region", widget: "string"}
+      - {label: "Country", name: "country", widget: "string"}
+      - {label: "Stats", name: stats, widget: list, fields:[{label: "Icon", name: icon, widget: image}, {label: "Label", name: label, widget: string}, {label: "Value", name: value, widget: string}]}
+      - {label: "Tags", name: tags, widget: list, fields:[{label: "Icon", name: icon, widget: image}, {label: "Label", name: label, widget: string}]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Gallery", name: "gallery", widget: "list", fields[{label: "Image", name: image, widget: image}, {label: "Category", name: category, widget: string}]}

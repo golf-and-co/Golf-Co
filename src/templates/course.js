@@ -40,7 +40,7 @@ Post.propTypes = {
 export default Post
 
 export const postQuery = graphql`
-  query Post($id: String!) {
+  query Course($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
