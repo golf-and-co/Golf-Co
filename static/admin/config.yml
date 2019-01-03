@@ -77,7 +77,6 @@ collections:
     label: "Courses"
     folder: "src/pages/courses/details"
     create: true
-    slug: "{{name}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
       - {label: "Name", name: "title", widget: "string"}
