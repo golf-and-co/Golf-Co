@@ -12,7 +12,7 @@ const Container = styled.section`
 `
 const HamburgerWrap = styled.div`
   z-index: 30;
-  color: #000;
+  color: #FFF;
   margin: 45px 60px;
 
   :hover {
