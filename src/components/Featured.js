@@ -4,7 +4,7 @@ import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
 
-const FeaturedWrap = styled.section`
+const Wrap = styled.section`
   background-color: #cfddbb;
   display:block;
   justify-content: center;
@@ -20,7 +20,7 @@ const FeaturedWrap = styled.section`
   }
 `;
 
-const FeaturedHeading = styled.h3`
+const Heading = styled.h3`
   color: #1d8649 !important;
   font-size: 30px;
   text-transform: uppercase;
@@ -28,12 +28,12 @@ const FeaturedHeading = styled.h3`
   text-align:center;
   padding: 50px 0 50px 0;
 `;
-const FeaturedHeadingTag = styled.strong`
+const HeadingTag = styled.strong`
   font-weight: bold;
   font-family: "Gotham Bold";
 `;
 
-const FeaturedCard = styled.div`
+const Card = styled.div`
   width: 260px;
   height: 320px;
   margin: 0 auto;
@@ -45,15 +45,15 @@ const FeaturedCard = styled.div`
   }
 `;
 
-const FeaturedCardImageWrap = styled.div`
+const CardImageWrap = styled.div`
   height:216px;
 `;
 
-const FeaturedCardImage = styled.img`
+const CardImage = styled.img`
   height:216px !important;
 `;
 
-const FeaturedCardContent = styled.div`
+const CardContent = styled.div`
   color: #000000;
   font-size: 20px;
   font-weight: 300;
@@ -61,13 +61,13 @@ const FeaturedCardContent = styled.div`
   padding:0 !important;
 `;
 
-const FeaturedCardContentTag = styled.div`
+const CardContentTag = styled.div`
   color: #9b9b9b;
   font-size: 14px;
   margin-top: 9px;
 `;
 
-const FeaturedCardCaption = styled.div`
+const CardCaption = styled.div`
   width: 80px;
   height: 20px;
   border-radius: 8px;
@@ -86,7 +86,7 @@ const FeaturedCardCaption = styled.div`
   text-align:center;
 }`;
 
-const FeaturedButton = styled.button`
+const Button = styled.button`
     display: block !important;
     margin: 50px auto 0px auto;
     background:none !important;
@@ -96,7 +96,7 @@ const FeaturedButton = styled.button`
     border-color: #1d8649 !important;
 `;
 
-const FeaturedBanner = styled.aside`
+const Banner = styled.aside`
     display: block;
     margin: 70px auto 70px auto;
     width: 700px;
@@ -109,7 +109,7 @@ const FeaturedBanner = styled.aside`
         cursor:pointer;
 `;
 
-const FeaturedBannerMobile = styled.aside`
+const BannerMobile = styled.aside`
     width: 95vw;
     max-width: 400px;
     height: 70px;
@@ -118,7 +118,7 @@ const FeaturedBannerMobile = styled.aside`
     border-radius: 50px;
 `;
 
-const FeaturedBannerHeader = styled.p`
+const BannerHeader = styled.p`
     font-family: "Gotham Thin";
     margin-left: 240px;
     padding-top: 10px;
@@ -131,7 +131,7 @@ const FeaturedBannerHeader = styled.p`
     }
 `;
 
-const FeaturedBannerHeaderStrong = styled.strong`
+const BannerHeaderStrong = styled.strong`
     font-family: "Gotham Bold";
     margin-top:0;
     font-weight:700;
@@ -139,7 +139,7 @@ const FeaturedBannerHeaderStrong = styled.strong`
     text-transform:uppercase;
 `;
 
-const FeaturedFooter = styled.footer`
+const Footer = styled.footer`
     display: block;
     margin: 0 auto;
     color: #1d8649;
@@ -152,106 +152,109 @@ const FeaturedFooter = styled.footer`
     padding-bottom: 20px;
 `;
 
-const FeaturedFooterStrong = styled.footer`
+const FooterStrong = styled.footer`
     font-family: "Gotham Black";
     font-weight: 900;
 `;
 
-const FeaturedLogos = styled.section`
+const Logos = styled.section`
     background-color: #aec3b2;
     display:flex;
     justify-content: center;
     padding: 75px 0;
 `;
 
-const Card = ({data}) => <FeaturedCard className="card is-quarter">
-    <FeaturedCardImageWrap className="card-image">
+const Course = ({data}) => <Card className="card is-quarter">
+    <CardImageWrap className="card-image">
     <figure className="image is-4by3">
-        <FeaturedCardImage src={
-        !!data.course1.image.childImageSharp
-            ? data.course1.image.childImageSharp.fluid.src
-            : data.course1.image
+        <CardImage src={
+        !!data.featuredDetails.image.childImageSharp
+            ? data.featuredDetails.image.childImageSharp.fluid.src
+            : data.featuredDetails.image
         } alt="Placeholder" />
     </figure>
-    <FeaturedCardCaption>Abu Dhabi</FeaturedCardCaption>
-    </FeaturedCardImageWrap>
-    <FeaturedCardContent className="card-content">
+    <CardCaption>Abu Dhabi</CardCaption>
+    </CardImageWrap>
+    <CardContent className="card-content">
     <div className="content">
-        {data.course1.heading}
+        {data.featuredDetails.name}
         <br />
-        <FeaturedCardContentTag>{data.course1.description}</FeaturedCardContentTag>
+        <CardContentTag>{data.featuredDetails.description}</CardContentTag>
     </div>
-    </FeaturedCardContent>
-</FeaturedCard>;
+    </CardContent>
+</Card>;
 
-const Featured = ({data}) => <FeaturedWrap>
-    <FeaturedHeading className="title">
-    {data.featured.heading1}
+const Featured = ({home, courses}) => <Wrap>
+    <Heading className="title">
+    {home.featured.heading1}
     <br />
-    <FeaturedHeadingTag>{data.featured.heading2}</FeaturedHeadingTag>
+    <HeadingTag>{home.featured.heading2}</HeadingTag>
     <br />
     <Select options={[{value:"UAE"}]} />
-    </FeaturedHeading>
+    </Heading>
     
     <div className="container">
         <div className="columns">
-            
-            
+            {courses.map(course => <Course data={course.node.frontmatter} />)}
         </div>
     </div>
 
-    <FeaturedButton className="button is-rounded">{data.featuredViewAll}</FeaturedButton>
+    <Button className="button is-rounded">{home.ViewAll}</Button>
 
-    <FeaturedBanner onClick={() => console.log("FeaturedBanner click")} className="is-rounded is-hidden-mobile" style={{
+    <Banner onClick={() => console.log("Banner click")} className="is-rounded is-hidden-mobile" style={{
         backgroundImage: `url(${
-        !!data.featuredBanner.image.childImageSharp
-            ? data.featuredBanner.image.childImageSharp.fluid.src
-            : data.featuredBanner.image
+        !!home.featuredBanner.image.childImageSharp
+            ? home.featuredBanner.image.childImageSharp.fluid.src
+            : home.featuredBanner.image
         })`,
     }}>
-        <FeaturedBannerHeader>
-            {data.featuredBanner.heading1}
+        <BannerHeader>
+            {home.featuredBanner.heading1}
             <br />
-            <FeaturedBannerHeaderStrong>{data.featuredBanner.heading2}</FeaturedBannerHeaderStrong>
-        </FeaturedBannerHeader>
-    </FeaturedBanner>
+            <BannerHeaderStrong>{home.featuredBanner.heading2}</BannerHeaderStrong>
+        </BannerHeader>
+    </Banner>
 
-    <FeaturedBannerMobile onClick={() => console.log("FeaturedBanner click")} className="is-rounded is-hidden-tablet" style={{
+    <BannerMobile onClick={() => console.log("Banner click")} className="is-rounded is-hidden-tablet" style={{
         backgroundImage: `url(${
-        !!data.featuredBanner.mobileImage.childImageSharp
-            ? data.featuredBanner.mobileImage.childImageSharp.fluid.src
-            : data.featuredBanner.mobileImage
+        !!home.featuredBanner.mobileImage.childImageSharp
+            ? home.featuredBanner.mobileImage.childImageSharp.fluid.src
+            : home.featuredBanner.mobileImage
         })`,
     }}>
-        <FeaturedBannerHeader>
-            {data.featuredBanner.heading1}
+        <BannerHeader>
+            {home.featuredBanner.heading1}
             <br />
-            <FeaturedBannerHeaderStrong>{data.featuredBanner.heading2}</FeaturedBannerHeaderStrong>
-        </FeaturedBannerHeader>
-    </FeaturedBannerMobile>
+            <BannerHeaderStrong>{home.featuredBanner.heading2}</BannerHeaderStrong>
+        </BannerHeader>
+    </BannerMobile>
 
-    <FeaturedFooter>
-        {data.featuredFooter.heading1}
+    <Footer>
+        {home.featuredFooter.heading1}
         <br />
-        <FeaturedFooterStrong>{data.featuredFooter.heading2}</FeaturedFooterStrong>
-    </FeaturedFooter>
+        <FooterStrong>{home.featuredFooter.heading2}</FooterStrong>
+    </Footer>
 
-    <FeaturedLogos>
-        {data.featuredLogo.map( (logo, index) => <img key={index} alt={logo.alt} src={
+    <Logos>
+        {home.featuredLogo.map( (logo, index) => <img key={index} alt={logo.alt} src={
         !!logo.image.childImageSharp
             ? logo.image.childImageSharp.fluid.src
             : logo.image
         } />)}
-    </FeaturedLogos>
-</FeaturedWrap>
+    </Logos>
+</Wrap>
 
 export default props => (
     <StaticQuery
       query={graphql`{
-  allMarkdownRemark(filter: {frontmatter: {title: {eq: "Home"}}}) {
+  home:allMarkdownRemark(filter: {frontmatter: {title: {eq: "Home"}}}) {
     edges {
       node {
         frontmatter {
+           featured {
+              heading1
+              heading2
+          }
           featuredViewAll
           featuredBanner {
             heading1
@@ -288,7 +291,19 @@ export default props => (
       }
     }
   }
-}`} render={data => <Featured data={data.allMarkdownRemark.edges[0].node.frontmatter} {...props} />} />
+  courses:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "course"}, isFeatured:{eq: true}}}, limit:4 sort:{fields:frontmatter___date, order:DESC}){
+    edges{
+      node{
+        frontmatter{
+          isFeatured
+          title
+          description
+          featuredDetails
+        }
+      }
+    }
+  }
+}`} render={data => <Featured home={data.home.edges[0].node.frontmatter} courses={data.courses.edges} {...props} />} />
 )
 
 Featured.propTypes = {
