@@ -19,7 +19,7 @@ PageTemplate.propTypes = {
 
 const Post = ({ data }) => {
   const { frontmatter } = data.markdownRemark
-
+  console.log(data);
   return (
     <Layout>
       <PageTemplate
@@ -43,7 +43,20 @@ export const postQuery = graphql`
   query Course($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
+        isFeatured
         title
+        description
+        featuredDetails{
+          image{
+            childImageSharp{
+              fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          name
+          description   
+        }
       }
     }
   }

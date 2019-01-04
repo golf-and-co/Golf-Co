@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
@@ -167,19 +167,20 @@ const Logos = styled.section`
 const Course = ({data}) => <Card className="card is-quarter">
     <CardImageWrap className="card-image">
     <figure className="image is-4by3">
-        <CardImage src={
-        !!data.featuredDetails.image.childImageSharp
-            ? data.featuredDetails.image.childImageSharp.fluid.src
-            : data.featuredDetails.image
+        <Link to={data.fields.slug}> <CardImage src={
+        !!data.frontmatter.featuredDetails.image.childImageSharp
+            ? data.frontmatter.featuredDetails.image.childImageSharp.fluid.src
+            : data.frontmatter.featuredDetails.image
         } alt="Placeholder" />
+        </Link>
     </figure>
     <CardCaption>Abu Dhabi</CardCaption>
     </CardImageWrap>
     <CardContent className="card-content">
     <div className="content">
-        {data.featuredDetails.name}
+        {data.frontmatter.featuredDetails.name}
         <br />
-        <CardContentTag>{data.featuredDetails.description}</CardContentTag>
+        <CardContentTag>{data.frontmatter.city}, {data.frontmatter.country}</CardContentTag>
     </div>
     </CardContent>
 </Card>;
@@ -195,7 +196,7 @@ const Featured = ({home, courses}) => <Wrap>
     
     <div className="container">
         <div className="columns">
-            {courses.map(course => <Course data={course.node.frontmatter} />)}
+            {courses.map(course => <Course data={course.node} />)}
         </div>
     </div>
 
@@ -294,9 +295,15 @@ export default props => (
   courses:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "course"}, isFeatured:{eq: true}}}, limit:4 sort:{fields:frontmatter___date, order:DESC}){
     edges{
       node{
+        fields{
+          slug
+        }
         frontmatter{
           isFeatured
           title
+          city
+          region
+          country
           description
           featuredDetails{
             image{
