@@ -298,7 +298,17 @@ export default props => (
           isFeatured
           title
           description
-          featuredDetails
+          featuredDetails{
+            image{
+              childImageSharp{
+                fluid(maxWidth: 2048, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            name
+            description            
+          }
         }
       }
     }
