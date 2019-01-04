@@ -19,13 +19,13 @@ description: >-
   Arabic word for 'meeting place'. One of the most prominent features on the
   course is the Majlis building itself positioned between the 8th and 9th holes
   and a Dubai landmark since 1988.
-featuredDetails:
+gallery:
   - description: >-
       A lot of the natural landscape has been retained thus making it quite a
       challenging layout.
-    image: /img/abu-dhabi.png
+    image: /img/emirates-golf-club-course.png
     name: The Emirates Golf Club Course
-isFeatured: true
+featured: true
 ---
 The Majlis course has developed a worthy reputation worldwide as a testing layout for even the best golfers. The course features hundreds of indigenous species of flora and fauna, beautifully complemented by meandering fairways and seven fresh and saltwater lakes.
 
