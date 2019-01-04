@@ -87,5 +87,5 @@ collections:
       - {label: "Tags", name: tags, widget: list, fields:[{label: "Icon", name: icon, widget: image}, {label: "Label", name: label, widget: string}]}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Gallery", name: "gallery", widget: "list", fields:[{label: "Image", name: image, widget: image}, {label: "Category", name: category, widget: string}]}
-      - {label: "Featured", name: "featured", widget: "boolean"}
+      - {label: "Featured", name: "isFeatured", widget: "boolean"}
       - {label: "Featured Details", name: "gallery", widget: "object", fields:[{label: "Image", name: image, widget: image}, {label: "Name", name: name, widget: string}, {label: "Description", name: description, widget: string}]}
