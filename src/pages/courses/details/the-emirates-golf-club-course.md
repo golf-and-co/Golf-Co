@@ -19,7 +19,7 @@ description: >-
   Arabic word for 'meeting place'. One of the most prominent features on the
   course is the Majlis building itself positioned between the 8th and 9th holes
   and a Dubai landmark since 1988.
-gallery:
+featuredDetails:
   - description: >-
       A lot of the natural landscape has been retained thus making it quite a
       challenging layout.
