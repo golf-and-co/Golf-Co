@@ -2,6 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import Hero from '../components/Hero';
+import Infographic from '../components/Info';
+import Featured from '../components/Featured';
+import Recent from '../components/Recent';
+import Footer from '../components/Footer';
 
 export const PageTemplate = ({
   title,
@@ -18,13 +23,13 @@ PageTemplate.propTypes = {
 }
 
 const Post = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
-  console.log(data);
   return (
     <Layout>
-      <PageTemplate
-        title={frontmatter.title}
-      />
+        <Hero />
+        <Infographic />
+        <Featured />
+        <Recent />
+        <Footer />
     </Layout>
   )
 }
@@ -43,6 +48,7 @@ export const postQuery = graphql`
   query Course($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
+        image
         isFeatured
         title
         description

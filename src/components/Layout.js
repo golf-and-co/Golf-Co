@@ -41,7 +41,6 @@ const HamburgerLine3 = styled.span`
 const navClick = () => {
   const nav = document.getElementById("nav");
   const hb = document.getElementById("hb");
-  console.log(nav.style.display);
   if (nav.style.display === 'block') {
     console.log(" to none");
     nav.style.display = 'none';
