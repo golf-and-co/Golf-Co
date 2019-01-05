@@ -51,7 +51,6 @@ export const postQuery = graphql`
   query Course($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
-        
         isFeatured
         title
         city
