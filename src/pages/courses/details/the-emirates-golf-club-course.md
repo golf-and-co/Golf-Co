@@ -6,7 +6,9 @@ city: Dubai
 region: Dubai
 country: UAE
 stats:
-  - {}
+  - icon: /img/golf_tee.svg
+    label: Holes
+    value: '18'
 tags:
   - {}
 gallery:
