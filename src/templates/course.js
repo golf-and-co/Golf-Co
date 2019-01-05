@@ -2,10 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Hero from '../components/Hero';
-import Infographic from '../components/Info';
-import Featured from '../components/Featured';
-import Recent from '../components/Recent';
+import HeroCourse from '../components/HeroCourse';
 import Footer from '../components/Footer';
 
 export const PageTemplate = ({
@@ -22,13 +19,19 @@ PageTemplate.propTypes = {
   title: PropTypes.string,
 }
 
+/*
+
+  <Stats />
+  <Details />
+  <Gallery />
+  <Map />
+*/
+
 const Post = ({ data }) => {
   return (
     <Layout>
-        <Hero />
-        <Infographic />
-        <Featured />
-        <Recent />
+        <HeroCourse data={data.markdownRemark.frontmatter} />
+
         <Footer />
     </Layout>
   )
@@ -48,9 +51,17 @@ export const postQuery = graphql`
   query Course($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
-        image
+        image{
+          childImageSharp{
+            fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+            }
+          }
+        }
         isFeatured
         title
+        city
+        country
         description
         featuredDetails{
           image{
