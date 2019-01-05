@@ -91,7 +91,13 @@ const Hero = ({data}) => {
 console.log(data);
 
 return <Background>
-  <HeroWrap >
+  <HeroWrap style={{
+    backgroundImage: `url(${
+      !!data.image.childImageSharp
+        ? data.image.childImageSharp.fluid.src
+        : data.image
+    })`,
+  }}>
 
     <Container className="container content columns is-fluid">
       <LogoWrapper className="column is-2">
