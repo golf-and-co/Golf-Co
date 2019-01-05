@@ -51,6 +51,13 @@ export const postQuery = graphql`
   query Course($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
+        image{
+          childImageSharp{
+            fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+            }
+          }
+        }
         isFeatured
         title
         city
