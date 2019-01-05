@@ -1,5 +1,5 @@
 ---
-image: /img/home.png
+image: /img/the-emirates-golf-club-course.png
 templateKey: course
 title: The Emirates Golf Club Course
 city: Dubai
