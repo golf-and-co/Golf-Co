@@ -174,7 +174,7 @@ const Course = ({data}) => <Card className="card is-quarter">
         } alt="Placeholder" />
         </Link>
     </figure>
-    <CardCaption>Abu Dhabi</CardCaption>
+    <CardCaption>Dubai</CardCaption>
     </CardImageWrap>
     <CardContent className="card-content">
     <div className="content">
@@ -200,7 +200,7 @@ const Featured = ({home, courses}) => <Wrap>
         </div>
     </div>
 
-    <Button className="button is-rounded">{home.ViewAll}</Button>
+    <Button className="button is-rounded">{home.featuredViewAll}</Button>
 
     <Banner onClick={() => console.log("Banner click")} className="is-rounded is-hidden-mobile" style={{
         backgroundImage: `url(${

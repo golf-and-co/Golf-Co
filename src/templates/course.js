@@ -32,7 +32,7 @@ const Post = ({ data }) => {
     <Layout>
         <HeroCourse data={data.markdownRemark.frontmatter} />
 
-        <Footer />
+        
     </Layout>
   )
 }

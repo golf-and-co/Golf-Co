@@ -2,11 +2,10 @@ import React from 'react'
 import { Link } from "gatsby"
 import styled from "styled-components"
 import PropTypes from 'prop-types'
-import Select from '../utilities/Select'
 import logo from '../img/logo.svg'
 
 const Background = styled.div`
-  background: #f6f9f2;
+  background: #81aa8c;
   padding-bottom:10px;
   text-align: center;
 `;
@@ -14,27 +13,25 @@ const Background = styled.div`
 const HeroWrap = styled.section`
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: #F6F9F2;
+  background-color: #81aa8c;
   max-width: none;
   border-radius: 0 0 30% 30%;
   width: 140%;
   margin-left: -20%;
 
   @media (min-width: 768px) {
-    background-position-y: -50vh;
     border-radius: 0 0 45% 45%;
   }
 
 `
 const Heading = styled.h1`
-  margin-top: 20vh !important;
-  margin-bottom: 10vh !important;
   text-align: center;
   color: white !important;
   font-family: "Gotham Book";
   text-transform: uppercase;
   font-size: 15px !important;
   font-weight: 300;
+  padding: 0.75em;
 
   @media (min-width: 768px) {
     font-size: 30px !important;
@@ -50,27 +47,10 @@ const HeadingStrong = styled.strong`
     font-weight: 700;
   }
 `
-
-const Search = styled.aside`
-  margin: 0 auto;
-  margin-top: -45px;
-  border-radius: 45px;
-  box-shadow: 0 4px 4px rgba(29, 134, 73, 0.14);
-  background-color: #ffffff;
-  line-height: 90px;
-  text-align: center;
-  vertical-align: middle !important;
-  position: relative;
-
-  @media (min-width: 768px) {
-    width: 640px;
-    height: 90px;
-  }
-
-  @media (max-width: 768px) {
-    max-width: 340px;
-  }
-`
+const ViewGallery = styled.div `
+  margin-top: 40vh;
+  padding-bottom: 30px;
+`;
 
 const Button = styled.a`
   font-family: "Gotham Book";
@@ -87,6 +67,14 @@ const Button = styled.a`
     left: calc(50% - 100px);
   }
 `
+const Container = styled.div`
+  max-width: 100vw !important;
+  margin-left: 20vw !important;
+`;
+
+const LogoWrapper = styled.div`
+  padding:0;
+`;
 
 const Logo = styled(Link)`
   justify-content: center;
@@ -110,26 +98,27 @@ return <Background>
         : data.image
     })`,
   }}>
-    <div className="container content columns is-fluid">
-    <div className="column is-1 is-offset-2">
-      <Logo to="/" className="navbar-item" title="Logo">
-        <img src={logo} alt="GolfAndCo" />
-      </Logo>
-    </div>
-    <div className="column is-6">
-      <Heading className="title">
-        <HeadingStrong>{data.title}</HeadingStrong>
-        <br />
-        {data.city}, {data.country}
-      </Heading>
-    </div>
-    </div>
-    </HeroWrap>
-    <Search>
-      <Select options={[{value:"UAE"}]} />
-      <Select options={[{value:"Select City"}]} />
-      <Button className="button is-link is-rounded">View Golf Course</Button>
-    </Search>
+
+    <Container className="container content columns is-fluid">
+      <LogoWrapper className="column is-2">
+        <Logo to="/" className="navbar-item" title="Logo">
+          <img src={logo} alt="GolfAndCo" />
+        </Logo>
+      </LogoWrapper>
+      <div className="column is-8">
+        <Heading className="title">
+          <HeadingStrong>{data.title}</HeadingStrong>
+          <br />
+          {data.city}, {data.country}
+        </Heading>
+      </div>
+    </Container>
+
+    <ViewGallery>
+      <Button className="button is-link is-rounded">View Gallery</Button>
+    </ViewGallery>
+  </HeroWrap>
+  
 </Background>
 };
 

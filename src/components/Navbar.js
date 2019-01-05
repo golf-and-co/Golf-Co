@@ -46,6 +46,16 @@ const HeaderLink = styled(Link)`
   }
 `;
 
+const HeaderAnchor = styled.a`
+  color: #CCC !important;
+  flex-grow: 1 !important;
+  float: left;
+
+  :hover {
+    background: none !important;
+  }
+`;
+
 const MenuLink = styled(Link)`
   color: #1d8649;
   font-family: "Gotham Book";
@@ -144,7 +154,7 @@ const Navbar = ({data, close}) => <SideMenu className="navbar" role="navigation"
         </HeaderLink>
         <div>
           <HeaderLink className="navbar-item" to="/"><i className="fas fa-home"></i></HeaderLink>
-          <HeaderLink className="navbar-item" to="#" onClick={close}><i className="fas fa-times-circle "></i></HeaderLink>
+          <HeaderAnchor className="navbar-item"  onClick={close}><i className="fas fa-times-circle "></i></HeaderAnchor>
         </div>
       </Heading>
       <DottedLine />
