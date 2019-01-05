@@ -9,6 +9,9 @@ stats:
   - icon: /img/golf_tee.svg
     label: Holes
     value: '18'
+  - icon: /img/swing.svg
+    label: Par
+    value: '72'
 tags:
   - {}
 gallery:
