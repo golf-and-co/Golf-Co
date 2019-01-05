@@ -39,7 +39,7 @@ collections:
           - {label: "Menu Column 2", name: footerColumn2, widget: list, fields:[{label: "Text", name: text, widget: string}, {label: "href", name: href, widget: string}, {label: "Children", name: children, widget: list, fields:[{label: "Text", name: text, widget: string}, {label: "href", name: href, widget: string}]}]} 
           - {label: "Menu Social Heading", name: footerSocialHeading, widget: string}
           - {label: "Menu Social", name: footerSocial, widget: list, fields:[{label: "Text", name: text, widget: string}, {label: "href", name: href, widget: string}, {label: "Children", name: children, widget: list, fields:[{label: "Text", name: text, widget: string}, {label: "href", name: href, widget: string}]}]} 
-      - file: "src/pages/courses/index.md"
+      - file: "src/pages/courses.md"
         label: "Course Details"
         name: "courses"
         fields:
