@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import HeroCourse from '../components/HeroCourse';
+import Stats from '../components/Stats';
 import Footer from '../components/Footer';
 
 export const PageTemplate = ({
@@ -21,7 +22,7 @@ PageTemplate.propTypes = {
 
 /*
 
-  <Stats />
+  
   <Details />
   <Gallery />
   <Map />
@@ -31,8 +32,7 @@ const Post = ({ data }) => {
   return (
     <Layout>
         <HeroCourse data={data.markdownRemark.frontmatter} />
-
-        
+        <Stats data={data.markdownRemark.frontmatter} />
     </Layout>
   )
 }
@@ -51,14 +51,20 @@ export const postQuery = graphql`
   query Course($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
-        image{
+        image {
           childImageSharp{
             fluid(maxWidth: 2048, quality: 100) {
                 ...GatsbyImageSharpFluid
             }
           }
         }
-        isFeatured
+        stats{
+          icon {
+            publicURL
+          }
+          label
+          value
+        }
         title
         city
         country
