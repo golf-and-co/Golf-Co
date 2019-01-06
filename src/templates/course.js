@@ -68,7 +68,6 @@ export const postQuery = graphql`
         title
         city
         country
-        description
         featuredDetails{
           image{
             childImageSharp{
