@@ -20,7 +20,8 @@ dialogs:
       as normal in the first few days (7 days) due to essential summer
       maintenance. However, course is still playable.
 tags:
-  - {}
+  - icon: /img/golf_bag.svg
+    label: Caddy
 gallery:
   - {}
 isFeatured: true
