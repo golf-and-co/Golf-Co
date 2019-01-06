@@ -13,8 +13,8 @@ stats:
     label: Par
     value: '72'
 dialogs:
-  - 
-    heading: 'Note:'
+  - heading: 'Note:'
+    icon: /img/alert.svg
     message: >-
       After prolonged closure, the condition of the course will not be as good
       as normal in the first few days (7 days) due to essential summer
