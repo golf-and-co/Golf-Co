@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import HeroCourse from '../components/HeroCourse';
 import Stats from '../components/Stats';
+import Details from '../components/Details';
 import Footer from '../components/Footer';
 
 export const PageTemplate = ({
@@ -23,7 +24,7 @@ PageTemplate.propTypes = {
 /*
 
   
-  <Details />
+  
   <Gallery />
   <Map />
 */
@@ -33,6 +34,7 @@ const Post = ({ data }) => {
     <Layout>
         <HeroCourse data={data.markdownRemark.frontmatter} />
         <Stats data={data.markdownRemark.frontmatter} />
+        <Details />
     </Layout>
   )
 }

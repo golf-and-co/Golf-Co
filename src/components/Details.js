@@ -6,14 +6,22 @@ import logo from '../img/logo.svg'
 
 const Dialog = ({data}) => <article className={`message is-primary`}>
   <div className="message-header">
+    <img id="image" src={data.icon.publicURL} />
     <p>{data.header}</p>
   </div>
   <div className="message-body">
-  {data.message}
+    {data.message}
   </div>
 </article>
 
-const Hero = ({data}) => <Details className="columns">
+const Tags = () => <div />;
+
+const Cart = () => <div />;
+
+const Details = ({data}) => {
+console.log(data);
+
+return <Details className="columns">
   <div className="column is-three-quarters">
     {data.dialogs.map(dialog => <Dialog data={data} />)}
     <Tags />
@@ -23,10 +31,11 @@ const Hero = ({data}) => <Details className="columns">
   <div className="column is-one-quarters">
     <Cart />
   </div>
-</Details>;
+</Details>
+};
 
-export default Hero;
+export default Details;
 
-Hero.propTypes = {
+Details.propTypes = {
   data: PropTypes.object.isRequired,
 }
