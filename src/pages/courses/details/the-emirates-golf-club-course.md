@@ -29,7 +29,8 @@ tags:
   - icon: /img/golf_cart.svg
     label: Golf Cart
 gallery:
-  - {}
+  - category: Course
+    image: /img/emirates-golf-club-course.png
 isFeatured: true
 featuredDetails:
   description: >-
