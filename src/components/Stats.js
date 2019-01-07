@@ -10,6 +10,7 @@ const Section = styled.section`
 const List = styled.ul`
     display: flex;
     justify-content: center;
+    padding: 0 0 20px 0;
 `;
 
 const Item = styled.li`
@@ -31,7 +32,7 @@ const Value = styled.span`
     text-transform:uppercase;
 `;
 
-const StatItem = ({data}) => <Item><img id="image" src={data.icon.publicURL} /><Label>{data.label}</Label><Value>{data.value}</Value></Item>;
+const StatItem = ({data}) =>  <Item><img id="image" src={data.icon.publicURL} /><Label>{data.label}</Label><Value>{data.value}</Value></Item>;
 
 const StatList = ({data}) => <Section id="stats">
     <List>

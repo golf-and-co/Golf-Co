@@ -42,12 +42,10 @@ const navClick = () => {
   const nav = document.getElementById("nav");
   const hb = document.getElementById("hb");
   if (nav.style.display === 'block') {
-    console.log(" to none");
     nav.style.display = 'none';
     hb.style.display = 'flex';
   } else {
     // nav hidden, open nav
-    console.log(" to block");
     nav.style.display = 'block';
     hb.style.display = 'none';
   }

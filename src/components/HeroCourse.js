@@ -86,11 +86,7 @@ const Logo = styled(Link)`
   }
 `
 
-const Hero = ({data}) => {
-
-console.log(data);
-
-return <Background>
+const Hero = ({data}) => <Background>
   <HeroWrap style={{
     backgroundImage: `url(${
       !!data.image.childImageSharp
@@ -120,7 +116,6 @@ return <Background>
   </HeroWrap>
   
 </Background>
-};
 
 export default Hero;
 

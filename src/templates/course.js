@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import HeroCourse from '../components/HeroCourse';
 import Stats from '../components/Stats';
-import Details from '../components/Details';
+import CourseDetails from '../components/CourseDetails';
 import Footer from '../components/Footer';
 
 export const PageTemplate = ({
@@ -29,17 +29,13 @@ PageTemplate.propTypes = {
   <Map />
 */
 
-const Post = ({ data }) => {
-  return (
-    <Layout>
-        <HeroCourse data={data.markdownRemark.frontmatter} />
-        <Stats data={data.markdownRemark.frontmatter} />
-        <Details />
-    </Layout>
-  )
-}
+const Course = ({ data }) => <Layout>
+    <HeroCourse data={data.markdownRemark.frontmatter} />
+    <Stats data={data.markdownRemark.frontmatter} />
+    <CourseDetails data={data.markdownRemark.frontmatter} body={data.markdownRemark.rawMarkdownBody}/>
+</Layout>;
 
-Post.propTypes = {
+Course.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
@@ -47,12 +43,16 @@ Post.propTypes = {
   }),
 }
 
-export default Post
+export default Course
 
-export const postQuery = graphql`
+export const courseQuery = graphql`
   query Course($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      rawMarkdownBody
       frontmatter {
+        title
+        city
+        country
         image {
           childImageSharp{
             fluid(maxWidth: 2048, quality: 100) {
@@ -67,19 +67,18 @@ export const postQuery = graphql`
           label
           value
         }
-        title
-        city
-        country
-        featuredDetails{
-          image{
-            childImageSharp{
-              fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
-              }
-            }
+        dialogs{
+          icon {
+            publicURL
           }
-          name
-          description   
+          heading
+          message
+        }
+        tags{
+          icon {
+            publicURL
+          }
+          label
         }
       }
     }
