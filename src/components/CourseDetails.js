@@ -70,7 +70,8 @@ const TagItem = styled.li`
   width: 160px;
   line-height: 25px;
   vertical-align: middle;
-
+  background: #fff;
+  
   img {
     float:left;
     margin-right: 15px;
@@ -81,6 +82,7 @@ const TagItem = styled.li`
 
   div {
     float:left;
+    width: 110px;
   }
 `;
 
@@ -103,8 +105,7 @@ const Dialog = ({data}) => <DialogBox className={`message is-primary`}>
 </DialogBox>;
 
 
-// @TODO Use tags
-const Tag = ({data}) => <TagItem>
+const Tag = ({data}) => <TagItem className="tag">
   <img id="image" src={data.icon.publicURL} alt={data.label} />
   <div>{data.label}</div>
 </TagItem>;
@@ -117,7 +118,7 @@ const CourseDetails = ({data, body}) => <Background className="columns">
       <Share><i className="fas fa-share-square"></i> Share</Share>
     </ShareWrapper>
     {data.dialogs.map(dialog => <Dialog key={v4()} data={dialog} />)}
-    <Tags>{data.tags.map(tag => <Tag key={v4()} data={tag} />)}</Tags>
+    <Tags className="tags">{data.tags.map(tag => <Tag key={v4()} data={tag} />)}</Tags>
 
     <About>About {data.title}</About>
     <p>{body}</p>
