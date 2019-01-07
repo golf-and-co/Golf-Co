@@ -1,8 +1,6 @@
 import React from 'react'
-import { Link } from "gatsby"
 import styled from "styled-components"
 import PropTypes from 'prop-types'
-import logo from '../img/logo.svg'
 import { v4 } from 'uuid'
 
 const Background = styled.div`
@@ -43,10 +41,6 @@ const DialogBox = styled.article`
   border: 1px solid #8db397;
   background-color: #ffffff;
   box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
-`;
-
-const DialogHeader = styled.img`
-  background-color: #FFF;
 `;
 
 const DialogImg = styled.img`
@@ -111,7 +105,7 @@ const Dialog = ({data}) => <DialogBox className={`message is-primary`}>
 
 // @TODO Use tags
 const Tag = ({data}) => <TagItem>
-  <img id="image" src={data.icon.publicURL} />
+  <img id="image" src={data.icon.publicURL} alt={data.label} />
   <div>{data.label}</div>
 </TagItem>;
 
@@ -120,7 +114,7 @@ const Cart = () => <div />;
 const CourseDetails = ({data, body}) => <Background className="columns">
   <div className="column is-three-quarters">
     <ShareWrapper>
-      <Share><i class="fas fa-share-square"></i> Share</Share>
+      <Share><i className="fas fa-share-square"></i> Share</Share>
     </ShareWrapper>
     {data.dialogs.map(dialog => <Dialog key={v4()} data={dialog} />)}
     <Tags>{data.tags.map(tag => <Tag key={v4()} data={tag} />)}</Tags>

@@ -32,7 +32,7 @@ const Value = styled.span`
     text-transform:uppercase;
 `;
 
-const StatItem = ({data}) =>  <Item><img id="image" src={data.icon.publicURL} /><Label>{data.label}</Label><Value>{data.value}</Value></Item>;
+const StatItem = ({data}) =>  <Item><img id="image" src={data.icon.publicURL} alt={data.label}/><Label>{data.label}</Label><Value>{data.value}</Value></Item>;
 
 const StatList = ({data}) => <Section id="stats">
     <List>

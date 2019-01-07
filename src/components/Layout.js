@@ -81,6 +81,9 @@ const TemplateWrapper = ({ children }) => (
 	        <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16" />
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
 
+          <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+          <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+
 	        <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#ff4400" />
 	        <meta name="theme-color" content="#fff" />
 
