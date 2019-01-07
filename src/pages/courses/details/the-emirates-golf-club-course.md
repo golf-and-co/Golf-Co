@@ -22,6 +22,12 @@ dialogs:
 tags:
   - icon: /img/golf_bag.svg
     label: Caddy
+  - icon: /img/spa.svg
+    label: Spa
+  - icon: /img/nearby_hotel.svg
+    label: Nearby Hotel
+  - icon: /img/golf_cart.svg
+    label: Golf Cart
 gallery:
   - {}
 isFeatured: true
