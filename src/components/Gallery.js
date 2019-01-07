@@ -7,10 +7,10 @@ const slideCount = (7 / 1);
 
 const settings = {
   dots: false,
-  infinite: true,
+  infinite: false,
   speed: 500,
   slidesToShow: slideCount,
-  slidesToScroll: 1
+  slidesToScroll: 3
 };
 
 const SliderWrap = styled(Slider)`
