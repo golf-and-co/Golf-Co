@@ -35,6 +35,12 @@ gallery:
     image: /img/emirates-golf-club-course.png
   - category: Course
     image: /img/emirates-golf-club-course.png
+  - image: /img/emirates-golf-club-course.png
+  - image: /img/emirates-golf-club-course.png
+  - image: /img/emirates-golf-club-course.png
+  - image: /img/emirates-golf-club-course.png
+  - image: /img/emirates-golf-club-course.png
+  - image: /img/emirates-golf-club-course.png
 isFeatured: true
 featuredDetails:
   description: >-
