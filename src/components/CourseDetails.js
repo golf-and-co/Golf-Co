@@ -6,6 +6,7 @@ import { v4 } from 'uuid'
 const Background = styled.div`
   background-color: #f6f9f2;
   padding: 0 75px;
+  margin-bottom: 0;
 
   p {
     color: #000000;

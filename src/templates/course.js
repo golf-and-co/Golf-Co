@@ -34,7 +34,7 @@ const Course = ({ data }) => <Layout>
     <HeroCourse data={data.markdownRemark.frontmatter} />
     <Stats data={data.markdownRemark.frontmatter} />
     <CourseDetails data={data.markdownRemark.frontmatter} body={data.markdownRemark.rawMarkdownBody}/>
-    <Gallery />
+    <Gallery data={data.markdownRemark.frontmatter} />
 </Layout>;
 
 Course.propTypes = {
@@ -81,6 +81,16 @@ export const courseQuery = graphql`
             publicURL
           }
           label
+        }
+        gallery {
+          category
+          image {
+            childImageSharp{
+              fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }
