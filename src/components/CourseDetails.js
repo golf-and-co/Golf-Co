@@ -6,7 +6,7 @@ import { v4 } from 'uuid'
 const Background = styled.div`
   background-color: #f6f9f2;
   padding: 0 75px;
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 
   p {
     color: #000000;
@@ -71,7 +71,7 @@ const TagItem = styled.li`
   width: 160px;
   line-height: 25px;
   vertical-align: middle;
-  background: #fff;
+  background: #fff !important;
   
   img {
     float:left;

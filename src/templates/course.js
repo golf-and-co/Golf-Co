@@ -30,6 +30,9 @@ PageTemplate.propTypes = {
   <Map />
 */
 
+
+
+
 const Course = ({ data }) => <Layout>
     <HeroCourse data={data.markdownRemark.frontmatter} />
     <Stats data={data.markdownRemark.frontmatter} />

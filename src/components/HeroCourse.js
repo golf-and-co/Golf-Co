@@ -111,7 +111,7 @@ const Hero = ({data}) => <Background>
     </Container>
 
     <ViewGallery>
-      <Button className="button is-link is-rounded">View Gallery</Button>
+      <Button className="button is-link is-rounded" onClick={() => document.querySelector('#courseDetailBackground').scrollIntoView()}>View Gallery</Button>
     </ViewGallery>
   </HeroWrap>
   

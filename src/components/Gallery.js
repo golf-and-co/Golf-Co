@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Slider from "react-slick";
+import { v4 } from 'uuid'
 
 const slideCount = (7 / 1);
 
@@ -21,15 +22,21 @@ const Background = styled.div`
 const SliderWrap = styled(Slider)`
   max-width: 640px !important;
   margin: 0 auto;
-  height:50vh;
-  padding-top: calc(50vh - 32px);
+  height:80vh;
+  background-position: 20vh;
+  padding-top: calc(80vh - 32px);
+
+  .slick-list {
+    background-color: #FFF;
+  }
 
   .slick-slide {
     background: #FFF;
+    height: 64px;
   }
 
   .slick-arrow {
-    top: 50vh;
+    top: 80vh;
     background-color: #FFF;
     width: 64px;
     height: 64px;
@@ -86,20 +93,24 @@ const Slide = styled.div`
   }
 `;
 
-const Gallery = ({data}) => { 
-  
-  console.log(data);
 
-  return <Background style={{
-    backgroundImage: `url(${
-      !!data.gallery[0].image.childImageSharp
-        ? data.gallery[0].image.childImageSharp.fluid.src
-        : data.gallery[0].image
-    })`,
+
+const Gallery = ({data}) => { 
+ 
+  const click = (img) => {
+      // @TODO: Use redux, and observables
+      document.querySelector('#courseDetailBackground').style.backgroundImage = `url(${img})`;
+      console.log(img);
+      console.log(document.querySelector('#courseDetailBackground'));
+      console.log(document.querySelector('#courseDetailBackground').style.backgroundImage);
+  }
+
+  return <Background id="courseDetailBackground" style={{
+    backgroundImage: `url(${data.gallery[0].image.childImageSharp.fluid.src})`,
   }}>
 
   <SliderWrap {...settings}>
-    {data.gallery.map(exhibit => <Slide><img src={exhibit.image.childImageSharp.fluid.src} /></Slide>)}
+    {data.gallery.map(exhibit => <Slide key={v4()}><img alt={exhibit.category} onClick={() => click(exhibit.image.childImageSharp.fluid.src)}  src={exhibit.image.childImageSharp.fluid.src} /></Slide>)}
   </SliderWrap>
 </Background>
 };
