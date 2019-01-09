@@ -32,7 +32,7 @@ gallery:
   - category: Course
     image: /img/emirates-golf-club-course.png
   - category: Course
-    image: /img/abu-dhabi.png
+    image: /img/the-emirates-golf-club-course.png
   - category: Course
     image: /img/emirates-golf-club-course.png
   - image: /img/emirates-golf-club-course.png
