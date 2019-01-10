@@ -26,9 +26,10 @@ PageTemplate.propTypes = {
 const Course = ({ data }) => <Layout>
     <HeroCourse data={data.markdownRemark.frontmatter} />
     <Stats data={data.markdownRemark.frontmatter} />
-    <CourseDetails data={data.markdownRemark.frontmatter} body={data.markdownRemark.rawMarkdownBody}/>
+    <CourseDetails data={data.markdownRemark.frontmatter} body={data.markdownRemark.rawMarkdownBody} />
     <Gallery data={data.markdownRemark.frontmatter} />
-    <CourseMap data={data.markdownRemark.frontmatter}/>
+    <CourseMap data={data.markdownRemark.frontmatter} />
+    <Footer />
 </Layout>;
 
 Course.propTypes = {
