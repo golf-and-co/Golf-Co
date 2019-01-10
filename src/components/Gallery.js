@@ -25,6 +25,8 @@ const SliderWrap = styled(Slider)`
   height:80vh;
   background-position: 20vh;
   padding-top: calc(80vh - 32px);
+  z-index:10;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
 
   .slick-list {
     background-color: #FFF;
@@ -100,9 +102,6 @@ const Gallery = ({data}) => {
   const click = (img) => {
       // @TODO: Use redux, and observables
       document.querySelector('#courseDetailBackground').style.backgroundImage = `url(${img})`;
-      console.log(img);
-      console.log(document.querySelector('#courseDetailBackground'));
-      console.log(document.querySelector('#courseDetailBackground').style.backgroundImage);
   }
 
   return <Background id="courseDetailBackground" style={{

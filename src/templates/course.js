@@ -6,6 +6,7 @@ import HeroCourse from '../components/HeroCourse';
 import Stats from '../components/Stats';
 import CourseDetails from '../components/CourseDetails';
 import Gallery from '../components/Gallery';
+import CourseMap from '../components/CourseMap';
 import Footer from '../components/Footer';
 
 export const PageTemplate = ({
@@ -22,22 +23,12 @@ PageTemplate.propTypes = {
   title: PropTypes.string,
 }
 
-/*
-
-  
-  
-  <Gallery />
-  <Map />
-*/
-
-
-
-
 const Course = ({ data }) => <Layout>
     <HeroCourse data={data.markdownRemark.frontmatter} />
     <Stats data={data.markdownRemark.frontmatter} />
     <CourseDetails data={data.markdownRemark.frontmatter} body={data.markdownRemark.rawMarkdownBody}/>
     <Gallery data={data.markdownRemark.frontmatter} />
+    <CourseMap data={data.markdownRemark.frontmatter}/>
 </Layout>;
 
 Course.propTypes = {
