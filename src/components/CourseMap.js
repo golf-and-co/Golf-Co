@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Leaflet from 'leaflet';
-import { Map, Marker, Popup, TileLayer, GeoJSON } from 'react-leaflet';
+import { Map, Marker, Popup, TileLayer, GeoJSON } from 'react-leaflet-universal';
 
 const MapWrap = styled.div`
   height:100vh;
