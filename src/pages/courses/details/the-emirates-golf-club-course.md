@@ -41,6 +41,7 @@ gallery:
   - image: /img/emirates-golf-club-course.png
   - image: /img/emirates-golf-club-course.png
   - image: /img/emirates-golf-club-course.png
+map: Dubai
 isFeatured: true
 featuredDetails:
   description: >-
