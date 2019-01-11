@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Leaflet from 'leaflet';
-import { Map, Marker, Popup, TileLayer, GeoJSON } from 'react-leaflet-universal';
+import { Map, Marker, Popup, TileLayer, GeoJSON } from 'react-leaflet';
 
 const MapWrap = styled.div`
   height:100vh;
@@ -35,27 +35,28 @@ export const markers = [
 Leaflet.Icon.Default.imagePath = '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/images/';
 
 const CourseMap = ({data}) => { 
- 
-  // create an array with marker components
-  const LeafletMarkers = markers.map(marker => (
-    <Marker position={marker.latlng} key={`marker_${marker.name}`}>
-      <Popup>
-        <span>{marker.name}</span>
-      </Popup>
-    </Marker>
-  ));
+  if (typeof window !== 'undefined') {
+    // create an array with marker components
+    const LeafletMarkers = markers.map(marker => (
+      <Marker position={marker.latlng} key={`marker_${marker.name}`}>
+        <Popup>
+          <span>{marker.name}</span>
+        </Popup>
+      </Marker>
+    ));
 
-  return (
-    <MapWrap className="map">
-      <Map center={mapConfig.center} zoom={mapConfig.zoom} scrollWheelZoom={false} className="map__reactleaflet">
-        <TileLayer
-          url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
-        />
-        {LeafletMarkers}
-      </Map>
-    </MapWrap>
-  );
+    return (
+      <MapWrap className="map">
+        <Map center={mapConfig.center} zoom={mapConfig.zoom} scrollWheelZoom={false} className="map__reactleaflet">
+          <TileLayer
+            url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
+          />
+          {LeafletMarkers}
+        </Map>
+      </MapWrap>
+    );
+  }
 };
 
 export default CourseMap;
