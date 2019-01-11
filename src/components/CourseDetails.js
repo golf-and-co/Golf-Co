@@ -15,6 +15,10 @@ const Background = styled.div`
     font-weight: 300;
     line-height: 20px;
   }
+
+  @media (max-width: 768px) {
+    padding: 0 15px;
+  }
 `;
 
 const ShareWrapper = styled.div`
@@ -42,6 +46,12 @@ const DialogBox = styled.article`
   border: 1px solid #8db397;
   background-color: #ffffff;
   box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+
+  .message-header {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
 `;
 
 const DialogImg = styled.img`

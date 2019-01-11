@@ -48,8 +48,10 @@ const HeadingStrong = styled.strong`
   }
 `
 const ViewGallery = styled.div `
-  margin-top: 40vh;
-  padding-bottom: 30px;
+  @media (min-width: 768px) {
+    margin-top: 40vh;
+    padding-bottom: 30px;
+  }
 `;
 
 const Button = styled.a`
@@ -63,7 +65,7 @@ const Button = styled.a`
 
   @media (max-width: 768px) {
     position: absolute !important;
-    top: 75px;
+    top: 320px;
     left: calc(50% - 100px);
   }
 `

@@ -21,7 +21,7 @@ const FooterWrap = styled.section`
   position: relative;
 
   @media (max-width: 768px) {
-    margin-top: -45px;
+    margin-top: -20px;
     border-radius: 20% 20% 0 0;
     padding-top: 0px;
     text-align: center;

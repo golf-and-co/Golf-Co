@@ -7,6 +7,10 @@ const MapWrap = styled.div`
   position: relative;
   z-index:0;
 
+  @media (max-width: 768px) {
+    margin-top: 32px;
+  }
+
   .map__reactleaflet {
     height: 100vh;
   }
