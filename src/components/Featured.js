@@ -46,7 +46,9 @@ const Card = styled.div`
 `;
 
 const CardImageWrap = styled.div`
-  height:216px;
+  height: 216px;
+  position: relative;
+  z-index: 0;
 `;
 
 const CardImage = styled.img`
@@ -57,8 +59,9 @@ const CardContent = styled.div`
   color: #000000;
   font-size: 20px;
   font-weight: 300;
-  margin: 16px auto auto 16px;
-  padding:0 !important;
+  padding: 16px auto auto 16px !important;
+  position: relative;
+  z-index: 100;
 `;
 
 const CardContentTag = styled.div`
