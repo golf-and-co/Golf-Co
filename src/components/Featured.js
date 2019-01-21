@@ -3,6 +3,7 @@ import { StaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
+import { v4 } from 'uuid'
 
 const Wrap = styled.section`
   background-color: #cfddbb;
@@ -17,6 +18,11 @@ const Wrap = styled.section`
     border-radius: 35% 35% 0 0;
     width: 200%;
     margin-left: -50%;
+  }
+
+  .cardContentHover {
+    height: 215px;
+    top: -215px
   }
 `;
 
@@ -33,10 +39,13 @@ const HeadingTag = styled.strong`
   font-family: "Gotham Bold";
 `;
 
+const CardLink = styled(Link)`
+    margin: 0 auto;
+`;
+
 const Card = styled.div`
   width: 260px;
   height: 320px;
-  margin: 0 auto;
   border-radius: 6px;
   background-color: #ffffff;
 
@@ -59,9 +68,14 @@ const CardContent = styled.div`
   color: #000000;
   font-size: 20px;
   font-weight: 300;
-  padding: 16px auto auto 16px !important;
+  padding: 16px 0 0 16px !important;
   position: relative;
   z-index: 100;
+  background-color: #FFF !important;
+  transition: height 1s ease-out, top 1s ease-out;
+  height: 100px;
+  top: 0px;
+  overflow: hidden;
 `;
 
 const CardContentTag = styled.div`
@@ -167,26 +181,47 @@ const Logos = styled.section`
     padding: 75px 0;
 `;
 
-const Course = ({data}) => <Card className="card is-quarter">
-    <CardImageWrap className="card-image">
-    <figure className="image is-4by3">
-        <Link to={data.fields.slug}> <CardImage src={
-        !!data.frontmatter.featuredDetails.image.childImageSharp
-            ? data.frontmatter.featuredDetails.image.childImageSharp.fluid.src
-            : data.frontmatter.featuredDetails.image
-        } alt="Placeholder" />
-        </Link>
-    </figure>
-    <CardCaption>Dubai</CardCaption>
-    </CardImageWrap>
-    <CardContent className="card-content">
-    <div className="content">
-        {data.frontmatter.featuredDetails.name}
-        <br />
-        <CardContentTag>{data.frontmatter.city}, {data.frontmatter.country}</CardContentTag>
-    </div>
-    </CardContent>
-</Card>;
+const cardStats = styled.div`
+    
+`;
+
+// No interface to trigger focus event outside this component is required, falling back to DOM instead of React props for class
+// traditional way is to pass a prop, and rerender the component.
+// how will that work with a functional component?
+// @TODO: Use redux and observables, fire an event, featuredHover, to allow for other components to listen to it
+const courseMouseEnter = (data) => {
+    document.querySelector(`#${data.fields.slug.replace(/\//g,'')} .card-content`).className +=' cardContentHover';
+}
+
+const courseMouseExit = (data) => {
+    let featured = document.querySelector(`#${data.fields.slug.replace(/\//g,'')} .card-content`);
+    featured.className = featured.className.replace(/ cardContentHover/g, '');
+}
+
+const Course = ({data}) => <CardLink to={data.fields.slug} className="is-quarter">
+    <Card id={data.fields.slug.replace(/\//g,'')} className="card" onMouseEnter={() => courseMouseEnter(data)} onMouseLeave={() => courseMouseExit(data)}>
+        <CardImageWrap className="card-image">
+        <figure className="image is-4by3">
+            <CardImage src={
+            !!data.frontmatter.featuredDetails.image.childImageSharp
+                ? data.frontmatter.featuredDetails.image.childImageSharp.fluid.src
+                : data.frontmatter.featuredDetails.image
+            } alt="Placeholder" />
+        </figure>
+        <CardCaption>Dubai</CardCaption>
+        </CardImageWrap>
+        <CardContent className="card-content">
+        <div className="content">
+            {data.frontmatter.featuredDetails.name}
+            <br />
+            <CardContentTag>{data.frontmatter.city}, {data.frontmatter.country}</CardContentTag>
+            <div>
+                test
+            </div>
+        </div>
+        </CardContent>
+    </Card>
+</CardLink>;
 
 const Featured = ({home, courses}) => <Wrap>
     <Heading className="title">
@@ -199,7 +234,7 @@ const Featured = ({home, courses}) => <Wrap>
     
     <div className="container">
         <div className="columns">
-            {courses.map(course => <Course data={course.node} />)}
+            {courses.map(course => <Course key={v4()} data={course.node} />)}
         </div>
     </div>
 
@@ -326,6 +361,6 @@ export default props => (
 }`} render={data => <Featured home={data.home.edges[0].node.frontmatter} courses={data.courses.edges} {...props} />} />
 )
 
-Featured.propTypes = {
+Course.propTypes = {
     data: PropTypes.object.isRequired,
 }
