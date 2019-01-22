@@ -1,9 +1,9 @@
 ---
 templateKey: packageListings
-title: GC-DXB-PA01
-description: /img/packages-dubai.png
-location: Golf in Dubai
-hotelType: 'Dubai, UAE'
-duration: '7'
-package: '6'
+title: "Golf Packages"
+description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla sagittis tempor turpis, consectetur efficitur est dignissim sit amet. "
+location: "Location"
+hotelType: "Hotel Type"
+duration: 'Duration'
+package: 'Packages'
 ---

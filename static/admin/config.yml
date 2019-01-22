@@ -48,6 +48,17 @@ collections:
           - {label: "Share", name: share, widget: string}          
           - {label: "View Gallery", name: viewGallery, widget: string}
           - {label: "Gallery", name: gallery, widget: string}
+      - file: "src/pages/packageListings.md"
+        label: "Packages Listing"
+        name: "package"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "packageListings"}
+          - {label: "Title", name: title, widget: "string"}
+          - {label: "Description", name: "description", widget: "string"}
+          - {label: "Location Label", name: "location", widget: "string"}
+          - {label: "Hotel Type Label", name: "hotelType", widget: "string"}
+          - {label: "Duration Label", name: "duration", widget: "string"}
+          - {label: "Packages Label", name: "package", widget: "string"}
   - name: "post"
     label: "Posts"
     folder: "src/pages/post"
