@@ -24,7 +24,6 @@ PageTemplate.propTypes = {
 }
 
 const packageListings = ({ data }) => <Layout>
-    <HeroCourse data={data.markdownRemark.frontmatter} />
     <Footer />
 </Layout>;
 
@@ -41,49 +40,8 @@ export default packageListings
 export const packageListingsQuery = graphql`
   query packageListings($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      rawMarkdownBody
       frontmatter {
         title
-        city
-        country
-        image {
-          childImageSharp{
-            fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        stats{
-          icon {
-            publicURL
-          }
-          label
-          value
-        }
-        dialogs{
-          icon {
-            publicURL
-          }
-          heading
-          message
-        }
-        tags{
-          icon {
-            publicURL
-          }
-          label
-        }
-        gallery {
-          category
-          image {
-            childImageSharp{
-              fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-        map
       }
     }
   }
