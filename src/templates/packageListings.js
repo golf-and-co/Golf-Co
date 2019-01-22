@@ -24,7 +24,6 @@ PageTemplate.propTypes = {
 }
 
 const packageListings = ({ data }) => <Layout>
-    <HeroCourse />
     <Footer />
 </Layout>;
 
@@ -39,11 +38,24 @@ packageListings.propTypes = {
 export default packageListings
 
 export const packageListingsQuery = graphql`
-  query packageListings($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      frontmatter {
-        title
+{
+  packageListingPage:allMarkdownRemark(filter: {frontmatter: {title: {eq: "Golf Packages"}}}) {
+    edges {
+      node {
+        frontmatter {
+          title,
+        }
       }
     }
   }
+  courses:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "packageListings"}}}){
+    edges{
+       node{
+        frontmatter{
+          title
+        }
+      }
+    }
+  }
+}
 `
