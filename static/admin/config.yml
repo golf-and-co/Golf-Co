@@ -108,6 +108,7 @@ collections:
     folder: "src/pages/packages"
     create: true
     fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "packageListings"}
       - {label: "Code", name: "code", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
       - {label: Title, name: title, widget: "string"}
