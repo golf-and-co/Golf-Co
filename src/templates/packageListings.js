@@ -24,6 +24,7 @@ PageTemplate.propTypes = {
 }
 
 const packageListings = ({ data }) => <Layout>
+    <HeroCourse />
     <Footer />
 </Layout>;
 
