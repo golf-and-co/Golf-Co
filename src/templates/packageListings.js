@@ -23,7 +23,7 @@ PageTemplate.propTypes = {
   title: PropTypes.string,
 }
 
-const Package = ({ data }) => <Layout>
+const packageListings = ({ data }) => <Layout>
     <HeroCourse data={data.markdownRemark.frontmatter} />
     <Stats data={data.markdownRemark.frontmatter} />
     <CourseDetails data={data.markdownRemark.frontmatter} body={data.markdownRemark.rawMarkdownBody} />
@@ -32,7 +32,7 @@ const Package = ({ data }) => <Layout>
     <Footer />
 </Layout>;
 
-Package.propTypes = {
+packageListings.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
@@ -40,10 +40,10 @@ Package.propTypes = {
   }),
 }
 
-export default Package
+export default packageListings
 
-export const packageQuery = graphql`
-  query Package($id: String!) {
+export const packageListingsQuery = graphql`
+  query packageListings($id: String!) {
     markdownRemark(id: { eq: $id }) {
       rawMarkdownBody
       frontmatter {
