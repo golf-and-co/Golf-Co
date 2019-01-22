@@ -104,15 +104,15 @@ collections:
       - {label: "Featured", name: "isFeatured", widget: "boolean"}
       - {label: "Featured Details", name: "featuredDetails", widget: "object", fields: [{label: "Image", name: image, widget: image}, {label: "Name", name: name, widget: string}, {label: "Description", name: description, widget: string}]}
   - name: "package"
-      label: "Packages"
-      folder: "src/pages/packages"
-      create: true
-      fields:
-        - {label: "Code", name: "code", widget: "string"}
-        - {label: "Image", name: "image", widget: "image"}
-        - {label: Title, name: title, widget: "string"}
-        - {label: "Location", name: "location", widget: "string"}
-        - {label: "Hotel Type", name: "hotelType", widget: "string"}
-        - {label: "Duration", name: "duration", widget: "string"}
-        - {label: "Rounds", name: "rounds", widget: "string"}
-        - {label: "Price", name: "price", widget: "string"}
+    label: "Packages"
+    folder: "src/pages/packages"
+    create: true
+    fields:
+      - {label: "Code", name: "code", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: Title, name: title, widget: "string"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Hotel Type", name: "hotelType", widget: "string"}
+      - {label: "Duration", name: "duration", widget: "string"}
+      - {label: "Rounds", name: "rounds", widget: "string"}
+      - {label: "Price", name: "price", widget: "string"}
