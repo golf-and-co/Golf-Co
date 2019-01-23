@@ -57,7 +57,7 @@ export const packageListingsQuery = graphql`
       }
     }
   }
-  courses:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "packageListings"}}}){
+  courses:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "packageListings"} searchable:{eq:true} }}){
     edges{
        node{
         frontmatter{
