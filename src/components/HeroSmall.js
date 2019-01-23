@@ -5,19 +5,19 @@ import PropTypes from 'prop-types'
 import logo from '../img/logo.svg'
 
 const Background = styled.div`
-  background: #81aa8c;
   padding-bottom:10px;
   text-align: center;
+  background-color: #E4ECD9;
 `;
 
 const HeroWrap = styled.section`
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: #81aa8c;
   max-width: none;
   border-radius: 0 0 30% 30%;
   width: 140%;
   margin-left: -20%;
+  height: 35vh;
 
   @media (min-width: 768px) {
     border-radius: 0 0 45% 45%;
@@ -28,47 +28,25 @@ const Heading = styled.h1`
   text-align: center;
   color: white !important;
   font-family: "Gotham Book";
-  text-transform: uppercase;
   font-size: 15px !important;
   font-weight: 300;
   padding: 0.75em;
+  margin-top: 8vh !important;
 
   @media (min-width: 768px) {
     font-size: 30px !important;
+    margin-top: 100px;
   }
 `
 
 const HeadingStrong = styled.strong`
-  font-size: 30px !important;
-  font-weight: 700;
+  font-size: 20px !important;
 
   @media (min-width: 768px) {
-    font-size: 60px !important;
-    font-weight: 700;
+    font-size: 40px !important;
   }
 `
-const ViewGallery = styled.div `
-  @media (min-width: 768px) {
-    margin-top: 40vh;
-    padding-bottom: 30px;
-  }
-`;
 
-const Button = styled.a`
-  font-family: "Gotham Book";
-  vertical-align: middle !important;
-  margin: auto 10px;
-  width: 200px;
-  height: 50px;
-  font-size: 16px;
-  font-weight: 700;
-
-  @media (max-width: 768px) {
-    position: absolute !important;
-    top: 320px;
-    left: calc(50% - 100px);
-  }
-`
 const Container = styled.div`
   max-width: 100vw !important;
   margin-left: 20vw !important;
@@ -88,14 +66,16 @@ const Logo = styled(Link)`
   }
 `
 
-const Hero = ({data}) => <Background>
-  <HeroWrap style={{
-    backgroundImage: `url(${
-      !!data.image.childImageSharp
-        ? data.image.childImageSharp.fluid.src
-        : data.image
-    })`,
-  }}>
+const Hero = ({data}) => {
+  return <Background>
+    <HeroWrap style={{
+      backgroundImage: `url(${
+        !!data.image.childImageSharp
+          ? data.image.childImageSharp.fluid.src
+          : data.image
+      })`,
+    }}>
+
 
     <Container className="container content columns is-fluid">
       <LogoWrapper className="column is-2">
@@ -106,18 +86,13 @@ const Hero = ({data}) => <Background>
       <div className="column is-8">
         <Heading className="title">
           <HeadingStrong>{data.title}</HeadingStrong>
-          <br />
-          {data.city}, {data.country}
         </Heading>
       </div>
     </Container>
-
-    <ViewGallery>
-      <Button className="button is-link is-rounded" onClick={() => document.querySelector('#courseDetailBackground').scrollIntoView()}>View Gallery</Button>
-    </ViewGallery>
   </HeroWrap>
   
 </Background>
+}
 
 export default Hero;
 

@@ -2,11 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import HeroCourse from '../components/HeroCourse';
-import Stats from '../components/Stats';
-import CourseDetails from '../components/CourseDetails';
-import Gallery from '../components/Gallery';
-import CourseMap from '../components/CourseMap';
+import HeroSmall from '../components/HeroSmall';
+import Content from '../components/Content';
+import Listing from '../components/Listing';
 import Footer from '../components/Footer';
 
 export const PageTemplate = ({
@@ -24,6 +22,9 @@ PageTemplate.propTypes = {
 }
 
 const packageListings = ({ data }) => <Layout>
+    <HeroSmall data={data.packageListingPage.edges[0].node.frontmatter} />
+    <Content data={data.packageListingPage.edges[0].node.frontmatter} />
+    <Listing data={data.courses} />
     <Footer />
 </Layout>;
 
@@ -43,7 +44,15 @@ export const packageListingsQuery = graphql`
     edges {
       node {
         frontmatter {
-          title,
+          title
+          image{
+            childImageSharp{
+              fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          description
         }
       }
     }

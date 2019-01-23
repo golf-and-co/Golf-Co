@@ -1,19 +1,27 @@
 import React from 'react'
+import { StaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 import PropTypes from 'prop-types'
 
-export const HTMLContent = ({ content, className }) => (
-  <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
-)
+const Wrap = styled.section`
+  background-color: #E4ECD9;
+  padding:90px 10px 220px 10px;
 
-const Content = ({ content, className }) => (
-  <div className={className}>{content}</div>
-)
+  p {
+    max-width: 920px;
+    margin: 40px auto;
+    color: #000;
+    text-align: center;
+  }
+`
 
+const Content = ({data}) => <Wrap>
+    <p>{data.description}</p>
+</Wrap>
+
+
+export default Content;
+            
 Content.propTypes = {
-  content: PropTypes.node,
-  className: PropTypes.string,
+    data: PropTypes.object.isRequired,
 }
-
-HTMLContent.propTypes = Content.propTypes
-
-export default Content

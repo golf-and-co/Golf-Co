@@ -198,7 +198,9 @@ const courseMouseExit = (data) => {
     featured.className = featured.className.replace(/ cardContentHover/g, '');
 }
 
-const Course = ({data}) => <CardLink to={data.fields.slug} className="is-quarter">
+export const Course = ({data}) => {
+console.log(data);
+return <CardLink to={data.fields.slug} className="is-quarter">
     <Card id={data.fields.slug.replace(/\//g,'')} className="card" onMouseEnter={() => courseMouseEnter(data)} onMouseLeave={() => courseMouseExit(data)}>
         <CardImageWrap className="card-image">
         <figure className="image is-4by3">
@@ -222,6 +224,7 @@ const Course = ({data}) => <CardLink to={data.fields.slug} className="is-quarter
         </CardContent>
     </Card>
 </CardLink>;
+}
 
 const Featured = ({home, courses}) => <Wrap>
     <Heading className="title">
