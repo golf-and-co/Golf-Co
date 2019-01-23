@@ -1,5 +1,5 @@
 ---
-templateKey: packageListings
+templateKey: packageDetails
 image: /img/hero_small.png
 title: You will be playing at these Golf Courses in this package
 description: >-

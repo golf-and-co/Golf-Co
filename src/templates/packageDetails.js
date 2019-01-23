@@ -38,24 +38,7 @@ export default packageListings
 
 export const packageListingsQuery = graphql`
 {
-  packageListingPage:allMarkdownRemark(filter: {frontmatter: {title: {eq: "Golf Packages"}}}) {
-    edges {
-      node {
-        frontmatter {
-          title
-          image{
-            childImageSharp{
-              fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          description
-        }
-      }
-    }
-  }
-  courses:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "packageListings"}}}){
+  courses:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "packageDetails"}}}){
     edges{
        node{
         frontmatter{
