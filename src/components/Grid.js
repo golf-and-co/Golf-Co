@@ -6,6 +6,10 @@ import {Course} from '../components/Featured';
 const Wrap = styled.section`
     display: flex;
     margin: 0 auto;
+
+    a {
+        margin: 10px;
+    }
 `;
 
 const Grid = ({data}) => {
@@ -47,7 +51,7 @@ const Grid = ({data}) => {
                 },
             },
             fields: {
-                slug: '',
+                slug: edge.node.frontmatter.title.replace(/ /g,''),
             }
         }} />
     }

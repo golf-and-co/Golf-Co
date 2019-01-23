@@ -9,7 +9,7 @@ const Wrap = styled.section`
 
   p {
     max-width: 920px;
-    margin: 40px auto;
+    margin: 20px auto;
     color: #000;
     text-align: center;
   }
