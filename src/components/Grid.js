@@ -6,6 +6,7 @@ import {Course} from '../components/Featured';
 const Wrap = styled.section`
     display: flex;
     margin: 0 auto;
+    flex-wrap: wrap;
 
     a {
         margin: 10px;

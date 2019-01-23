@@ -22,7 +22,6 @@ PageTemplate.propTypes = {
 }
 
 const packageListings = ({ data }) => <Layout>
-    <HeroSmall data={data.packageListingPage.edges[0].node.frontmatter} />
     <Footer />
 </Layout>;
 
