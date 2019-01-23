@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 const Wrap = styled.section`
   background-color: #E4ECD9;
-  padding:90px 10px 220px 10px;
+  padding:30px;
 
   p {
     max-width: 920px;
