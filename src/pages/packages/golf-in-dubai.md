@@ -8,5 +8,6 @@ hotelType: '5'
 duration: '7'
 rounds: '6'
 price: '4500'
+searchable: true
 ---
 
