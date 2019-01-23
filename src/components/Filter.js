@@ -8,6 +8,8 @@ const Wrap = styled.section`
 
 const Box = styled.section`
     background-color: #FFF;
+    height:200px;
+    width: 200px;
 `;
 
 const Filter = ({data}) => <Wrap>

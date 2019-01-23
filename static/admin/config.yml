@@ -118,3 +118,4 @@ collections:
       - {label: "Duration", name: "duration", widget: "string"}
       - {label: "Rounds", name: "rounds", widget: "string"}
       - {label: "Price", name: "price", widget: "string"}
+      - {label: "Searchable", name: "searchable", widget: "boolean"}

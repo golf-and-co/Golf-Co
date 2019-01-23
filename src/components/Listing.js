@@ -6,6 +6,8 @@ import Grid from '../components/Grid'
 
 const Wrap = styled.section`
     display: flex;
+    padding-bottom: 200px;
+    background-color: #E4ECD9;
 `;
 
 const Listing = ({data}) => <Wrap>

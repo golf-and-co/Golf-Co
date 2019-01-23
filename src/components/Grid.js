@@ -40,11 +40,11 @@ const Grid = ({data}) => {
     };*/
     
     return <Wrap>
-        {data.edges.map(edge => { 
+        {data.edges.map(edge => {
         return <Course data = {{
             frontmatter:{
                 featuredDetails: {
-                    image: '',
+                    image: edge.node.frontmatter.image,
                     name: edge.node.frontmatter.title,
                     city: '',
                     country: '',
