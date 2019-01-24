@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from "styled-components"
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
 
@@ -144,7 +144,7 @@ const Filter = ({data}) => <div>
 </div>
 
 Filter.propTypes = {
-    data: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
 }
 
-export default Filter;
+export default Filter

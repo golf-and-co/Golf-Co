@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from "gatsby"
-import styled from "styled-components"
+import { Link } from 'gatsby'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import logo from '../img/logo.svg'
 
@@ -24,12 +24,11 @@ const HeroWrap = styled.section`
   @media (min-width: 768px) {
     border-radius: 0 0 45% 45%;
   }
-
 `
 const Heading = styled.h1`
   text-align: center;
   color: white !important;
-  font-family: "Gotham Book";
+  font-family: 'Gotham Book';
   text-transform: uppercase;
   font-size: 15px !important;
   font-weight: 300;
@@ -49,15 +48,15 @@ const HeadingStrong = styled.strong`
     font-weight: 700;
   }
 `
-const ViewGallery = styled.div `
+const ViewGallery = styled.div`
   @media (min-width: 768px) {
     margin-top: 40vh;
     padding-bottom: 30px;
   }
-`;
+`
 
 const Button = styled.a`
-  font-family: "Gotham Book";
+  font-family: 'Gotham Book';
   vertical-align: middle !important;
   margin: auto 10px;
   width: 200px;
@@ -74,19 +73,19 @@ const Button = styled.a`
 const Container = styled.div`
   max-width: 100vw !important;
   margin-left: 20vw !important;
-`;
+`
 
 const LogoWrapper = styled.div`
-  padding:0;
-`;
+  padding: 0;
+`
 
 const Logo = styled(Link)`
   justify-content: center;
-  background-color: rgba(0,0,0,0.01) !important;
+  background-color: rgba(0, 0, 0, 0.01) !important;
   padding-top: 45px !important;
   :hover {
-    background-color: rgba(0,0,0,0.01) !important;
-    color: #FFF !important;
+    background-color: rgba(0, 0, 0, 0.01) !important;
+    color: #fff !important;
   }
 `
 

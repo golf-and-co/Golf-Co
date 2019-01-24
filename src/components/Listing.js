@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from "styled-components"
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Filter from '../components/Filter'
 import Grid from '../components/Grid'
@@ -39,7 +39,7 @@ const Listing = ({data}) => <Background>
 </Background>
 
 Listing.propTypes = {
-    data: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
 }
 
-export default Listing;
+export default Listing
