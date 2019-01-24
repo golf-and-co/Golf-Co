@@ -215,7 +215,7 @@ return <CardLink to={data.fields.slug} className="is-quarter">
             <br />
             <CardContentTag>{data.frontmatter.city}, {data.frontmatter.country}</CardContentTag>
             <div>
-                <Stats data={data.frontmatter} />
+                
             </div>
         </div>
         </CardContent>
