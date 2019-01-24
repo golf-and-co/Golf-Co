@@ -11,6 +11,11 @@ const Wrap = styled.section`
     a {
         margin: 10px;
     }
+
+    .cardContentHover {
+        height: 215px;
+        top: -215px
+    }
 `;
 
 const Grid = ({data}) => {

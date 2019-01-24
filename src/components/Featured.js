@@ -181,8 +181,36 @@ const Logos = styled.section`
     padding: 75px 0;
 `;
 
-const cardStats = styled.div`
-    
+const Tags = styled.ul`
+  display: flex;
+  background: #FFF;
+  padding: 30px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+  color: #4a4a4a;
+  font-family: "Gotham Book";
+  font-size: 14px;
+  font-weight: 300;
+  vertical-align: middle;  
+`;
+
+const TagItem = styled.li`
+  width: 160px;
+  line-height: 25px;
+  vertical-align: middle;
+  background: #fff !important;
+  
+  img {
+    float:left;
+    margin-right: 15px;
+    width:20px;
+    height: 25px;
+    text-align:center;
+  }
+
+  div {
+    float:left;
+    width: 110px;
+  }
 `;
 
 // No interface to trigger focus event outside this component is required, falling back to DOM instead of React props for class
@@ -218,7 +246,12 @@ return <CardLink to={data.fields.slug} className="is-quarter">
             <br />
             <CardContentTag>{data.frontmatter.city}, {data.frontmatter.country}</CardContentTag>
             <div>
-                test
+                <Tags>
+                    <TagItem className="tag">
+                        *
+                        <div>test</div>
+                    </TagItem>
+                </Tags>
             </div>
         </div>
         </CardContent>
