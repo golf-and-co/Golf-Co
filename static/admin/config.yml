@@ -113,7 +113,8 @@ collections:
       - {label: "Code", name: "code", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
       - {label: Title, name: title, widget: "string"}
-      - {label: "Location", name: "location", widget: "string"}
+      - {label: "City", name: "city", widget: "string"}
+      - {label: "Country", name: "country", widget: "string"}
       - {label: "Hotel Type", name: "hotelType", widget: "string"}
       - {label: "Duration", name: "duration", widget: "string"}
       - {label: "Rounds", name: "rounds", widget: "string"}
