@@ -22,7 +22,7 @@ const Wrap = styled.section`
   }
 
   .cardContentHover {
-    height: 215px;
+    height: 320px;
     top: -215px
   }
 `;
@@ -69,7 +69,7 @@ const CardContent = styled.div`
   color: #000000;
   font-size: 20px;
   font-weight: 300;
-  padding: 16px 0 0 16px !important;
+  padding: 16px 0 0 0px !important;
   position: relative;
   z-index: 100;
   background-color: #FFF !important;
@@ -77,6 +77,30 @@ const CardContent = styled.div`
   height: 100px;
   top: 0px;
   overflow: hidden;
+
+  #stats {
+      width: 260px;
+      height: 325px;
+      background-color: #81AA8C;
+  }
+
+  #stats ul {
+    color: #FFF;
+    font-size: .8rem;
+  }
+
+  #stats ul li {
+    border-color: #1d8649;
+    padding-top: 10px;
+  }
+
+  #stats ul li i {
+    color: #CFDDBB;
+  }
+
+  .content {
+      margin-left: 15px;
+   }
 `;
 
 const CardContentTag = styled.div`
@@ -196,7 +220,7 @@ const courseMouseExit = (data) => {
 }
 
 export const Course = ({data}) => {
-console.log(data);
+    console.log(data);
 return <CardLink to={data.fields.slug} className="is-quarter">
     <Card id={data.fields.slug.replace(/\//g,'')} className="card" onMouseEnter={() => courseMouseEnter(data)} onMouseLeave={() => courseMouseExit(data)}>
         <CardImageWrap className="card-image">
@@ -214,10 +238,8 @@ return <CardLink to={data.fields.slug} className="is-quarter">
             {data.frontmatter.featuredDetails.name}
             <br />
             <CardContentTag>{data.frontmatter.city}, {data.frontmatter.country}</CardContentTag>
-            <div>
-                
-            </div>
         </div>
+        <Stats data={data.frontmatter} />
         </CardContent>
     </Card>
 </CardLink>;
@@ -353,6 +375,13 @@ export default props => (
             }
             name
             description            
+          }
+          stats{
+            icon {
+                publicURL
+            }
+            label
+            value
           }
         }
       }

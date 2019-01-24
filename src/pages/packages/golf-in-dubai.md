@@ -10,6 +10,7 @@ duration: '7'
 rounds: '6'
 price: '4500'
 searchable: true
+statsDescription: "A lot of the natural landscape has been retained thus making it quite a challenging layout."
 stats:
   - icon: /img/golf_tee.svg
     label: Holes

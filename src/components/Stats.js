@@ -34,11 +34,15 @@ const Value = styled.span`
 
 const StatItem = ({data}) =>  <Item><img id="image" src={data.icon.publicURL} alt={data.label}/><Label>{data.label}</Label><Value>{data.value}</Value></Item>;
 
-const StatList = ({data}) => <Section id="stats">
+const StatList = ({data}) => { 
+
+return <Section id="stats">
+    <p>{data.statsDescription}</p>
     <List>
         {data.stats.map(stat => <StatItem data={stat} key={v4()} />)}
     </List>
 </Section>;
+}
 
 export default StatList;
 

@@ -21,12 +21,15 @@ PageTemplate.propTypes = {
   title: PropTypes.string,
 }
 
-const packageListings = ({ data }) => <Layout>
+const packageListings = ({ data }) => {
+console.log(data);
+return <Layout>
     <HeroSmall data={data.packageListingPage.edges[0].node.frontmatter} />
     <Content data={data.packageListingPage.edges[0].node.frontmatter} />
     <Listing data={data.courses} />
     <Footer />
-</Layout>;
+</Layout>
+};
 
 packageListings.propTypes = {
   data: PropTypes.shape({
@@ -69,6 +72,15 @@ export const packageListingsQuery = graphql`
               }
             }
           }
+          stats{
+            icon {
+              publicURL
+            }
+            label
+            value
+          }
+          city
+          country
         }
       }
     }

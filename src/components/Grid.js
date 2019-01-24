@@ -13,7 +13,7 @@ const Wrap = styled.section`
     }
 
     .cardContentHover {
-        height: 215px;
+        height: 320px;
         top: -215px
     }
 `;
@@ -52,9 +52,10 @@ const Grid = ({data}) => {
                 featuredDetails: {
                     image: edge.node.frontmatter.image,
                     name: edge.node.frontmatter.title,
-                    city: '',
-                    country: '',
                 },
+                stats: edge.node.frontmatter.stats,
+                city: edge.node.frontmatter.city,
+                country: edge.node.frontmatter.country,
             },
             fields: {
                 slug: edge.node.frontmatter.title.replace(/ /g,''),
