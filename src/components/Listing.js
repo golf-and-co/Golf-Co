@@ -1,20 +1,22 @@
 import React from 'react'
-import styled from "styled-components"
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Filter from '../components/Filter'
 import Grid from '../components/Grid'
 
 const Wrap = styled.section`
-    display: flex;
-`;
+  display: flex;
+`
 
-const Listing = ({data}) => <Wrap>
+const Listing = ({ data }) => (
+  <Wrap>
     <Filter data={data} />
     <Grid data={data} />
-</Wrap>
+  </Wrap>
+)
 
 Listing.propTypes = {
-    data: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
 }
 
-export default Listing;
+export default Listing

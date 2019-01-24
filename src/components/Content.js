@@ -1,11 +1,11 @@
 import React from 'react'
-import { StaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
+import { StaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const Wrap = styled.section`
-  background-color: #E4ECD9;
-  padding:90px 10px 220px 10px;
+  background-color: #e4ecd9;
+  padding: 90px 10px 220px 10px;
 
   p {
     max-width: 920px;
@@ -15,13 +15,14 @@ const Wrap = styled.section`
   }
 `
 
-const Content = ({data}) => <Wrap>
+const Content = ({ data }) => (
+  <Wrap>
     <p>{data.description}</p>
-</Wrap>
+  </Wrap>
+)
 
+export default Content
 
-export default Content;
-            
 Content.propTypes = {
-    data: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
 }

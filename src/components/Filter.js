@@ -1,21 +1,23 @@
 import React from 'react'
-import styled from "styled-components"
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const Wrap = styled.section`
-    display: flex;
-`;
+  display: flex;
+`
 
 const Box = styled.section`
-    background-color: #FFF;
-`;
+  background-color: #fff;
+`
 
-const Filter = ({data}) => <Wrap>
+const Filter = ({ data }) => (
+  <Wrap>
     <Box />
-</Wrap>
+  </Wrap>
+)
 
 Filter.propTypes = {
-    data: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
 }
 
-export default Filter;
+export default Filter

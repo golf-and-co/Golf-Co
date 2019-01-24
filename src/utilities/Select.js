@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from "styled-components"
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const SelectWrap = styled.div`
@@ -22,14 +22,18 @@ const SelectBox = styled.select`
   width: 180px;
 `
 
-const Select = ({options}) => <SelectWrap className="select is-rounded">
+const Select = ({ options }) => (
+  <SelectWrap className="select is-rounded">
     <SelectBox>
-        {options.map((item) => <option key={item}>{item.value}</option>)}
+      {options.map(item => (
+        <option key={item}>{item.value}</option>
+      ))}
     </SelectBox>
-</SelectWrap>
+  </SelectWrap>
+)
 
 Select.propTypes = {
-    options: PropTypes.array.isRequired,
-  }
+  options: PropTypes.array.isRequired,
+}
 
-export default Select;
+export default Select

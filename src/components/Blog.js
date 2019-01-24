@@ -1,6 +1,6 @@
 import React from 'react'
-import { StaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
+import { StaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const Cards = styled.section`
@@ -10,7 +10,7 @@ const Cards = styled.section`
 const Header = styled.section`
   color: #1d8649;
   /* Text style for "LET’S TALK" */
-  font-family: "Gotham Light";
+  font-family: 'Gotham Light';
   font-weight: 300;
   font-size: 30px;
   text-transform: uppercase;
@@ -19,16 +19,16 @@ const Header = styled.section`
 
 const HeaderStrong = styled.strong`
   color: #1d8649;
-  font-family: "Gotham Black";
+  font-family: 'Gotham Black';
   font-weight: 900;
 `
 
 const CardWrap = styled.section`
   color: #9b9b9b;
-  font-family: "Gotham Book";
+  font-family: 'Gotham Book';
   font-size: 14px;
   font-weight: 300;
-  background-color: #FFF;
+  background-color: #fff;
   width: 260px;
   margin: 25px 25px 0 25px;
 
@@ -39,7 +39,7 @@ const CardWrap = styled.section`
 
 const CardHeader = styled.section`
   color: #000000;
-  font-family: "Gotham Book";
+  font-family: 'Gotham Book';
   font-size: 18px;
   line-height: 20px;
   font-weight: 300;
@@ -51,57 +51,82 @@ const CardDescription = styled.section`
 `
 
 const ViewAllButton = styled.button`
-    display: block !important;
-    margin: 44px auto 44px auto;
-    background:none;
-    color: #1d8649;
-    font-weight: 300;
-    text-transform: uppercase;
-    border-color: #1d8649;
-    padding: 0 30px !important;
-`;
+  display: block !important;
+  margin: 44px auto 44px auto;
+  background: none;
+  color: #1d8649;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-color: #1d8649;
+  padding: 0 30px !important;
+`
 
-const Columns = styled.div `
+const Columns = styled.div`
   justify-content: center;
-`;
+`
 
-const Card = ({card}) => <CardWrap>
-  <div><img src={card.image.publicURL} alt={card.title}/></div>
-  <CardHeader>{card.title}</CardHeader>
-  <CardDescription>{card.description}</CardDescription>
-</CardWrap>;
+const Card = ({ card }) => (
+  <CardWrap>
+    <div>
+      <img src={card.image.publicURL} alt={card.title} />
+    </div>
+    <CardHeader>{card.title}</CardHeader>
+    <CardDescription>{card.description}</CardDescription>
+  </CardWrap>
+)
 
-const  Blog = ({data, headline}) => <Cards>
+const Blog = ({ data, headline }) => (
+  <Cards>
     <Header>
       {headline.heading1}
       <br />
       <HeaderStrong>{headline.heading2}</HeaderStrong>
     </Header>
     <Columns className="columns">
-      {data.edges.map( (data) => <Card className="column is-half" key={data.node.frontmatter.title} card={data.node.frontmatter} />)}
+      {data.edges.map(data => (
+        <Card
+          className="column is-half"
+          key={data.node.frontmatter.title}
+          card={data.node.frontmatter}
+        />
+      ))}
     </Columns>
-    <ViewAllButton className="button is-rounded" onClick={() => console.log(`Blog View All Click`)}>View All</ViewAllButton>
-</Cards>
+    <ViewAllButton
+      className="button is-rounded"
+      onClick={() => console.log(`Blog View All Click`)}
+    >
+      View All
+    </ViewAllButton>
+  </Cards>
+)
 
 export default props => (
-    <StaticQuery
-      query={graphql`{allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "post"}}} limit:2 sort:{fields:frontmatter___date, order:DESC}){
-        edges{
-          node{
-            frontmatter{
-              title
-              description
-              image {
-                publicURL
+  <StaticQuery
+    query={graphql`
+      {
+        allMarkdownRemark(
+          filter: { frontmatter: { templateKey: { eq: "post" } } }
+          limit: 2
+          sort: { fields: frontmatter___date, order: DESC }
+        ) {
+          edges {
+            node {
+              frontmatter {
+                title
+                description
+                image {
+                  publicURL
+                }
               }
             }
-            
           }
         }
       }
-      }`} render={data => <Blog data={data.allMarkdownRemark} {...props} />} />
+    `}
+    render={data => <Blog data={data.allMarkdownRemark} {...props} />}
+  />
 )
-            
+
 Blog.propTypes = {
-    data: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
 }
