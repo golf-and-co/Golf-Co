@@ -6,6 +6,7 @@ import Select from '../utilities/Select'
 import { v4 } from 'uuid'
 import Stats from '../components/Stats';
 
+// @TODO: fix crosscut here, move to card component
 const Wrap = styled.section`
   background-color: #cfddbb;
   display:block;
@@ -42,6 +43,14 @@ const HeadingTag = styled.strong`
 
 const CardLink = styled(Link)`
     margin: 0 auto;
+
+    .cardFooter .cardContent {
+        overflow: inherit !important;
+    }
+    
+    .cardFooter .cardContent #stats {
+        height: 80px;
+    }
 `;
 
 const Card = styled.div`
@@ -52,8 +61,7 @@ const Card = styled.div`
 
   @media (max-width: 768px) {
     margin: 0px auto 40px auto;
-  }
-`;
+  }`;
 
 const CardImageWrap = styled.div`
   height: 216px;
@@ -101,6 +109,8 @@ const CardContent = styled.div`
   .content {
       margin-left: 15px;
    }
+
+   
 `;
 
 const CardContentTag = styled.div`
@@ -211,39 +221,59 @@ const Logos = styled.section`
 // how will that work with a functional component?
 // @TODO: Use redux and observables, fire an event, featuredHover, to allow for other components to listen to it
 const courseMouseEnter = (data) => {
-    document.querySelector(`#${data.fields.slug.replace(/\//g,'')} .card-content`).className +=' cardContentHover';
+    document.querySelector(`#${data.fields.slug.replace(/\//g,'')} .cardContent`).className +=' cardContentHover';
 }
 
 const courseMouseExit = (data) => {
-    let featured = document.querySelector(`#${data.fields.slug.replace(/\//g,'')} .card-content`);
+    let featured = document.querySelector(`#${data.fields.slug.replace(/\//g,'')} .cardContent`);
     featured.className = featured.className.replace(/ cardContentHover/g, '');
 }
 
-export const Course = ({data}) => {
-    console.log(data);
-return <CardLink to={data.fields.slug} className="is-quarter">
-    <Card id={data.fields.slug.replace(/\//g,'')} className="card" onMouseEnter={() => courseMouseEnter(data)} onMouseLeave={() => courseMouseExit(data)}>
-        <CardImageWrap className="card-image">
-        <figure className="image is-4by3">
-            <CardImage src={
-            !!data.frontmatter.featuredDetails.image.childImageSharp
-                ? data.frontmatter.featuredDetails.image.childImageSharp.fluid.src
-                : data.frontmatter.featuredDetails.image
-            } alt="Placeholder" />
-        </figure>
-        <CardCaption>Dubai</CardCaption>
-        </CardImageWrap>
-        <CardContent className="card-content">
-        <div className="content">
-            {data.frontmatter.featuredDetails.name}
-            <br />
-            <CardContentTag>{data.frontmatter.city}, {data.frontmatter.country}</CardContentTag>
-        </div>
-        <Stats data={data.frontmatter} />
-        </CardContent>
-    </Card>
-</CardLink>;
-}
+// @TODO: refactor, need better properties, start by grouping in a decorator, pass a styled component
+export const Course = ({data, footer}) => {
+    const mouseEnter = () => {
+        if(!footer) {
+            courseMouseEnter(data);
+        }
+    }
+
+    const mouseLeave = () => {
+        if(!footer) {
+            courseMouseExit(data)
+        }
+    }
+
+    const classes = () => {
+        if(footer) {
+            return "card cardFooter";
+        } else {
+            return "card";
+        }
+    }
+
+    return <CardLink to={data.fields.slug} className="is-quarter">
+        <Card id={data.fields.slug.replace(/\//g,'')} className={classes()} onMouseEnter={() => mouseEnter()} onMouseLeave={() => mouseLeave()}>
+            <CardImageWrap className="cardImage">
+            <figure className="image is-4by3">
+                <CardImage src={
+                !!data.frontmatter.featuredDetails.image.childImageSharp
+                    ? data.frontmatter.featuredDetails.image.childImageSharp.fluid.src
+                    : data.frontmatter.featuredDetails.image
+                } alt="Placeholder" />
+            </figure>
+            <CardCaption>Dubai</CardCaption>
+            </CardImageWrap>
+            <CardContent className="cardContent">
+            <div className="content">
+                {data.frontmatter.featuredDetails.name}
+                <br />
+                <CardContentTag>{data.frontmatter.city}, {data.frontmatter.country}</CardContentTag>
+            </div>
+            <Stats data={data.frontmatter} />
+            </CardContent>
+        </Card>
+    </CardLink>
+};
 
 const Featured = ({home, courses}) => <Wrap>
     <Heading className="title">
@@ -256,7 +286,7 @@ const Featured = ({home, courses}) => <Wrap>
     
     <div className="container">
         <div className="columns">
-            {courses.map(course => <Course key={v4()} data={course.node} />)}
+            {courses.map(course => <Course key={v4()} data={course.node}  />)}
         </div>
     </div>
 

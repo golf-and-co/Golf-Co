@@ -10,13 +10,20 @@ const Background = styled.section`
 `;
 
 const Wrap = styled.section`
-    width: 1110px;
+    @media (min-width: 768px) {
+        width: 1110px;
+        max-width: 100%;
+    }
     margin: 0 auto !important;
 `;
 
 const FilterWrap = styled.div`
     section {
         justify-content: right;
+    }
+
+    @media (max-width: 768px) {
+        display: none !important;
     }
 `
 

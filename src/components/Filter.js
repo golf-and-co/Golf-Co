@@ -5,6 +5,11 @@ import Select from '../utilities/Select'
 
 const Wrap = styled.section`
     display: flex;
+
+    @media (max-width: 768px) {
+        display: none;
+        background-size: inherit;
+    }
   
     h6 {
         color: #000;

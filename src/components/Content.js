@@ -12,6 +12,10 @@ const Wrap = styled.section`
     margin: 20px auto;
     color: #000;
     text-align: center;
+
+    @media (max-width: 768px) {
+      margin: 5px auto;
+    }
   }
 `
 

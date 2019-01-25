@@ -10,6 +10,10 @@ const Wrap = styled.section`
 
     a {
         margin: 10px;
+
+        @media (max-width: 768px) {
+            margin: 0 auto;
+        }
     }
 
     .cardContentHover {
@@ -60,7 +64,7 @@ const Grid = ({data}) => {
             fields: {
                 slug: edge.node.frontmatter.title.replace(/ /g,''),
             }
-        }} />
+        }} footer = {true} />
     }
         )}
     </Wrap>

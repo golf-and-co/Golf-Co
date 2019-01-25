@@ -20,7 +20,11 @@ const HeroWrap = styled.section`
   height: 35vh;
 
   @media (min-width: 768px) {
-    border-radius: 0 0 45% 45%;
+    border-radius: 0 0 45% 45%;    
+  }
+
+  @media (max-width: 768px) {
+    background-size: inherit;
   }
 
 `
@@ -36,6 +40,10 @@ const Heading = styled.h1`
   @media (min-width: 768px) {
     font-size: 30px !important;
     margin-top: 100px;
+  }
+  
+  @media (max-width: 768px) {
+    display:none;
   }
 `
 
