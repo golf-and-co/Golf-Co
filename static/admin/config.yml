@@ -65,6 +65,7 @@ collections:
         name: "bespoke"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "bespoke-golf-holidays"}
+          - {label: "Hero", name: "image", widget: "image"}
           - {label: "Title", name: title, widget: "string"}
           - {label: "Description", name: "description", widget: "string"}
           - {label: "Heading First Line", name: heading1, widget: string}
