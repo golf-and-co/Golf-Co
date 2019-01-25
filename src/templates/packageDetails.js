@@ -2,9 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import HeroSmall from '../components/HeroSmall';
-import Content from '../components/Content';
-import Listing from '../components/Listing';
+import HeroCourse from '../components/HeroCourse';
+import Stats from '../components/Stats';
+import CourseDetails from '../components/CourseDetails';
+import Gallery from '../components/Gallery';
+import CourseMap from '../components/CourseMap';
 import Footer from '../components/Footer';
 
 export const PageTemplate = ({
@@ -21,11 +23,16 @@ PageTemplate.propTypes = {
   title: PropTypes.string,
 }
 
-const packageListings = ({ data }) => <Layout>
+const Course = ({ data }) => {
+console.log(data);
+return <Layout>
+    <HeroCourse data={data.markdownRemark.frontmatter} />
+    
     <Footer />
-</Layout>;
+</Layout>
+};
 
-packageListings.propTypes = {
+Course.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
@@ -33,18 +40,55 @@ packageListings.propTypes = {
   }),
 }
 
-export default packageListings
+export default Course
 
-export const packageListingsQuery = graphql`
-{
-  courses:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "packageDetails"}}}){
-    edges{
-       node{
-        frontmatter{
-          title
+export const packageDetailsQuery = graphql`
+  query packageDetailsQuery($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      rawMarkdownBody
+      frontmatter {
+        title
+        city
+        country
+        image {
+          childImageSharp{
+            fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+            }
+          }
         }
+        stats{
+          icon {
+            publicURL
+          }
+          label
+          value
+        }
+        dialogs{
+          icon {
+            publicURL
+          }
+          heading
+          message
+        }
+        tags{
+          icon {
+            publicURL
+          }
+          label
+        }
+        gallery {
+          category
+          image {
+            childImageSharp{
+              fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        map
       }
     }
   }
-}
 `
