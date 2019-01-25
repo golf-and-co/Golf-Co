@@ -200,7 +200,7 @@ const courseMouseExit = data => {
 }
 
 export const Course = ({ data }) => {
-  console.log(data)
+  // console.log(data)
   return (
     <CardLink to={data.fields.slug} className="is-quarter">
       <Card
