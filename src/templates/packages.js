@@ -1,21 +1,21 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import HeroSmall from '../components/HeroSmall'
-import Content from '../components/Content'
-import Listing from '../components/Listing'
-import Footer from '../components/Footer'
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import Layout from "../components/Layout";
+import HeroSmall from "../components/HeroSmall";
+import Content from "../components/Content";
+import Listing from "../components/Listing";
+import Footer from "../components/Footer";
 
 export const PageTemplate = ({ title }) => (
   <section className="section section--gradient">
     <div className="container">Preview Offline</div>
   </section>
-)
+);
 
 PageTemplate.propTypes = {
-  title: PropTypes.string,
-}
+  title: PropTypes.string
+};
 
 const packageListings = ({ data }) => (
   <Layout>
@@ -24,17 +24,17 @@ const packageListings = ({ data }) => (
     <Listing data={data.courses} />
     <Footer />
   </Layout>
-)
+);
 
 packageListings.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
-}
+      frontmatter: PropTypes.object
+    })
+  })
+};
 
-export default packageListings
+export default packageListings;
 
 export const packageListingsQuery = graphql`
   {
@@ -69,4 +69,4 @@ export const packageListingsQuery = graphql`
       }
     }
   }
-`
+`;
