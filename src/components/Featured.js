@@ -228,7 +228,6 @@ const courseMouseExit = (data) => {
     featured.className = featured.className.replace(/ cardContentHover/g, '');
 }
 
-<<<<<<< HEAD
 // @TODO: refactor, need better properties, start by grouping in a decorator, pass a styled component
 export const Course = ({data, footer}) => {
     const mouseEnter = () => {
@@ -256,22 +255,6 @@ export const Course = ({data, footer}) => {
             <CardImageWrap className="cardImage">
             <figure className="image is-4by3">
                 <CardImage src={
-=======
-export const Course = ({ data }) => {
-  // console.log(data)
-  return (
-    <CardLink to={data.fields.slug} className="is-quarter">
-      <Card
-        id={data.fields.slug.replace(/\//g, '')}
-        className="card"
-        onMouseEnter={() => courseMouseEnter(data)}
-        onMouseLeave={() => courseMouseExit(data)}
-      >
-        <CardImageWrap className="card-image">
-          <figure className="image is-4by3">
-            <CardImage
-              src={
->>>>>>> test netlify CMS
                 !!data.frontmatter.featuredDetails.image.childImageSharp
                     ? data.frontmatter.featuredDetails.image.childImageSharp.fluid.src
                     : data.frontmatter.featuredDetails.image
