@@ -10,13 +10,13 @@ body:
   turpis, sed facilisis eros bibendum aliquam. Nulla sagittis tempor turpis,
   consectetur efficitur est dignissim sit amet.
 heading1: Golf Themed Holiday Packages
-description1: Etiam nec tellus eu
-  lorem sodales placerat. Sed non est libero. Aliquam scelerisque dignissim
-  turpis, sed facilisis eros bibendum aliquam. Nulla sagittis tempor turpis,
-  consectetur
+description1: >-
+  Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
+  scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
+  sagittis tempor turpis, consectetur
 heading2: Not Sure Which Package Suits You? Let Us Help!
-description2: Etiam nec tellus eu
-  lorem sodales placerat. Sed non est libero. Aliquam scelerisque dignissim
-  turpis, sed facilisis eros bibendum aliquam. Nulla sagittis tempor turpis,
-  consectetur
+description2: >-
+  Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
+  scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
+  sagittis tempor turpis, consectetur
 ---
