@@ -17,14 +17,14 @@ PageTemplate.propTypes = {
   title: PropTypes.string
 };
 
-const packageListings = ({ data }) => (
+const packageDetails = ({ data }) => (
   <Layout>
-    <HeroSmall data={data.packageListingPage.edges[0].node.frontmatter} />
+    <HeroSmall data={data.packageDetailsPage.edges[0].node.frontmatter} />
     <Footer />
   </Layout>
 );
 
-packageListings.propTypes = {
+packageDetails.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object
@@ -32,17 +32,24 @@ packageListings.propTypes = {
   })
 };
 
-export default packageListings;
+export default packageDetails;
 
-export const packageListingsQuery = graphql`
+export const packageDetailsQuery = graphql`
   {
-    courses: allMarkdownRemark(
+    packageDetailsPage: allMarkdownRemark(
       filter: { frontmatter: { templateKey: { eq: "packageDetails" } } }
     ) {
       edges {
         node {
           frontmatter {
             title
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
