@@ -1,8 +1,13 @@
 ---
-templateKey: packageListings
+templateKey: packageDetails
 code: GC-DXB-PA01
 image: /img/packages-dubai.png
 title: Golf in Dubai
+description: >-
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec tellus eu
+  lorem sodales placerat. Sed non est libero. Aliquam scelerisque dignissim
+  turpis, sed facilisis eros bibendum aliquam. Nulla sagittis tempor turpis,
+  consectetur efficitur est dignissim sit amet. 
 city: 'Dubai'
 country: 'UAE'
 hotelType: '5'
