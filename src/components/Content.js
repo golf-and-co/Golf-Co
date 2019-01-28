@@ -1,5 +1,4 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -18,11 +17,9 @@ const Wrap = styled.section`
     }
   }
 `
-
 const Content = ({ data }) => (
   <Wrap>
     <p>{data.description}</p>
-    <p>{data.body}</p>
   </Wrap>
 )
 
