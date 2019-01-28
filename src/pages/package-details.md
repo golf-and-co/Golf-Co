@@ -1,6 +1,6 @@
 ---
 templateKey: packageDetails
-image: /img/hero_small.png
+image: /img/packages-dubai.png
 title: You will be playing at these Golf Courses in this package
 description: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec tellus eu

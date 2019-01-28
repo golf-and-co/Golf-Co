@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import {withCookies, cookie} from "react-cookie";
 import Layout from '../components/Layout'
 import HeroCourse from '../components/HeroCourse';
-import Stats from '../components/Stats';
-import CourseDetails from '../components/CourseDetails';
-import Gallery from '../components/Gallery';
-import CourseMap from '../components/CourseMap';
+import CartStats from '../components/CartStats';
+import CartDetails from '../components/CartDetails';
+
 import Footer from '../components/Footer';
 
 export const PageTemplate = ({
@@ -23,16 +23,19 @@ PageTemplate.propTypes = {
   title: PropTypes.string,
 }
 
-const Course = ({ data }) => {
-console.log(data);
+const PackageDetails = ({ data, cookies }) => {
+// @TODO: Add to cart, follow this schema
+cookies.set('cart', {stats:[{icon:{publicURL:"/static/golf_tee-a3079085b609f0c2a1099738dea6aab4.svg"}, label:"Golf Rounds",value:"5"}], headline:"7 Nights (BB Base) + 4 Rounds of"}, { path: '/' });
+const cart = cookies.get('cart');
 return <Layout>
-    <HeroCourse data={data.markdownRemark.frontmatter} />
-    
+    <HeroCourse data={data.markdownRemark.frontmatter} empty={true} />
+    <CartStats cart={cart} data={data.markdownRemark.frontmatter} />
+    <CartDetails data={data.markdownRemark.frontmatter} cart={cart} />
     <Footer />
 </Layout>
 };
 
-Course.propTypes = {
+PackageDetails.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
@@ -40,7 +43,7 @@ Course.propTypes = {
   }),
 }
 
-export default Course
+export default withCookies(PackageDetails)
 
 export const packageDetailsQuery = graphql`
   query packageDetailsQuery($id: String!) {
