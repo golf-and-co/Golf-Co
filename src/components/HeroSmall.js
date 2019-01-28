@@ -82,7 +82,7 @@ const Hero = ({data}) => {
       </LogoWrapper>
       <div className="column is-8">
         <Heading className="title">
-          {/* <HeadingStrong>{data.title}</HeadingStrong> */}
+          <HeadingStrong>{data.title}</HeadingStrong>
         </Heading>
       </div>
     </Container>
