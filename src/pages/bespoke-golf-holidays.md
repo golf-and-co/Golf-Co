@@ -2,23 +2,61 @@
 templateKey: bespoke-golf-holidays
 image: /img/hero_small.png
 title: Bespoke Golf Holidays
-heading1: Golf Themed Holiday Packages
+paragraph1: >-
+  Golf & Co. is the only specialised Golf Themed Tourism and Events company based in Dubai that offers Bespoke Packages, Golf Insurance and Corporate Golf events across the Middle East region and beyond 
+paragraph2: >-
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+heading1: Golf Themed Holiday Package
 description1: >-
   Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
   scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
   sagittis tempor turpis, consectetur
+backgroundImage: /img/emirates-golf-club-course.png
+package1: 
+  image: /img/golf_bag.svg
+  heading: Title sample
+  description: Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
+    scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
+    sagittis tempor turpis, consectetur
+package2: 
+  image: /img/golf_bag.svg
+  heading: Title sample
+  description: Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
+    scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
+    sagittis tempor turpis, consectetur
+package3: 
+  image: /img/golf_bag.svg
+  heading: Title sample
+  description: Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
+    scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
+    sagittis tempor turpis, consectetur
+package4: 
+  image: /img/golf_bag.svg
+  heading: Title sample
+  description: Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
+    scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
+    sagittis tempor turpis, consectetur
+package5: 
+  image: /img/golf_bag.svg
+  heading: Title sample
+  description: Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
+    scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
+    sagittis tempor turpis, consectetur
+package6: 
+  image: /img/golf_bag.svg
+  heading: Title sample
+  description: Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
+    scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
+    sagittis tempor turpis, consectetur
+package7: 
+  image: /img/golf_bag.svg
+  heading: Title sample
+  description: Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
+    scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
+    sagittis tempor turpis, consectetur
 heading2: Not Sure Which Package Suits You? Let Us Help!
 description2: >-
   Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
   scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
   sagittis tempor turpis, consectetur
 ---
-  Golf & Co. is the only specialised Golf Themed Tourism and Events company based in Dubai that offers Bespoke Packages, Golf Insurance and Corporate Golf events across the Middle East region and beyond. \
-\
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec tellus eu
-
-lorem sodales placerat. Sed non est libero. Aliquam scelerisque dignissim
-
-turpis, sed facilisis eros bibendum aliquam. Nulla sagittis tempor turpis,
-
-consectetur efficitur est dignissim sit amet.
