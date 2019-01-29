@@ -48,11 +48,11 @@ collections:
           - {label: "Share", name: share, widget: string}          
           - {label: "View Gallery", name: viewGallery, widget: string}
           - {label: "Gallery", name: gallery, widget: string}
-      - file: "src/pages/packageListings.md"
+      - file: "src/pages/packages.md"
         label: "Packages Listing"
         name: "package"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "packageListings"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "packages"}
           - {label: "Hero", name: "image", widget: "image"}
           - {label: "Title", name: title, widget: "string"}
           - {label: "Description", name: "description", widget: "string"}
@@ -110,7 +110,7 @@ collections:
     folder: "src/pages/packages"
     create: true
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "packageListings"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "package"}
       - {label: "Code", name: "code", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
       - {label: Title, name: title, widget: "string"}

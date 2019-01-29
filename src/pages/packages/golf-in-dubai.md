@@ -1,5 +1,5 @@
 ---
-templateKey: packageDetails
+templateKey: package
 code: GC-DXB-PA01
 image: /img/packages-dubai.png
 title: Golf in Dubai

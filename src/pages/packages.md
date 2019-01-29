@@ -1,5 +1,5 @@
 ---
-templateKey: packageListings
+templateKey: packages
 image: /img/hero_small.png
 title: Golf Packages
 description: >-
