@@ -52,6 +52,7 @@ export const packageDetailsQuery = graphql`
       rawMarkdownBody
       frontmatter {
         title
+        description
         city
         country
         image {

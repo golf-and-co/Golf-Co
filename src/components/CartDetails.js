@@ -7,6 +7,7 @@ const Background = styled.div`
   background-color: #f6f9f2;
   padding: 0 75px;
   margin-bottom: 0 !important;
+  padding-bottom: 160px;
 
   p {
     color: #000000;
@@ -80,16 +81,49 @@ const About = styled.h1`
   margin-top: 30px;
 `;
 
-const Cart = () => <div />;
+const Cart = () => <aside class="menu">
+<p class="menu-label">
+  General
+</p>
+<ul class="menu-list">
+  <li><a>Dashboard</a></li>
+  <li><a>Customers</a></li>
+</ul>
+<p class="menu-label">
+  Administration
+</p>
+<ul class="menu-list">
+  <li><a>Team Settings</a></li>
+  <li>
+    <a class="is-active">Manage Your Team</a>
+    <ul>
+      <li><a>Members</a></li>
+      <li><a>Plugins</a></li>
+      <li><a>Add a member</a></li>
+    </ul>
+  </li>
+  <li><a>Invitations</a></li>
+  <li><a>Cloud Storage Environment Settings</a></li>
+  <li><a>Authentication</a></li>
+</ul>
+<p class="menu-label">
+  Transactions
+</p>
+<ul class="menu-list">
+  <li><a>Payments</a></li>
+  <li><a>Transfers</a></li>
+  <li><a>Balance</a></li>
+</ul>
+</aside>;
 
-const CartDetails = ({data, body}) => <Background className="columns">
+const CartDetails = ({data}) => <Background className="columns">
   <div className="column is-three-quarters">
     <ShareWrapper>
       <Share><i className="fas fa-share-square"></i> Share</Share>
     </ShareWrapper>
 
     <About>About {data.title}</About>
-    <p>{body}</p>
+    <p>{data.description}</p>
   </div>
   <div className="column is-one-quarters">
     <Cart />
