@@ -81,40 +81,73 @@ const About = styled.h1`
   margin-top: 30px;
 `;
 
-const Cart = () => <aside class="menu">
-<p class="menu-label">
-  General
-</p>
-<ul class="menu-list">
-  <li><a>Dashboard</a></li>
-  <li><a>Customers</a></li>
-</ul>
-<p class="menu-label">
-  Administration
-</p>
-<ul class="menu-list">
-  <li><a>Team Settings</a></li>
-  <li>
-    <a class="is-active">Manage Your Team</a>
-    <ul>
-      <li><a>Members</a></li>
-      <li><a>Plugins</a></li>
-      <li><a>Add a member</a></li>
-    </ul>
-  </li>
-  <li><a>Invitations</a></li>
-  <li><a>Cloud Storage Environment Settings</a></li>
-  <li><a>Authentication</a></li>
-</ul>
-<p class="menu-label">
-  Transactions
-</p>
-<ul class="menu-list">
-  <li><a>Payments</a></li>
-  <li><a>Transfers</a></li>
-  <li><a>Balance</a></li>
-</ul>
-</aside>;
+const CartWrap = styled.aside`
+  box-shadow: 0px 2px 11px 0px rgba(29,134,73,0.44);
+  background: #FFF;
+  border-radius: 10px;
+`;
+
+const CartHeader = styled.p`
+  letter-spacing: 0;
+  padding: 20px;
+
+  h3 {
+    color: #1d8649;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  p {
+    color: #1a428a;
+    font-size: 32px;
+    line-height: 43px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  p.disclaimer {
+    color: #9b9b9b;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: center;
+    text-transform: none;
+  }
+`;
+
+const CartBanner = styled.div`
+  background: #1d8649;  
+  color: #ffffff;
+
+  h3 {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: center;
+  }
+`;
+
+const Cart = ({data}) => <CartWrap className="menu">
+  <CartHeader className="menu-label">
+    <h3>Starting from</h3>
+    <p>4,500</p>
+    <h3>USD / Person</h3>
+    <p className="disclaimer">(Prices calculated based on twin sharing basis for two people)</p>
+  </CartHeader>
+  <CartBanner className="menu-label">
+    <h3>Add-Ons</h3>
+    <p>Make your trip even more memorable with these carefully chosen facilities and excursions</p>
+  </CartBanner>
+  <ul className="menu-list">
+    <li>
+      <a>+ Club Rental</a>
+      <p>USD 50/pax/day</p>
+    </li>
+  </ul>
+</CartWrap>;
 
 const CartDetails = ({data}) => <Background className="columns">
   <div className="column is-three-quarters">
@@ -126,7 +159,7 @@ const CartDetails = ({data}) => <Background className="columns">
     <p>{data.description}</p>
   </div>
   <div className="column is-one-quarters">
-    <Cart />
+    <Cart data={data} />
   </div>
 </Background>
 
