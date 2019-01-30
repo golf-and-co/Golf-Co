@@ -4,6 +4,11 @@ import PropTypes from 'prop-types'
 import Filter from '../components/Filter'
 import Grid from '../components/Grid'
 
+const Background = styled.section`
+    padding-bottom: 200px;
+    background-color: #E4ECD9;
+`;
+
 const Wrap = styled.section`
   display: flex;
 `

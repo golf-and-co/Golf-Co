@@ -48,11 +48,11 @@ collections:
           - {label: "Share", name: share, widget: string}          
           - {label: "View Gallery", name: viewGallery, widget: string}
           - {label: "Gallery", name: gallery, widget: string}
-      - file: "src/pages/packageListings.md"
+      - file: "src/pages/packages.md"
         label: "Packages Listing"
         name: "package"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "packageListings"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "packages"}
           - {label: "Hero", name: "image", widget: "image"}
           - {label: "Title", name: title, widget: "string"}
           - {label: "Description", name: "description", widget: "string"}
@@ -117,6 +117,7 @@ collections:
       - {label: "City", name: "city", widget: "string"}
       - {label: "Region", name: "region", widget: "string"}
       - {label: "Country", name: "country", widget: "string"}
+      - {label: "Stats Description", name: "statsDescription", widget: "string"}
       - {label: "Stats", name: "stats", widget: "list", fields: [{label: "Icon", name: icon, widget: image}, {label: "Label", name: label, widget: string}, {label: "Value", name: value, widget: string}]}
       - {label: "Dialogs", name: "dialogs", widget: "list", fields: [{label: "Icon", name: icon, widget: image}, {label: "Heading", name: "heading", widget: "string"}, {label: "Message", name: "message", widget: "markdown"}]}
       - {label: "Tags", name: tags, widget: list, fields: [{label: "Icon", name: icon, widget: image}, {label: "Label", name: label, widget: string}]}
@@ -130,12 +131,15 @@ collections:
     folder: "src/pages/packages"
     create: true
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "packageListings"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "package"}
       - {label: "Code", name: "code", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
       - {label: Title, name: title, widget: "string"}
-      - {label: "Location", name: "location", widget: "string"}
+      - {label: "City", name: "city", widget: "string"}
+      - {label: "Country", name: "country", widget: "string"}
       - {label: "Hotel Type", name: "hotelType", widget: "string"}
       - {label: "Duration", name: "duration", widget: "string"}
       - {label: "Rounds", name: "rounds", widget: "string"}
       - {label: "Price", name: "price", widget: "string"}
+      - {label: "Searchable", name: "searchable", widget: "boolean"}
+      - {label: "Stats", name: "stats", widget: "list", fields: [{label: "Icon", name: icon, widget: image}, {label: "Label", name: label, widget: string}, {label: "Value", name: value, widget: string}]}
