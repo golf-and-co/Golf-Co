@@ -1,20 +1,20 @@
 import React from 'react'
-import { StaticQuery, graphql, Link } from "gatsby"
-import styled from "styled-components"
+import { StaticQuery, graphql, Link } from 'gatsby'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
 import logo from '../img/logo.svg'
 
 const Background = styled.div`
   background: #f6f9f2;
-  padding-bottom:10px;
+  padding-bottom: 10px;
   text-align: center;
-`;
+`
 
 const HeroWrap = styled.section`
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: #F6F9F2;
+  background-color: #f6f9f2;
   max-width: none;
   border-radius: 0 0 30% 30%;
   width: 140%;
@@ -24,14 +24,13 @@ const HeroWrap = styled.section`
     background-position-y: -50vh;
     border-radius: 0 0 45% 45%;
   }
-
 `
 const Heading = styled.h1`
   margin-top: 20vh !important;
   margin-bottom: 10vh !important;
   text-align: center;
   color: white !important;
-  font-family: "Gotham Book";
+  font-family: 'Gotham Book';
   text-transform: uppercase;
   font-size: 15px !important;
   font-weight: 300;
@@ -73,7 +72,7 @@ const Search = styled.aside`
 `
 
 const Button = styled.a`
-  font-family: "Gotham Book";
+  font-family: 'Gotham Book';
   vertical-align: middle !important;
   margin: auto 10px;
   width: 200px;
@@ -90,55 +89,61 @@ const Button = styled.a`
 
 const Logo = styled(Link)`
   justify-content: center;
-  background-color: rgba(0,0,0,0.01) !important;
+  background-color: rgba(0, 0, 0, 0.01) !important;
   padding-top: 45px !important;
   :hover {
-    background-color: rgba(0,0,0,0.01) !important;
-    color: #FFF !important;
+    background-color: rgba(0, 0, 0, 0.01) !important;
+    color: #fff !important;
   }
 `
 
-const Hero = ({data}) => <Background>
-  <HeroWrap style={{
-    backgroundImage: `url(${
-      !!data.image.childImageSharp
-        ? data.image.childImageSharp.fluid.src
-        : data.image
-    })`,
-  }}>
-    <div className="container content is-fluid">
-    <div className="column is-10 is-offset-1">
-    <Logo to="/" className="navbar-item" title="Logo">
-      <img src={logo} alt="GolfAndCo" />
-    </Logo>
-    <Heading className="title">
-      {data.heading1}
-      <br />
-      <HeadingStrong>{data.heading2}</HeadingStrong>
-    </Heading>
-    </div>
-    </div>
+const Hero = ({ data }) => (
+  <Background>
+    <HeroWrap
+      style={{
+        backgroundImage: `url(${
+          !!data.image.childImageSharp
+            ? data.image.childImageSharp.fluid.src
+            : data.image
+        })`,
+      }}
+    >
+      <div className="container content is-fluid">
+        <div className="column is-10 is-offset-1">
+          <Logo to="/" className="navbar-item" title="Logo">
+            <img src={logo} alt="GolfAndCo" />
+          </Logo>
+          <Heading className="title">
+            {data.heading1}
+            <br />
+            <HeadingStrong>{data.heading2}</HeadingStrong>
+          </Heading>
+        </div>
+      </div>
     </HeroWrap>
     <Search>
-      <Select options={[{value:"UAE"}]} />
-      <Select options={[{value:"Select City"}]} />
+      <Select options={[{ value: 'UAE' }]} />
+      <Select options={[{ value: 'Select City' }]} />
       <Button className="button is-link is-rounded">View Golf Course</Button>
     </Search>
-</Background>;
+  </Background>
+)
 
 export default props => (
   <StaticQuery
-    query={graphql`{
-      allMarkdownRemark(filter: {frontmatter: {title: {eq: "Home"}}}) {
-        edges {
-          node {
-            frontmatter {
-              heading1
-              heading2
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 2048, quality: 100) {
-                    ...GatsbyImageSharpFluid
+    query={graphql`
+      {
+        allMarkdownRemark(filter: { frontmatter: { title: { eq: "Home" } } }) {
+          edges {
+            node {
+              frontmatter {
+                heading1
+                heading2
+                image {
+                  childImageSharp {
+                    fluid(maxWidth: 2048, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
                   }
                 }
               }
@@ -146,7 +151,14 @@ export default props => (
           }
         }
       }
-    }`} render={data => <Hero data={data.allMarkdownRemark.edges[0].node.frontmatter} {...props} />} />
+    `}
+    render={data => (
+      <Hero
+        data={data.allMarkdownRemark.edges[0].node.frontmatter}
+        {...props}
+      />
+    )}
+  />
 )
 
 Hero.propTypes = {

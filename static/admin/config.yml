@@ -60,6 +60,27 @@ collections:
           - {label: "Hotel Type Label", name: "hotelType", widget: "string"}
           - {label: "Duration Label", name: "duration", widget: "string"}
           - {label: "Packages Label", name: "package", widget: "string"}
+      - file: "src/pages/bespoke-golf-holidays.md"
+        label: "Bespoke Golf Holidays"
+        name: "bespoke"
+        fields:
+          - {label: Template Key, name: templateKey, widget: hidden, default: bespoke-golf-holidays}
+          - {label: Hero, name: image, widget: image}
+          - {label: Title, name: title, widget: string}
+          - {label: First Paragraph, name: paragraph1, widget: string}
+          - {label: Second Paragraph, name: paragraph2, widget: string}
+          - {label: Heading First Line, name: heading1, widget: string}
+          - {label: Description First Line, name: description1, widget: string}
+          - {label: Background Image, name: backgroundImage, widget: image}
+          - {label: "Package 1", name: package1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
+          - {label: "Package 2", name: package2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
+          - {label: "Package 3", name: package3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
+          - {label: "Package 4", name: package4, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
+          - {label: "Package 5", name: package5, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
+          - {label: "Package 6", name: package6, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
+          - {label: "Package 7", name: package7, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
+          - {label: Heading Second Line, name: heading2, widget: string}
+          - {label: Description Second Line, name: description2, widget: string}
   - name: "post"
     label: "Posts"
     folder: "src/pages/post"

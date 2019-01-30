@@ -3,13 +3,9 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
-export const PageTemplate = ({
-  title,
-}) => (
+export const PageTemplate = ({ title }) => (
   <section className="section section--gradient">
-    <div className="container">
-      Preview Offline
-    </div>
+    <div className="container">Preview Offline</div>
   </section>
 )
 
@@ -22,9 +18,7 @@ const ProductPage = ({ data }) => {
 
   return (
     <Layout>
-      <PageTemplate
-        title={frontmatter.title}
-      />
+      <PageTemplate title={frontmatter.title} />
     </Layout>
   )
 }

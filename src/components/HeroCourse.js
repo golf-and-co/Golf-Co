@@ -1,17 +1,14 @@
 import React from 'react'
-import { Link } from "gatsby"
-import styled from "styled-components"
+import { Link } from 'gatsby'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import logo from '../img/logo.svg'
 
 const Background = styled.div`
-  padding-bottom:10px;
+  background: #81aa8c;
+  padding-bottom: 10px;
   text-align: center;
-
-  &.fill {
-    background-color: #81aa8c;
-  }
-`;
+`
 
 const HeroWrap = styled.section`
   background-size: cover;
@@ -24,12 +21,11 @@ const HeroWrap = styled.section`
   @media (min-width: 768px) {
     border-radius: 0 0 45% 45%;
   }
-
 `
 const Heading = styled.h1`
   text-align: center;
   color: white !important;
-  font-family: "Gotham Book";
+  font-family: 'Gotham Book';
   text-transform: uppercase;
   font-size: 15px !important;
   font-weight: 300;
@@ -49,15 +45,15 @@ const HeadingStrong = styled.strong`
     font-weight: 700;
   }
 `
-const ViewGallery = styled.div `
+const ViewGallery = styled.div`
   @media (min-width: 768px) {
     margin-top: 40vh;
     padding-bottom: 30px;
   }
-`;
+`
 
 const Button = styled.a`
-  font-family: "Gotham Book";
+  font-family: 'Gotham Book';
   vertical-align: middle !important;
   margin: auto 10px;
   width: 200px;
@@ -74,36 +70,33 @@ const Button = styled.a`
 const Container = styled.div`
   max-width: 100vw !important;
   margin-left: 20vw !important;
-`;
+`
 
 const LogoWrapper = styled.div`
-  padding:0;
-`;
+  padding: 0;
+`
 
 const Logo = styled(Link)`
   justify-content: center;
-  background-color: rgba(0,0,0,0.01) !important;
+  background-color: rgba(0, 0, 0, 0.01) !important;
   padding-top: 45px !important;
   :hover {
-    background-color: rgba(0,0,0,0.01) !important;
-    color: #FFF !important;
+    background-color: rgba(0, 0, 0, 0.01) !important;
+    color: #fff !important;
   }
 `
 
-const Hero = ({data, empty}) => {
-  
-  const classes = () => { 
-    if(!empty) return 'fill';
-  }
-
-  return <Background className={classes()}>
-    <HeroWrap style={{
-      backgroundImage: `url(${
-        !!data.image.childImageSharp
-          ? data.image.childImageSharp.fluid.src
-          : data.image
-      })`,
-    }}>
+const Hero = ({ data }) => (
+  <Background>
+    <HeroWrap
+      style={{
+        backgroundImage: `url(${
+          !!data.image.childImageSharp
+            ? data.image.childImageSharp.fluid.src
+            : data.image
+        })`,
+      }}
+    >
       <Container className="container content columns is-fluid">
         <LogoWrapper className="column is-2">
           <Logo to="/" className="navbar-item" title="Logo">
@@ -118,14 +111,22 @@ const Hero = ({data, empty}) => {
           </Heading>
         </div>
       </Container>
-      <ViewGallery>
-        <Button className="button is-link is-rounded" onClick={() => document.querySelector('#courseDetailBackground').scrollIntoView()}>View Gallery</Button>
-      </ViewGallery>
-    </HeroWrap>  
-  </Background>
-}
 
-export default Hero;
+      <ViewGallery>
+        <Button
+          className="button is-link is-rounded"
+          onClick={() =>
+            document.querySelector('#courseDetailBackground').scrollIntoView()
+          }
+        >
+          View Gallery
+        </Button>
+      </ViewGallery>
+    </HeroWrap>
+  </Background>
+)
+
+export default Hero
 
 Hero.propTypes = {
   data: PropTypes.object.isRequired,

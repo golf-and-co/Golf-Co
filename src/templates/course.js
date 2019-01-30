@@ -2,20 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import HeroCourse from '../components/HeroCourse';
-import Stats from '../components/Stats';
-import CourseDetails from '../components/CourseDetails';
-import Gallery from '../components/Gallery';
-import CourseMap from '../components/CourseMap';
-import Footer from '../components/Footer';
+import HeroCourse from '../components/HeroCourse'
+import Stats from '../components/Stats'
+import CourseDetails from '../components/CourseDetails'
+import Gallery from '../components/Gallery'
+import CourseMap from '../components/CourseMap'
+import Footer from '../components/Footer'
 
-export const PageTemplate = ({
-  title,
-}) => (
+export const PageTemplate = ({ title }) => (
   <section className="section section--gradient">
-    <div className="container">
-      Preview Offline
-    </div>
+    <div className="container">Preview Offline</div>
   </section>
 )
 
@@ -23,14 +19,19 @@ PageTemplate.propTypes = {
   title: PropTypes.string,
 }
 
-const Course = ({ data }) => <Layout>
+const Course = ({ data }) => (
+  <Layout>
     <HeroCourse data={data.markdownRemark.frontmatter} />
     <Stats data={data.markdownRemark.frontmatter} />
-    <CourseDetails data={data.markdownRemark.frontmatter} body={data.markdownRemark.rawMarkdownBody} />
+    <CourseDetails
+      data={data.markdownRemark.frontmatter}
+      body={data.markdownRemark.rawMarkdownBody}
+    />
     <Gallery data={data.markdownRemark.frontmatter} />
     <CourseMap data={data.markdownRemark.frontmatter} />
     <Footer />
-</Layout>;
+  </Layout>
+)
 
 Course.propTypes = {
   data: PropTypes.shape({
@@ -51,27 +52,27 @@ export const courseQuery = graphql`
         city
         country
         image {
-          childImageSharp{
+          childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid
             }
           }
         }
-        stats{
+        stats {
           icon {
             publicURL
           }
           label
           value
         }
-        dialogs{
+        dialogs {
           icon {
             publicURL
           }
           heading
           message
         }
-        tags{
+        tags {
           icon {
             publicURL
           }
@@ -80,9 +81,9 @@ export const courseQuery = graphql`
         gallery {
           category
           image {
-            childImageSharp{
+            childImageSharp {
               fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid
               }
             }
           }

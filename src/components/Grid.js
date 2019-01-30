@@ -1,29 +1,19 @@
 import React from 'react'
-import styled from "styled-components"
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import {Course} from '../components/Featured';
+import { Course } from '../components/Featured'
 
 const Wrap = styled.section`
-    display: flex;
-    margin: 0 auto;
-    flex-wrap: wrap;
+  display: flex;
+  margin: 0 auto;
 
-    a {
-        margin: 10px;
+  a {
+    margin: 10px;
+  }
+`
 
-        @media (max-width: 768px) {
-            margin: 0 auto;
-        }
-    }
-
-    .cardContentHover {
-        height: 320px;
-        top: -215px
-    }
-`;
-
-const Grid = ({data}) => {
-    /*
+const Grid = ({ data }) => {
+  /*
     edges: (2) […]
     ​​
         0: {…}
@@ -35,10 +25,9 @@ const Grid = ({data}) => {
                 title: "Golf Packages"
     */
 
-    
-    // @TODO: factor out Course from featured, better adapter
-    // what adapter wants:
-    /*data.fields = {
+  // @TODO: factor out Course from featured, better adapter
+  // what adapter wants:
+  /*data.fields = {
         slug: 'a',
     };
     data.frontmatter = {};
@@ -48,30 +37,34 @@ const Grid = ({data}) => {
         city: '',
         country: '',
     };*/
-    
-    return <Wrap>
-        {data.edges.map(edge => {
-        return <Course data = {{
-            frontmatter:{
+
+  return (
+    <Wrap>
+      {data.edges.map(edge => {
+        return (
+          <Course
+            data={{
+              frontmatter: {
                 featuredDetails: {
-                    image: edge.node.frontmatter.image,
-                    name: edge.node.frontmatter.title,
+                  image: '',
+                  name: edge.node.frontmatter.title,
+                  city: '',
+                  country: '',
                 },
-                stats: edge.node.frontmatter.stats,
-                city: edge.node.frontmatter.city,
-                country: edge.node.frontmatter.country,
-            },
-            fields: {
-                slug: edge.node.frontmatter.title.replace(/ /g,''),
-            }
-        }} footer = {true} />
-    }
-        )}
+              },
+              fields: {
+                slug: edge.node.frontmatter.title.replace(/ /g, ''),
+              },
+            }}
+          />
+        )
+      })}
     </Wrap>
+  )
 }
 
 Grid.propTypes = {
-    data: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
 }
 
-export default Grid;
+export default Grid
