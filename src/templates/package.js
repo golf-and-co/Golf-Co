@@ -24,7 +24,6 @@ PageTemplate.propTypes = {
 }
 
 const PackageDetails = ({ data, cookies }) => {
-console.log(data);
 // @TODO: Add to cart, follow this schema
 cookies.set('cart', {stats:[{icon:{publicURL:"/static/golf_tee-a3079085b609f0c2a1099738dea6aab4.svg"}, label:"Golf Rounds",value:"5"}], headline:"7 Nights (BB Base) + 4 Rounds of"}, { path: '/' });
 const cart = cookies.get('cart');

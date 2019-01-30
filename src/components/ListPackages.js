@@ -58,7 +58,7 @@ const Package = ({data}) => <PackageGraphic>
 
 const ListPackages = ({ data }) => (
   <PackageWrap>
-    
+    {data.packages.map(({data}) => <Package data={data} />)}
   </PackageWrap>
 );
 

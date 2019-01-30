@@ -18,7 +18,6 @@ PageTemplate.propTypes = {
 };
 
 const packageDetails = ({ data }) => {
-  console.log(data);
   return <Layout>
     <HeroSmall data={data.packageListingPage.edges[0].node.frontmatter} />
     <Content data={data.packageListingPage.edges[0].node.frontmatter} />
