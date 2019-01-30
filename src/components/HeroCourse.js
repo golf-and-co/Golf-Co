@@ -13,7 +13,6 @@ const Background = styled.div`
 const HeroWrap = styled.section`
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: #81aa8c;
   max-width: none;
   border-radius: 0 0 30% 30%;
   width: 140%;
