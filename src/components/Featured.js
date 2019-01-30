@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
 import { v4 } from 'uuid'
-import Stats from '../components/Stats';
 
 // @TODO: fix crosscut here, move to card component
 const Wrap = styled.section`
@@ -181,8 +180,6 @@ const Logos = styled.section`
   justify-content: center;
   padding: 75px 0;
 `
-
-const cardStats = styled.div``
 
 // No interface to trigger focus event outside this component is required, falling back to DOM instead of React props for class
 // traditional way is to pass a prop, and rerender the component.
@@ -401,15 +398,15 @@ export default props => (
                   name
                   description
                 }
+                stats{
+                  icon {
+                      publicURL
+                  }
+                  label
+                  value
+                }
               }
             }
-          }
-          stats{
-            icon {
-                publicURL
-            }
-            label
-            value
           }
         }
       }
