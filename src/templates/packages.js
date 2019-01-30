@@ -17,14 +17,15 @@ PageTemplate.propTypes = {
   title: PropTypes.string
 };
 
-const packageDetails = ({ data }) => (
-  <Layout>
+const packageDetails = ({ data }) => {
+  console.log(data);
+  return <Layout>
     <HeroSmall data={data.packageListingPage.edges[0].node.frontmatter} />
     <Content data={data.packageListingPage.edges[0].node.frontmatter} />
     <Listing data={data.courses} />
     <Footer />
   </Layout>
-);
+};
 
 packageDetails.propTypes = {
   data: PropTypes.shape({
@@ -37,43 +38,48 @@ packageDetails.propTypes = {
 export default packageDetails;
 
 export const packageDetailsQuery = graphql`
-  {
-    packageListingPage: allMarkdownRemark(
-      filter: { frontmatter: { title: { eq: "Golf Packages" } } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            image {
-              childImageSharp {
-                fluid(maxWidth: 2048, quality: 100) {
+ {
+  packageListingPage:allMarkdownRemark(filter: {frontmatter: {title: {eq: "Golf Packages"}}}) {
+    edges {
+      node {
+        frontmatter {
+          title
+          image{
+            childImageSharp{
+              fluid(maxWidth: 2048, quality: 100) {
                   ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            description
-          }
-        }
-      }
-    }
-    courses: allMarkdownRemark(
-      filter: { frontmatter: { templateKey: { eq: "packageListings" } } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            image {
-              childImageSharp {
-                fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
               }
             }
           }
+          description
         }
       }
     }
   }
+  courses:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "package"} searchable:{eq:true} }}){
+    edges{
+       node{
+        frontmatter{
+          title
+          image{
+            childImageSharp{
+              fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          stats{
+            icon {
+              publicURL
+            }
+            label
+            value
+          }
+          city
+          country
+        }
+      }
+    }
+  }
+}
 `;

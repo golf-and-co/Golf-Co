@@ -51,7 +51,7 @@ const BespokePackages = ({ data }) => {
         <Heading>{data.heading2}</Heading>
         <Paragraph>{data.description2}</Paragraph>
       </Container>
-      <a href="#" className="button is-link is-rounded">GET IN TOUCH WITH US</a>
+      <a href="/" className="button is-link is-rounded">GET IN TOUCH WITH US</a>
     </Wrap>
   );
 };

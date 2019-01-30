@@ -53,7 +53,7 @@ const Package = ({data}) => <PackageGraphic>
   <img src={data.image.publicURL} alt="Tailor Made" />
   <PackageHeading>{data.heading}</PackageHeading>
   <PackageBody>{data.description}</PackageBody>
-  <a href="#" className="button is-success is-rounded">SAMPLE PACKAGE</a>
+  <a href="/" className="button is-success is-rounded">SAMPLE PACKAGE</a>
 </PackageGraphic>;
 
 const ListPackages = ({ data }) => (

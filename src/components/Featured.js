@@ -3,6 +3,7 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
+import Stats from '../components/Stats';
 import { v4 } from 'uuid'
 
 // @TODO: fix crosscut here, move to card component

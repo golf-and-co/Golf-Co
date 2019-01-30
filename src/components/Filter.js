@@ -99,13 +99,13 @@ const Filter = ({data}) => <div>
                     <option>All Cities</option>
                 </select>
             </div>
-            <a class="button is-success is-rounded">Apply</a>
+            <a href="/" class="button is-success is-rounded">Apply</a>
         </Box>
     </Wrap>
     <br />
     <Wrap>
         <Box>
-            <h6>Hotel Type <a className="clear" href="#">Clear</a></h6>
+            <h6>Hotel Type <a href="/" className="clear">Clear</a></h6>
             <div>
               <input class="is-checkradio is-success" id="fiveStar" type="checkbox" name="fiveStar"/>
               <label class="checkbox" for="fiveStar">5 Star</label>
@@ -118,13 +118,13 @@ const Filter = ({data}) => <div>
               <input class="is-checkradio is-success" id="threeStar" type="checkbox" name="threeStar"/>
               <label class="checkbox" for="threeStar">3 Star</label>
             </div>
-            <a class="button is-success is-rounded">Apply</a>
+            <a href="/" class="button is-success is-rounded">Apply</a>
         </Box>
     </Wrap>
     <br />
     <Wrap>
         <Box>
-            <h6>Duration <a className="clear" href="#">Clear</a></h6>
+            <h6>Duration <a href="/" className="clear">Clear</a></h6>
             <div>
               <input class="is-checkradio is-success" id="sevenDays" type="checkbox" name="sevenDays"/>
               <label class="checkbox" for="sevenDays">7 Days or More</label>
@@ -137,7 +137,7 @@ const Filter = ({data}) => <div>
               <input class="is-checkradio is-success" id="threeDays" type="checkbox" name="threeDays"/>
               <label class="checkbox" for="threeDays">3-5 Days</label>
             </div>
-            <a class="button is-success is-rounded">Apply</a>
+            <a href="/" class="button is-success is-rounded">Apply</a>
         </Box>
     </Wrap>
 </div>
