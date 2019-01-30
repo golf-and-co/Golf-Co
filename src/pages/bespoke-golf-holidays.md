@@ -19,55 +19,25 @@ description1: >-
   scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
   sagittis tempor turpis, consectetur
 backgroundImage: /img/emirates-golf-club-course.png
-package1:
-  description: >-
-    Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
-    scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
-    sagittis tempor turpis, consectetur
-  heading: Title sample
-  image: /img/golf_bag.svg
-package2:
-  description: >-
-    Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
-    scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
-    sagittis tempor turpis, consectetur
-  heading: Title sample
-  image: /img/golf_cart.svg
-package3:
-  description: >-
-    Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
-    scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
-    sagittis tempor turpis, consectetur
-  heading: Title sample
-  image: /img/golf_bag.svg
-package4:
-  description: >-
-    Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
-    scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
-    sagittis tempor turpis, consectetur
-  heading: Title sample
-  image: /img/golf_bag.svg
-package5:
-  description: >-
-    Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
-    scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
-    sagittis tempor turpis, consectetur
-  heading: Title sample
-  image: /img/golf_bag.svg
-package6:
-  description: >-
-    Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
-    scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
-    sagittis tempor turpis, consectetur
-  heading: Title sample
-  image: /img/golf_bag.svg
-package7:
-  description: >-
-    Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
-    scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
-    sagittis tempor turpis, consectetur
-  heading: Title sample
-  image: /img/golf_bag.svg
+packages:
+  - description: >-
+      Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
+      scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
+      sagittis tempor turpis, consectetur
+    heading: Title sample
+    image: /img/golf_bag.svg
+  - description: >-
+      Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
+      scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
+      sagittis tempor turpis, consectetur
+    heading: Title sample
+    image: /img/golf_cart.svg
+  - description: >-
+      Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
+      scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
+      sagittis tempor turpis, consectetur
+    heading: Title sample
+    image: /img/golf_bag.svg
 heading2: Not Sure Which Package Suits You? Let Us Help!
 description2: >-
   Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
