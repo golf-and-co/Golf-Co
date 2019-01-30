@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import {withCookies, cookie} from "react-cookie";
+import {withCookies} from "react-cookie";
 import Layout from '../components/Layout'
 import HeroCourse from '../components/HeroCourse';
 import CartStats from '../components/CartStats';

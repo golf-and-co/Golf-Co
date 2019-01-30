@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
 import { v4 } from 'uuid'
-import Stats from '../components/Stats';
 
 // @TODO: fix crosscut here, move to card component
 const Wrap = styled.section`

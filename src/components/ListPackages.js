@@ -1,5 +1,4 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
@@ -50,53 +49,16 @@ const PackageBody = styled.p`
   }
 `;
 
+const Package = ({package}) => <PackageGraphic>
+  <img src={data.package1.image.publicURL} alt="Tailor Made" />
+  <PackageHeading>{data.package1.heading}</PackageHeading>
+  <PackageBody>{data.package1.description}</PackageBody>
+  <a href="#" className="button is-success is-rounded">SAMPLE PACKAGE</a>
+</PackageGraphic>;
+
 const ListPackages = ({ data }) => (
   <PackageWrap>
-    <PackageGraphic>
-      <img src={data.package1.image.publicURL} alt="Tailor Made" />
-      <PackageHeading>{data.package1.heading}</PackageHeading>
-      <PackageBody>{data.package1.description}</PackageBody>
-      <a className="button is-success is-rounded">SAMPLE PACKAGE</a>
-    </PackageGraphic>
-
-    <PackageGraphic>
-      <img src={data.package2.image.publicURL} alt="Tailor Made" />
-      <PackageHeading>{data.package2.heading}</PackageHeading>
-      <PackageBody>{data.package2.description}</PackageBody>
-      <a className="button is-success is-rounded">SAMPLE PACKAGE</a>
-    </PackageGraphic>
-
-    <PackageGraphic>
-      <img src={data.package3.image.publicURL} alt="Tailor Made" />
-      <PackageHeading>{data.package3.heading}</PackageHeading>
-      <PackageBody>{data.package3.description}</PackageBody>
-      <a className="button is-success is-rounded">SAMPLE PACKAGE</a>
-    </PackageGraphic>
-
-    <PackageGraphic>
-      <img src={data.package4.image.publicURL} alt="Tailor Made" />
-      <PackageHeading>{data.package4.heading}</PackageHeading>
-      <PackageBody>{data.package4.description}</PackageBody>
-      <a className="button is-success is-rounded">SAMPLE PACKAGE</a>
-    </PackageGraphic>
-    <PackageGraphic>
-      <img src={data.package5.image.publicURL} alt="Tailor Made" />
-      <PackageHeading>{data.package5.heading}</PackageHeading>
-      <PackageBody>{data.package5.description}</PackageBody>
-      <a className="button is-success is-rounded">SAMPLE PACKAGE</a>
-    </PackageGraphic>
-    <PackageGraphic>
-      <img src={data.package6.image.publicURL} alt="Tailor Made" />
-      <PackageHeading>{data.package6.heading}</PackageHeading>
-      <PackageBody>{data.package6.description}</PackageBody>
-      <a className="button is-success is-rounded">SAMPLE PACKAGE</a>
-    </PackageGraphic>
-    <PackageGraphic>
-      <img src={data.package7.image.publicURL} alt="Tailor Made" />
-      <PackageHeading>{data.package7.heading}</PackageHeading>
-      <PackageBody>{data.package7.description}</PackageBody>
-      <a className="button is-success is-rounded">SAMPLE PACKAGE</a>
-    </PackageGraphic>
+    {data.packages.map(({package}) => <Package package={package} />)}
   </PackageWrap>
 );
 
