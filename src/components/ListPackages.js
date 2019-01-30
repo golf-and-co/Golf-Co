@@ -49,16 +49,16 @@ const PackageBody = styled.p`
   }
 `;
 
-const Package = ({package}) => <PackageGraphic>
-  <img src={data.package1.image.publicURL} alt="Tailor Made" />
-  <PackageHeading>{data.package1.heading}</PackageHeading>
-  <PackageBody>{data.package1.description}</PackageBody>
+const Package = ({data}) => <PackageGraphic>
+  <img src={data.image.publicURL} alt="Tailor Made" />
+  <PackageHeading>{data.heading}</PackageHeading>
+  <PackageBody>{data.description}</PackageBody>
   <a href="#" className="button is-success is-rounded">SAMPLE PACKAGE</a>
 </PackageGraphic>;
 
 const ListPackages = ({ data }) => (
   <PackageWrap>
-    {data.packages.map(({package}) => <Package package={package} />)}
+    {data.packages.map(({data}) => <Package data={data} />)}
   </PackageWrap>
 );
 
