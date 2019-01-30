@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { v4 } from 'uuid'
 
 const PackageWrap = styled.section`
   //   background-color: #f6f9f2;
@@ -49,18 +50,20 @@ const PackageBody = styled.p`
   }
 `;
 
-const Package = ({data}) => <PackageGraphic>
+const Package = ({data}) => { 
+return <PackageGraphic>
   <img src={data.image.publicURL} alt="Tailor Made" />
   <PackageHeading>{data.heading}</PackageHeading>
   <PackageBody>{data.description}</PackageBody>
   <a href="/" className="button is-success is-rounded">SAMPLE PACKAGE</a>
-</PackageGraphic>;
+</PackageGraphic>
+};
 
-const ListPackages = ({ data }) => (
-  <PackageWrap>
-    
+const ListPackages = ({ data }) => {
+  return <PackageWrap>
+    {data.packages.map((data) => <Package key={v4()} data={data} />)}
   </PackageWrap>
-);
+};
 
 export default ListPackages;
 
