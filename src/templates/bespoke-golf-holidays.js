@@ -37,56 +37,14 @@ export const packageListingsQuery = graphql`
                 }
               }
             }
+            backgroundImage {
+              publicURL
+            }
             paragraph1
             paragraph2
             heading1
             description1
-            backgroundImage {
-              publicURL
-            }
-            package1 {
-              heading
-              description
-              image {
-                publicURL
-              }
-            }
-            package2 {
-              heading
-              description
-              image {
-                publicURL
-              }
-            }
-            package3 {
-              heading
-              description
-              image {
-                publicURL
-              }
-            }
-            package4 {
-              heading
-              description
-              image {
-                publicURL
-              }
-            }
-            package5 {
-              heading
-              description
-              image {
-                publicURL
-              }
-            }
-            package6 {
-              heading
-              description
-              image {
-                publicURL
-              }
-            }
-            package7 {
+            packages {
               heading
               description
               image {
