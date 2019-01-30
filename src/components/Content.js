@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const Wrap = styled.section`
-  background-color: #E4ECD9;
-  padding:30px;
+  background-color: #e4ecd9;
+  padding: 90px 10px 220px 10px;
 
   p {
     max-width: 920px;

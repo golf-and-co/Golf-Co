@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Filter from '../components/Filter'
 import Grid from '../components/Grid'
@@ -21,16 +21,12 @@ const FilterWrap = styled.div`
     section {
         justify-content: right;
     }
-
     @media (max-width: 768px) {
         display: none !important;
     }
 `
 
-const Listing = ({data}) => {
-console.log(data);
-
-return <Background>
+const Listing = ({data}) => <Background>
     <Wrap className="columns">
         <FilterWrap className="column is-one-fifth">
             <Filter data={data}/>
@@ -39,11 +35,10 @@ return <Background>
             <Grid data={data} />
         </div>
     </Wrap>
-</Background>;
-}
+</Background>
 
 Listing.propTypes = {
-  data: PropTypes.object.isRequired,
+    data: PropTypes.object.isRequired,
 }
 
-export default Listing
+export default Listing;
