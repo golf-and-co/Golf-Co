@@ -85,6 +85,37 @@ const CartWrap = styled.aside`
   box-shadow: 0px 2px 11px 0px rgba(29,134,73,0.44);
   background: #FFF;
   border-radius: 10px;
+
+  ul li {
+    color: #4a4a4a;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: left;
+    letter-spacing: 0px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #cfddbb;
+  }
+
+  ul li .disclaimer {
+    color: #9b9b9b;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    margin-left: 3.5rem;
+  }
+
+  
+  .is-checkradio[type="radio"] + label::before,
+  .is-checkradio[type="radio"]:hover:not([disabled]) + label::before,
+  .is-checkradio[type="checkbox"].is-white:hover:not([disabled]) + label::before  {
+    border: 1px solid #cfddbb !important;
+    background: #f6f9f2;
+  }
+
+  .is-checkradio[type="checkbox"]:checked + label::before {
+    background: #1d8649 !important;
+  }
+
 `;
 
 const CartHeader = styled.p`
@@ -98,6 +129,7 @@ const CartHeader = styled.p`
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
+    letter-spacing: 0;
   }
 
   p {
@@ -106,6 +138,7 @@ const CartHeader = styled.p`
     line-height: 43px;
     text-align: center;
     font-weight: bold;
+    letter-spacing: 0;
   }
 
   p.disclaimer {
@@ -115,18 +148,29 @@ const CartHeader = styled.p`
     line-height: 16px;
     text-align: center;
     text-transform: none;
+    letter-spacing: 0;
   }
 `;
 
 const CartBanner = styled.div`
   background: #1d8649;  
-  color: #ffffff;
-
   h3 {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 29px;
     text-align: center;
+    color:#FFF;
+    padding-top: 10px;
+  }
+
+  p {  
+    color: #FFF;
+    text-transform: none;
+    font-size: 12px;
+    letter-spacing: 0;
+    text-align: center;
+    padding: 0px 20px 20px 20px;
+    line-height: 14px;
   }
 `;
 
@@ -143,8 +187,22 @@ const Cart = ({data}) => <CartWrap className="menu">
   </CartBanner>
   <ul className="menu-list">
     <li>
-      <a>+ Club Rental</a>
-      <p>USD 50/pax/day</p>
+      <div class="field">
+        <input class="is-checkradio is-white" id="exampleCheckbox" type="checkbox" name="exampleCheckbox"/>
+        <label for="exampleCheckbox">+ Club Rental<br /><span className="disclaimer">USD 50/pax/day</span></label>
+      </div>
+    </li>
+    <li>
+      <div class="field">
+        <input class="is-checkradio is-white" id="exampleCheckbox" type="checkbox" name="exampleCheckbox"/>
+        <label for="exampleCheckbox">+ Club Rental<br /><span className="disclaimer">USD 50/pax/day</span></label>
+      </div>
+    </li>
+    <li>
+      <div class="field">
+        <input class="is-checkradio is-white" id="exampleCheckbox" type="checkbox" name="exampleCheckbox"/>
+        <label for="exampleCheckbox">+ Club Rental<br /><span className="disclaimer">USD 50/pax/day</span></label>
+      </div>
     </li>
   </ul>
 </CartWrap>;
