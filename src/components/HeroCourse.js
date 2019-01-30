@@ -5,9 +5,12 @@ import PropTypes from 'prop-types'
 import logo from '../img/logo.svg'
 
 const Background = styled.div`
-  background: #81aa8c;
   padding-bottom: 10px;
   text-align: center;
+
+  &.fill {
+    background-color: #81aa8c;
+  }
 `
 
 const HeroWrap = styled.section`
@@ -86,17 +89,20 @@ const Logo = styled(Link)`
   }
 `
 
-const Hero = ({ data }) => (
-  <Background>
-    <HeroWrap
-      style={{
-        backgroundImage: `url(${
-          !!data.image.childImageSharp
-            ? data.image.childImageSharp.fluid.src
-            : data.image
-        })`,
-      }}
-    >
+const Hero = ({data, empty}) => {
+
+  const classes = () => { 
+    if(!empty) return 'fill';
+  }
+
+  return <Background className={classes()}>
+    <HeroWrap style={{
+      backgroundImage: `url(${
+        !!data.image.childImageSharp
+          ? data.image.childImageSharp.fluid.src
+          : data.image
+      })`,
+    }}>
       <Container className="container content columns is-fluid">
         <LogoWrapper className="column is-2">
           <Logo to="/" className="navbar-item" title="Logo">
@@ -123,10 +129,10 @@ const Hero = ({ data }) => (
         </Button>
       </ViewGallery>
     </HeroWrap>
-  </Background>
-)
+  </Background>;
+}
 
-export default Hero
+export default Hero;
 
 Hero.propTypes = {
   data: PropTypes.object.isRequired,

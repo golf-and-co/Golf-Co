@@ -56,16 +56,30 @@ export const packageDetailsQuery = graphql`
         }
       }
     }
-    courses: allMarkdownRemark(
-      filter: { frontmatter: { templateKey: { eq: "packageListings" } } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
+    courses:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "package"} searchable:{eq:true} }}){
+    edges{
+       node{
+        frontmatter{
+          title
+          image{
+            childImageSharp{
+              fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+              }
+            }
           }
+          stats{
+            icon {
+              publicURL
+            }
+            label
+            value
+          }
+          city
+          country
         }
-      }
+       }
+    }
     }
   }
 `;

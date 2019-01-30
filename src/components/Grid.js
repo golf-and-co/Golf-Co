@@ -6,9 +6,17 @@ import { Course } from '../components/Featured'
 const Wrap = styled.section`
   display: flex;
   margin: 0 auto;
+  flex-wrap: wrap;
 
   a {
     margin: 10px;
+    @media (max-width: 768px) {
+        margin: 0 auto;
+    }
+  }
+  .cardContentHover {
+      height: 320px;
+      top: -215px
   }
 `
 
@@ -46,11 +54,12 @@ const Grid = ({ data }) => {
             data={{
               frontmatter: {
                 featuredDetails: {
-                  image: '',
+                  image: edge.node.frontmatter.image,
                   name: edge.node.frontmatter.title,
-                  city: '',
-                  country: '',
                 },
+                stats: edge.node.frontmatter.stats,
+                city: edge.node.frontmatter.city,
+                country: edge.node.frontmatter.country,
               },
               fields: {
                 slug: edge.node.frontmatter.title.replace(/ /g, ''),
