@@ -20,7 +20,7 @@ const Wrap = styled.section`
 `
 
 const Content = ({data}) => <Wrap>
-    <p>{data.top.message}</p>
+    <p>{data.description}</p>
 </Wrap>
 
 
