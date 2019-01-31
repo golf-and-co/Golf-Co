@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Course } from '../components/Featured'
+import { v4 } from 'uuid'
 
 const Wrap = styled.section`
   display: flex;
@@ -62,9 +63,10 @@ const Grid = ({ data }) => {
                 country: edge.node.frontmatter.country,
               },
               fields: {
-                slug: edge.node.frontmatter.title.replace(/ /g, ''),
+                slug: "/packages/"+edge.node.frontmatter.title.replace(/ /g, '-').toLowerCase(),
               },
             }}
+            key={v4()}
           />
         )
       })}

@@ -1,6 +1,7 @@
 import React from 'react'
-import styled from "styled-components"
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Course from '../components/Featured'
 
 const Background = styled.div`
   background-color: #f6f9f2;
@@ -181,6 +182,7 @@ const CartDetails = ({data}) => <Background className="columns">
     </ShareWrapper>
 
     <About>About {data.title}</About>
+    
     <p>{data.description}</p>
   </div>
   <div className="column is-one-quarters">

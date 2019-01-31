@@ -242,7 +242,7 @@ export const Course = ({data, footer}) => {
             return "card";
         }
     }
-
+console.log(data.fields.slug);
     return <CardLink to={data.fields.slug} className="is-quarter">
         <Card id={data.fields.slug.replace(/\//g,'')} className={classes()} onMouseEnter={() => mouseEnter()} onMouseLeave={() => mouseLeave()}>
             <CardImageWrap className="cardImage">
