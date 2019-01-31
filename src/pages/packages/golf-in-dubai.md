@@ -4,7 +4,7 @@ code: GC-DXB-PA01
 image: /img/packages-dubai.png
 hero: /img/faldo-banner.jpg
 title: Golf in Dubai
-pageHeader: Dubai Golf Shop
+pageHeader: Dubai Golf & Shop
 bodyHeader: You will be playing at these Golf Courses in this Package
 description: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec tellus eu
