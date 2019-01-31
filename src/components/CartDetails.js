@@ -186,7 +186,7 @@ const Cart = ({data}) => <CartWrap className="menu">
 </CartWrap>;
 
 const CartDetails = ({data}) =>{
-
+console.log(data.description);
 return <Background className="columns">
   <div className="column is-three-quarters">
     <ShareWrapper>
@@ -199,7 +199,7 @@ return <Background className="columns">
         return <Course data={{fields:course, frontmatter:{featuredDetails:course, stats:[]}}} />
       })}
     </Courses>
-    <p>{data.description}</p>
+    <p>{data.html}</p>
   </div>
   <div className="column is-one-quarters">
     <Cart data={data} />

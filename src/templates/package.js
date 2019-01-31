@@ -125,6 +125,7 @@ export const packageDetailsQuery = graphql`
           value
         }
       }
+      html
     }
   }
 `
