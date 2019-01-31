@@ -34,5 +34,20 @@ courses:
     name: The Emirates Golf Club Course
     region: Dubai
     slug: /courses/details/the-emirates-golf-club-course
+  - image: /img/the-emirates-golf-club-course.png
+    city: Dubai
+    name: The Emirates Golf Club Course
+    region: Dubai
+    slug: /courses/details/the-emirates-golf-club-course
+  - image: /img/the-emirates-golf-club-course.png
+    city: Dubai
+    name: The Emirates Golf Club Course
+    region: Dubai
+    slug: /courses/details/the-emirates-golf-club-course
+  - image: /img/the-emirates-golf-club-course.png
+    city: Dubai
+    name: The Emirates Golf Club Course
+    region: Dubai
+    slug: /courses/details/the-emirates-golf-club-course
 ---
 
