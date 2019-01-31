@@ -44,9 +44,9 @@ const Share = styled.button`
 const BodyHeader = styled.h1`
   color: #1d8649;
   font-family: "Gotham Book";
-  font-size: 40px;
-  font-weight: 300;
-  margin-top: 30px;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 30px 0;
 `;
 
 const CartWrap = styled.aside`
@@ -185,7 +185,6 @@ return <Background className="columns">
 
     <BodyHeader>{data.bodyHeader}</BodyHeader>
     {data.courses.map(course => {
-
       return <Course data={{fields:course, frontmatter:{featuredDetails:course, stats:[]}}} />
     })}
     <p>{data.description}</p>

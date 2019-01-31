@@ -61,7 +61,7 @@ data.markdownRemark.frontmatter.packageTitle = data.markdownRemark.frontmatter.t
 data.markdownRemark.frontmatter.title = data.markdownRemark.frontmatter.pageHeader;
 
 return <Layout>
-    <HeroCourse data={data.markdownRemark.frontmatter} empty={true} />
+    <HeroCourse data={data.markdownRemark.frontmatter} empty={true} oneLine={true}/>
     <CartStats cart={cart} data={data.markdownRemark.frontmatter} />
     <CartDetails data={data.markdownRemark.frontmatter} cart={cart} />
     <Footer />

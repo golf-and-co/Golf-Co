@@ -11,6 +11,10 @@ const Background = styled.div`
   &.fill {
     background-color: #81aa8c;
   }
+
+  &.oneLine .title {
+    margin-top: 2rem;
+  }
 `
 
 const HeroWrap = styled.section`
@@ -20,9 +24,12 @@ const HeroWrap = styled.section`
   border-radius: 0 0 30% 30%;
   width: 140%;
   margin-left: -20%;
+  height: 40vh;
+  background-position-y: -40vh;
 
   @media (min-width: 768px) {
     border-radius: 0 0 45% 45%;
+    height: 60vh;
   }
 `
 const Heading = styled.h1`
@@ -39,11 +46,11 @@ const Heading = styled.h1`
 `
 
 const HeadingStrong = styled.strong`
-  font-size: 30px !important;
+  font-size: 20px !important;
   font-weight: 700;
 
   @media (min-width: 768px) {
-    font-size: 60px !important;
+    font-size: 40px !important;
     font-weight: 700;
   }
 `
@@ -88,10 +95,35 @@ const Logo = styled(Link)`
   }
 `
 
-const Hero = ({data, empty}) => {
+const Hero = ({data, empty, oneLine}) => {
 
   const classes = () => { 
-    if(!empty) return 'fill';
+    const classes = []
+    if(oneLine) classes.push('oneLine');
+    if(!empty) classes.push('fill');
+
+    return classes.join(' ');
+  }
+
+  const region = () => {
+    if(!oneLine) {
+       return <div>{data.city}, {data.country}</div>;
+    }
+  }
+
+  const viewGallery = () => {
+    if(!oneLine) {
+      return <ViewGallery>
+        <Button
+          className="button is-link is-rounded"
+          onClick={() =>
+            document.querySelector('#courseDetailBackground').scrollIntoView()
+          }
+        >
+          View Gallery
+        </Button>
+      </ViewGallery>
+    }
   }
 
   return <Background className={classes()}>
@@ -111,22 +143,11 @@ const Hero = ({data, empty}) => {
         <div className="column is-8">
           <Heading className="title">
             <HeadingStrong>{data.title}</HeadingStrong>
-            <br />
-            {data.city}, {data.country}
+            {region()}            
           </Heading>
         </div>
       </Container>
-
-      <ViewGallery>
-        <Button
-          className="button is-link is-rounded"
-          onClick={() =>
-            document.querySelector('#courseDetailBackground').scrollIntoView()
-          }
-        >
-          View Gallery
-        </Button>
-      </ViewGallery>
+      {viewGallery()}
     </HeroWrap>
   </Background>;
 }
