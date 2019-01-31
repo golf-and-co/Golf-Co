@@ -54,7 +54,9 @@ cookies.set('cart', {
 }, { path: '/' });
 const cart = cookies.get('cart');
 
+
 // adapter to use existing Hero Course component
+data.markdownRemark.frontmatter.image = data.markdownRemark.frontmatter.hero;
 data.markdownRemark.frontmatter.packageTitle = data.markdownRemark.frontmatter.title;
 data.markdownRemark.frontmatter.title = data.markdownRemark.frontmatter.pageHeader;
 
@@ -102,6 +104,13 @@ export const packageDetailsQuery = graphql`
           slug
         }
         image {
+          childImageSharp{
+            fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        hero {
           childImageSharp{
             fluid(maxWidth: 2048, quality: 100) {
                 ...GatsbyImageSharpFluid

@@ -29,7 +29,6 @@ const Heading = styled.h1`
   text-align: center;
   color: white !important;
   font-family: 'Gotham Book';
-  text-transform: uppercase;
   font-size: 15px !important;
   font-weight: 300;
   padding: 0.75em;
