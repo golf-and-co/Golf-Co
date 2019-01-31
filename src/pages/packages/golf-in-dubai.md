@@ -23,5 +23,10 @@ stats:
   - icon: /img/swing.svg
     label: Par
     value: '72'
+courses:
+  - image: /img/the-emirates-golf-club-course.png
+  - name: "The Emirates Golf Club Course"
+  - city: Dubai
+  - region: Dubai
 ---
 

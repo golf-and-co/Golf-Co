@@ -129,6 +129,7 @@ collections:
       - {label: "Code", name: "code", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
       - {label: Title, name: title, widget: "string"}
+      - {label: Description, name: description, widget: "string"}
       - {label: "City", name: "city", widget: "string"}
       - {label: "Country", name: "country", widget: "string"}
       - {label: "Hotel Type", name: "hotelType", widget: "string"}
@@ -137,4 +138,5 @@ collections:
       - {label: "Price", name: "price", widget: "string"}
       - {label: "Searchable", name: "searchable", widget: "boolean"}
       - {label: "Stats", name: "stats", widget: "list", fields: [{label: "Icon", name: icon, widget: image}, {label: "Label", name: label, widget: string}, {label: "Value", name: value, widget: string}]}
+      - {label: "Stats Description", name: "statsDescription", widget: "string"}
       - {label: "Courses", name: "courses", widget: "list", fields: [{label: "Image", name: image, widget: image}, {label: "Name", name: name, widget: string}, {label: "City", name: city, widget: string}, {label: "Region", name: region, widget: string}] }

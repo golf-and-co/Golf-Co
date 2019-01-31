@@ -182,7 +182,7 @@ const CartDetails = ({data}) => <Background className="columns">
     </ShareWrapper>
 
     <About>About {data.title}</About>
-    
+    {data.courses.map(course => <Course data={course} />)}
     <p>{data.description}</p>
   </div>
   <div className="column is-one-quarters">
