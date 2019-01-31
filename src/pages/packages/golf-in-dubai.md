@@ -7,10 +7,20 @@ title: Golf in Dubai
 pageHeader: Dubai Golf & Shop
 bodyHeader: You will be playing at these Golf Courses in this Package
 description: >-
-  1Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec tellus eu
-  lorem sodales placerat. Sed non est libero. Aliquam scelerisque dignissim
-  turpis, sed facilisis eros bibendum aliquam. Nulla sagittis tempor turpis,
-  consectetur efficitur est dignissim sit amet. 
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed erat
+  dictum, interdum ipsum vel, dapibus purus. Suspendisse efficitur nisl risus,
+  in tincidunt nisi faucibus vel. Vestibulum a suscipit velit. Praesent tellus
+  orci, suscipit sit amet iaculis sed, consectetur pharetra lacus. Mauris nec
+  posuere felis. Duis sit amet tortor lacus. Donec pellentesque dapibus metus.
+  Sed erat velit, porttitor sit amet efficitur sit amet, sodales quis diam.
+  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+  cubilia Curae; Etiam ultrices, nulla id maximus sodales, 
+
+
+
+
+  Praesent lacinia imperdiet leo elementum convallis. Mauris pretium mattis
+  aliquet. Etiam porta cursus urna ac suscipit. Donec et eros nulla.
 city: Dubai
 country: UAE
 hotelType: '5'
