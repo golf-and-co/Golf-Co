@@ -33,9 +33,7 @@ stats:
   - icon: /img/swing.svg
     label: Par
     value: '72'
-statsDescription: >-
-  A lot of the natural landscape has been retained thus making it quite a
-  challenging layout.
+statsDescription: 7 Nights (BB Base) + 4 Rounds
 courses:
   - image: /img/the-emirates-golf-club-course.png
     city: Dubai
