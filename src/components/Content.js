@@ -26,7 +26,7 @@ const Content = ({ data }) => (
 =======
 
 const Content = ({data}) => <Wrap>
-    <p>{data.top.message}</p>
+    <p>{data.description}</p>
 </Wrap>
 >>>>>>> add basic corporate page
 
