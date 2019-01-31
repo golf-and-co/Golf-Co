@@ -85,6 +85,18 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Corporate", widget: "boolean"}
+  - name: "testimontial"
+    label: "Testimontials"
+    folder: "src/pages/testimontials"
+    create: true
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "testimontial"}
+      - {label: "Profile Picture", name: "profilePicture", widget: "image"}
+      - {label: "Comment", name: "comment", widget: "string"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Position", name: "position", widget: "string"}
+      - {label: "Location", name: "location", widget: "string"}
   - name: "course"
     label: "Courses"
     folder: "src/pages/courses/details"
