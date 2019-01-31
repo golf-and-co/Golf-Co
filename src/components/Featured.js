@@ -223,7 +223,6 @@ const courseMouseExit = (data) => {
 
 // @TODO: refactor, need better properties, start by grouping in a decorator, pass a styled component
 export const Course = ({data, footer}) => {
-    console.log(data);
     const mouseEnter = () => {
         if(!footer) {
             courseMouseEnter(data);

@@ -59,11 +59,11 @@ const cart = cookies.get('cart');
 data.markdownRemark.frontmatter.image = data.markdownRemark.frontmatter.hero;
 data.markdownRemark.frontmatter.packageTitle = data.markdownRemark.frontmatter.title;
 data.markdownRemark.frontmatter.title = data.markdownRemark.frontmatter.pageHeader;
-
+console.log(data);
 return <Layout>
     <HeroCourse data={data.markdownRemark.frontmatter} empty={true} oneLine={true}/>
     <CartStats cart={cart} data={data.markdownRemark.frontmatter} />
-    <CartDetails data={data.markdownRemark.frontmatter} cart={cart} />
+    <CartDetails data={data.markdownRemark.frontmatter} cart={cart} body={data.markdownRemark.html}/>
     <Footer />
 </Layout>
 };
@@ -125,7 +125,6 @@ export const packageDetailsQuery = graphql`
           value
         }
       }
-      html
     }
   }
 `
