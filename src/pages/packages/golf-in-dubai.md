@@ -25,8 +25,8 @@ stats:
     value: '72'
 courses:
   - image: /img/the-emirates-golf-club-course.png
-  - name: "The Emirates Golf Club Course"
-  - city: Dubai
-  - region: Dubai
+    name: "The Emirates Golf Club Course"
+    city: Dubai
+    region: Dubai
 ---
 
