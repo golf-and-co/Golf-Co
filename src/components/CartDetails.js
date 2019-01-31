@@ -32,7 +32,7 @@ const Share = styled.button`
   border-radius: 46px;
   background-color: #81aa8c;
   border: none;
-  margin-bottom: 20px;
+  margin-bottom: 20px;.
   color: #FFF;
   cursor: pointer;
 
@@ -41,7 +41,7 @@ const Share = styled.button`
   }
 `;
 
-const About = styled.h1`
+const BodyHeader = styled.h1`
   color: #1d8649;
   font-family: "Gotham Book";
   font-size: 40px;
@@ -183,7 +183,7 @@ return <Background className="columns">
       <Share><i className="fas fa-share-square"></i> Share</Share>
     </ShareWrapper>
 
-    <About>About {data.title}</About>
+    <BodyHeader>{data.bodyHeader}</BodyHeader>
     {data.courses.map(course => {
 
       return <Course data={{fields:course, frontmatter:{featuredDetails:course, stats:[]}}} />

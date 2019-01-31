@@ -53,6 +53,11 @@ cookies.set('cart', {
   ]
 }, { path: '/' });
 const cart = cookies.get('cart');
+
+// adapter to use existing Hero Course component
+data.markdownRemark.frontmatter.packageTitle = data.markdownRemark.frontmatter.title;
+data.markdownRemark.frontmatter.title = data.markdownRemark.frontmatter.pageHeader;
+
 return <Layout>
     <HeroCourse data={data.markdownRemark.frontmatter} empty={true} />
     <CartStats cart={cart} data={data.markdownRemark.frontmatter} />
@@ -77,6 +82,8 @@ export const packageDetailsQuery = graphql`
       rawMarkdownBody
       frontmatter {
         title
+        pageHeader
+        bodyHeader
         description
         city
         country
