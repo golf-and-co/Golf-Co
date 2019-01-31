@@ -176,7 +176,7 @@ const Cart = ({data}) => <CartWrap className="menu">
 </CartWrap>;
 
 const CartDetails = ({data}) =>{
-console.log(data);
+
 return <Background className="columns">
   <div className="column is-three-quarters">
     <ShareWrapper>
@@ -184,7 +184,10 @@ return <Background className="columns">
     </ShareWrapper>
 
     <About>About {data.title}</About>
-    {data.courses.map(course => <Course data={{fields:course}} />)}
+    {data.courses.map(course => {
+
+      return <Course data={{fields:course, frontmatter:{featuredDetails:course, stats:[]}}} />
+    })}
     <p>{data.description}</p>
   </div>
   <div className="column is-one-quarters">

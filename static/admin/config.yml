@@ -129,6 +129,8 @@ collections:
       - {label: "Code", name: "code", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
       - {label: Title, name: title, widget: "string"}
+      - {label: Page Header, name: pageHeader, widget: "string"}
+      - {label: Body Header, name: bodyHeader, widget: "string"}
       - {label: Description, name: description, widget: "string"}
       - {label: "City", name: "city", widget: "string"}
       - {label: "Country", name: "country", widget: "string"}

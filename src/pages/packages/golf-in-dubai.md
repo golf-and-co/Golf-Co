@@ -3,6 +3,8 @@ templateKey: package
 code: GC-DXB-PA01
 image: /img/packages-dubai.png
 title: Golf in Dubai
+pageHeader: Dubai Golf Shop
+bodyHeader: You will be playing at these Golf Courses in this Package
 description: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec tellus eu
   lorem sodales placerat. Sed non est libero. Aliquam scelerisque dignissim

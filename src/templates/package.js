@@ -92,6 +92,7 @@ export const packageDetailsQuery = graphql`
           name
           city
           region
+          slug
         }
         image {
           childImageSharp{
