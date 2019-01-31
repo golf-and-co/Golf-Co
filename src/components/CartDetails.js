@@ -144,7 +144,12 @@ const CartBanner = styled.div`
 
 const Courses = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin: 20px auto;
+
+  a {
+    margin: 10px auto;
+  }
 `;
 
 const Cart = ({data}) => <CartWrap className="menu">
