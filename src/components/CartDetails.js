@@ -142,6 +142,11 @@ const CartBanner = styled.div`
   }
 `;
 
+const Courses = styled.div`
+  display: flex;
+  margin: 20px auto;
+`;
+
 const Cart = ({data}) => <CartWrap className="menu">
   <CartHeader className="menu-label">
     <h3>Starting from</h3>
@@ -184,9 +189,11 @@ return <Background className="columns">
     </ShareWrapper>
 
     <BodyHeader>{data.bodyHeader}</BodyHeader>
-    {data.courses.map(course => {
-      return <Course data={{fields:course, frontmatter:{featuredDetails:course, stats:[]}}} />
-    })}
+    <Courses>
+      {data.courses.map(course => {
+        return <Course data={{fields:course, frontmatter:{featuredDetails:course, stats:[]}}} />
+      })}
+    </Courses>
     <p>{data.description}</p>
   </div>
   <div className="column is-one-quarters">
