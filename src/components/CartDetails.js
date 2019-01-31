@@ -86,7 +86,7 @@ const CartWrap = styled.aside`
 
 `;
 
-const CartHeader = styled.p`
+const CartHeader = styled.div`
   letter-spacing: 0;
   padding: 20px;
 
@@ -155,21 +155,21 @@ const Cart = ({data}) => <CartWrap className="menu">
   </CartBanner>
   <ul className="menu-list">
     <li>
-      <div class="field">
-        <input class="is-checkradio is-white" id="exampleCheckbox" type="checkbox" name="exampleCheckbox"/>
-        <label for="exampleCheckbox">+ Club Rental<br /><span className="disclaimer">USD 50/pax/day</span></label>
+      <div className="field">
+        <input className="is-checkradio is-white" id="exampleCheckbox" type="checkbox" name="exampleCheckbox"/>
+        <label htmlFor="exampleCheckbox">+ Club Rental<br /><span className="disclaimer">USD 50/pax/day</span></label>
       </div>
     </li>
     <li>
-      <div class="field">
-        <input class="is-checkradio is-white" id="exampleCheckbox" type="checkbox" name="exampleCheckbox"/>
-        <label for="exampleCheckbox">+ Club Rental<br /><span className="disclaimer">USD 50/pax/day</span></label>
+      <div className="field">
+        <input className="is-checkradio is-white" id="exampleCheckbox" type="checkbox" name="exampleCheckbox"/>
+        <label htmlFor="exampleCheckbox">+ Club Rental<br /><span className="disclaimer">USD 50/pax/day</span></label>
       </div>
     </li>
     <li>
-      <div class="field">
-        <input class="is-checkradio is-white" id="exampleCheckbox" type="checkbox" name="exampleCheckbox"/>
-        <label for="exampleCheckbox">+ Club Rental<br /><span className="disclaimer">USD 50/pax/day</span></label>
+      <div className="field">
+        <input className="is-checkradio is-white" id="exampleCheckbox" type="checkbox" name="exampleCheckbox"/>
+        <label htmlFor="exampleCheckbox">+ Club Rental<br /><span className="disclaimer">USD 50/pax/day</span></label>
       </div>
     </li>
   </ul>

@@ -24,7 +24,7 @@ PageTemplate.propTypes = {
 }
 
 const PackageDetails = ({ data, cookies }) => {
-  console.log(data);
+  
 // @TODO: Add to cart, follow this schema
 cookies.set('cart', {
   stats:[
