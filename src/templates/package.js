@@ -80,6 +80,19 @@ export const packageDetailsQuery = graphql`
         description
         city
         country
+        statsDescription
+        courses {
+          image {
+            childImageSharp{
+              fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          name
+          city
+          region
+        }
         image {
           childImageSharp{
             fluid(maxWidth: 2048, quality: 100) {
@@ -94,30 +107,6 @@ export const packageDetailsQuery = graphql`
           label
           value
         }
-        dialogs{
-          icon {
-            publicURL
-          }
-          heading
-          message
-        }
-        tags{
-          icon {
-            publicURL
-          }
-          label
-        }
-        gallery {
-          category
-          image {
-            childImageSharp{
-              fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-        map
       }
     }
   }

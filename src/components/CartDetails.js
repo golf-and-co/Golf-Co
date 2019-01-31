@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Course from '../components/Featured'
+import {Course} from '../components/Featured'
 
 const Background = styled.div`
   background-color: #f6f9f2;
@@ -175,20 +175,23 @@ const Cart = ({data}) => <CartWrap className="menu">
   </ul>
 </CartWrap>;
 
-const CartDetails = ({data}) => <Background className="columns">
+const CartDetails = ({data}) =>{
+console.log(data);
+return <Background className="columns">
   <div className="column is-three-quarters">
     <ShareWrapper>
       <Share><i className="fas fa-share-square"></i> Share</Share>
     </ShareWrapper>
 
     <About>About {data.title}</About>
-    {data.courses.map(course => <Course data={course} />)}
+    {data.courses.map(course => <Course data={{fields:course}} />)}
     <p>{data.description}</p>
   </div>
   <div className="column is-one-quarters">
     <Cart data={data} />
   </div>
 </Background>
+}
 
 export default CartDetails;
 

@@ -28,5 +28,6 @@ courses:
     name: "The Emirates Golf Club Course"
     city: Dubai
     region: Dubai
+    slug: "/courses/details/the-emirates-golf-club-course"
 ---
 

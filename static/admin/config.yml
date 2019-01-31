@@ -139,4 +139,4 @@ collections:
       - {label: "Searchable", name: "searchable", widget: "boolean"}
       - {label: "Stats", name: "stats", widget: "list", fields: [{label: "Icon", name: icon, widget: image}, {label: "Label", name: label, widget: string}, {label: "Value", name: value, widget: string}]}
       - {label: "Stats Description", name: "statsDescription", widget: "string"}
-      - {label: "Courses", name: "courses", widget: "list", fields: [{label: "Image", name: image, widget: image}, {label: "Name", name: name, widget: string}, {label: "City", name: city, widget: string}, {label: "Region", name: region, widget: string}] }
+      - {label: "Courses", name: "courses", widget: "list", fields: [{label: "Image", name: image, widget: image}, {label: "Name", name: name, widget: string}, {label: "City", name: city, widget: string}, {label: "Region", name: region, widget: string}, {label: "Link", name: slug, widget: string}] }
