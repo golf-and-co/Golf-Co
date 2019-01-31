@@ -24,46 +24,16 @@ PageTemplate.propTypes = {
 }
 
 const PackageDetails = ({ data, cookies }) => {
-  
-// @TODO: Add to cart, follow this schema
-cookies.set('cart', {
-  stats:[
-    {icon: {
-      publicURL:"/static/golf_tee-a3079085b609f0c2a1099738dea6aab4.svg"}, 
-      label:"Golf Rounds",
-      value:"5"
-    }
-  ], 
-  headline:"7 Nights (BB Base) + 4 Rounds of",
-  courses: [
-    {
-      frontmatter: {
-        featuredDetails: {
-          image: "/img/emirates-golf-club-course.png",
-          name: "Abu Dhabi National Golf",
-        },
-        /*stats: edge.node.frontmatter.stats,
-        city: edge.node.frontmatter.city,
-        country: edge.node.frontmatter.country,
-      },
-      fields: {
-        slug: edge.node.frontmatter.title.replace(/ /g, ''),*/
-      },
-    },
-  ]
-}, { path: '/' });
-const cart = cookies.get('cart');
-
 
 // adapter to use existing Hero Course component
 data.markdownRemark.frontmatter.image = data.markdownRemark.frontmatter.hero;
 data.markdownRemark.frontmatter.packageTitle = data.markdownRemark.frontmatter.title;
 data.markdownRemark.frontmatter.title = data.markdownRemark.frontmatter.pageHeader;
-console.log(data);
+
 return <Layout>
     <HeroCourse data={data.markdownRemark.frontmatter} empty={true} oneLine={true}/>
     <CartStats data={data.markdownRemark.frontmatter} />
-    <CartDetails data={data.markdownRemark.frontmatter} cart={cart} body={data.markdownRemark.html}/>
+    <CartDetails data={data.markdownRemark.frontmatter} body={data.markdownRemark.html}/>
     <Footer />
 </Layout>
 };
