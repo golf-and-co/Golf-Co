@@ -185,7 +185,7 @@ const Cart = ({data}) => <CartWrap className="menu">
   </ul>
 </CartWrap>;
 
-const CartDetails = ({data}) =>{
+const CartDetails = ({data, cart}) =>{
 
 // Convert carriage returns to br
 data.description = data.description.split('\n').map((item, key) => {
@@ -207,7 +207,7 @@ return <Background className="columns">
     <p>{data.description}</p>
   </div>
   <div className="column is-one-quarters">
-    <Cart data={data} />
+    <Cart data={data} cart={cart}/>
   </div>
 </Background>
 }

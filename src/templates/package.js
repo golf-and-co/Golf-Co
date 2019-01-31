@@ -62,7 +62,7 @@ data.markdownRemark.frontmatter.title = data.markdownRemark.frontmatter.pageHead
 console.log(data);
 return <Layout>
     <HeroCourse data={data.markdownRemark.frontmatter} empty={true} oneLine={true}/>
-    <CartStats cart={cart} data={data.markdownRemark.frontmatter} />
+    <CartStats data={data.markdownRemark.frontmatter} />
     <CartDetails data={data.markdownRemark.frontmatter} cart={cart} body={data.markdownRemark.html}/>
     <Footer />
 </Layout>

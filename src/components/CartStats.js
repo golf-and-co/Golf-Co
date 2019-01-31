@@ -56,16 +56,16 @@ const Value = styled.span`
 
 const StatItem = ({data}) =>  <Item><img id="image" src={data.icon.publicURL} alt={data.label}/><Label>{data.label}</Label><Value>{data.value}</Value></Item>;
 
-const CartStat = ({cart}) => { 
+const CartStat = ({data}) => { 
 
 return <Wrap>
     <section id="stats">
         <List>
-            {cart.stats.map(stat => <StatItem data={stat} key={v4()} />)}
+            {data.stats.map(stat => <StatItem data={stat} key={v4()} />)}
         </List>
     </section>
     <section id="cart">
-        <p>{cart.headline}</p>
+        <p>{data.statsDescription}</p>
     </section>
 </Wrap>;
 }
