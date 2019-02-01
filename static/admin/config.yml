@@ -142,6 +142,6 @@ collections:
       - {label: "Searchable", name: "searchable", widget: "boolean"}
       - {label: "Stats", name: "stats", widget: "list", fields: [{label: "Icon", name: icon, widget: image}, {label: "Label", name: label, widget: string}, {label: "Value", name: value, widget: string}]}
       - {label: "Stats Description", name: "statsDescription", widget: "string"}
-      - {label: "Courses", name: "courses", widget: "list", fields: [{label: "Image", name: image, widget: image}, {label: "Name", name: name, widget: string}, {label: "City", name: city, widget: string}, {label: "Region", name: region, widget: string}, {label: "Link", name: slug, widget: string}]}
+      - {label: "Courses", name: "courses", widget: "list", fields: [{label: "Image", name: image, widget: image}, {label: "Name", name: name, widget: string}, {label: "City", name: city, widget: string}, {label: "Region", name: region, widget: string}, {label: "Rounds", name: rounds, widget: string}, {label: "Link", name: slug, widget: string}]}
       - {label: "Add Ons", name: "addOns", widget: "list", fields: [{label: "Name", name: name, widget: string}, {label: "Description", name: description, widget: string}, {label: "Price", name: price, widget: string}, {label: "Checked By Default", name: checkedByDefault, widget: boolean}, {label: "Shaded", name: shaded, widget: boolean}]}
       - {label: "Base Price", name: "basePrice", widget: "string"}
