@@ -73,6 +73,14 @@ export const packageDetailsQuery = graphql`
           region
           slug
         }
+        addOns {
+          name
+          description
+          price
+          checkedByDefault
+          shaded
+        }
+        basePrice
         image {
           childImageSharp{
             fluid(maxWidth: 2048, quality: 100) {
