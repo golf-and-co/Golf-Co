@@ -149,7 +149,7 @@ const CartBanner = styled.div`
 const Courses = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 20px auto;
+  margin: 20px auto 50px auto;
 
   a {
     margin: 10px auto;
@@ -200,9 +200,13 @@ const Cart = ({data}) => <CartWrap className="menu">
 const CartDetails = ({data}) =>{
 
 // Convert carriage returns to br
-data.description = data.description.split('\n').map((item, key) => {
-  return <span key={key}>{item}<br/></span>
-})
+if(typeof data.description === "string") {
+  data.description = data.description.split('\n').map((item, key) => {
+    return <span key={key}>{item}<br/></span>
+  })
+}
+
+
 
 return <Background className="columns">
   <div className="column is-three-quarters">
@@ -213,7 +217,7 @@ return <Background className="columns">
     <BodyHeader>{data.bodyHeader}</BodyHeader>
     <Courses>
       {data.courses.map(course => {
-        return <Course data={{fields:course, frontmatter:{featuredDetails:course, stats:[]}}} key={v4()} />
+        return <Course data={{fields:course, frontmatter:{featuredDetails:course, city: course.city, country: course.region, stats:[]}}} key={v4()} />
       })}
     </Courses>
     <p>{data.description}</p>

@@ -71,6 +71,7 @@ export const packageDetailsQuery = graphql`
           name
           city
           region
+          rounds
           slug
         }
         addOns {

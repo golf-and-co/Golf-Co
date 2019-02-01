@@ -208,6 +208,34 @@ const Logos = styled.section`
     padding: 75px 0;
 `;
 
+const Rounds = styled.div`
+    position: absolute;
+    z-index: 10000;
+    margin: -10px 106px;
+    
+
+    .is-rounded {
+        background: green;
+        border-radius: 20px;
+        height: 40px;
+        width: 40px;
+        text-align: center;
+        font-size: 1rem;
+        color: #FFF;
+        padding: 10px;
+        margin-left:5px;
+    }
+
+    label {
+        color: #000000;
+        font-size: 12px;
+        font-style: normal;
+        font-stretch: normal;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+`;
+
 // No interface to trigger focus event outside this component is required, falling back to DOM instead of React props for class
 // traditional way is to pass a prop, and rerender the component.
 // how will that work with a functional component?
@@ -243,6 +271,21 @@ export const Course = ({data, footer}) => {
         }
     }
 
+    const rounds = () => {
+        if(data.fields.rounds > 0) {
+            let roundsLabel = 'Rounds';
+            if(data.fields.rounds === 1) {
+                roundsLabel = 'Round';
+            }
+            return <Rounds>
+                <div className="is-rounded">{data.fields.rounds}</div>
+                <label>{roundsLabel}</label>
+            </Rounds>
+        }
+    }
+
+    console.log(data);
+
     return <CardLink to={data.fields.slug} className="is-quarter">
         <Card id={data.fields.slug.replace(/\//g,'')} className={classes()} onMouseEnter={() => mouseEnter()} onMouseLeave={() => mouseLeave()}>
             <CardImageWrap className="cardImage">
@@ -263,6 +306,7 @@ export const Course = ({data, footer}) => {
             </div>
             <Stats data={data.frontmatter} />
             </CardContent>
+            {rounds()}
         </Card>
     </CardLink>
 };
