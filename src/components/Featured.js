@@ -274,7 +274,7 @@ export const Course = ({data, footer}) => {
     const rounds = () => {
         if(data.fields.rounds > 0) {
             let roundsLabel = 'Rounds';
-            if(data.fields.rounds === 1) {
+            if(data.fields.rounds === "1") {
                 roundsLabel = 'Round';
             }
             return <Rounds>

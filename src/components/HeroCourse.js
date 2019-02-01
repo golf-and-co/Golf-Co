@@ -43,6 +43,10 @@ const Heading = styled.h1`
   @media (min-width: 768px) {
     font-size: 30px !important;
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 const HeadingStrong = styled.strong`

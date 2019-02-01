@@ -33,7 +33,7 @@ const Share = styled.button`
   border-radius: 46px;
   background-color: #81aa8c;
   border: none;
-  margin-bottom: 20px;.
+  margin-bottom: 20px;
   color: #FFF;
   cursor: pointer;
 

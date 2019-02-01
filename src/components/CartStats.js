@@ -27,6 +27,12 @@ const Wrap = styled.div`
         text-align: center;
         text-transform: uppercase;
     }
+
+    @media (max-width: 768px) {
+        #cart {
+            line-height: 22px;
+        }
+
 `;
 
 const List = styled.ul`
@@ -43,6 +49,18 @@ const Item = styled.li`
 
     &:last-child {
         border-right: none !important;
+    }
+
+    @media (max-width: 768px) {
+        padding: 1px 20px;
+        display: none;
+
+        &:first-child {
+            display:block;
+        }
+        &:nth-child(2) {
+            display:block;
+        }
     }
 `;
 
