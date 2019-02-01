@@ -74,12 +74,15 @@ addOns:
   - description: USD 50 /pax
     name: Burj Khalifa Tickets
     price: '50'
+    shaded: true
   - description: USD 100 /pax
     name: Desert Safari
     price: '100'
+    shaded: true
   - description: USD 10 /round
     name: Golf Insurance
     price: '10'
+    shaded: true
 basePrice: '4500'
 ---
 
