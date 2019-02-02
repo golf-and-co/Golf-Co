@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import Content from '../components/Content'
 import Testimontials from '../components/corporate/Testimontials';
 import PastEvents from '../components/corporate/PastEvents';
 import Footer from '../components/Footer';
@@ -21,6 +22,7 @@ PageTemplate.propTypes = {
 }
 
 const Corporate = ({ data }) => <Layout>
+  <Content data={{description: data.markdownRemark.frontmatter.top.message}}/>
   <PastEvents />
   <Testimontials />
   <Footer />
