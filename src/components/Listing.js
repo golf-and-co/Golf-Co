@@ -29,7 +29,7 @@ const FilterWrap = styled.div`
 const Listing = ({data, filter}) => <Background>
     <Wrap className="columns">
         <FilterWrap className="column is-one-fifth">
-            <Filter data={data}/>
+            <Filter data={data} filter={filter}/>
         </FilterWrap>
         <div className="column is-four-fifth">
             <Grid data={data} filter={filter}/>

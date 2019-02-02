@@ -50,27 +50,34 @@ const Grid = ({data, filter}) => {
   return (
     <Wrap>
       {data.edges.map(edge => {
+
+      const classes = filter.reduce(function(accumulator, currentValue) {
+        // filter is an array of fields
+        // accomplished by getting value of field, slugify, and setting as a classname
+        // then based on filter, class combination is shown.
+        return accumulator + currentValue+"-"+edge.node.frontmatter[currentValue].replace(/ /g,'-')+" ";
+      });
+
         return (
-          //  @TODO: add filterable classes
-          <div className="">
-          <Course
-            data={{
-              frontmatter: {
-                featuredDetails: {
-                  image: edge.node.frontmatter.image,
-                  name: edge.node.frontmatter.title,
+          <div className={classes} key={v4()}>
+            <Course
+              data={{
+                frontmatter: {
+                  featuredDetails: {
+                    image: edge.node.frontmatter.image,
+                    name: edge.node.frontmatter.title,
+                  },
+                  stats: edge.node.frontmatter.stats,
+                  city: edge.node.frontmatter.city,
+                  country: edge.node.frontmatter.country,
                 },
-                stats: edge.node.frontmatter.stats,
-                city: edge.node.frontmatter.city,
-                country: edge.node.frontmatter.country,
-              },
-              fields: {
-                slug: "/packages/"+edge.node.frontmatter.title.replace(/ /g, '-').toLowerCase(),
-              },
-            }}
-            key={v4()}           
-          />
-</div>
+                fields: {
+                  slug: "/packages/"+edge.node.frontmatter.title.replace(/ /g, '-').toLowerCase(),
+                },
+              }}
+              footer={true} 
+            />
+          </div>
         )
       })}
     </Wrap>

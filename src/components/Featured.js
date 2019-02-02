@@ -53,7 +53,12 @@ const Card = styled.div`
 
   @media (max-width: 768px) {
     margin: 0px auto 40px auto;
-  }`;
+  }
+
+  &.cardFooter .cardContent {
+    height: 180px;
+  }
+`;
 
 const CardImageWrap = styled.div`
   height: 216px;
@@ -283,8 +288,6 @@ export const Course = ({data, footer}) => {
             </Rounds>
         }
     }
-
-    console.log(data);
 
     return <CardLink to={data.fields.slug} className="is-quarter">
         <Card id={data.fields.slug.replace(/\//g,'')} className={classes()} onMouseEnter={() => mouseEnter()} onMouseLeave={() => mouseLeave()}>

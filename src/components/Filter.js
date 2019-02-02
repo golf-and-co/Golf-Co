@@ -75,63 +75,65 @@ const Box = styled.section`
     justify-content:right;
 `
 
-const Filter = ({data}) => <div>
+const Flat = ({label, data}) => <Wrap>
+    <Box>
+        <h6>{label} <a href="/" className="clear">Clear</a></h6>
+        {data.map(filter => <div>
+        <input className="is-checkradio is-success" id={filter.replace(/ /g, "")} type="checkbox" name={filter.replace(/ /g, "")}/>
+        <label className="checkbox" htmlFor={filter.replace(/ /g, "")}>{filter}</label>
+        </div>)}
+        <a href="/" className="button is-success is-rounded">Apply</a>
+    </Box>
+</Wrap>;
+
+const Filter = ({data, filter}) => {
+console.log(data);
+
+const filters = {
+    location: {'UAE':['Dubia', 'Abu Dhabi'], 'Qatar':["Doha"]},
+    hotelType: ["5 Star", "4 Star", "3 Star"],
+    duration: ["7 Days or More", "5-7 Days", "3-5 Days"],
+};
+
+data.edges.forEach(edge =>{
+    filter.forEach(value => {
+        // normalize, list of values to filter on
+        // filters.push({value: edge.node.frontmatter[value];
+    });
+});
+
+const countries = Object.keys(filters.location);
+let cities = [];
+countries.forEach(country => {
+    cities = cities.concat(filters.location[country]);
+});
+
+return <div>
     <Wrap>
         <Box>
             <h6>Location</h6>
             <div className="select is-rounded">
                 <select>
-                    <option>UAE</option>
+                    <option>All Countries</option>
+                    {countries.map(country => <option>{country}</option>)}
                 </select>
             </div>
             <br />
             <div className="select is-rounded">
                 <select>
                     <option>All Cities</option>
+                    {cities.map(city => <option>{city}</option>)}
                 </select>
             </div>
             <a href="/" className="button is-success is-rounded">Apply</a>
         </Box>
     </Wrap>
     <br />
-    <Wrap>
-        <Box>
-            <h6>Hotel Type <a href="/" className="clear">Clear</a></h6>
-            <div>
-              <input className="is-checkradio is-success" id="fiveStar" type="checkbox" name="fiveStar"/>
-              <label className="checkbox" htmlFor="fiveStar">5 Star</label>
-            </div>           
-            <div>
-              <input className="is-checkradio is-success" id="fourStar" type="checkbox" name="fourStar"/>
-              <label className="checkbox" htmlFor="fourStar">4 Star</label>
-            </div>
-            <div>
-              <input className="is-checkradio is-success" id="threeStar" type="checkbox" name="threeStar"/>
-              <label className="checkbox" htmlFor="threeStar">3 Star</label>
-            </div>
-            <a href="/" className="button is-success is-rounded">Apply</a>
-        </Box>
-    </Wrap>
+    <Flat data={filters.hotelType} label="Hotel Type" />
     <br />
-    <Wrap>
-        <Box>
-            <h6>Duration <a href="/" className="clear">Clear</a></h6>
-            <div>
-              <input className="is-checkradio is-success" id="sevenDays" type="checkbox" name="sevenDays"/>
-              <label className="checkbox" htmlFor="sevenDays">7 Days or More</label>
-            </div>           
-            <div>
-              <input className="is-checkradio is-success" id="fiveDays" type="checkbox" name="fiveDays"/>
-              <label className="checkbox" htmlFor="fiveDays">5-7 Days</label>
-            </div>
-            <div>
-              <input className="is-checkradio is-success" id="threeDays" type="checkbox" name="threeDays"/>
-              <label className="checkbox" htmlFor="threeDays">3-5 Days</label>
-            </div>
-            <a href="/" className="button is-success is-rounded">Apply</a>
-        </Box>
-    </Wrap>
+    <Flat data={filters.duration} label="Duration" />
 </div>
+}
 
 Filter.propTypes = {
   data: PropTypes.object.isRequired,
