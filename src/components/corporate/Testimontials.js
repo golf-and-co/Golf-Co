@@ -5,8 +5,8 @@ import PropTypes from 'prop-types'
 
 const Wrap = styled.section`
   background-color: #f5f8f1;
-  padding: 30px;
-  height: 600px;
+  padding: 15px;
+  height: 630px;
 
   p {
     max-width: 920px;
@@ -22,8 +22,90 @@ const Wrap = styled.section`
   }
 `
 
+const Testimontials = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`
+
+const Testimontial = styled.div`
+  width: 360px;
+  height: 320px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  margin: 0px 15px 0px 15px;
+  padding: 0 20px;
+
+  @media (max-width: 768px) {
+    margin: 0px auto 40px auto;
+  }
+`
+
+const ProfilePicture = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: silver;
+  margin: 20px auto;
+`
+
+const Comment = styled.div`
+  height: 40%;
+  text-align: justify;
+  color: #848484;
+  overflow: auto;
+  margin-bottom: 20px;
+`
+
+const Signature = styled.div`
+  text-align: center;
+  font-size: 17px;
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #2d8f56;
+`
+const Position = styled.div`
+  text-align: center;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #828381;
+`
+const Location = styled.div`
+  text-align: center;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #828381;
+`
+
 const Content = ({data}) =>   <Wrap>
   <p>Testimontials</p>
+  
+  <Testimontials>
+    <Testimontial>
+      <ProfilePicture></ProfilePicture>
+      <Comment>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</Comment>
+      <Signature>Maria Goldwin</Signature> 
+      <Position>HR Manager</Position>
+      <Location>BMW, MENA</Location>
+    </Testimontial>
+    <Testimontial>
+      <ProfilePicture></ProfilePicture>
+      <Comment>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</Comment>
+      <Signature>Maria Goldwin</Signature>
+      <Position>HR Manager</Position>
+      <Location>BMW, MENA</Location>
+    </Testimontial>
+    <Testimontial>
+      <ProfilePicture></ProfilePicture>
+      <Comment>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</Comment>
+      <Signature>Maria Goldwin</Signature>
+      <Position>HR Manager</Position>
+      <Location>BMW, MENA</Location>
+    </Testimontial>
+  </Testimontials>
 </Wrap>
 
 
