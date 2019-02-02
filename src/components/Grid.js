@@ -21,7 +21,7 @@ const Wrap = styled.section`
   }
 `
 
-const Grid = ({ data }) => {
+const Grid = ({data, filter}) => {
   /*
     edges: (2) […]
     ​​
@@ -51,6 +51,8 @@ const Grid = ({ data }) => {
     <Wrap>
       {data.edges.map(edge => {
         return (
+          //  @TODO: add filterable classes
+          <div className="">
           <Course
             data={{
               frontmatter: {
@@ -66,8 +68,9 @@ const Grid = ({ data }) => {
                 slug: "/packages/"+edge.node.frontmatter.title.replace(/ /g, '-').toLowerCase(),
               },
             }}
-            key={v4()}
+            key={v4()}           
           />
+</div>
         )
       })}
     </Wrap>

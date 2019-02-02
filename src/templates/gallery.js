@@ -17,16 +17,16 @@ PageTemplate.propTypes = {
   title: PropTypes.string
 };
 
-const packageDetails = ({ data }) => {
+const gallery = ({ data }) => {
   return <Layout>
-    <HeroSmall data={data.packageListingPage.edges[0].node.frontmatter} />
-    <Content data={data.packageListingPage.edges[0].node.frontmatter} />
-    <Listing data={data.courses} filter={["city", "country", "hotelType", "duration"]}/>
+    <HeroSmall data={data.gallery.edges[0].node.frontmatter} />
+    <Content data={data.gallery.edges[0].node.frontmatter} />
+    <Listing data={data.courses} />
     <Footer />
   </Layout>
 };
 
-packageDetails.propTypes = {
+gallery.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object
@@ -34,11 +34,11 @@ packageDetails.propTypes = {
   })
 };
 
-export default packageDetails;
+export default gallery;
 
-export const packageDetailsQuery = graphql`
+export const galleryQuery = graphql`
  {
-  packageListingPage:allMarkdownRemark(filter: {frontmatter: {title: {eq: "Golf Packages"}}}) {
+  gallery:allMarkdownRemark(filter: {frontmatter: {title: {eq: "Golf Packages"}}}) {
     edges {
       node {
         frontmatter {
@@ -76,8 +76,6 @@ export const packageDetailsQuery = graphql`
           }
           city
           country
-          hotelType
-          duration
         }
        }
     }
