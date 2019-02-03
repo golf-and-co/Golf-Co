@@ -51,6 +51,7 @@ export const courseQuery = graphql`
           heading1
           paragraph3
           paragraph4
+          sendEnquiry
         }
       }
     }
