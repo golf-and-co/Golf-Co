@@ -17,18 +17,11 @@ const Wrap = styled.section`
     }
   }
 `
-<<<<<<< HEAD
 const Content = ({ data }) => (
   <Wrap>
     <p>{data.description}</p>
   </Wrap>
 )
-=======
-
-const Content = ({data}) => <Wrap>
-    <p>{data.description}</p>
-</Wrap>
->>>>>>> add basic corporate page
 
 export default Content
 
