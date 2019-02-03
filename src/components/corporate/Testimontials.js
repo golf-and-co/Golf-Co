@@ -5,12 +5,12 @@ import PropTypes from 'prop-types'
 
 const Wrap = styled.section`
   background-color: #f5f8f1;
-  padding: 15px;
-  height: 630px;
+  padding: 30px;
+  height: 615px;
 
   p {
     max-width: 920px;
-    margin: 20px auto;
+    
     color: #1d8649;
     text-align: center;
     font-weight: 900;
@@ -20,6 +20,14 @@ const Wrap = styled.section`
       margin: 5px auto;
     }
   }
+`
+
+const Heading = styled.h1`
+  text-align: center;
+  font-size: 200%;
+  margin: 0 auto 10px auto !important;
+  color: #1d8649;
+  font-weight: 900;
 `
 
 const Testimontials = styled.div`
@@ -55,6 +63,7 @@ const Comment = styled.div`
   color: #848484;
   overflow: auto;
   margin-bottom: 20px;
+  line-height: 135%;
 `
 
 const Signature = styled.div`
@@ -64,6 +73,7 @@ const Signature = styled.div`
   white-space: nowrap;
   overflow: hidden;
   color: #2d8f56;
+  line-height: 135%;
 `
 const Position = styled.div`
   text-align: center;
@@ -71,6 +81,7 @@ const Position = styled.div`
   white-space: nowrap;
   overflow: hidden;
   color: #828381;
+  line-height: 135%;
 `
 const Location = styled.div`
   text-align: center;
@@ -78,10 +89,11 @@ const Location = styled.div`
   white-space: nowrap;
   overflow: hidden;
   color: #828381;
+  line-height: 135%;
 `
 
 const Content = ({data}) =>   <Wrap>
-  <p>Testimontials</p>
+  <Heading>Testimontials</Heading>
   
   <Testimontials>
     <Testimontial>

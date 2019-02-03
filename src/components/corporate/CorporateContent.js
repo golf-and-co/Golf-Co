@@ -44,7 +44,7 @@ const Content = ({ data }) => (
     <Heading>{data.heading1}</Heading>
     <Paragraph>{data.paragraph3}</Paragraph>
     <Paragraph>{data.paragraph4}</Paragraph>
-    <Button><a href="/" className="button is-link is-rounded">SEND ENQUIRY</a></Button>
+    <Button><a href="/" className="button is-link is-rounded">{data.sendEnquiry}</a></Button>
   </Wrap>
 )
 

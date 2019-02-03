@@ -3,20 +3,27 @@ import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 const Wrap = styled.section`
-  background-color: #e4ebd9;
+  background-color: #e4ecd9;
   padding: 30px;
 
   p {
     max-width: 920px;
     margin: 20px auto;
-    color: #5ea778;
+    color: #000;
     text-align: center;
-    font-size: 30px;
 
     @media (max-width: 768px) {
       margin: 5px auto;
     }
   }
+`
+
+const Heading = styled.p`
+  text-align: center;
+  font-size: 200%;
+  color: #1d8649 !important;
+  font-weight: 100;
+  margin: 0 auto 10px auto !important;
 `
 
 const Events = styled.div`
@@ -89,6 +96,7 @@ const CardContentTitle = styled.div`
    overflow: hidden;
    width: 100%;
    color: black;
+   line-height: 120%;
 `
 const CardContentSubTitle = styled.div`
    font-size: 15px;
@@ -98,6 +106,7 @@ const CardContentSubTitle = styled.div`
    overflow: hidden;
    width: 100%;
    color: #878787;
+   line-height: 120%;
 `
 
 const CardContentDate = styled.div`
@@ -107,6 +116,7 @@ const CardContentDate = styled.div`
    text-overflow: ellipsis;
    width: 100%;
    color: #8a8a8a;
+   line-height: 120%;
 `
 
 
@@ -116,9 +126,18 @@ const CardContentTag = styled.div`
   margin-top: 9px;
 `;
 
+const Button = styled.div`
+  text-align: center;
+
+  a {
+    margin: 0 auto;
+    width: 250px;
+  }
+`
+
 const Content = () =>   {
   return (<Wrap>
-    <p>PAST EVENTS</p>
+    <Heading>PAST EVENTS</Heading>
     <StaticQuery
       query={graphql`
        query {
@@ -137,21 +156,19 @@ const Content = () =>   {
       }
       render={data => (
         <Events>
-          {data.allMarkdownRemark.edges.map(({node}, index) => {
-            console.log(node);
+          {data.allMarkdownRemark.edges.map(({node}) => {
             return <Card>
-            <CardImageWrap></CardImageWrap>
-            <CardContent>
-            <div className="content">
-              <CardContentTitle>{node.frontmatter.title}</CardContentTitle>
-              <CardContentSubTitle>{node.frontmatter.description}</CardContentSubTitle>
-              <CardContentDate>{node.frontmatter.from}</CardContentDate>
-            </div>
-            </CardContent>
+              <CardImageWrap></CardImageWrap>
+              <CardContent>
+                <div className="content">
+                  <CardContentTitle>{node.frontmatter.title}</CardContentTitle>
+                  <CardContentSubTitle>{node.frontmatter.description}</CardContentSubTitle>
+                  <CardContentDate>{node.frontmatter.from}</CardContentDate>
+                </div>
+              </CardContent>
             </Card>
           })}
         </Events>
-
       )}>
     </StaticQuery>
   </Wrap>)
