@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
 import PropTypes from 'prop-types'
-import Filter from '../components/Filter'
 import Grid from '../components/Grid'
 
 const Background = styled.section`
@@ -24,12 +23,12 @@ const FilterWrap = styled.div`
     @media (max-width: 768px) {
         display: none !important;
     }
-`
+`;
 
-const Listing = ({data, filter}) => <Background>
+const Listing = ({data, side, filter}) => <Background>
     <Wrap className="columns">
         <FilterWrap className="column is-one-fifth">
-            <Filter data={data} filter={filter}/>
+            {side}
         </FilterWrap>
         <div className="column is-four-fifth">
             <Grid data={data} filter={filter}/>

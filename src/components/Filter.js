@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 const Wrap = styled.section`
     display: flex;
@@ -75,7 +74,9 @@ const Box = styled.section`
     justify-content:right;
 `
 
-const Flat = ({label, data}) => <Wrap>
+export const Flat = ({label, data}) => {
+
+return <Wrap>
     <Box>
         <h6>{label} <a href="/" className="clear">Clear</a></h6>
         {data.map(filter => <div>
@@ -84,59 +85,42 @@ const Flat = ({label, data}) => <Wrap>
         </div>)}
         <a href="/" className="button is-success is-rounded">Apply</a>
     </Box>
-</Wrap>;
-
-const Filter = ({data, filter}) => {
-console.log(data);
-
-const filters = {
-    location: {'UAE':['Dubia', 'Abu Dhabi'], 'Qatar':["Doha"]},
-    hotelType: ["5 Star", "4 Star", "3 Star"],
-    duration: ["7 Days or More", "5-7 Days", "3-5 Days"],
+</Wrap>
 };
 
-data.edges.forEach(edge =>{
-    filter.forEach(value => {
-        // normalize, list of values to filter on
-        // filters.push({value: edge.node.frontmatter[value];
-    });
-});
-
-const countries = Object.keys(filters.location);
-let cities = [];
-countries.forEach(country => {
-    cities = cities.concat(filters.location[country]);
-});
-
-return <div>
-    <Wrap>
-        <Box>
-            <h6>Location</h6>
-            <div className="select is-rounded">
-                <select>
-                    <option>All Countries</option>
-                    {countries.map(country => <option>{country}</option>)}
-                </select>
-            </div>
-            <br />
-            <div className="select is-rounded">
-                <select>
-                    <option>All Cities</option>
-                    {cities.map(city => <option>{city}</option>)}
-                </select>
-            </div>
-            <a href="/" className="button is-success is-rounded">Apply</a>
-        </Box>
+export const Nested = ({label, data}) => {
+    return <Wrap>
+    <Box>
+        <h6>{label.main}</h6>
+        <div className="select is-rounded">
+            <select>
+                <option>{label.primary}</option>
+                {data.primary.map(row => <option>{row}</option>)}
+            </select>
+        </div>
+        <br />
+        <div className="select is-rounded">
+            <select>
+                <option>{label.secondary}</option>
+                {data.secondary.map(row => <option>{row}</option>)}
+            </select>
+        </div>
+        <a href="/" className="button is-success is-rounded">Apply</a>
+    </Box>
     </Wrap>
+}
+
+
+/*const Filter = ({data, filter}) => <div>
+    <Nested label={label} data={{primary:countries, secondary:cities}} />
     <br />
     <Flat data={filters.hotelType} label="Hotel Type" />
     <br />
     <Flat data={filters.duration} label="Duration" />
-</div>
-}
+</div>;
 
 Filter.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export default Filter
+export default Filter*/

@@ -46,7 +46,7 @@ const Grid = ({data, filter}) => {
         city: '',
         country: '',
     };*/
-
+console.log(data);
   return (
     <Wrap>
       {data.edges.map(edge => {
