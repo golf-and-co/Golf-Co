@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Content from '../components/Content'
+import CorporateContent from '../components/corporate/CorporateContent'
 import Testimontials from '../components/corporate/Testimontials';
 import PastEvents from '../components/corporate/PastEvents';
 import Footer from '../components/Footer';
@@ -22,7 +22,7 @@ PageTemplate.propTypes = {
 }
 
 const Corporate = ({ data }) => <Layout>
-  <Content data={{description: data.markdownRemark.frontmatter.top.message}}/>
+  <CorporateContent data={data.markdownRemark.frontmatter.top}/>
   <PastEvents />
   <Testimontials />
   <Footer />
@@ -31,7 +31,9 @@ const Corporate = ({ data }) => <Layout>
 Corporate.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
+      frontmatter: PropTypes.shape({
+        top: PropTypes.object.isRequired
+      }),
     }),
   }),
 }
@@ -44,7 +46,11 @@ export const courseQuery = graphql`
       rawMarkdownBody
       frontmatter {
         top{
-          message
+          paragraph1
+          paragraph2
+          heading1
+          paragraph3
+          paragraph4
         }
       }
     }
