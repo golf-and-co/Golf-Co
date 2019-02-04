@@ -75,6 +75,18 @@ collections:
           - {label: "Packages", name: "packages", widget: "list", fields:[{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
           - {label: Heading Second Line, name: heading2, widget: string}
           - {label: Description Second Line, name: description2, widget: string}
+      - file: "src/pages/corporate.md"
+        label: "Corporate Golf Days"
+        name: "corporate"
+        fields:
+          - {label: Template Key, name: templateKey, widget: hidden, default: corporate}
+          - {label: Hero, name: image, widget: image}
+          - {label: Title, name: title, widget: string}
+          - {label: Paragraph1, name: paragraph1, widget: string}
+          - {label: Paragraph2, name: paragraph2, widget: string}
+          - {label: Heading1, name: heading1, widget: string}
+          - {label: Paragraph3, name: paragraph3, widget: string}
+          - {label: Paragraph4, name: paragraph4, widget: string}
   - name: "post"
     label: "Posts"
     folder: "src/pages/post"
