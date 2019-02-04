@@ -122,7 +122,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "testimontial"}
       - {label: "Profile Picture", name: "profilePicture", widget: "image"}
       - {label: "Comment", name: "comment", widget: "string"}
-      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Name", name: "title", widget: "string"}
       - {label: "Position", name: "position", widget: "string"}
       - {label: "Location", name: "location", widget: "string"}
   - name: "course"
