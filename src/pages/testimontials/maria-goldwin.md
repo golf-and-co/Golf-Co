@@ -1,5 +1,5 @@
 ---
-templateKey: testimontial
+templateKey: corporate
 profilePicture: /img/testimonial-1.png
 comment: >-
   “Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
