@@ -100,7 +100,7 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Corporate", widget: "boolean"}
+      - {label: "Corporate", name: "corporate", widget: "boolean"}
   - name: "testimontial"
     label: "Testimontials"
     folder: "src/pages/testimontials"
