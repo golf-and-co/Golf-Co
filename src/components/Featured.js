@@ -55,6 +55,10 @@ const Card = styled.div`
     margin: 0px auto 40px auto;
   }
 
+  &.cardFooter {
+    height: 395px;
+  }
+
   &.cardFooter .cardContent {
     height: 180px;
   }

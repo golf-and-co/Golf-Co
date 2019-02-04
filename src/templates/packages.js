@@ -6,6 +6,7 @@ import HeroSmall from "../components/HeroSmall";
 import Content from "../components/Content";
 import Listing from "../components/Listing";
 import {Nested, Flat} from "../components/Filter";
+import {group, rollup} from "d3-array";
 import Footer from "../components/Footer";
 
 export const PageTemplate = ({ title }) => (
@@ -43,6 +44,14 @@ const packageDetails = ({ data }) => {
   */
 
   // @TODO: Clean this up big time. Probably will be taken out when using redux
+
+  console.log("d3");
+  group(data.courses.edges, d => d.node.frontmatter.city).forEach(row =>
+    console.log(row)
+  );
+  console.log(group(data.courses.edges, d => d.node.frontmatter.country));
+  console.log(group(data.courses.edges, d => d.node.frontmatter.hotelType));
+  console.log(rollup(data.courses.edges, v => v.length, d => d.node.frontmatter.country, d => d.node.frontmatter.city));
 
   // assigns css properties to each item
   const filter = {

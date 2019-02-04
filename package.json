@@ -7,6 +7,7 @@
     "babel-plugin-styled-components": "^1.10.0",
     "bulma": "^0.7.0",
     "bulma-extensions": "^4.0.1",
+    "d3-array": "^2.0.3",
     "gatsby": "^2.0.85",
     "gatsby-image": "^2.0.25",
     "gatsby-plugin-netlify": "^2.0.6",

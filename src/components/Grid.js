@@ -10,7 +10,7 @@ const Wrap = styled.section`
   flex-wrap: wrap;
 
   a {
-    margin: 10px;
+    margin: 0px 10px 20px 10px;
     @media (max-width: 768px) {
         margin: 0 auto;
     }
@@ -20,6 +20,11 @@ const Wrap = styled.section`
       top: -215px
   }
 `
+
+const Item = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 const Grid = ({data, filter}) => {
   /*
@@ -59,7 +64,7 @@ console.log(data);
       });
 
         return (
-          <div className={classes} key={v4()}>
+          <Item className={classes} key={v4()}>
             <Course
               data={{
                 frontmatter: {
@@ -77,7 +82,7 @@ console.log(data);
               }}
               footer={true} 
             />
-          </div>
+          </Item>
         )
       })}
     </Wrap>
