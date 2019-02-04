@@ -20,5 +20,6 @@ paragraph3: >-
 paragraph4: >-
   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
   aliquip ex ea commodo consequat.
+sendEnquiry: Send Enquiry
 ---
 

@@ -87,6 +87,7 @@ collections:
           - {label: Heading1, name: heading1, widget: string}
           - {label: Paragraph3, name: paragraph3, widget: string}
           - {label: Paragraph4, name: paragraph4, widget: string}
+          - {label: "Send Enquiry", name: sendEnquiry, widget: string}
   - name: "post"
     label: "Posts"
     folder: "src/pages/post"
