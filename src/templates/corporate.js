@@ -8,22 +8,10 @@ import Testimontials from '../components/corporate/Testimontials';
 import PastEvents from '../components/corporate/PastEvents';
 import Footer from '../components/Footer';
 
-export const PageTemplate = ({
-  title,
-}) => (
-  <section className="section section--gradient">
-    <div className="container">
-      Preview Offline
-    </div>
-  </section>
-)
-
-PageTemplate.propTypes = {
-  title: PropTypes.string,
-}
+const backgroundColor = "#f5f8f1";
 
 const Corporate = ({ data }) => <Layout>
-  <HeroSmall data={data.markdownRemark.frontmatter}/>
+  <HeroSmall data={{...data.markdownRemark.frontmatter, backgroundColor}}/>
   <CorporateContent data={data.markdownRemark.frontmatter}/>
   <PastEvents />
   <Testimontials />
