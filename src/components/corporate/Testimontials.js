@@ -94,30 +94,54 @@ const Location = styled.div`
 
 const Content = ({data}) =>   <Wrap>
   <Heading>Testimontials</Heading>
-  
-  <Testimontials>
-    <Testimontial>
-      <ProfilePicture></ProfilePicture>
-      <Comment>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</Comment>
-      <Signature>Maria Goldwin</Signature> 
-      <Position>HR Manager</Position>
-      <Location>BMW, MENA</Location>
-    </Testimontial>
-    <Testimontial>
-      <ProfilePicture></ProfilePicture>
-      <Comment>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</Comment>
-      <Signature>Maria Goldwin</Signature>
-      <Position>HR Manager</Position>
-      <Location>BMW, MENA</Location>
-    </Testimontial>
-    <Testimontial>
-      <ProfilePicture></ProfilePicture>
-      <Comment>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</Comment>
-      <Signature>Maria Goldwin</Signature>
-      <Position>HR Manager</Position>
-      <Location>BMW, MENA</Location>
-    </Testimontial>
-  </Testimontials>
+
+  <StaticQuery
+      query={graphql`
+       query {
+          allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "corporate"}}}){
+            edges{
+              node{
+                frontmatter{
+                  profilePicture {
+                    childImageSharp {
+                      fluid(maxWidth: 2048, quality: 100) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
+                  comment
+                  title
+                  position
+                  location
+                }
+              }
+            }
+          }
+        }`
+      }
+      render={data => (
+        <Testimontials>
+          {data.allMarkdownRemark.edges.map(({node}, i) => {
+            //testimontials have the same key as corporate (page), skip first index to prevent trying to render corporate
+            if(i == 0)
+              return;
+            return <Testimontial>
+              <ProfilePicture style={{
+                backgroundImage: `url(${
+                  !!node.frontmatter.profilePicture.childImageSharp
+                    ? node.frontmatter.profilePicture.childImageSharp.fluid.src
+                    : node.frontmatter.profilePicture
+                })`,
+              }}></ProfilePicture>
+              <Comment>{node.frontmatter.comment}</Comment>
+              <Signature>{node.frontmatter.title}</Signature> 
+              <Position>{node.frontmatter.position}</Position>
+              <Location>{node.frontmatter.location}</Location>
+            </Testimontial>
+          })}
+        </Testimontials>
+      )}>
+    </StaticQuery>
 </Wrap>
 
 
