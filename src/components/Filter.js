@@ -88,16 +88,22 @@ const Label = styled.label`
     cursor: default;
 `;
 
-//@TODO: event handlers for checkbox and select
+//@TODO: this is a mess. Start using redux or react hooks
 
 // select: change secondary dropdown, and hide
-const select = (field, nested) => {
-    // query for secondary dropdown
-    
-    // lookup value from indexed array, if all, use all
-
+const select = (field, data, label) => {
+    const primary = document.querySelector(`#`+field.main+`-primary`);
+    let options = [label.secondary];
+    console.log(primary.value);
+    if (primary.value == '--label--') {
+        options = options.concat(data.secondary);
+    } else {
+        // lookup value from indexed array, if all, use all
+        options = options.concat(Array.from(data.nested.get(primary.value).keys()));
+    }
     // set values
-
+    console.log(`#`+field.main+`-secondary`);
+    document.querySelector(`#`+field.main+`-secondary`).innerHTML = options.map(option => `<option>${option}</option>`).join("");
     // filter select
     hide();
 }
@@ -114,9 +120,12 @@ const hide = () => {
         if (select.value == '--label--') return;
         classes.push(select.getAttribute("data-field")+"-"+select.value);
     });
-    console.log(classes);
-    document.querySelectorAll(".filterable").forEach(el => el.style.display="none");
-    document.querySelectorAll('.'+classes.join(".")).forEach(el => el.style.display="flex");
+    if(classes.length > 0) {
+        document.querySelectorAll(".filterable").forEach(el => el.style.display="none");
+        document.querySelectorAll('.'+classes.join(".")).forEach(el => el.style.display="flex");
+    } else {
+        document.querySelectorAll(".filterable").forEach(el => el.style.display="flex");
+    }
 }
 
 export const Flat = ({label, field, data}) => {
@@ -143,14 +152,14 @@ export const Nested = ({label, field, data}) => {
     <Box>
         <h6>{label.main}</h6>
         <div className="select is-rounded">
-            <select id={`${field.main}-primary`} data-main={field.main} data-field={field.primary} onChange={() => select(field, data.nested)} className="select filter">
+            <select id={`${field.main}-primary`} data-main={field.main} data-field={field.primary} onChange={() => select(field, data , label)} className="select filter">
                 <option value="--label--">{label.primary}</option>
                 {data.primary.map(row => <option key={v4()}>{row}</option>)}
             </select>
         </div>
         <br />
         <div className="select is-rounded">
-            <select id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={() => select(field, data.nested)} className="select filter">
+            <select id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={() => select()} className="select filter">
                 <option value="--label--">{label.secondary}</option>
                 {data.secondary.map(row => <option key={v4()}>{row}</option>)}
             </select>
