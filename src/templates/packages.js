@@ -29,7 +29,7 @@ const packageDetails = ({ data }) => {
       nested: rollup(data.courses.edges, v => v.length, d => d.node.frontmatter.country, d => d.node.frontmatter.city),
     }}  
     label={{main:"Location", primary:"Country", secondary:"City" }}
-    field={"location"}/>
+    field={{main:"location", primary:"country", secondary:"city"}}/>
     <br />
     <Flat label="Hotel Type" data={Array.from((group(data.courses.edges, d => d.node.frontmatter.hotelType).keys()))} field={"hotelType"}/>
     <br />
