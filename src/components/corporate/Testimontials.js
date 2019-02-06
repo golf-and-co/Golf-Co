@@ -98,7 +98,7 @@ const Content = ({data}) =>   <Wrap>
   <StaticQuery
       query={graphql`
        query {
-          allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "corporate"}}}){
+          allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "corporate"}}}, limit: 3){
             edges{
               node{
                 frontmatter{
