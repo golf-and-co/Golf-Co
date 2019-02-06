@@ -149,7 +149,8 @@ const Content = () =>   {
     <StaticQuery
       query={graphql`
        query {
-          allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "event"}}}){
+          allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "event"}}
+        }, limit: 4){
             edges{
               node{
                 frontmatter{
