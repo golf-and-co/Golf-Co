@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { v4 } from 'uuid'
+import { isNull } from 'util';
 
 const Wrap = styled.section`
     display: flex;
@@ -43,7 +45,6 @@ const Wrap = styled.section`
     .is-checkradio[type="checkbox"] + label {
         color: #000;
         font-size: 0.8rem;
-        margin-left: 15px;
     }
     .is-checkradio[type="checkbox"] + label::before, .is-checkradio[type="checkbox"] + label::before {
         width: 14px;
@@ -73,36 +74,75 @@ const Box = styled.section`
     height:215px;
     justify-content:right;
 `
+const Item = styled.div`
+    padding-left: 20px;
+`;
 
-export const Flat = ({label, data}) => {
+const Checkbox = styled.input`
+    margin-top: 4px;
+    z-index: 10;
+    cursor: pointer;
+`;
 
+const Label = styled.label`
+    cursor: default;
+`;
+
+//@TODO: event handlers for checkbox and select
+
+// select: change secondary dropdown, and hide
+const select = id => {
+    // queryAll secondary
+    
+    // lookup value from indexed array, if all, use all
+
+    // set values
+}
+
+
+const check = () => { 
+    const classes = Array.from(document.querySelectorAll('.is-checkradio:checked')).map(el => { 
+        if(el.checked)
+        return el.getAttribute("id");
+    });
+    document.querySelectorAll(".filterable").forEach(el => el.style.display="none");
+    document.querySelectorAll('.'+classes.join(".")).forEach(el => el.style.display="flex");
+}
+
+export const Flat = ({label, field, data}) => {
 return <Wrap>
     <Box>
         <h6>{label} <a href="/" className="clear">Clear</a></h6>
-        {data.map(filter => <div>
-        <input className="is-checkradio is-success" id={filter.replace(/ /g, "")} type="checkbox" name={filter.replace(/ /g, "")}/>
-        <label className="checkbox" htmlFor={filter.replace(/ /g, "")}>{filter}</label>
-        </div>)}
+        {data.map(filter => <Item key={v4()}>
+            <Checkbox 
+                className="is-checkradio is-success" 
+                onClick={() => check()} 
+                data-field={field} 
+                id={`${field}-${filter.replace(/ /g, "")}`} 
+                type="checkbox" 
+                name={`${field}-${filter.replace(/ /g, "")}`}  />
+            <Label className="checkbox" htmlFor={filter.replace(/ /g, "")}>{filter}</Label>
+        </Item>)}
         <a href="/" className="button is-success is-rounded">Apply</a>
     </Box>
 </Wrap>
 };
 
-export const Nested = ({label, data}) => {
+export const Nested = ({label, field, data}) => {
     return <Wrap>
     <Box>
         <h6>{label.main}</h6>
         <div className="select is-rounded">
             <select>
                 <option>{label.primary}</option>
-                {data.primary.map(row => <option>{row}</option>)}
+                {data.primary.map(row => <option key={v4()}>{row}</option>)}
             </select>
         </div>
         <br />
         <div className="select is-rounded">
             <select>
                 <option>{label.secondary}</option>
-                {data.secondary.map(row => <option>{row}</option>)}
+                {data.secondary.map(row => <option key={v4()}>{row}</option>)}
             </select>
         </div>
         <a href="/" className="button is-success is-rounded">Apply</a>

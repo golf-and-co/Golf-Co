@@ -31,7 +31,7 @@ const Listing = ({data, side, filter}) => <Background>
             {side}
         </FilterWrap>
         <div className="column is-four-fifth">
-            
+            <Grid data={data} filter={filter}/>
         </div>
     </Wrap>
 </Background>

@@ -18,7 +18,7 @@ PageTemplate.propTypes = {
 };
 
 const courses = ({ data }) => {
-  console.log(data);
+  
   return <Layout>
     <HeroSmall data={data.coursesPage.edges[0].node.frontmatter} />
     <Content data={data.coursesPage.edges[0].node.frontmatter} />

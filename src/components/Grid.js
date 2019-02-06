@@ -51,7 +51,7 @@ const Grid = ({data, filter}) => {
         city: '',
         country: '',
     };*/
-console.log(data);
+
   return (
     <Wrap>
       {data.edges.map(edge => {
@@ -64,7 +64,7 @@ console.log(data);
       });
 
         return (
-          <Item className={classes} key={v4()}>
+          <Item className={classes+" filterable"} key={v4()}>
             <Course
               data={{
                 frontmatter: {

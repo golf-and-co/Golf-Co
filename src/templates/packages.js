@@ -6,7 +6,7 @@ import HeroSmall from "../components/HeroSmall";
 import Content from "../components/Content";
 import Listing from "../components/Listing";
 import {Nested, Flat} from "../components/Filter";
-import {group, rollup} from "d3-array";
+import {group, rollup, keys} from "d3-array";
 import Footer from "../components/Footer";
 
 export const PageTemplate = ({ title }) => (
@@ -22,42 +22,23 @@ PageTemplate.propTypes = {
 
 const packageDetails = ({ data }) => {
 
-  /* on click dispatch actions:
+ const Filter = (<div>
+    <Nested data={{
+      primary: Array.from((group(data.courses.edges, d => d.node.frontmatter.country).keys())),
+      secondary: Array.from((group(data.courses.edges, d => d.node.frontmatter.city).keys())),
+      nested: rollup(data.courses.edges, v => v.length, d => d.node.frontmatter.country, d => d.node.frontmatter.city),
+    }}  
+    label={{main:"Location", primary:"Country", secondary:"City" }}
+    field={"location"}/>
+    <br />
+    <Flat label="Hotel Type" data={Array.from((group(data.courses.edges, d => d.node.frontmatter.hotelType).keys()))} field={"hotelType"}/>
+    <br />
+    <Flat label="Duration" data={Array.from((group(data.courses.edges, d => d.node.frontmatter.duration).keys()))} field={"duration"} /></div>)
 
-  checkbox: visible: false if does not match
-  select: visible: false if does not match, update select box
-
-  state: {
-    packages: [
-      {
-        visible: bool
-        package: package
-      }
-    ],
-    location: {
-      country: [city,]
-    },
-    hotelType,
-    duration
-  }
-
-  */
-
-  // @TODO: Clean this up big time. Probably will be taken out when using redux
-
-  console.log("d3");
-  group(data.courses.edges, d => d.node.frontmatter.city).forEach(row =>
-    console.log(row)
-  );
-  console.log(group(data.courses.edges, d => d.node.frontmatter.country));
-  console.log(group(data.courses.edges, d => d.node.frontmatter.hotelType));
-  console.log(rollup(data.courses.edges, v => v.length, d => d.node.frontmatter.country, d => d.node.frontmatter.city));
-
-  
   return <Layout>
     <HeroSmall data={data.packageListingPage.edges[0].node.frontmatter} />
     <Content data={data.packageListingPage.edges[0].node.frontmatter} />
-    
+    <Listing data={data.courses} side={Filter} filter={["city", "country", "hotelType", "duration"]} />
     <Footer />
   </Layout>
 };
