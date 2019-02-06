@@ -114,6 +114,7 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Corporate", name: "corporate", widget: "boolean"}
+      - {label: "Background", name: "background", widget: "image"}
   - name: "testimontial"
     label: "Testimontials"
     folder: "src/pages/testimontials"

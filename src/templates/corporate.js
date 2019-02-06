@@ -21,9 +21,7 @@ const Corporate = ({ data }) => <Layout>
 Corporate.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.shape({
-        top: PropTypes.object.isRequired
-      }),
+      frontmatter: PropTypes.object.isRequired
     }),
   }),
 }

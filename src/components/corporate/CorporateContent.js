@@ -4,9 +4,7 @@ import PropTypes from 'prop-types'
 
 const Wrap = styled.section`
   background-color: #f5f8f1;
-  padding: 30px;
-
-
+  padding: 10px 30px 30px 30px;
 `
 
 const Paragraph = styled.div`

@@ -48,6 +48,12 @@ const CardImageWrap = styled.div`
   height: 216px;
   position: relative;
   z-index: 0;
+ 
+`;
+
+const CardImage = styled.img`
+  height:216px !important;
+  border-radius: 6px 6px 0 0;
 `;
 
 const CardContent = styled.div`
@@ -56,7 +62,7 @@ const CardContent = styled.div`
   font-weight: 300;
   padding: 16px 0 0 0px !important;
   position: relative;
-  z-index: 100;
+  z-index: 0;
   background-color: #FFF !important;
   transition: height 1s ease-out, top 1s ease-out;
   height: 100px;
@@ -126,14 +132,16 @@ const CardContentTag = styled.div`
   margin-top: 9px;
 `;
 
-const Button = styled.div`
-  text-align: center;
-
-  a {
-    margin: 0 auto;
-    width: 250px;
-  }
-`
+const Button = styled.button`
+  display:block !important;
+  width: 150px;
+  margin: 20px auto 0px auto;
+  background:none !important;
+  color: #1d8649 !important;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-color: #1d8649 !important;
+`;
 
 const Content = () =>   {
   return (<Wrap>
@@ -148,6 +156,14 @@ const Content = () =>   {
                   title
                   description
                   from
+                  to
+                  background {
+                    childImageSharp {
+                      fluid(maxWidth: 2048, quality: 100) {
+                        ...GatsbyImageSharpFluid
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -157,8 +173,16 @@ const Content = () =>   {
       render={data => (
         <Events>
           {data.allMarkdownRemark.edges.map(({node}) => {
+            if(Date.now() < Date.parse(node.frontmatter.to))
+              return;
             return <Card>
-              <CardImageWrap></CardImageWrap>
+              <CardImageWrap>
+                  <CardImage src={
+                  !!node.frontmatter.background.childImageSharp
+                      ? node.frontmatter.background.childImageSharp.fluid.src
+                      : node.frontmatter.background
+                  } alt="Placeholder" />
+              </CardImageWrap>
               <CardContent>
                 <div className="content">
                   <CardContentTitle>{node.frontmatter.title}</CardContentTitle>
@@ -171,6 +195,7 @@ const Content = () =>   {
         </Events>
       )}>
     </StaticQuery>
+    <Button className="button is-rounded">View all</Button>
   </Wrap>)
 }
 
