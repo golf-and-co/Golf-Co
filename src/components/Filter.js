@@ -91,12 +91,17 @@ const Label = styled.label`
 //@TODO: event handlers for checkbox and select
 
 // select: change secondary dropdown, and hide
-const select = id => {
+const select = (field, nested) => {
     // queryAll secondary
-    
+    /* document.querySelectorAll(".select.filter").map(select => {
+
+    })*/
     // lookup value from indexed array, if all, use all
 
     // set values
+
+    // filter select
+    
 }
 
 
@@ -133,15 +138,15 @@ export const Nested = ({label, field, data}) => {
     <Box>
         <h6>{label.main}</h6>
         <div className="select is-rounded">
-            <select>
-                <option>{label.primary}</option>
+            <select id={`${field}-primary`} onChange={() => select(field, data.nested)} className="select filter">
+                <option value="--label--">{label.primary}</option>
                 {data.primary.map(row => <option key={v4()}>{row}</option>)}
             </select>
         </div>
         <br />
         <div className="select is-rounded">
-            <select>
-                <option>{label.secondary}</option>
+            <select id={`${field}-secondary`} onChange={() => select(field, data.nested)} className="select filter">
+                <option value="--label--">{label.secondary}</option>
                 {data.secondary.map(row => <option key={v4()}>{row}</option>)}
             </select>
         </div>

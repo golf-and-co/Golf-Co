@@ -56,12 +56,13 @@ const Grid = ({data, filter}) => {
     <Wrap>
       {data.edges.map(edge => {
 
-      const classes = filter.reduce(function(accumulator, currentValue) {
+      const classes = filter.map(field => {
+        
         // filter is an array of fields
         // accomplished by getting value of field, slugify, and setting as a classname
         // then based on filter, class combination is shown.
-        return accumulator + currentValue+"-"+edge.node.frontmatter[currentValue].replace(/ /g,'-')+" ";
-      });
+        return field+"-"+edge.node.frontmatter[field].replace(/ /g,'-');
+      }).join(" ");
 
         return (
           <Item className={classes+" filterable"} key={v4()}>
