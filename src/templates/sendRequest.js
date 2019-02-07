@@ -7,13 +7,12 @@ import Footer from '../components/Footer';
 
 const SendRequest = ({ data }) => <Layout>
   <HeroSmall data={{...data.markdownRemark.frontmatter}}/>
-  <div style={{height:"60vh;"}}>
+  <div style={{background:"#E4ECD9", "padding-bottom": "345px", "color": "#1a428a"}}>
     <p>We are all set to take your request. Just fill up the form below.</p>
     <form>
       <div class="container">
         <div class="columns">
           <div class="column">
-
               <div class="field">
                   <label class="label">Date</label>
                   <div class="control">
@@ -40,13 +39,36 @@ const SendRequest = ({ data }) => <Layout>
 
           <div class="column">
               <div class="field">
-                  <label class="label">Email</label>
+                  <label class="label">Number of Players</label>
                   <div class="control">
-                      <input class="input" type="text" placeholder="Email" />
+                      <input class="input" type="text" placeholder="1" />
+                  </div>
+              </div>
+              <div class="field">
+                  <label class="label">Last Name</label>
+                  <div class="control">
+                      <input class="input" type="text" placeholder="Last Name" />
+                  </div>
+              </div>
+              <div class="field">
+                  <label class="label">Contact Number</label>
+                  <div class="control">
+                      <input class="input" type="text" placeholder="Email" /> <input class="input" type="text" placeholder="Email" />
+                      <p>Our representative will call you on this number to personalise your trip.</p>
                   </div>
               </div>
           </div>
-        </div>
+          </div>
+          <div class="field">
+                <label class="label">Notes</label>
+                <div class="control">
+                  <textarea class="textarea" placeholder="Textarea"></textarea>
+                </div>
+              </div>
+
+              <div class="control">
+                <button class="button is-link">Send This Request</button>
+              </div>
       </div>
     </form>
   </div>

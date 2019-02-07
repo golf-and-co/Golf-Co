@@ -2,12 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import HeroSmall from "../components/HeroSmall";
-import Content from "../components/Content";
-import Listing from "../components/Listing";
-import {Nested, Flat} from "../components/Filter";
-import {group, rollup} from "d3-array";
-import Footer from "../components/Footer";
+
 
 export const PageTemplate = ({ title }) => (
   <section className="section section--gradient">
