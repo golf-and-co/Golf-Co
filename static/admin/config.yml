@@ -126,7 +126,7 @@ collections:
     folder: "src/pages/testimontials"
     create: false
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "corporate"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "testimonials"}
       - {label: "Profile Picture", name: "profilePicture", widget: "image"}
       - {label: "Comment", name: "comment", widget: "string"}
       - {label: "Name", name: "title", widget: "string"}
