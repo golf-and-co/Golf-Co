@@ -1,5 +1,5 @@
 ---
-templateKey: courses
+templateKey: gallery
 viewGallery: View Gallery
 ---
 

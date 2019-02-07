@@ -19,8 +19,8 @@ PageTemplate.propTypes = {
 
 const gallery = ({ data }) => {
   return <Layout>
-    <HeroSmall data={data.gallery.edges[0].node.frontmatter} />
-    <Content data={data.gallery.edges[0].node.frontmatter} />
+    <HeroSmall data={data.galleryQuery.edges[0].node.frontmatter} />
+    <Content data={data.galleryQuery.edges[0].node.frontmatter} />
     <Listing data={data.courses} />
     <Footer />
   </Layout>
@@ -38,7 +38,7 @@ export default gallery;
 
 export const galleryQuery = graphql`
  {
-  gallery:allMarkdownRemark(filter: {frontmatter: {title: {eq: "Golf Packages"}}}) {
+  galleryQuery:allMarkdownRemark(filter: {frontmatter: {title: {eq: "Golf Packages"}}}) {
     edges {
       node {
         frontmatter {
