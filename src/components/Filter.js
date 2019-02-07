@@ -19,7 +19,6 @@ const Wrap = styled.section`
     }
     .select {
         font-size: 0.8rem;
-        margin: 10px 15px;
     }
 
     .select:not(.is-multiple):not(.is-loading)::after {
@@ -73,6 +72,10 @@ const Box = styled.section`
     width: 260px;
     height:215px;
     justify-content:right;
+
+    & > .select {
+        margin: 10px 15px;
+    }
 `
 const Item = styled.div`
     padding-left: 20px;
@@ -93,17 +96,17 @@ const Label = styled.label`
 // select: change secondary dropdown, and hide
 const select = (field, data, label) => {
     const primary = document.querySelector(`#`+field.main+`-primary`);
-    let options = [label.secondary];
+    let options = [];
     console.log(primary.value);
     if (primary.value == '--label--') {
-        options = options.concat(data.secondary);
+        options = data.secondary;
     } else {
         // lookup value from indexed array, if all, use all
-        options = options.concat(Array.from(data.nested.get(primary.value).keys()));
+        options = Array.from(data.nested.get(primary.value).keys());
     }
     // set values
     console.log(`#`+field.main+`-secondary`);
-    document.querySelector(`#`+field.main+`-secondary`).innerHTML = options.map(option => `<option>${option}</option>`).join("");
+    document.querySelector(`#`+field.main+`-secondary`).innerHTML = `<option value="--label--">${label.secondary}</option>`+options.map(option => `<option>${option}</option>`).join("");
     // filter select
     hide();
 }
@@ -120,6 +123,7 @@ const hide = () => {
         if (select.value == '--label--') return;
         classes.push(select.getAttribute("data-field")+"-"+select.value);
     });
+    console.log(classes);
     if(classes.length > 0) {
         document.querySelectorAll(".filterable").forEach(el => el.style.display="none");
         document.querySelectorAll('.'+classes.join(".")).forEach(el => el.style.display="flex");
@@ -159,7 +163,7 @@ export const Nested = ({label, field, data}) => {
         </div>
         <br />
         <div className="select is-rounded">
-            <select id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={() => select()} className="select filter">
+            <select id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={() => hide()} className="select filter">
                 <option value="--label--">{label.secondary}</option>
                 {data.secondary.map(row => <option key={v4()}>{row}</option>)}
             </select>
