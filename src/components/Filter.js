@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { v4 } from 'uuid'
-import { isNull } from 'util';
 
 const Wrap = styled.section`
     display: flex;
@@ -98,7 +97,7 @@ const select = (field, data, label) => {
     const primary = document.querySelector(`#`+field.main+`-primary`);
     let options = [];
     console.log(primary.value);
-    if (primary.value == '--label--') {
+    if (primary.value === '--label--') {
         options = data.secondary;
     } else {
         // lookup value from indexed array, if all, use all
@@ -115,12 +114,14 @@ const select = (field, data, label) => {
 const hide = () => { 
     // checkbox classes
     let classes = Array.from(document.querySelectorAll('.is-checkradio:checked')).map(el => { 
-        if(el.checked)
-        return el.getAttribute("id");
+        if(el.checked) {
+            return el.getAttribute("id");
+        }
+        return;
     });
     // select classes
     document.querySelectorAll(".select.filter").forEach(select => {
-        if (select.value == '--label--') return;
+        if (select.value === '--label--') return;
         classes.push(select.getAttribute("data-field")+"-"+select.value);
     });
     console.log(classes);

@@ -123,7 +123,7 @@ const Content = ({data}) =>   <Wrap>
         <Testimontials>
           {data.allMarkdownRemark.edges.map(({node}, i) => {
             //testimontials have the same key as corporate (page), skip first index to prevent trying to render corporate
-            if(i == 0)
+            if(i === 0)
               return;
             return <Testimontial>
               <ProfilePicture style={{

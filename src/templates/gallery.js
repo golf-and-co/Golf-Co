@@ -21,7 +21,7 @@ const gallery = ({ data }) => {
   return <Layout>
     <HeroSmall data={data.galleryQuery.edges[0].node.frontmatter} />
     <Content data={data.galleryQuery.edges[0].node.frontmatter} />
-    <Listing data={data.courses} />
+    <Listing data={data.courses} filter={["city", "country"]}/>
     <Footer />
   </Layout>
 };

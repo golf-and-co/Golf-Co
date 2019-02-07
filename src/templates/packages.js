@@ -6,7 +6,7 @@ import HeroSmall from "../components/HeroSmall";
 import Content from "../components/Content";
 import Listing from "../components/Listing";
 import {Nested, Flat} from "../components/Filter";
-import {group, rollup, keys} from "d3-array";
+import {group, rollup} from "d3-array";
 import Footer from "../components/Footer";
 
 export const PageTemplate = ({ title }) => (

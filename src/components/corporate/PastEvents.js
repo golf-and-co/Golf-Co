@@ -125,13 +125,6 @@ const CardContentDate = styled.div`
    line-height: 120%;
 `
 
-
-const CardContentTag = styled.div`
-  color: #9b9b9b;
-  font-size: 14px;
-  margin-top: 9px;
-`;
-
 const Button = styled.button`
   display:block !important;
   width: 150px;

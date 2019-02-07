@@ -22,7 +22,7 @@ const courses = ({ data }) => {
   return <Layout>
     <HeroSmall data={data.coursesPage.edges[0].node.frontmatter} />
     <Content data={data.coursesPage.edges[0].node.frontmatter} />
-    <Listing data={data.courses} />
+    <Listing data={data.courses} filter={["city", "country"]}/>
     <Footer />
   </Layout>
 };
