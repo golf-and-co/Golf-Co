@@ -63,27 +63,33 @@ const LogoWrapper = styled.div`
 const Logo = styled(Link)`
   justify-content: center;
   background-color: rgba(0,0,0,0.01) !important;
-  padding-top: 45px !important;
   :hover {
     background-color: rgba(0,0,0,0.01) !important;
     color: #FFF !important;
   }
+
+  &.navbar-item {
+    padding-top: 45px;
+  }
 `
 
 const Hero = ({data}) => {
-  return <Background style={{backgroundColor: `${(data.title === "Bespoke Golf Holidays" && "unset") || data.backgroundColor}`}}>
+  return <Background style={{
+          backgroundColor: `${ (data.title === "Bespoke Golf Holidays" && "unset") || data.backgroundColor}`,
+        }}>
     <HeroWrap style={{
       backgroundImage: `url(${
         !!data.image.childImageSharp
           ? data.image.childImageSharp.fluid.src
           : data.image
       })`,
+      height: `${data.height}`,
     }}>
 
 
     <Container className="container content columns is-fluid">
       <LogoWrapper className="column is-2">
-        <Logo to="/" className="navbar-item" title="Logo">
+        <Logo to="/" className="navbar-item" title="Logo" style={{"paddingTop": data.logoMargin}}>
           <img src={logo} alt="GolfAndCo" />
         </Logo>
       </LogoWrapper>

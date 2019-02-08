@@ -66,7 +66,7 @@ const Content = styled.div`
   padding: 45px 0 50px 0;
 `;
 
-const Date = styled.input`
+const DatePicker = styled.input`
   border: 1px solid #d9d9d9;
   width: 210px;
   height: 40px;
@@ -77,8 +77,12 @@ const Date = styled.input`
   box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
 `;
 
+
+
+
+
 const SendRequest = ({ data }) => <Layout>
-  <HeroSmall data={{...data.markdownRemark.frontmatter}}/>
+  <HeroSmall data={{...data.markdownRemark.frontmatter, backgroundColor:"#F6F9F2", height:"160px", logoMargin:"30px"}} />
   <Wrap>
     <Content>We are all set to take your request. Just fill up the form below.</Content>
     <form>
@@ -88,7 +92,7 @@ const SendRequest = ({ data }) => <Layout>
               <div className="field">
                   <label className="label">Date</label>
                   <div className="control">
-                      <Date className="is-rounded" type="date" />
+                      <DatePicker className="is-rounded" type="date" id="datepicker" defaultValue={new Date().toISOString().slice(0, 10)}/>
                   </div>
               </div>
 
