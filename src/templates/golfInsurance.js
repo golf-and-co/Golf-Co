@@ -28,8 +28,8 @@ Corporate.propTypes = {
 
 export default Corporate
 
-export const courseQuery = graphql`
-  query Corporate($id: String!) {
+export const golfInsuranceQuery = graphql`
+  query golfInsurance($id: String!) {
     markdownRemark(id: { eq: $id }) {
       rawMarkdownBody
       frontmatter {
