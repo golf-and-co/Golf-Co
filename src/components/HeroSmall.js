@@ -33,15 +33,17 @@ const Heading = styled.h1`
   font-size: 15px !important;
   font-weight: 300;
   padding: 0.75em;
-  margin-top: 8vh !important;
+  
   @media (min-width: 768px) {
     font-size: 30px !important;
-    margin-top: 100px;
+    margin-top: 8vh;
   }
   
   @media (max-width: 768px) {
     display:none;
   }
+
+  
 `
 
 const HeadingStrong = styled.strong`
@@ -74,6 +76,7 @@ const Logo = styled(Link)`
 `
 
 const Hero = ({data}) => {
+  console.log(data);
   return <Background style={{
           backgroundColor: `${ (data.title === "Bespoke Golf Holidays" && "unset") || data.backgroundColor}`,
         }}>
@@ -94,7 +97,7 @@ const Hero = ({data}) => {
         </Logo>
       </LogoWrapper>
       <div className="column is-8">
-        <Heading className="title">
+        <Heading className="title" style={{"marginTop":data.logoMargin}}>
           <HeadingStrong>{data.title}</HeadingStrong>
         </Heading>
       </div>

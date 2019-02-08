@@ -4,11 +4,16 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/Layout';
 import HeroSmall from "../components/HeroSmall";
+import ReactCountryFlag from "react-country-flag";
 import Footer from '../components/Footer';
 
 const Wrap = styled.div`
   background: #F6F9F2;
   padding-bottom: 345px; 
+
+  .container {
+    max-width: 980px;
+  }
 
   label {
     color: #1d8649;
@@ -58,6 +63,17 @@ const Wrap = styled.div`
     margin: 0 auto;
     display: block;
   }
+
+  input[type="date"]
+  {
+      -webkit-appearance: none;
+  }
+
+  input[type="date"]::-ms-clear {
+    display: none;
+  }
+  input[type="date"]::-webkit-inner-spin-button,    
+  input[type="date"]::-webkit-clear-button { display: none; }
 `;
 
 const Content = styled.div`
@@ -91,8 +107,11 @@ const SendRequest = ({ data }) => <Layout>
           <div className="column">
               <div className="field">
                   <label className="label">Date</label>
-                  <div className="control">
-                      <DatePicker className="is-rounded" type="date" id="datepicker" defaultValue={new Date().toISOString().slice(0, 10)}/>
+                  <div className="control has-icons-right" style={{width:"210px", margin:"0 auto"}}>
+                      <DatePicker className="is-rounded " type="date" id="datepicker" defaultValue={new Date().toISOString().slice(0, 10)} required={"required"} />
+                      <span class="icon is-small is-right">
+                        <i class="fa fa-calendar is-right" style={{color:"#1d8649", right:"15px"}}></i>
+                      </span>
                   </div>
               </div>
 
@@ -117,7 +136,7 @@ const SendRequest = ({ data }) => <Layout>
               <div className="field">
                   <label className="label">Number of Players</label>
                   <div className="control">
-                      <input className="input is-rounded" type="text"/>
+                      <input className="input is-rounded" type="number" style={{width:"100px", padding:"10px 15px"}} min="1"/>
                   </div>
               </div>
               <div className="field">
@@ -130,7 +149,19 @@ const SendRequest = ({ data }) => <Layout>
                   <label className="label">Contact Number</label>
                   <div className="control">
                       <div id="phoneWrap">
-                        <input className="input is-rounded" type="text" id="countryCode"/> <input className="input is-rounded" type="text" id="phone"/>
+                        <div class="control has-icons-left">
+                          <div class="select" id="countryCode">
+                            <select className="input is-rounded" style={{padding:"0 30px"}}>
+                              <option>+971</option>
+                              <option>+974</option>
+                            </select>
+                          </div>
+                          <div class="icon is-small is-left">
+                            <ReactCountryFlag code="AE" />
+                          </div>
+                        </div>
+
+                       <input className="input is-rounded" type="text" id="phone"/>
                       </div>
                       <p>Our representative will call you on this number to personalise your trip.</p>
                   </div>
@@ -175,6 +206,7 @@ export const sendRequestQuery = graphql`
             }
           }
         }
+        title
       }
     }
   }
