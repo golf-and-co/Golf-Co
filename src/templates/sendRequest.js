@@ -7,7 +7,7 @@ import HeroSmall from "../components/HeroSmall";
 import Footer from '../components/Footer';
 
 const Wrap = styled.div`
-  background: #E4ECD9;
+  background: #F6F9F2;
   padding-bottom: 345px; 
 
   label {
@@ -16,6 +16,11 @@ const Wrap = styled.div`
     text-transform: uppercase;
     margin-top:30px;
     font-size: 14px;
+  }
+
+  p {
+    color: #1d8649;
+    line-height: 1.5rem;
   }
 
   .field {
@@ -27,6 +32,31 @@ const Wrap = styled.div`
     display: block;
     max-width: 300px;
     padding: 15px;
+  }
+
+  #phoneWrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  #countryCode {
+    width: 125px;
+    margin: 0 5px;
+  }
+
+  #phone {
+    width: 165px;
+    border-radius: 20px;
+    margin: 0 10px;
+  }
+
+  .textarea.is-rounded {
+    border-radius: 20px;
+  }
+
+  button {
+    margin: 0 auto;
+    display: block;
   }
 `;
 
@@ -58,21 +88,21 @@ const SendRequest = ({ data }) => <Layout>
               <div className="field">
                   <label className="label">Date</label>
                   <div className="control">
-                      <Date className="is-rounded" type="date" placeholder="Arrival Date" />
+                      <Date className="is-rounded" type="date" />
                   </div>
               </div>
 
               <div className="field">
                   <label className="label">First Name</label>
                   <div className="control">
-                      <input className="input is-rounded" type="text" placeholder="First Name" />
+                      <input className="input is-rounded" type="text"/>
                   </div>
               </div>
 
               <div className="field">
                   <label className="label">Email</label>
                   <div className="control">
-                      <input className="input is-rounded" type="text" placeholder="Email" />
+                      <input className="input is-rounded" type="text"/>
                   </div>
               </div>
           </div>
@@ -83,19 +113,21 @@ const SendRequest = ({ data }) => <Layout>
               <div className="field">
                   <label className="label">Number of Players</label>
                   <div className="control">
-                      <input className="input is-rounded" type="text" placeholder="1" />
+                      <input className="input is-rounded" type="text"/>
                   </div>
               </div>
               <div className="field">
                   <label className="label">Last Name</label>
                   <div className="control">
-                      <input className="input is-rounded" type="text" placeholder="Last Name" />
+                      <input className="input is-rounded" type="text"/>
                   </div>
               </div>
               <div className="field">
                   <label className="label">Contact Number</label>
                   <div className="control">
-                      <input className="input is-rounded" type="text" placeholder="Email" /> <input className="input" type="text" placeholder="Email" />
+                      <div id="phoneWrap">
+                        <input className="input is-rounded" type="text" id="countryCode"/> <input className="input is-rounded" type="text" id="phone"/>
+                      </div>
                       <p>Our representative will call you on this number to personalise your trip.</p>
                   </div>
               </div>
@@ -104,7 +136,7 @@ const SendRequest = ({ data }) => <Layout>
           <div className="field">
                 <label className="label">Notes</label>
                 <div className="control">
-                  <textarea className="textarea is-rounded" placeholder="Textarea"></textarea>
+                  <textarea className="textarea is-rounded"/>
                 </div>
               </div>
 
