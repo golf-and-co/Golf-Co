@@ -88,7 +88,7 @@ collections:
           - {label: Paragraph3, name: paragraph3, widget: string}
           - {label: Paragraph4, name: paragraph4, widget: string}
           - {label: "Send Enquiry", name: sendEnquiry, widget: string}
-      - file: "src/pages/corporate.md"
+      - file: "src/pages/send-request.md"
         label: "Send Request"
         name: "sendRequest"
         fields:

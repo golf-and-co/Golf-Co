@@ -71,7 +71,6 @@ const Logo = styled(Link)`
 `
 
 const Hero = ({data}) => {
-  console.log(data);
   return <Background style={{backgroundColor: `${(data.title === "Bespoke Golf Holidays" && "unset") || data.backgroundColor}`}}>
     <HeroWrap style={{
       backgroundImage: `url(${
