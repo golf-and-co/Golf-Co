@@ -1,5 +1,5 @@
 ---
-templateKey: corporate
+templateKey: golf-insurance
 image: /img/3ef654df85556ac6a77864224.png
 title: Corporate Golf Days
 paragraph1: >-
