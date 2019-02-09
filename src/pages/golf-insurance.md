@@ -1,25 +1,29 @@
 ---
 templateKey: golfInsurance
-image: /img/3ef654df85556ac6a77864224.png
-title: Golf Insurance
+image: /img/golf-insurance.png
 paragraph1: >-
-  Golf & Co. is the only specialised Golf Themed Tourism and Events compnay
-  based in Dubai that offers Bespoke Packages, Golf Insurance and Corporate Golf
-  events across the Middle East region and beyond.
+  We know how much your golf clubs and equipment are worth to you which is why
+  we cover any damage to your golf bags, clubs and select accessories in the
+  case of fire or burglary. You also have the peace of mind to know that your
+  golf equipment is covered by us even while you’re travelling between your home
+  and any UAE golf course.
+infographic:
+  - description: Protection for all your golf equipment both at home and on the course
+    image: /img/icons8-security_checked.png
+title: Worldwide Golf Cover
 paragraph2: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-  nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-  eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-  in culpa qui officia deserunt mollit anim id est laborum.
-heading1: Golf Themed Team Building Activities
-paragraph3: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-  incididunt ut labore et dolore magna aliqua
-paragraph4: >-
-  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-  aliquip ex ea commodo consequat.
-sendEnquiry: Send Enquiry
+  If you are planning to take your golf clubs and equipment on holiday with you,
+  rest assured that they’re still covered. Your policy covers you anywhere in
+  the world but the third party liability does not apply in either Canada or the
+  USA
+benefits:
+  - description: >-
+      RSA will cover costs for your legal responsibilities for accidental injury
+      to anyone or accidental damage to property when participating in any
+      golfing activity in the UAE. In th event of a claim, we’ll replace your
+      golf clubs and equipment on a new for old basis. To access our claims
+      team, call +971(0)4 3029835 / 3029903.
+    image: /img/claims.png
+premium: AED 250
 ---
 
