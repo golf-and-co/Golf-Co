@@ -96,7 +96,6 @@ const Label = styled.label`
 const select = (field, data, label) => {
     const primary = document.querySelector(`#`+field.main+`-primary`);
     let options = [];
-    console.log(primary.value);
     if (primary.value === '--label--') {
         options = data.secondary;
     } else {
@@ -104,7 +103,6 @@ const select = (field, data, label) => {
         options = Array.from(data.nested.get(primary.value).keys());
     }
     // set values
-    console.log(`#`+field.main+`-secondary`);
     document.querySelector(`#`+field.main+`-secondary`).innerHTML = `<option value="--label--">${label.secondary}</option>`+options.map(option => `<option>${option}</option>`).join("");
     // filter select
     hide();
@@ -124,7 +122,6 @@ const hide = () => {
         if (select.value === '--label--') return;
         classes.push(select.getAttribute("data-field")+"-"+select.value);
     });
-    console.log(classes);
     if(classes.length > 0) {
         document.querySelectorAll(".filterable").forEach(el => el.style.display="none");
         document.querySelectorAll('.'+classes.join(".")).forEach(el => el.style.display="flex");
