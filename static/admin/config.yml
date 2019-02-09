@@ -102,11 +102,11 @@ collections:
           - {label: Template Key, name: templateKey, widget: hidden, default: golfInsurance}
           - {label: Hero, name: image, widget: image}
           - {label: First Paragraph, name: paragraph1, widget: text}
-          - {label: Infographics, name: infographic, widget: list, fields:[{label: Icon, name: image, widget: image}}, {label: Description, name: description, widget: text}]}
+          - {label: Infographics, name: infographic, widget: list, fields:[{label: Icon, name: image, widget: image}, {label: Description, name: description, widget: text}]}
           - {label: Title, name: title, widget: string}
           - {label: Second Paragraph, name: paragraph2, widget: text}
           - {label: Infographics, name: infographic, widget: list, fields:[{label: Icon, name: image, widget: image}, {label: Description, name: description, widget: text}]}
-          - {label: Benefits, name: benefits, widget: list, fields:[{label: Icon, name: image, widget: image}}, {label: Description, name: description, widget: text}]}
+          - {label: Benefits, name: benefits, widget: list, fields:[{label: Icon, name: image, widget: image}, {label: Description, name: description, widget: text}]}
           - {label: Yearly Premium, name: premium, widget: string}
   - name: "post"
     label: "Posts"
