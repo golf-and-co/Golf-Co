@@ -41,23 +41,9 @@ export const golfInsuranceQuery = graphql`
         }
         paragraph1
         paragraph2
-        infographic {
+        infographics {
           image {
-            childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          description
-        }
-        benefits{ 
-          image {
-            childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
+            publicURL
           }
           description
         }

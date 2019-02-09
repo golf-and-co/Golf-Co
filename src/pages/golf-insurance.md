@@ -7,7 +7,7 @@ paragraph1: >-
   case of fire or burglary. You also have the peace of mind to know that your
   golf equipment is covered by us even while you’re travelling between your home
   and any UAE golf course.
-infographic:
+infographics:
   - description: Protection for all your golf equipment both at home and on the course
     image: /img/icons8-security_checked.png
 title: Worldwide Golf Cover

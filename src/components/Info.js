@@ -44,17 +44,21 @@ const Body = styled.p`
   }
 `
 
-const Element = ({data}) => <Graphic className="column is-one-quarter">
-  <img src={data.image.publicURL} alt="Tailor Made" />
-  <Heading>{data.heading}</Heading>
-  <Body>{data.description}</Body>
-</Graphic>;
+const Element = ({data}) => {
+  return <Graphic className="column is-one-quarter">
+    <img src={data.image.publicURL} alt="Tailor Made" />
+    <Heading>{data.heading}</Heading>
+    <Body>{data.description}</Body>
+  </Graphic>;
+}
 
-export const Infographic = ({ data }) => (
-  <Wrap className="columns is-desktop">
-    {data.info.map(row => <Element data={data} /> )}
-  </Wrap>
-);
+const Infographic = ({ data }) => {
+  return <Wrap className="columns is-desktop">
+    {data.infographics.map(row => <Element data={row} /> )}
+  </Wrap>;
+}
+
+export default Infographic;
 
 Infographic.propTypes = {
   data: PropTypes.object.isRequired,

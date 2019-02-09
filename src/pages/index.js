@@ -24,28 +24,7 @@ export const golfInsuranceQuery = graphql`
     edges {
       node {
         frontmatter {
-          info1 {
-            heading
-            description
-            image {
-              publicURL
-            }
-          }
-          info2 {
-            heading
-            description
-            image {
-              publicURL
-            }
-          }
-          info3 {
-            heading
-            description
-            image {
-              publicURL
-            }
-          }
-          info4 {
+          infographics {
             heading
             description
             image {
