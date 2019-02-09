@@ -3,18 +3,16 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout';
 import HeroSmall from "../components/HeroSmall";
-import CorporateContent from '../components/corporate/CorporateContent'
-import Testimontials from '../components/corporate/Testimontials';
-import PastEvents from '../components/corporate/PastEvents';
+import Content from '../components/Content'
+import Info from '../components/Info';
 import Footer from '../components/Footer';
 
 const backgroundColor = "#f5f8f1";
 
 const Corporate = ({ data }) => <Layout>
   <HeroSmall data={data.markdownRemark.frontmatter}/>
-  <CorporateContent data={data.markdownRemark.frontmatter}/>
-  <PastEvents />
-  <Testimontials />
+  <Content data={data.markdownRemark.frontmatter}/>
+  <Info data={data.markdownRemark.frontmatter} />
   <Footer />
 </Layout>;
 
@@ -43,10 +41,28 @@ export const golfInsuranceQuery = graphql`
         }
         paragraph1
         paragraph2
-        heading1
-        paragraph3
+        infographic {
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          description
+        }
+        benefits{ 
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          description
+        }
         paragraph4
-        sendEnquiry
+        premium
       }
     }
   }
