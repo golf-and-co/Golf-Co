@@ -56,6 +56,6 @@ export const Infographic = ({ data }) => (
   </Wrap>
 );
 
-Info.propTypes = {
+Infographic.propTypes = {
   data: PropTypes.object.isRequired,
 }

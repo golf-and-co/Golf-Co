@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout';
 import HeroSmall from "../components/HeroSmall";
 import Content from '../components/Content'
-import Info from '../components/Info';
+import Infographic from '../components/Info';
 import Footer from '../components/Footer';
 
 const backgroundColor = "#f5f8f1";
@@ -12,7 +12,7 @@ const backgroundColor = "#f5f8f1";
 const Corporate = ({ data }) => <Layout>
   <HeroSmall data={data.markdownRemark.frontmatter}/>
   <Content data={data.markdownRemark.frontmatter}/>
-  <Info data={data.markdownRemark.frontmatter} />
+  <Infographic data={data.markdownRemark.frontmatter} />
   <Footer />
 </Layout>;
 
