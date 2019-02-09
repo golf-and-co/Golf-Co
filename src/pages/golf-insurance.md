@@ -1,7 +1,7 @@
 ---
 templateKey: golfInsurance
 image: /img/3ef654df85556ac6a77864224.png
-title: Corporate Golf Days
+title: Golf Insurance
 paragraph1: >-
   Golf & Co. is the only specialised Golf Themed Tourism and Events compnay
   based in Dubai that offers Bespoke Packages, Golf Insurance and Corporate Golf
