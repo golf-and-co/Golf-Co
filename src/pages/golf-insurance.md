@@ -24,6 +24,7 @@ benefits:
       golf clubs and equipment on a new for old basis. To access our claims
       team, call +971(0)4 3029835 / 3029903.
     image: /img/claims.png
+    title: Personal Liability and Claims
 premium: AED 250
 ---
 
