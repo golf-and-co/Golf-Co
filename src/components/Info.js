@@ -7,6 +7,24 @@ const Wrap = styled.section`
   background-color: #f6f9f2;
   padding: 90px 0 220px 0;
   justify-content: center;
+
+  &.filled > div {
+    background: #EAF2E1;
+    border-radius: 237px;
+    width: 237px;
+    max-width: 237px;
+    height: 237px;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  &.filled .heading {
+    display: none;
+  }
+
+  &.filled .body {
+    margin-top: 30px;
+  }
 `
 
 const Graphic = styled.div`
@@ -37,23 +55,28 @@ const Body = styled.p`
   font-size: 14px;
   font-weight: 300;
   line-height: 16px;
-
-  @media (min-width: 768px) {
-    width: 200px;
-    height: 80px;
-  }
+  width: 227px;
+  padding: 0 30px;
 `
 
 const Element = ({data}) => {
   return <Graphic className="column is-one-quarter">
     <img src={data.image.publicURL} alt="Tailor Made" />
-    <Heading>{data.heading}</Heading>
-    <Body>{data.description}</Body>
+    <Heading className="heading">{data.heading}</Heading>
+    <Body className="body">{data.description}</Body>
   </Graphic>;
 }
 
 const Infographic = ({ data }) => {
-  return <Wrap className="columns is-desktop">
+  const classes = () => {
+    if(data.filled) {
+      return "filled columns is-desktop"
+    } else {
+      return "columns is-desktop"
+    }
+  }
+
+  return <Wrap className={classes()}>
     {data.infographics.map(row => <Element data={row} /> )}
   </Wrap>;
 }

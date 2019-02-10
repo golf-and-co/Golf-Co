@@ -10,9 +10,22 @@ import Footer from '../components/Footer';
 const backgroundColor = "#f5f8f1";
 
 const Corporate = ({ data }) => <Layout>
-  <HeroSmall data={data.markdownRemark.frontmatter}/>
-  <Content data={data.markdownRemark.frontmatter}/>
-  <Infographic data={data.markdownRemark.frontmatter} />
+  <HeroSmall data={{...data.markdownRemark.frontmatter, backgroundColor:"#f6f9f2"}} />
+  <div className="container">
+    <p style={{color: "#4a4a4a", backgroundColor:"#f6f9f2"}}>{data.markdownRemark.frontmatter.paragraph1}</p>
+  </div>
+  <Infographic data={{...data.markdownRemark.frontmatter, filled:true}} />
+  <div className="container">
+    <h3>{data.title}</h3>
+    <p style={{color: "#4a4a4a", backgroundColor:"#f6f9f2"}}>{data.markdownRemark.frontmatter.paragraph2}</p>
+  </div>
+  {data.benefits.map(benefit => {
+    return <div className="card">
+      <h6>{benefit.title}</h6>
+      <img src={benefit.image.publicURL} />
+      <p>{benefit.description}</p>
+    </div>
+  })}
   <Footer />
 </Layout>;
 
@@ -47,7 +60,13 @@ export const golfInsuranceQuery = graphql`
           }
           description
         }
-        paragraph4
+        benefits {
+          image {
+            publicURL
+          }
+          description
+          title
+        }
         premium
       }
     }
