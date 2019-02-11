@@ -97,7 +97,9 @@ const Hero = ({data}) => {
       </LogoWrapper>
       <div className="column is-8">
         <Heading className="title" style={{"marginTop":data.logoMargin}}>
-          <HeadingStrong>{data.title}</HeadingStrong>
+          {() => {if(data.showTitle) {
+            return <HeadingStrong>{data.title}</HeadingStrong>
+          }}}
         </Heading>
       </div>
     </Container>

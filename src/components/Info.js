@@ -27,12 +27,16 @@ const Wrap = styled.section`
     padding: 20px 0;
   }
 
+  &.filled img {
+    margin-top: 15px;
+  }
+
   &.filled .fillHeading {
     display: none;
   }
 
   &.filled .body {
-    margin-top: 30px;
+    margin-top: 15px;
     width: 227px;
     padding: 0 30px;
   }
