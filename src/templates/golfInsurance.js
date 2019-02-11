@@ -29,11 +29,11 @@ const Card = styled.section`
 `;
 
 const Corporate = ({ data }) => <Layout>
-  <HeroSmall data={{...data.markdownRemark.frontmatter, backgroundColor:"#f6f9f2"}} />
+  
   <div className="container">
     <p style={{color: "#4a4a4a", backgroundColor:"#f6f9f2"}}>{data.markdownRemark.frontmatter.paragraph1}</p>
   </div>
-  <Infographic data={{...data.markdownRemark.frontmatter, filled:true}} />
+  
   <div style={{color: "#4a4a4a", backgroundColor:"#f6f9f2", paddingBottom:"220px"}}>
     <div className="container">
       <h3 style={{color: "#1d8649", fontSize:"30px", fontWeight: "bold", fontFamily: "Gotham Bold", textAlign: "center"}}>{data.markdownRemark.frontmatter.title}</h3>
