@@ -25,7 +25,6 @@ const HeroWrap = styled.section`
   width: 140%;
   margin-left: -20%;
   height: 40vh;
-  background-position-y: -40vh;
 
   @media (min-width: 768px) {
     border-radius: 0 0 45% 45%;
