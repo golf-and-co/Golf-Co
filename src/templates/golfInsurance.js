@@ -28,20 +28,31 @@ const Card = styled.section`
   }
 `;
 
-const Corporate = ({ data }) => <Layout>
-  
+const Corporate = ({ data }) => { 
+return <Layout>  
+  <HeroSmall data={{...data.markdownRemark.frontmatter, backgroundColor:"#f6f9f2"}} />
   <div className="container">
     <p style={{color: "#4a4a4a", backgroundColor:"#f6f9f2"}}>{data.markdownRemark.frontmatter.paragraph1}</p>
   </div>
-  
+  <Infographic data={{...data.markdownRemark.frontmatter, filled:true}} />
   <div style={{color: "#4a4a4a", backgroundColor:"#f6f9f2", paddingBottom:"220px"}}>
     <div className="container">
       <h3 style={{color: "#1d8649", fontSize:"30px", fontWeight: "bold", fontFamily: "Gotham Bold", textAlign: "center"}}>{data.markdownRemark.frontmatter.title}</h3>
       <p style={{color: "#4a4a4a", backgroundColor:"#f6f9f2", padding:"30px 60px"}}>{data.markdownRemark.frontmatter.paragraph2}</p>
-    </div>  
+      <div style={{display:"flex"}}>
+        {data.markdownRemark.frontmatter.benefits.map(benefit => {
+          return <Card className="card">
+            <h6>{benefit.title}</h6>
+            <img src={benefit.image.publicURL} />
+            <p>{benefit.description}</p>
+          </Card>
+        })}
+      </div>
+    </div>
   </div>
   <Footer />
 </Layout>;
+}
 
 Corporate.propTypes = {
   data: PropTypes.shape({
@@ -76,6 +87,9 @@ export const golfInsuranceQuery = graphql`
         }
         benefits {
           description
+          image {
+            publicURL
+          }
           title
         }
         premium
