@@ -38,31 +38,7 @@ const Corporate = ({ data }) => <Layout>
     <div className="container">
       <h3 style={{color: "#1d8649", fontSize:"30px", fontWeight: "bold", fontFamily: "Gotham Bold", textAlign: "center"}}>{data.markdownRemark.frontmatter.title}</h3>
       <p style={{color: "#4a4a4a", backgroundColor:"#f6f9f2", padding:"30px 60px"}}>{data.markdownRemark.frontmatter.paragraph2}</p>
-      <div style={{display:"flex"}}>
-        {data.markdownRemark.frontmatter.benefits.map(benefit => {
-          return <Card className="card">
-            <h6>{benefit.title}</h6>
-            <img src={benefit.image.publicURL} />
-            <p>{benefit.description}</p>
-          </Card>
-        })}
-      </div>
-      <div style={{marginTop: "30px", textAlign:"center"}}>
-        <p style={{textTransform:"uppercase"}}>Insurance Provided by</p>
-        <img src="/img/rsa.png" />
-      </div>
-    </div>
-    <div style={{backgroundColor:"#E4ECD9"}}>
-        <div className="container">
-          <table>
-            <tr>
-              <th>Description of Benefits</th>
-              <th>Limit (AED)</th>
-            </tr>
-            {benefits.map(benefit => <tr><td>{benefit.description}</td><td>{benefit.limit}</td></tr>)}
-          </table>
-        </div>
-    </div>
+    </div>  
   </div>
   <Footer />
 </Layout>;

@@ -25,6 +25,9 @@ benefits:
       team, call +971(0)4 3029835 / 3029903.
     image: /img/claims.png
     title: Personal Liability and Claims
+limits:
+  - description: Legal Liability
+  - limit: 1,000,000
 premium: AED 250
 ---
 
