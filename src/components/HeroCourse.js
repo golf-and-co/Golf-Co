@@ -151,7 +151,6 @@ const Hero = ({data, empty, oneLine}) => {
           </Heading>
         </div>
       </Container>
-      {viewGallery()}
     </HeroWrap>
   </Background>;
 }
