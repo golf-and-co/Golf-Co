@@ -47,6 +47,21 @@ const Corporate = ({ data }) => <Layout>
           </Card>
         })}
       </div>
+      <div style={{marginTop: "30px", textAlign:"center"}}>
+        <p style={{textTransform:"uppercase"}}>Insurance Provided by</p>
+        <img src="/img/rsa.png" />
+      </div>
+    </div>
+    <div style={{backgroundColor:"#E4ECD9"}}>
+        <div className="container">
+          <table>
+            <tr>
+              <th>Description of Benefits</th>
+              <th>Limit (AED)</th>
+            </tr>
+            {benefits.map(benefit => <tr><td>{benefit.description}</td><td>{benefit.limit}</td></tr>)}
+          </table>
+        </div>
     </div>
   </div>
   <Footer />
@@ -84,9 +99,6 @@ export const golfInsuranceQuery = graphql`
           description
         }
         benefits {
-          image {
-            publicURL
-          }
           description
           title
         }
