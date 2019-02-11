@@ -8,6 +8,15 @@ const Wrap = styled.section`
   padding: 90px 0 220px 0;
   justify-content: center;
 
+  &.filled {
+    padding: 90px 0;
+    margin-bottom: 0;
+  }
+
+  &.filled.columns {
+    margin-bottom:0;
+  }
+  
   &.filled > div {
     background: #EAF2E1;
     border-radius: 237px;
@@ -18,12 +27,14 @@ const Wrap = styled.section`
     padding: 20px 0;
   }
 
-  &.filled .heading {
+  &.filled .fillHeading {
     display: none;
   }
 
   &.filled .body {
     margin-top: 30px;
+    width: 227px;
+    padding: 0 30px;
   }
 `
 
@@ -55,14 +66,12 @@ const Body = styled.p`
   font-size: 14px;
   font-weight: 300;
   line-height: 16px;
-  width: 227px;
-  padding: 0 30px;
 `
 
 const Element = ({data}) => {
   return <Graphic className="column is-one-quarter">
     <img src={data.image.publicURL} alt="Tailor Made" />
-    <Heading className="heading">{data.heading}</Heading>
+    <Heading className="fillHeading">{data.heading}</Heading>
     <Body className="body">{data.description}</Body>
   </Graphic>;
 }
