@@ -102,7 +102,8 @@ collections:
           - {label: Infographics, name: infographics, widget: list, fields:[{label: Icon, name: image, widget: image}, {label: Description, name: description, widget: text}]}
           - {label: Title, name: title, widget: string}
           - {label: Second Paragraph, name: paragraph2, widget: text}
-          - {label: Benefits, name: benefits, widget: list, fields:[{label: Description, name: description, widget: text}, {label: Limit, name: limit, widget: text}]}
+          - {label: Benefits, name: benefits, widget: list, fields:[{label: Icon, name: image, widget: image}, {label: Title, name: title, widget: text}, {label: Description, name: description, widget: text}]}
+          - {label: Limits, name: limits, widget: list, fields:[{label: Description, name: description, widget: text}, {label: Limit, name: limit, widget: text}]}
           - {label: Yearly Premium, name: premium, widget: string}
   - name: "post"
     label: "Posts"
