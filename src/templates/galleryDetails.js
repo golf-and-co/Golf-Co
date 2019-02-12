@@ -50,10 +50,10 @@ return <Layout>
   <Wrap className="container">
     <Slider {...{dots:true}}>
       <div>
-        <img src="http://placekitten.com/g/400/200" />
+        <img src="https://placekitten.com/g/400/200" />
       </div>
       <div>
-        <img src="http://placekitten.com/g/400/200" />
+        <img src="https://placekitten.com/g/400/200" />
       </div>
     </Slider>
     </Wrap>
