@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Course } from '../components/Featured'
 import { v4 } from 'uuid'
+import { isObject } from 'util';
 
 const Wrap = styled.section`
   display: flex;
@@ -27,7 +28,7 @@ const Item = styled.div`
   flex-wrap: wrap;
 `;
 
-const Grid = ({data, filter}) => {
+const Grid = ({data, filter, slugType}) => {
   /*
     edges: (2) […]
     ​​
@@ -62,7 +63,14 @@ const Grid = ({data, filter}) => {
         // filter is an array of fields
         // accomplished by getting value of field, slugify, and setting as a classname
         // then based on filter, class combination is shown.
-        return field+"-"+edge.node.frontmatter[field].replace(/ /g,'-');
+        if(isObject(field)) {
+          const key = Object.keys(field)[0];
+          const value = field[key];
+          //@TODO: replace and use hooks and context api. Nested arrays made using classes too complex
+          return edge.node.frontmatter[key].map(row => key+"-"+row[value].replace(/ /g,'')).join(" ");
+        } else {
+          return field+"-"+edge.node.frontmatter[field].replace(/ /g,'-');
+        }
       }).join(" ");
 
         return (
@@ -79,7 +87,7 @@ const Grid = ({data, filter}) => {
                   country: edge.node.frontmatter.country,
                 },
                 fields: {
-                  slug: "/packages/"+edge.node.frontmatter.title.replace(/ /g, '-').toLowerCase(),
+                  slug: `/${slugType}/`+edge.node.frontmatter.title.replace(/ /g, '-').toLowerCase(),
                 },
               }}
               footer={true} 

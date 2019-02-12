@@ -77,7 +77,7 @@ const Box = styled.section`
     }
 `
 const Item = styled.div`
-    padding-left: 20px;
+    padding-left: 10px;
 `;
 
 const Checkbox = styled.input`
@@ -133,9 +133,8 @@ const hide = () => {
 export const Flat = ({label, field, data}) => {
 return <Wrap>
     <Box>
-        <h6>{label} <a href="/" className="clear">Clear</a></h6>
+        <h6 style={{display: "flex", padding: "5px 10px"}}>{label} <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
         {data.map(filter => {
-          console.log(filter);
           return <Item key={v4()}>
             <Checkbox 
                 className="is-checkradio is-success" 

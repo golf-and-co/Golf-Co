@@ -62,6 +62,11 @@ const Card = styled.div`
   &.cardFooter .cardContent {
     height: 180px;
   }
+
+  &.cardFooter .content {
+    font-size: 16px;
+    margin-left: 10px;
+  }
 `;
 
 const CardImageWrap = styled.div`
@@ -109,9 +114,7 @@ const CardContent = styled.div`
 
   .content {
       margin-left: 15px;
-   }
-
-   
+  }   
 `;
 
 const CardContentTag = styled.div`
