@@ -18,10 +18,16 @@ PageTemplate.propTypes = {
 };
 
 const gallery = ({ data }) => {
+
+  let types = {};   
+  data.gallery.edges.map(edge => edge.node.frontmatter.type.map(row => types[row.label]=true));
+  types = Object.keys(types);
+
+
   return <Layout>
     <HeroSmall data={data.galleryQuery.edges[0].node.frontmatter} />
     <Content data={data.galleryQuery.edges[0].node.frontmatter} />
-    <Listing data={data.courses} filter={["city", "country"]}/>
+    <Listing data={data.galleryQuery} filter={[{"type":"label"}]}/>
     <Footer />
   </Layout>
 };
@@ -38,7 +44,7 @@ export default gallery;
 
 export const galleryQuery = graphql`
  {
-  galleryQuery:allMarkdownRemark(filter: {frontmatter: {title: {eq: "Golf Packages"}}}) {
+  galleryQuery:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "gallery"}}}) {
     edges {
       node {
         frontmatter {
@@ -55,7 +61,7 @@ export const galleryQuery = graphql`
         }
       }
     }
-    courses:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "package"} searchable:{eq:true} }}){
+    gallery:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "galleryDetails"}}}){
     edges{
        node{
         frontmatter{
@@ -67,15 +73,16 @@ export const galleryQuery = graphql`
               }
             }
           }
-          stats{
-            icon {
+          location
+          date
+          type {
+            label
+          }
+          images {
+            image {
               publicURL
             }
-            label
-            value
           }
-          city
-          country
         }
        }
     }
