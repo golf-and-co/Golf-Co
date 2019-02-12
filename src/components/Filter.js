@@ -134,7 +134,9 @@ export const Flat = ({label, field, data}) => {
 return <Wrap>
     <Box>
         <h6>{label} <a href="/" className="clear">Clear</a></h6>
-        {data.map(filter => <Item key={v4()}>
+        {data.map(filter => {
+          console.log(filter);
+          return <Item key={v4()}>
             <Checkbox 
                 className="is-checkradio is-success" 
                 onClick={() => hide()} 
@@ -143,7 +145,7 @@ return <Wrap>
                 type="checkbox" 
                 name={`${field}-${filter.replace(/ /g, "")}`}  />
             <Label className="checkbox" htmlFor={filter.replace(/ /g, "")}>{filter}</Label>
-        </Item>)}
+        </Item>})}
         <a href="/" className="button is-success is-rounded">Apply</a>
     </Box>
 </Wrap>

@@ -20,7 +20,7 @@ PageTemplate.propTypes = {
 };
 
 const courses = ({ data }) => {
-  
+  console.log(data);
   const Filter = (<div>
     <Nested data={{
       primary: Array.from((group(data.courses.edges, d => d.node.frontmatter.country).keys())),
@@ -29,6 +29,10 @@ const courses = ({ data }) => {
     }}  
     label={{main:"Location", primary:"Country", secondary:"City" }}
     field={{main:"location", primary:"country", secondary:"city"}}/>
+    <br />
+    <Flat label="Course Type" data={Array.from((group(data.courses.edges, d => d.node.frontmatter.courseType).keys()))} field={"courseType"}/>
+    
+    
     </div>)
 
 
@@ -36,7 +40,7 @@ const courses = ({ data }) => {
   return <Layout>
     <HeroSmall data={data.coursesPage.edges[0].node.frontmatter} />
     <Content data={data.coursesPage.edges[0].node.frontmatter} />
-    <Listing data={data.courses} side={Filter} filter={["city", "country"]}/>
+    <Listing data={data.courses} side={Filter} filter={["city", "country", "courseType"]}/>
     <Footer />
   </Layout>
 };
@@ -53,7 +57,7 @@ export default courses;
 
 export const coursesQuery = graphql`
  {
-  coursesPage:allMarkdownRemark(filter: {frontmatter: {title: {eq: "Golf Packages"}}}) {
+  coursesPage:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "courses"}}}) {
     edges {
       node {
         frontmatter {
@@ -70,7 +74,7 @@ export const coursesQuery = graphql`
         }
       }
     }
-    courses:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "package"} searchable:{eq:true} }}){
+    courses:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "course"} }}){
     edges{
        node{
         frontmatter{
@@ -91,6 +95,13 @@ export const coursesQuery = graphql`
           }
           city
           country
+          courseType{
+            name
+          }
+          holes
+          amenities{
+            name
+          }
         }
        }
     }

@@ -37,16 +37,15 @@ collections:
           - {label: "Menu Social Heading", name: footerSocialHeading, widget: string}
           - {label: "Menu Social", name: footerSocial, widget: list, fields:[{label: "Text", name: text, widget: string}, {label: "href", name: href, widget: string}, {label: "Children", name: children, widget: list, fields:[{label: "Text", name: text, widget: string}, {label: "href", name: href, widget: string}]}]} 
       - file: "src/pages/courses.md"
-        label: "Course Details"
+        label: "Course Listings"
         name: "courses"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "course"}
-          - {label: "Add to Golf Cart", name: addGolfCart, widget: list, fields:[{label: "Heading", name: text, widget: string}, {label: "Instructions", name: text, widget: string}, {label: "Button", name: text, widget: string}]}
-          - {label: "Share", name: share, widget: string}          
-          - {label: "View Gallery", name: viewGallery, widget: string}
-          - {label: "Gallery", name: gallery, widget: string}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "courses"}
+          - {label: "Hero", name: "image", widget: "image"}
+          - {label: "Title", name: title, widget: "string"}
+          - {label: "Description", name: "description", widget: "string"}
       - file: "src/pages/packages.md"
-        label: "Packages Listing"
+        label: "Package Listings"
         name: "package"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "packages"}
