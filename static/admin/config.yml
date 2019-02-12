@@ -163,6 +163,9 @@ collections:
       - {label: "Google Map Location", name: "map", widget: "string"}
       - {label: "Featured", name: "isFeatured", widget: "boolean"}
       - {label: "Featured Details", name: "featuredDetails", widget: "object", fields: [{label: "Image", name: image, widget: image}, {label: "Name", name: name, widget: string}, {label: "Description", name: description, widget: string}]}
+      - {label: "Course Type", name: courseType, widget: list, fields: [{label: "Type Name", name: name, widget: string}]}
+      - {label: "Holes", name: holes, widget: string}
+      - {label: "Amenities", name: "amenities", widget: "list", fields: [{label: "Amenity Name", name: name, widget: string}]}
   - name: "package"
     label: "Packages"
     folder: "src/pages/packages"
