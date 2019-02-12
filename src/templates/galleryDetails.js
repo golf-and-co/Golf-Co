@@ -30,8 +30,9 @@ const Card = styled.section`
 
 const Wrap = styled.div`
   .slick-slider {
-    width: 400px;
+    width: 80%;
     margin: 0 auto;
+    padding: 5vh 0;
   }
 
 `;
@@ -49,7 +50,9 @@ return <Layout>
   <div style={{paddingBottom:"200px", backgroundColor:"#E4ECD9"}}>
     <Wrap className="container">
       <Slider {...{dots:true}}>
-        {data.markdownRemark.frontmatter.images.map(image => <div><img src={image.publicURL} alt="Gallery Image"/></div>)}
+        {data.markdownRemark.frontmatter.images.map(entry => {
+          return <div><img src={entry.image.publicURL} alt="Gallery Image"/></div>;
+        })}
       </Slider>
     </Wrap>
   </div>
