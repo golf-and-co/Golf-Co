@@ -5,6 +5,7 @@ title: The Emirates Golf Club Course
 city: Dubai
 region: Dubai
 country: UAE
+statsDescription: Book from one of our Golf Packages and let us know your preferred Golf Course.
 stats:
   - icon: /img/golf_tee.svg
     label: Holes
@@ -49,6 +50,15 @@ featuredDetails:
     by meandering fairways and seven fresh and saltwater lakes
   image: /img/emirates-golf-club-course.png
   name: The Emirates Golf Club
+courseType:
+  - name: Earth Course
+  - name: Championship Course
+  - name: Sealinks Course
+holes: '36'
+amenities:
+  - name: Earth Course
+  - name: Championship Course
+  - name: Sealinks Course
 ---
 The Majlis course has developed a worthy reputation worldwide as a testing layout for even the best golfers. The course features hundreds of indigenous species of flora and fauna, beautifully complemented by meandering fairways and seven fresh and saltwater lakes.
 
