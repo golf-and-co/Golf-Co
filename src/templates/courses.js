@@ -5,6 +5,8 @@ import Layout from "../components/Layout";
 import HeroSmall from "../components/HeroSmall";
 import Content from "../components/Content";
 import Listing from "../components/Listing";
+import {Nested, Flat} from "../components/Filter";
+import {group, rollup} from "d3-array";
 import Footer from "../components/Footer";
 
 export const PageTemplate = ({ title }) => (
@@ -19,10 +21,22 @@ PageTemplate.propTypes = {
 
 const courses = ({ data }) => {
   
+  const Filter = (<div>
+    <Nested data={{
+      primary: Array.from((group(data.courses.edges, d => d.node.frontmatter.country).keys())),
+      secondary: Array.from((group(data.courses.edges, d => d.node.frontmatter.city).keys())),
+      nested: rollup(data.courses.edges, v => v.length, d => d.node.frontmatter.country, d => d.node.frontmatter.city),
+    }}  
+    label={{main:"Location", primary:"Country", secondary:"City" }}
+    field={{main:"location", primary:"country", secondary:"city"}}/>
+    </div>)
+
+
+
   return <Layout>
     <HeroSmall data={data.coursesPage.edges[0].node.frontmatter} />
     <Content data={data.coursesPage.edges[0].node.frontmatter} />
-    <Listing data={data.courses} filter={["city", "country"]}/>
+    <Listing data={data.courses} side={Filter} filter={["city", "country"]}/>
     <Footer />
   </Layout>
 };
