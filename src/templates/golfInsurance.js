@@ -30,7 +30,7 @@ const Card = styled.section`
 
 const Corporate = ({ data }) => { 
 return <Layout>  
-  <HeroSmall data={{...data.markdownRemark.frontmatter, backgroundColor:"#f6f9f2", showTitle:false}}  />
+  <HeroSmall data={{...data.markdownRemark.frontmatter, backgroundColor:"#f6f9f2", title:false}}  />
   <div style={{backgroundColor:"#f6f9f2"}}>
     <div className="container">
       <p style={{color: "#4a4a4a"}}>{data.markdownRemark.frontmatter.paragraph1}</p>

@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout';
 import HeroSmall from "../components/HeroSmall";
 import styled from 'styled-components'
-import Infographic from '../components/Info';
+import Slider from "react-slick";
 import Footer from '../components/Footer';
 
 const Card = styled.section`
@@ -28,16 +28,35 @@ const Card = styled.section`
   }
 `;
 
+const Wrap = styled.div`
+  .slick-slider {
+    width: 400px;
+    margin: 0 auto;
+  }
+
+`;
+
 const galleryDetails = ({ data }) => { 
-  console.log(data);
 return <Layout>  
   <HeroSmall data={{...data.markdownRemark.frontmatter, backgroundColor:"#E4ECD9", showTitle:false}}  />
   <p style={{paddingTop:"30px", textAlign:"center", backgroundColor:"#E4ECD9", fontWeight:"bold", color:"#000"}}>{data.markdownRemark.frontmatter.title}</p>    
   <p style={{textTransform: "uppercase", textAlign:"center", backgroundColor:"#E4ECD9", fontWeight:"bold", color:"#000"}}>{data.markdownRemark.frontmatter.date}</p>    
-  <div style={{paddingTop:"25px", backgroundColor:"#E4ECD9", paddingBottom:"200px"}}>
+  <div style={{paddingTop:"25px", backgroundColor:"#E4ECD9"}}>
     <div className="container">
       <p style={{color:"#000"}}>{data.markdownRemark.frontmatter.description}</p>    
     </div>
+  </div>
+  <div style={{paddingBottom:"200px", backgroundColor:"#E4ECD9"}}>
+  <Wrap className="container">
+    <Slider {...{dots:true}}>
+      <div>
+        <img src="http://placekitten.com/g/400/200" />
+      </div>
+      <div>
+        <img src="http://placekitten.com/g/400/200" />
+      </div>
+    </Slider>
+    </Wrap>
   </div>
   <Footer />
 </Layout>;
