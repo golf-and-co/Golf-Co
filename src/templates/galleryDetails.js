@@ -35,6 +35,12 @@ const Wrap = styled.div`
     padding: 5vh 0;
   }
 
+  @media (min-width: 768px) {
+    p {
+      padding: 0 20px;
+    }
+  }
+
 `;
 
 const galleryDetails = ({ data }) => { 
