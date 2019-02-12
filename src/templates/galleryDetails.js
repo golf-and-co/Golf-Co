@@ -49,7 +49,7 @@ return <Layout>
   <div style={{paddingBottom:"200px", backgroundColor:"#E4ECD9"}}>
     <Wrap className="container">
       <Slider {...{dots:true}}>
-        
+        {data.markdownRemark.frontmatter.images.map(image => <div><img src={image.publicURL} alt="Gallery Image"/></div>)}
       </Slider>
     </Wrap>
   </div>
@@ -77,6 +77,11 @@ export const galleryDetailsQuery = graphql`
         description
         type{
           label
+        }
+        images {
+          image {
+            publicURL
+          }
         }
         image {
           childImageSharp {

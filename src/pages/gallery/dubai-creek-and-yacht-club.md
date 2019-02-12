@@ -11,7 +11,7 @@ description: >-
   lorem sodales placerat. Sed non est libero. Aliquam scelerisque dignissim
   turpis, sed facilisis eros bibendum aliquam. Nulla sagittis tempor turpis,
   consectetur efficitur est dignissim sit amet. 
-stats:
+images:
   - image: /img/emirates-golf-club-course.png
   - image: /img/emirates-golf-club-course.png
 ---
