@@ -63,14 +63,12 @@ collections:
           - {label: Template Key, name: templateKey, widget: hidden, default: bespoke-golf-holidays}
           - {label: Hero, name: image, widget: image}
           - {label: Title, name: title, widget: string}
+          - {label: First Heading, name: heading1, widget: string}
           - {label: First Paragraph, name: paragraph1, widget: string}
-          - {label: Second Paragraph, name: paragraph2, widget: string}
-          - {label: Heading First Line, name: heading1, widget: string}
-          - {label: Description First Line, name: description1, widget: string}
-          - {label: Background Image, name: backgroundImage, widget: image}
+          - {label: Package Heading, name: headingPackage, widget: string}
           - {label: "Packages", name: "packages", widget: "list", fields:[{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
-          - {label: Heading Second Line, name: heading2, widget: string}
-          - {label: Description Second Line, name: description2, widget: string}
+          - {label: Second Heading, name: heading2, widget: string}
+          - {label: Second Paragraph, name: paragraph2, widget: string}
       - file: "src/pages/corporate.md"
         label: "Corporate Golf Days"
         name: "corporate"
