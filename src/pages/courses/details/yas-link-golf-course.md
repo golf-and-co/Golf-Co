@@ -23,7 +23,7 @@ tags:
 gallery:
   - {}
 map: Abu Dhabi
-isFeatured: false
+isFeatured: true
 featuredDetails: {}
 courseType:
   - {}
