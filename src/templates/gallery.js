@@ -38,7 +38,7 @@ const gallery = ({ data }) => {
     <Wrap>
       <HeroSmall data={data.galleryQuery.edges[0].node.frontmatter} />
       <Content data={data.galleryQuery.edges[0].node.frontmatter} />
-      <Listing data={data.gallery} side={Filter} filter={[{"type":"label"}]} footer={false}/>
+      <Listing data={data.gallery} side={Filter} filter={[{"type":"label"}]} footer={false} slugType="gallery" />
       <Footer />
     </Wrap>
   </Layout>

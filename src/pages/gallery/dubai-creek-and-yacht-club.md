@@ -1,8 +1,8 @@
 ---
 templateKey: galleryDetails
 image: /img/hero_small.png
-title: Dubai Golf Pro Am
-location: Dubai Creek Golf & Yacht Club
+title: Dubai Creek and Yacht Club
+location: Dubai Creek and Yacht Club
 date: 7 Dec 2018
 type:
   - label: Corporate Golf Days
