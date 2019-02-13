@@ -2,16 +2,17 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import HeroSmall from "../components/HeroSmall";
-import BespokeContent from "../components/BespokeContent";
 import BespokePackages from "../components/BespokePackages";
 import Footer from "../components/Footer";
 
 export const BespokeGolfHolidays = ({ data }) => { 
   
   return (
-  <Layout>
-    <HeroSmall data={data.bespokeGolfHolidaysPage.edges[0].node.frontmatter} />
-    
+  <Layout style={{backgroundColor:"#F6F9F2"}}>
+    <HeroSmall data={{...data.bespokeGolfHolidaysPage.edges[0].node.frontmatter, backgroundColor:"#F6F9F2"}} />
+    <BespokePackages
+      data={data.bespokeGolfHolidaysPage.edges[0].node.frontmatter}
+    />    
     <Footer />
   </Layout>
 )};
@@ -38,22 +39,14 @@ export const packageListingsQuery = graphql`
             paragraph1
             benefits{
               image {
-              childImageSharp {
-                fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+              publicURL
             }
               description
             }
             headingPackage
             packages{
               image {
-                childImageSharp {
-                  fluid(maxWidth: 2048, quality: 100) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
+                publicURL
               }
               heading
             }
