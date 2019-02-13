@@ -40,8 +40,8 @@ const StatItem = ({ data }) => (
   </Item>
 )
 
-const StatList = ({ data, footer }) => {
-  if(!footer) return <span />;
+const StatList = ({ data, hideStats }) => {
+  if(hideStats) return <span />;
 
   return <Section id="stats">
     <List>

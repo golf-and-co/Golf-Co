@@ -28,7 +28,7 @@ const Item = styled.div`
   flex-wrap: wrap;
 `;
 
-const Grid = ({data, filter, slugType, footer}) => {
+const Grid = ({data, filter, slugType, footer, hideStats}) => {
   /*
     edges: (2) […]
     ​​
@@ -91,6 +91,7 @@ const Grid = ({data, filter, slugType, footer}) => {
                 },
               }}
               footer={footer} 
+              hideStats={hideStats}
             />
           </Item>
         )

@@ -262,7 +262,7 @@ const courseMouseExit = (data) => {
 }
 
 // @TODO: refactor, need better properties, start by grouping in a decorator, pass a styled component
-export const Course = ({data, footer}) => {
+export const Course = ({data, footer, hideStats}) => {
 
     
     const mouseEnter = () => {
@@ -316,7 +316,7 @@ export const Course = ({data, footer}) => {
                 <br />
                 <CardContentTag>{data.frontmatter.city}, {data.frontmatter.country}</CardContentTag>
             </div>
-            <Stats data={data.frontmatter} footer={footer}/>
+            <Stats data={data.frontmatter} hideStats={hideStats}/>
             </CardContent>
             {rounds()}
         </Card>
@@ -334,7 +334,7 @@ const Featured = ({home, courses}) => <Wrap>
     
     <div className="container">
         <div className="columns">
-            {courses.map(course => <Course key={v4()} data={course.node}  />)}
+            {courses.map(course => <Course key={v4()} data={course.node}  footer={false}/>)}
         </div>
     </div>
 
