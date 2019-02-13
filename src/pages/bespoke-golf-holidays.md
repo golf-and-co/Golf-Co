@@ -10,6 +10,15 @@ paragraph1: >-
   golfers. Every step of the way we will ensure that you areprovided with the
   highest level of service, whilst staying in the finest hotels and dining in
   someof our most highly acclaimed restaurants.
+benefits:
+  - description: MICHELIN STAR RESTAURANTS
+    image: /img/bespoke_1.png
+  - description: ICONIC GOLF RESORTSAND HOTELS
+    image: /img/bespoke_2.png
+  - description: PRIVATE TRANSFERS
+    image: /img/bitmap-copy-3.png
+  - description: EXPERT TOUR GUIDES
+    image: /img/bitmap_4.png
 headingPackage: VIEW OUR SAMPLE ITINERARIES
 packages:
   - heading: Great Britain
