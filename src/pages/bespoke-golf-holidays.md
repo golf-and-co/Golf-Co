@@ -23,6 +23,12 @@ headingPackage: VIEW OUR SAMPLE ITINERARIES
 packages:
   - heading: Great Britain
     image: /img/bespoke1.png
+  - heading: Asia
+    image: /img/bespoke2.png
+  - heading: 'West Coast, USA'
+    image: /img/bespoke3.png
+  - heading: 'East Coast, USA'
+    image: /img/bespoke4.png
 heading2: Not Sure Which Package Suits You? Let Us Help!
 paragraph2: >-
   Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
