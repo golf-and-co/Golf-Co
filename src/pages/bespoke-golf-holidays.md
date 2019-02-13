@@ -1,6 +1,6 @@
 ---
 templateKey: bespoke-golf-holidays
-image: /img/hero_small.png
+image: /img/bespoke.png
 title: Bespoke Golf Holidays
 paragraph1: >-
   Golf & Co. is the only specialised Golf Themed Tourism and Events company
