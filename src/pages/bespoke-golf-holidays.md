@@ -2,10 +2,19 @@
 templateKey: bespoke-golf-holidays
 image: /img/bespoke.png
 title: Bespoke Golf Holidays
+heading1: We Create Lifetime Memories Out of Extraordinary Moments
 paragraph1: >-
-  Golf & Co. is the only specialised Golf Themed Tourism and Events company
-  based in Dubai that offers Bespoke Packages, Golf Insurance and Corporate Golf
-  events across the Middle East region and beyond 
+  Our goal is to bring you luxury, outstanding customer service and a chance to
+  play at World’sfinest Golf courses and Private clubs. Let us take you on a
+  journey through time as you followin the footsteps of the world’s great
+  golfers. Every step of the way we will ensure that you areprovided with the
+  highest level of service, whilst staying in the finest hotels and dining in
+  someof our most highly acclaimed restaurants.
+headingPackage: VIEW OUR SAMPLE ITINERARIES
+packages:
+  - heading: Great Britain
+    image: /img/bespoke1.png
+heading2: Not Sure Which Package Suits You? Let Us Help!
 paragraph2: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
   incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
@@ -13,35 +22,5 @@ paragraph2: >-
   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
   eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
   in culpa qui officia deserunt mollit anim id est laborum.
-heading1: Golf Themed Holiday Package
-description1: >-
-  Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
-  scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
-  sagittis tempor turpis, consectetur
-backgroundImage: /img/emirates-golf-club-course.png
-packages:
-  - description: >-
-      Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
-      scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
-      sagittis tempor turpis, consectetur
-    heading: Title sample
-    image: /img/golf_bag.svg
-  - description: >-
-      Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
-      scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
-      sagittis tempor turpis, consectetur
-    heading: Title sample
-    image: /img/golf_cart.svg
-  - description: >-
-      Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
-      scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
-      sagittis tempor turpis, consectetur
-    heading: Title sample
-    image: /img/golf_bag.svg
-heading2: Not Sure Which Package Suits You? Let Us Help!
-description2: >-
-  Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
-  scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
-  sagittis tempor turpis, consectetur
 ---
 
