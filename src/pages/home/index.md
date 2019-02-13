@@ -1,17 +1,21 @@
 ---
-image: /img/home.png
+image: /img/home_large.jpg
 templateKey: page
 title: Home
 heading1: Enjoy the Ultimate
 heading2: Golf Experience
 infographics:
-  - description: All Golf & Co packages are bespoke and customised to match your requirements
+  - description: >-
+      All Golf & Co packages are bespoke and customised to match your
+      requirements
     heading: Tailor Made Packages
     image: /img/tailor.svg
   - description: Our team knows the nuances of Golf and are able to speak your language
     heading: We Speak Golf
     image: /img/golf_ball_and_tee.svg
-  - description: Hotels, Transportation and everything that goes with it, we have it all covered
+  - description: >-
+      Hotels, Transportation and everything that goes with it, we have it all
+      covered
     heading: BOOK BEYOND GOLF COURSES
     image: /img/golf_club_and_bag.svg
   - description: We strive to create long lasting memories by going above & beyond
