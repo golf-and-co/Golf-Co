@@ -24,7 +24,10 @@ gallery:
   - {}
 map: Abu Dhabi
 isFeatured: true
-featuredDetails: {}
+featuredDetails:
+  description: Yas Link Golf Course
+  image: /img/abu-dhabi.png
+  name: Yas Link Golf Course
 courseType:
   - {}
 holes: '72'
