@@ -16,14 +16,8 @@ const HeroWrap = styled.section`
   background-repeat: no-repeat;
   background-color: #f6f9f2;
   max-width: none;
-  border-radius: 0 0 30% 30%;
-  width: 140%;
-  margin-left: -20%;
-
-  @media (min-width: 768px) {
-    background-position-y: -50vh;
-    border-radius: 0 0 45% 45%;
-  }
+  border-bottom-right-radius: 50% 10%;
+  border-bottom-left-radius: 50% 10%;
 `
 const Heading = styled.h1`
   margin-top: 20vh !important;
@@ -101,7 +95,7 @@ const Hero = ({ data }) => (
   <Background>
     <HeroWrap
       style={{
-        backgroundImage: `url(${
+        backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0) ), url(${
           !!data.image.childImageSharp
             ? data.image.childImageSharp.fluid.src
             : data.image

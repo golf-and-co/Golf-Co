@@ -16,8 +16,12 @@ const List = styled.ul`
 const Item = styled.li`
   background-color: #81aa8c;
   border-right: 1px dashed #000;
-  padding: 1px 40px;
+  padding: 1px 25px;
   text-align: center;
+  
+  img {
+    height: 23px;
+  }
 
   &:last-child {
     border-right: none !important;

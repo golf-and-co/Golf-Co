@@ -11,9 +11,8 @@ const Wrap = styled.section`
   background-color: #cfddbb;
   display:block;
   justify-content: center;
-  border-radius: 45% 45% 0 0;
-  width: 140%;
-  margin-left: -20%;
+  border-top-right-radius: 50% 10%;
+  border-top-left-radius: 50% 10%;
   margin-top:-160px;
 
   @media (max-width: 768px) {
@@ -23,7 +22,7 @@ const Wrap = styled.section`
   }
 
   .cardContentHover {
-    height: 320px;
+    height: 315px;
     top: -215px
   }
 `;
@@ -47,7 +46,7 @@ const CardLink = styled(Link)`
 
 const Card = styled.div`
   width: 260px;
-  height: 320px;
+  height: 315px;
   border-radius: 6px;
   background-color: #ffffff;
 
