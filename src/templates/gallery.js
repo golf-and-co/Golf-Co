@@ -1,11 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
+import styled from "styled-components"
 import Layout from "../components/Layout";
 import HeroSmall from "../components/HeroSmall";
 import Content from "../components/Content";
+import {Flat} from "../components/Filter";
 import Listing from "../components/Listing";
 import Footer from "../components/Footer";
+
+const Wrap = styled.section`
+  .cardContentHover {
+    height: 100px !important;
+    top: 0px !important;
+  }
+`;
 
 export const PageTemplate = ({ title }) => (
   <section className="section section--gradient">
@@ -23,12 +32,15 @@ const gallery = ({ data }) => {
   data.gallery.edges.map(edge => edge.node.frontmatter.type.map(row => types[row.label]=true));
   types = Object.keys(types);
 
+  const Filter = <Flat label="Event" data={types} field={"type"} />;
 
   return <Layout>
-    <HeroSmall data={data.galleryQuery.edges[0].node.frontmatter} />
-    <Content data={data.galleryQuery.edges[0].node.frontmatter} />
-    <Listing data={data.galleryQuery} filter={[{"type":"label"}]}/>
-    <Footer />
+    <Wrap>
+      <HeroSmall data={data.galleryQuery.edges[0].node.frontmatter} />
+      <Content data={data.galleryQuery.edges[0].node.frontmatter} />
+      <Listing data={data.gallery} side={Filter} filter={[{"type":"label"}]} footer={false}/>
+      <Footer />
+    </Wrap>
   </Layout>
 };
 

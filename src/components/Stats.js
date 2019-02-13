@@ -40,15 +40,17 @@ const StatItem = ({ data }) => (
   </Item>
 )
 
-const StatList = ({ data }) => (
-  <Section id="stats">
+const StatList = ({ data, footer }) => {
+  if(!footer) return <span />;
+
+  return <Section id="stats">
     <List>
       {data.stats.map(stat => (
         <StatItem data={stat} key={v4()} />
       ))}
     </List>
   </Section>
-)
+}
 
 export default StatList
 

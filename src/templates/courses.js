@@ -51,7 +51,7 @@ const courses = ({ data }) => {
   return <Layout>
     <HeroSmall data={data.coursesPage.edges[0].node.frontmatter} />
     <Content data={data.coursesPage.edges[0].node.frontmatter} />
-    <Listing data={data.courses} side={Filter} filter={["city", "country", {"courseType":"name"}, "holes", {"amenities":"name"}]} slugType="courses/details"/>
+    <Listing data={data.courses} side={Filter} filter={["city", "country", {"courseType":"name"}, "holes", {"amenities":"name"}]} slugType="courses/details" footer={true}/>
     <Footer />
   </Layout>
 };

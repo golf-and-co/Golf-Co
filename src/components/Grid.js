@@ -28,7 +28,7 @@ const Item = styled.div`
   flex-wrap: wrap;
 `;
 
-const Grid = ({data, filter, slugType}) => {
+const Grid = ({data, filter, slugType, footer}) => {
   /*
     edges: (2) […]
     ​​
@@ -90,7 +90,7 @@ const Grid = ({data, filter, slugType}) => {
                   slug: `/${slugType}/`+edge.node.frontmatter.title.replace(/ /g, '-').toLowerCase(),
                 },
               }}
-              footer={true} 
+              footer={footer} 
             />
           </Item>
         )

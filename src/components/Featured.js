@@ -263,6 +263,8 @@ const courseMouseExit = (data) => {
 
 // @TODO: refactor, need better properties, start by grouping in a decorator, pass a styled component
 export const Course = ({data, footer}) => {
+
+    
     const mouseEnter = () => {
         if(!footer) {
             courseMouseEnter(data);
@@ -314,7 +316,7 @@ export const Course = ({data, footer}) => {
                 <br />
                 <CardContentTag>{data.frontmatter.city}, {data.frontmatter.country}</CardContentTag>
             </div>
-            <Stats data={data.frontmatter} />
+            <Stats data={data.frontmatter} footer={footer}/>
             </CardContent>
             {rounds()}
         </Card>
