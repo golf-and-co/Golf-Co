@@ -98,7 +98,7 @@ const Content = ({data}) =>   <Wrap>
   <StaticQuery
       query={graphql`
        query {
-          allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "corporate"}}}, limit: 3){
+          allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "testimonials"}}}, limit: 3){
             edges{
               node{
                 frontmatter{
@@ -123,8 +123,6 @@ const Content = ({data}) =>   <Wrap>
         <Testimontials>
           {data.allMarkdownRemark.edges.map(({node}, i) => {
             //testimontials have the same key as corporate (page), skip first index to prevent trying to render corporate
-            if(i === 0)
-              return;
             return <Testimontial>
               <ProfilePicture style={{
                 backgroundImage: `url(${

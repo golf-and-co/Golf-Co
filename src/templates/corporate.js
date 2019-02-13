@@ -11,10 +11,10 @@ import Footer from '../components/Footer';
 const backgroundColor = "#f5f8f1";
 
 const Corporate = ({ data }) => <Layout>
-  <HeroSmall data={data.markdownRemark.frontmatter}/>
-  <CorporateContent data={data.markdownRemark.frontmatter}/>
+  <HeroSmall data={{...data.markdownRemark.frontmatter, backgroundColor:"#f5f8f1"}} />
+  <CorporateContent data={data.markdownRemark.frontmatter} />
   <PastEvents />
-  <Testimontials />
+  <Testimontials data={data.markdownRemark.frontmatter} />
   <Footer />
 </Layout>;
 
