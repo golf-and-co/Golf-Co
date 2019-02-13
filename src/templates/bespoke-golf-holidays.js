@@ -6,18 +6,15 @@ import BespokeContent from "../components/BespokeContent";
 import BespokePackages from "../components/BespokePackages";
 import Footer from "../components/Footer";
 
-export const BespokeGolfHolidays = ({ data }) => (
+export const BespokeGolfHolidays = ({ data }) => { 
+  
+  return (
   <Layout>
     <HeroSmall data={data.bespokeGolfHolidaysPage.edges[0].node.frontmatter} />
-    <BespokeContent
-      data={data.bespokeGolfHolidaysPage.edges[0].node.frontmatter}
-    />
-    <BespokePackages
-      data={data.bespokeGolfHolidaysPage.edges[0].node.frontmatter}
-    />
+    
     <Footer />
   </Layout>
-);
+)};
 
 export default BespokeGolfHolidays;
 
@@ -31,28 +28,37 @@ export const packageListingsQuery = graphql`
           frontmatter {
             title
             image {
+                childImageSharp {
+                  fluid(maxWidth: 2048, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            heading1
+            paragraph1
+            benefits{
+              image {
               childImageSharp {
                 fluid(maxWidth: 2048, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
             }
-            backgroundImage {
-              publicURL
-            }
-            paragraph1
-            paragraph2
-            heading1
-            description1
-            packages {
-              heading
               description
+            }
+            headingPackage
+            packages{
               image {
-                publicURL
+                childImageSharp {
+                  fluid(maxWidth: 2048, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
               }
+              heading
             }
             heading2
-            description2
+            paragraph2
           }
         }
       }
