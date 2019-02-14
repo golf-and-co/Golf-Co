@@ -307,7 +307,7 @@ export const Course = ({data, footer, hideStats}) => {
                     : data.frontmatter.featuredDetails.image
                 } alt="Placeholder" />
             </figure>
-            <CardCaption>Dubai</CardCaption>
+            <CardCaption>{data.frontmatter.city}</CardCaption>
             </CardImageWrap>
             <CardContent className="cardContent">
             <div className="content">

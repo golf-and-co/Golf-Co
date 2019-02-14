@@ -40,7 +40,7 @@ const Share = styled.button`
   }
 `
 
-const DialogBox = styled.article`
+const BoxWrap = styled.article`
   display: flex;
   border-radius: 6px;
   border: 1px solid #8db397;
@@ -65,7 +65,7 @@ const DialogImg = styled.img`
   padding: 10px;
 `
 
-const Tags = styled.ul`
+const TagsWrap = styled.ul`
   display: flex;
   background: #fff;
   padding: 30px;
@@ -105,15 +105,26 @@ const About = styled.h1`
   margin-top: 30px;
 `
 
-const Dialog = ({ data }) => (
-  <DialogBox className={`message is-primary`}>
+const Box = ({ data }) => (
+  <BoxWrap className={`message is-primary`}>
     <div className="message-header">
       <DialogImg id="image" src={data.icon.publicURL} />
       <p>{data.header}</p>
     </div>
     <div className="message-body">{data.message}</div>
-  </DialogBox>
+  </BoxWrap>
 )
+
+const Tags = ({data}) => {
+  if(data.tags[0].icon === null) {
+    return <div />;
+  }
+  return <TagsWrap>
+    {data.tags.map(tag => (
+      <Tag key={v4()} data={tag} />
+    ))}
+  </TagsWrap>
+}
 
 const Tag = ({ data }) => (
   <TagItem className="tag">
@@ -121,6 +132,15 @@ const Tag = ({ data }) => (
     <div>{data.label}</div>
   </TagItem>
 )
+
+const Dialog = ({data}) => {
+  if(data.dialogs[0].icon === null) {
+    return <div />;
+  }
+  return data.dialogs.map(dialog => (
+    <Box key={v4()} data={dialog} />
+  ));
+}
 
 const Cart = () => <div />
 
@@ -132,15 +152,8 @@ const CourseDetails = ({ data, body }) => (
           <i className="fas fa-share-square" /> Share
         </Share>
       </ShareWrapper>
-      {data.dialogs.map(dialog => (
-        <Dialog key={v4()} data={dialog} />
-      ))}
-      <Tags className="tags">
-        {data.tags.map(tag => (
-          <Tag key={v4()} data={tag} />
-        ))}
-      </Tags>
-
+      <Dialog data={data} />
+      <Tags data={data} className="tags" />
       <About>About {data.title}</About>
       <p>{body}</p>
     </div>

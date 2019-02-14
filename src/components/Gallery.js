@@ -100,6 +100,9 @@ const Slide = styled.div`
 `
 
 const Gallery = ({ data }) => {
+  if(data.gallery[0].image === null)
+    return <div />;
+
   const click = img => {
     // @TODO: Use redux, and observables
     document.querySelector(
