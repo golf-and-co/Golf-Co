@@ -1,5 +1,5 @@
 ---
-image: /img/abu-dhabi.png
+image: /img/yas-links.jpg
 templateKey: course
 title: Yas Link Golf Course
 city: Yas Island
