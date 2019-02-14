@@ -2,7 +2,7 @@
 image: /img/abu_dhabi_golf_club_cover_picture.jpg
 templateKey: course
 title: Abu Dhabi National Golf Course
-city: Khalifa City
+city: Khalifa
 region: Abu Dhabi
 country: UAE
 statsDescription: Book from one of our Golf Packages and let us know your preferred Golf Course.
