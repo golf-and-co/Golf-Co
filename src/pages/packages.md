@@ -1,6 +1,6 @@
 ---
 templateKey: packages
-image: /img/hero_small.png
+image: /img/ghala_golf_oman.png
 title: Golf Packages
 description: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec tellus eu
