@@ -1,6 +1,7 @@
 ---
 templateKey: courses
-viewGallery: View Gallery
-image: /img/hero_small.png
+image: /img/ghala_golf_oman.png
+title: Courses
+description: ' '
 ---
 
