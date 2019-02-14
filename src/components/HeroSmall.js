@@ -14,13 +14,10 @@ const HeroWrap = styled.section`
   background-size: cover;
   background-repeat: no-repeat;
   max-width: none;
-  border-radius: 0 0 30% 30%;
-  width: 140%;
-  margin-left: -20%;
+  border-bottom-right-radius: 50% 10%;
+  border-bottom-left-radius: 50% 10%;
   height: 35vh;
-  @media (min-width: 768px) {
-    border-radius: 0 0 45% 45%;    
-  }
+  
 
   @media (max-width: 768px) {
     background-size: inherit;
@@ -55,7 +52,6 @@ const HeadingStrong = styled.strong`
 
 const Container = styled.div`
   max-width: 100vw !important;
-  margin-left: 20vw !important;
 `;
 
 const LogoWrapper = styled.div`
@@ -76,7 +72,6 @@ const Logo = styled(Link)`
 `
 
 const Hero = ({data}) => {
-  console.log(data);
   return <Background style={{
           backgroundColor: data.backgroundColor,
         }}>

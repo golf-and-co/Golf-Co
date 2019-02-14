@@ -4,7 +4,9 @@ import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
 import { v4 } from 'uuid'
+import {group} from "d3-array";
 import Stats from '../components/Stats';
+import { navigate } from '@reach/router';
 
 // @TODO: fix crosscut here, move to card component
 const Wrap = styled.section`
@@ -65,6 +67,7 @@ const Card = styled.div`
   &.cardFooter .content {
     font-size: 16px;
     margin-left: 10px;
+    height: 54px;
   }
 `;
 
@@ -322,65 +325,77 @@ export const Course = ({data, footer, hideStats}) => {
     </CardLink>
 };
 
-const Featured = ({home, courses}) => <Wrap>
-    <Heading className="title">
-    {home.featured.heading1}
-    <br />
-    <HeadingTag>{home.featured.heading2}</HeadingTag>
-    <br />
-    <Select options={[{value:"UAE"}]} />
-    </Heading>
-    
-    <div className="container">
-        <div className="columns">
-            {courses.map(course => <Course key={v4()} data={course.node}  footer={false}/>)}
-        </div>
-    </div>
+// @TODO: get city list --> gql all courses that are featured + all, add classes for featuredCities, onClick handler, hide all, show cities and all if all.
 
-    <Button className="button is-rounded">{home.featuredViewAll}</Button>
+const selectNav = () => {
+  document.location = `/courses/?city=${document.querySelector('#featuredCitiesNav').value}`;
+}
 
-    <Banner onClick={() => console.log("Banner click")} className="is-rounded is-hidden-mobile" style={{
-        backgroundImage: `url(${
-        !!home.featuredBanner.image.childImageSharp
-            ? home.featuredBanner.image.childImageSharp.fluid.src
-            : home.featuredBanner.image
-        })`,
-    }}>
-        <BannerHeader>
-            {home.featuredBanner.heading1}
-            <br />
-            <BannerHeaderStrong>{home.featuredBanner.heading2}</BannerHeaderStrong>
-        </BannerHeader>
-    </Banner>
+const Featured = ({home, courses}) => {
+  
+  let cities = Array.from((group(courses, course => {return {value:course.node.frontmatter.city}}).keys()));
+  cities.unshift({value:"--- All ---"});
 
-    <BannerMobile onClick={() => console.log("Banner click")} className="is-rounded is-hidden-tablet" style={{
-        backgroundImage: `url(${
-        !!home.featuredBanner.mobileImage.childImageSharp
-            ? home.featuredBanner.mobileImage.childImageSharp.fluid.src
-            : home.featuredBanner.mobileImage
-        })`,
-    }}>
-        <BannerHeader>
-            {home.featuredBanner.heading1}
-            <br />
-            <BannerHeaderStrong>{home.featuredBanner.heading2}</BannerHeaderStrong>
-        </BannerHeader>
-    </BannerMobile>
+  return <Wrap>
+      <Heading className="title">
+      {home.featured.heading1}
+      <br />
+      <HeadingTag>{home.featured.heading2}</HeadingTag>
+      <br />
+      <Select id="featuredCitiesNav" onChange={() => selectNav()} options={cities} />
+      </Heading>
+      
+      <div className="container">
+          <div className="columns">
+              {courses.map(course => <Course key={v4()} data={course.node}  footer={false}/>)}
+          </div>
+      </div>
 
-    <Footer>
-        {home.featuredFooter.heading1}
-        <br />
-        <FooterStrong>{home.featuredFooter.heading2}</FooterStrong>
-    </Footer>
+      <Button className="button is-rounded">{home.featuredViewAll}</Button>
 
-    <Logos>
-        {home.featuredLogo.map( (logo, index) => <img key={index} alt={logo.alt} src={
-        !!logo.image.childImageSharp
-            ? logo.image.childImageSharp.fluid.src
-            : logo.image
-        } />)}
-    </Logos>
-</Wrap>
+      <Banner onClick={() => console.log("Banner click")} className="is-rounded is-hidden-mobile" style={{
+          backgroundImage: `url(${
+          !!home.featuredBanner.image.childImageSharp
+              ? home.featuredBanner.image.childImageSharp.fluid.src
+              : home.featuredBanner.image
+          })`,
+      }}>
+          <BannerHeader>
+              {home.featuredBanner.heading1}
+              <br />
+              <BannerHeaderStrong>{home.featuredBanner.heading2}</BannerHeaderStrong>
+          </BannerHeader>
+      </Banner>
+
+      <BannerMobile onClick={() => console.log("Banner click")} className="is-rounded is-hidden-tablet" style={{
+          backgroundImage: `url(${
+          !!home.featuredBanner.mobileImage.childImageSharp
+              ? home.featuredBanner.mobileImage.childImageSharp.fluid.src
+              : home.featuredBanner.mobileImage
+          })`,
+      }}>
+          <BannerHeader>
+              {home.featuredBanner.heading1}
+              <br />
+              <BannerHeaderStrong>{home.featuredBanner.heading2}</BannerHeaderStrong>
+          </BannerHeader>
+      </BannerMobile>
+
+      <Footer>
+          {home.featuredFooter.heading1}
+          <br />
+          <FooterStrong>{home.featuredFooter.heading2}</FooterStrong>
+      </Footer>
+
+      <Logos>
+          {home.featuredLogo.map( (logo, index) => <img key={index} alt={logo.alt} src={
+          !!logo.image.childImageSharp
+              ? logo.image.childImageSharp.fluid.src
+              : logo.image
+          } />)}
+      </Logos>
+  </Wrap>;
+}
 
 export default props => (
     <StaticQuery

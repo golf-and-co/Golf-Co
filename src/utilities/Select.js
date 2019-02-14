@@ -22,9 +22,9 @@ const SelectBox = styled.select`
   width: 180px;
 `
 
-const Select = ({ options }) => (
+const Select = ({ options, id, onChange }) => (
   <SelectWrap className="select is-rounded">
-    <SelectBox>
+    <SelectBox id={id} onChange={onChange}>
       {options.map(item => (
         <option key={item}>{item.value}</option>
       ))}

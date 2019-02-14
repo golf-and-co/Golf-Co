@@ -57,7 +57,7 @@ const Grid = ({data, filter, slugType, footer, hideStats}) => {
   return (
     <Wrap>
       {data.edges.map(edge => {
-
+        console.log(edge);
       const classes = filter.map(field => {
         
         // filter is an array of fields
@@ -67,7 +67,10 @@ const Grid = ({data, filter, slugType, footer, hideStats}) => {
           const key = Object.keys(field)[0];
           const value = field[key];
           //@TODO: replace and use hooks and context api. Nested arrays made using classes too complex
-          return edge.node.frontmatter[key].map(row => key+"-"+row[value].replace(/ /g,'')).join(" ");
+          return edge.node.frontmatter[key].map(row => {
+            if(row[value] === null) return;   // if empty, do not add class
+            return key+"-"+row[value].replace(/ /g,'')
+          }).join(" ");
         } else {
           return field+"-"+edge.node.frontmatter[field].replace(/ /g,'-');
         }

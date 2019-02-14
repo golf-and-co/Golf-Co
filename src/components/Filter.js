@@ -135,6 +135,7 @@ return <Wrap>
     <Box>
         <h6 style={{display: "flex", padding: "5px 10px"}}>{label} <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
         {data.map(filter => {
+            if(filter === "null") return;
           return <Item key={v4()}>
             <Checkbox 
                 className="is-checkradio is-success" 
