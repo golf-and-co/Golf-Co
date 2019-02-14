@@ -328,7 +328,7 @@ export const Course = ({data, footer, hideStats}) => {
 // @TODO: get city list --> gql all courses that are featured + all, add classes for featuredCities, onClick handler, hide all, show cities and all if all.
 
 const selectNav = () => {
-  document.location = `/courses/?city=${document.querySelector('#featuredCitiesNav').value}`;
+  window.location.href = `/courses/?city=${document.querySelector('#featuredCitiesNav').value}`;
 }
 
 const Featured = ({home, courses}) => {
