@@ -1,5 +1,5 @@
 ---
-image: /img/the-emirates-golf-club-course.png
+image: /img/faldo-banner.jpg
 templateKey: course
 title: The Emirates Golf Club Course
 city: Dubai
