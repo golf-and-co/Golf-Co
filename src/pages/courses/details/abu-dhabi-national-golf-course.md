@@ -1,8 +1,8 @@
 ---
-image: /img/yas-links.jpg
+image: /img/abu_dhabi_golf_club_cover_picture.jpg
 templateKey: course
-title: Yas Link Golf Course
-city: Yas Island
+title: Abu Dhabi National Golf Course
+city: Khalifa City
 region: Abu Dhabi
 country: UAE
 statsDescription: Book from one of our Golf Packages and let us know your preferred Golf Course.
@@ -10,28 +10,21 @@ stats:
   - icon: /img/golf_tee.svg
     label: Holes
     value: '18'
-  - icon: /img/swing.svg
-    label: Par
-    value: '72'
-  - icon: /img/golf_cart._light.png
-    label: Yards
-    value: '7,052'
 dialogs:
-  - heading: ''
-    icon: /img/swing.svg
+  - {}
 tags:
   - {}
 gallery:
   - {}
-map: Abu Dhabi
+map: Khalifa City
 isFeatured: true
 featuredDetails:
-  description: Yas Link Golf Course
-  image: /img/abu-dhabi.png
-  name: Yas Link Golf Course
+  description: 'Khalifa City, Abu Dhabi'
+  image: /img/abu_dhabi.png
+  name: Abu Dhabi National Golf Course
 courseType:
   - {}
-holes: '72'
+holes: '18'
 amenities:
   - {}
 ---
