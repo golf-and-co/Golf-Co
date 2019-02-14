@@ -21,7 +21,7 @@ isFeatured: true
 featuredDetails:
   description: 'Khalifa City, Abu Dhabi'
   image: /img/abu_dhabi.png
-  name: Abu Dhabi National Golf Course
+  name: Abu Dhabi National Golf
 courseType:
   - {}
 holes: '18'
