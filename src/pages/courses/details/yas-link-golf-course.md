@@ -17,7 +17,8 @@ stats:
     label: Yards
     value: '7,052'
 dialogs:
-  - {}
+  - heading: Fast Greens
+    icon: /img/swing.svg
 tags:
   - {}
 gallery:
