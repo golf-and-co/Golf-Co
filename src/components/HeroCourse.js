@@ -28,6 +28,7 @@ const HeroWrap = styled.section`
 
   @media (min-width: 768px) {
     height: 60vh;
+    background-position-y: -30vh;  
   }
 `
 const Heading = styled.h1`
@@ -37,9 +38,11 @@ const Heading = styled.h1`
   font-size: 15px !important;
   font-weight: 300;
   padding: 0.75em;
+  
 
   @media (min-width: 768px) {
     font-size: 30px !important;
+    margin-top:20px;
   }
 
   @media (max-width: 768px) {
@@ -80,7 +83,6 @@ const Button = styled.a`
 `
 const Container = styled.div`
   max-width: 100vw !important;
-  margin-left: 20vw !important;
 `
 
 const LogoWrapper = styled.div`
@@ -130,7 +132,7 @@ const Hero = ({data, empty, oneLine}) => {
 
   return <Background className={classes()}>
     <HeroWrap style={{
-      backgroundImage: `url(${
+      backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.0) ), url(${
         !!data.image.childImageSharp
           ? data.image.childImageSharp.fluid.src
           : data.image
