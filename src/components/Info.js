@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { v4 } from 'uuid'
 
 const Wrap = styled.section`
   background-color: #f6f9f2;
@@ -90,7 +91,7 @@ const Infographic = ({ data }) => {
   }
 
   return <Wrap className={classes()}>
-    {data.infographics.map(row => <Element data={row} /> )}
+    {data.infographics.map(row => <Element key={v4()} data={row} /> )}
   </Wrap>;
 }
 

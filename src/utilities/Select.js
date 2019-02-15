@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { v4 } from 'uuid'
 
 const SelectWrap = styled.div`
   vertical-align: middle !important;
@@ -26,7 +27,7 @@ const Select = ({ options, id, onChange }) => (
   <SelectWrap className="select is-rounded">
     <SelectBox id={id} onChange={onChange}>
       {options.map(item => (
-        <option key={item}>{item.value}</option>
+        <option key={v4()}>{item.value}</option>
       ))}
     </SelectBox>
   </SelectWrap>

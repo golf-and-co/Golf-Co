@@ -353,7 +353,7 @@ const Featured = ({home, courses}) => {
 
       <Button className="button is-rounded">{home.featuredViewAll}</Button>
 
-      <Banner onClick={() => console.log("Banner click")} className="is-rounded is-hidden-mobile" style={{
+      <Banner onClick={() => window.location.href = `/packages/`} className="is-rounded is-hidden-mobile" style={{
           backgroundImage: `url(${
           !!home.featuredBanner.image.childImageSharp
               ? home.featuredBanner.image.childImageSharp.fluid.src
@@ -367,7 +367,7 @@ const Featured = ({home, courses}) => {
           </BannerHeader>
       </Banner>
 
-      <BannerMobile onClick={() => console.log("Banner click")} className="is-rounded is-hidden-tablet" style={{
+      <BannerMobile onClick={() => window.location.href = `/packages/`} className="is-rounded is-hidden-tablet" style={{
           backgroundImage: `url(${
           !!home.featuredBanner.mobileImage.childImageSharp
               ? home.featuredBanner.mobileImage.childImageSharp.fluid.src
