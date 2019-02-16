@@ -158,6 +158,10 @@ return <Wrap>
 };
 
 export const Nested  = ({label, field, data, location}) => {   
+    let defaultValue;
+    if(typeof location !== 'undefined') {
+        defaultValue = queryString.parse(location.location.search).city;
+    }
     return <Wrap>
     <Box>
         <h6>{label.main}</h6>
@@ -169,7 +173,7 @@ export const Nested  = ({label, field, data, location}) => {
         </div>
         <br />
         <div className="select is-rounded">
-            <select defaultValue={queryString.parse(location.location.search).city} id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={() => hide()} className="select filter">
+            <select defaultValue={defaultValue} id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={() => hide()} className="select filter">
                 <option value="--label--">{label.secondary}</option>
                 {data.secondary.map(row => <option key={v4()} value={row}>{row}</option>)}
             </select>
