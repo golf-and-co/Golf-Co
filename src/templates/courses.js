@@ -19,7 +19,7 @@ PageTemplate.propTypes = {
   title: PropTypes.string
 };
 
-const courses = ({ data }) => {
+const courses = ({ data, location }) => {
   let courses = {};   
   data.courses.edges.map(edge => edge.node.frontmatter.courseType.map(type => courses[type.name]=true));
   courses = Object.keys(courses);
@@ -35,7 +35,9 @@ const courses = ({ data }) => {
       nested: rollup(data.courses.edges, v => v.length, d => d.node.frontmatter.country, d => d.node.frontmatter.city),
     }}  
     label={{main:"Location", primary:"Country", secondary:"City" }}
-    field={{main:"location", primary:"country", secondary:"city"}}/>
+    field={{main:"location", primary:"country", secondary:"city"}}
+    location={{location}}
+    />
     <br />
     <Flat label="Course Type" data={courses} field={"courseType"}/>
     <br />
@@ -51,7 +53,7 @@ const courses = ({ data }) => {
   return <Layout>
     <HeroSmall data={data.coursesPage.edges[0].node.frontmatter} />
     <Content data={data.coursesPage.edges[0].node.frontmatter} />
-    <Listing data={data.courses} side={Filter} filter={["city", "country", {"courseType":"name"}, "holes", {"amenities":"name"}]} slugType="courses/details" footer={true}/>
+    <Listing data={data.courses} location={location} side={Filter} filter={["city", "country", {"courseType":"name"}, "holes", {"amenities":"name"}]} slugType="courses/details" footer={true}/>
     <Footer />
   </Layout>
 };

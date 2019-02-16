@@ -96,11 +96,6 @@ const Logo = styled(Link)`
 const Hero = ({ data }) => {
   const homepage = data.homepage.edges[0].node.frontmatter;
   const courses = data.courses.edges;
-
-  console.log(
-    
-    
-  );
   let countries = Array.from(group(
     courses, 
     course => course.node.frontmatter.country

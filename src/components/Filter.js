@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { v4 } from 'uuid'
+import queryString from 'query-string';
 
 const Wrap = styled.section`
     display: flex;
@@ -102,14 +103,18 @@ const select = (field, data, label) => {
         // lookup value from indexed array, if all, use all
         options = Array.from(data.nested.get(primary.value).keys());
     }
+
     // set values
-    document.querySelector(`#`+field.main+`-secondary`).innerHTML = `<option value="--label--">${label.secondary}</option>`+options.map(option => `<option>${option}</option>`).join("");
+    document.querySelector(`#`+field.main+`-secondary`).innerHTML = `<option value="--label--">${label.secondary}</option>`+options.map(option => {
+        return `<option>${option}</option>`
+    }).join("");
     // filter select
     hide();
 }
 
 
 const hide = () => { 
+    
     // checkbox classes
     let classes = Array.from(document.querySelectorAll('.is-checkradio:checked')).map(el => { 
         if(el.checked) {
@@ -143,7 +148,8 @@ return <Wrap>
                 data-field={field} 
                 id={`${field}-${filter.replace(/ /g, "")}`} 
                 type="checkbox" 
-                name={`${field}-${filter.replace(/ /g, "")}`}  />
+                name={`${field}-${filter.replace(/ /g, "")}`}  
+                />
             <Label className="checkbox" htmlFor={filter.replace(/ /g, "")}>{filter}</Label>
         </Item>})}
         <a href="/" className="button is-success is-rounded">Apply</a>
@@ -151,28 +157,27 @@ return <Wrap>
 </Wrap>
 };
 
-export const Nested = ({label, field, data}) => {
+export const Nested  = ({label, field, data, location}) => {   
     return <Wrap>
     <Box>
         <h6>{label.main}</h6>
         <div className="select is-rounded">
             <select id={`${field.main}-primary`} data-main={field.main} data-field={field.primary} onChange={() => select(field, data , label)} className="select filter">
                 <option value="--label--">{label.primary}</option>
-                {data.primary.map(row => <option key={v4()}>{row}</option>)}
+                {data.primary.map(row => <option key={v4()} value={row}>{row}</option>)}
             </select>
         </div>
         <br />
         <div className="select is-rounded">
-            <select id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={() => hide()} className="select filter">
+            <select defaultValue={queryString.parse(location.location.search).city} id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={() => hide()} className="select filter">
                 <option value="--label--">{label.secondary}</option>
-                {data.secondary.map(row => <option key={v4()}>{row}</option>)}
+                {data.secondary.map(row => <option key={v4()} value={row}>{row}</option>)}
             </select>
         </div>
         <a href="/" className="button is-success is-rounded">Apply</a>
     </Box>
     </Wrap>
-}
-
+};
 
 /*const Filter = ({data, filter}) => <div>
     <Nested label={label} data={{primary:countries, secondary:cities}} />

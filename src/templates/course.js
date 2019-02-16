@@ -19,8 +19,8 @@ PageTemplate.propTypes = {
   title: PropTypes.string,
 }
 
-const Course = ({ data }) => (
-  <Layout>
+const Course = ({ data, location }) => {
+  return <Layout>
     <HeroCourse data={data.markdownRemark.frontmatter} />
     <Stats data={data.markdownRemark.frontmatter} />
     <CourseDetails
@@ -31,7 +31,7 @@ const Course = ({ data }) => (
     <CourseMap data={data.markdownRemark.frontmatter} />
     <Footer />
   </Layout>
-)
+}
 
 Course.propTypes = {
   data: PropTypes.shape({

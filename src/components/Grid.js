@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { Course } from '../components/Featured'
 import { v4 } from 'uuid'
 import { isObject } from 'util';
+import queryString from 'query-string';
 
 const Wrap = styled.section`
   display: flex;
@@ -28,7 +29,7 @@ const Item = styled.div`
   flex-wrap: wrap;
 `;
 
-const Grid = ({data, filter, slugType, footer, hideStats}) => {
+const Grid = ({data, filter, slugType, footer, hideStats, location}) => {
   /*
     edges: (2) […]
     ​​
@@ -57,8 +58,7 @@ const Grid = ({data, filter, slugType, footer, hideStats}) => {
   return (
     <Wrap>
       {data.edges.map(edge => {
-        console.log(edge);
-      const classes = filter.map(field => {
+        const classes = filter.map(field => {
         
         // filter is an array of fields
         // accomplished by getting value of field, slugify, and setting as a classname
@@ -76,8 +76,22 @@ const Grid = ({data, filter, slugType, footer, hideStats}) => {
         }
       }).join(" ");
 
+        // allows url to hide based on city, for homepage drop downs
+        let locationStyle = {};
+        if(typeof location !== 'undefined') {  
+          const cityURL = queryString.parse(location.search).city;
+          if(typeof cityURL === 'undefined') {
+            locationStyle = {};
+          } else if(cityURL !== edge.node.frontmatter.city) {
+            locationStyle = {display:"none"};
+          } else {
+            locationStyle = {};
+          }
+        }
+      
+
         return (
-          <Item className={classes+" filterable"} key={v4()}>
+          <Item className={classes+" filterable"} key={v4()} style={locationStyle}>
             <Course
               data={{
                 frontmatter: {

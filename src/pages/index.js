@@ -7,15 +7,15 @@ import Featured from '../components/Featured'
 import Recent from '../components/Recent'
 import Footer from '../components/Footer'
 
-export const IndexTemplate = ({data}) => (
-  <Layout>
+export const IndexTemplate = ({data, location}) => {
+  return <Layout>
     <Hero />
     <Infographic data={data.allMarkdownRemark.edges[0].node.frontmatter} />
     <Featured />
     <Recent />
     <Footer />
   </Layout>
-)
+}
 
 export default IndexTemplate
 

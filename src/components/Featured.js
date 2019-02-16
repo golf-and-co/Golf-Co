@@ -6,7 +6,6 @@ import Select from '../utilities/Select'
 import { v4 } from 'uuid'
 import {group} from "d3-array";
 import Stats from '../components/Stats';
-import { navigate } from '@reach/router';
 
 // @TODO: fix crosscut here, move to card component
 const Wrap = styled.section`
@@ -264,8 +263,8 @@ const courseMouseExit = (data) => {
 }
 
 // @TODO: refactor, need better properties, start by grouping in a decorator, pass a styled component
-export const Course = ({data, footer, hideStats}) => {
-
+export const Course = ({data, footer, hideStats, location}) => {
+    
     
     const mouseEnter = () => {
         if(!footer) {
