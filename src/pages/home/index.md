@@ -4,6 +4,10 @@ templateKey: page
 title: Home
 heading1: Enjoy the Ultimate
 heading2: Golf Experience
+headingParagraph: >-
+  Golf & Co. is the only Dubai-based company specialised in Golf Holidays and
+  Events. We offer Bespoke Golf Experiences, Exclusive Packages, Corporate
+  Events and Golf Insurance across the Middle East and beyond
 infographics:
   - description: >-
       All Golf & Co packages are bespoke and customised to match your
