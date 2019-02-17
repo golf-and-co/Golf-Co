@@ -9,10 +9,10 @@ const FooterWrap = styled.section`
   background-color: #1a428a;
   display: block;
   justify-content: center;
-  border-radius: 200% 200% 0 0;
-  margin-top: -160px;
-  width: 120%;
-  margin-left: -10%;
+  border-top-right-radius: 50% 10%;
+  border-top-left-radius: 50% 10%;
+  width: 100%;
+  margin-top: -50px;
   min-height: 150px;
   padding-top: 100px;
   padding-left: 10%;

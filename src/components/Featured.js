@@ -26,6 +26,8 @@ const Wrap = styled.section`
     height: 315px;
     top: -215px
   }
+
+  padding-bottom: 60px;
 `;
 
 const Heading = styled.h3`
@@ -153,48 +155,7 @@ const Button = styled.button`
     border-color: #1d8649 !important;
 `;
 
-const Banner = styled.aside`
-    display: block;
-    margin: 70px auto 70px auto;
-    width: 700px;
-    height: 90px;
-    color: #FFF;
-    font-size: 28px;
-    cursor: pointer;
-    
-    :hover
-        cursor:pointer;
-`;
 
-const BannerMobile = styled.aside`
-    width: 95vw;
-    max-width: 400px;
-    height: 70px;
-    font-size: 18px;
-    margin: 70px auto;
-    border-radius: 50px;
-`;
-
-const BannerHeader = styled.p`
-    font-family: "Gotham Thin";
-    margin-left: 240px;
-    padding-top: 10px;
-    font-weight: bold;
-    line-height:1.25;
-
-    @media (max-width: 768px) {
-        font-size: 18px;
-        margin-left: 105px;
-    }
-`;
-
-const BannerHeaderStrong = styled.strong`
-    font-family: "Gotham Bold";
-    margin-top:0;
-    font-weight:700;
-    color:#FFF;
-    text-transform:uppercase;
-`;
 
 const Footer = styled.footer`
     display: block;
@@ -350,51 +311,23 @@ const Featured = ({home, courses}) => {
           </div>
       </div>
 
-      <Button className="button is-rounded">{home.featuredViewAll}</Button>
-
-      <Banner onClick={() => window.location.href = `/packages/`} className="is-rounded is-hidden-mobile" style={{
-          backgroundImage: `url(${
-          !!home.featuredBanner.image.childImageSharp
-              ? home.featuredBanner.image.childImageSharp.fluid.src
-              : home.featuredBanner.image
-          })`,
-      }}>
-          <BannerHeader>
-              {home.featuredBanner.heading1}
-              <br />
-              <BannerHeaderStrong>{home.featuredBanner.heading2}</BannerHeaderStrong>
-          </BannerHeader>
-      </Banner>
-
-      <BannerMobile onClick={() => window.location.href = `/packages/`} className="is-rounded is-hidden-tablet" style={{
-          backgroundImage: `url(${
-          !!home.featuredBanner.mobileImage.childImageSharp
-              ? home.featuredBanner.mobileImage.childImageSharp.fluid.src
-              : home.featuredBanner.mobileImage
-          })`,
-      }}>
-          <BannerHeader>
-              {home.featuredBanner.heading1}
-              <br />
-              <BannerHeaderStrong>{home.featuredBanner.heading2}</BannerHeaderStrong>
-          </BannerHeader>
-      </BannerMobile>
-
-      <Footer>
-          {home.featuredFooter.heading1}
-          <br />
-          <FooterStrong>{home.featuredFooter.heading2}</FooterStrong>
-      </Footer>
-
-      <Logos>
-          {home.featuredLogo.map( (logo, index) => <img key={index} alt={logo.alt} src={
-          !!logo.image.childImageSharp
-              ? logo.image.childImageSharp.fluid.src
-              : logo.image
-          } />)}
-      </Logos>
+      <Button className="button is-rounded">{home.featuredViewAll}</Button>     
   </Wrap>;
 }
+
+const FooterComponent = ({home}) => <Footer>
+  {home.featuredFooter.heading1}
+  <br />
+  <FooterStrong>{home.featuredFooter.heading2}</FooterStrong>
+</Footer>;
+
+const LogoComponent = ({home}) => <Logos>
+  {home.featuredLogo.map( (logo, index) => <img key={index} alt={logo.alt} src={
+  !!logo.image.childImageSharp
+      ? logo.image.childImageSharp.fluid.src
+      : logo.image
+  } />)}
+</Logos>;
 
 export default props => (
     <StaticQuery

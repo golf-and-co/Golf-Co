@@ -86,7 +86,7 @@ const Button = styled.a`
 const Logo = styled(Link)`
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.01) !important;
-  padding-top: 45px !important;
+  padding-top: 20px !important;
   :hover {
     background-color: rgba(0, 0, 0, 0.01) !important;
     color: #fff !important;
@@ -102,7 +102,6 @@ const Hero = ({ data }) => {
   ).keys()).map(country => { 
     return {value:country}
   });
-  countries.unshift({value:"--- All ---"});
 
   let cities = Array.from(group(
     courses, 
@@ -110,7 +109,6 @@ const Hero = ({ data }) => {
   ).keys()).map(city => { 
     return {value:city}
   });
-  cities.unshift({value:"--- All ---"});
 
   const nested = rollup(data.courses.edges, v => v.length, d => d.node.frontmatter.country, d => d.node.frontmatter.city);
 

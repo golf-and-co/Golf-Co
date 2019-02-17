@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
+import moment from "moment";
 import PropTypes from 'prop-types'
 
 const Cards = styled.section`
@@ -35,6 +36,11 @@ const CardWrap = styled.section`
   @media (max-width: 768px) {
     margin: 25px auto;
   }
+
+  img {
+    height: 173px;
+    border-radius: 10px 10px 0 0;
+  }
 `
 
 const CardHeader = styled.section`
@@ -52,7 +58,7 @@ const CardDescription = styled.section`
 
 const ViewAllButton = styled.button`
   display: block !important;
-  margin: 44px auto 44px auto;
+  margin: 20px auto 44px auto;
   background: none;
   color: #1d8649;
   font-weight: 300;
@@ -71,12 +77,14 @@ const Card = ({ card }) => (
       <img src={card.image.publicURL} alt={card.title} />
     </div>
     <CardHeader>{card.title}</CardHeader>
-    <CardDescription>{card.description}</CardDescription>
+    <CardDescription>{card.description}<br /><strong>{moment(card.from).format("d MMM YYYY")}</strong></CardDescription>
   </CardWrap>
 )
 
-const Blog = ({ data, headline }) => (
-  <Cards>
+export const Blog = ({ data, headline }) => {
+  console.log(data);
+
+  return <Cards>
     <Header>
       {headline.heading1}
       <br />
@@ -97,8 +105,8 @@ const Blog = ({ data, headline }) => (
     >
       View All
     </ViewAllButton>
-  </Cards>
-)
+  </Cards>;
+}
 
 export default props => (
   <StaticQuery

@@ -90,9 +90,12 @@ const Infographic = ({ data }) => {
     }
   }
 
-  return <Wrap className={classes()}>
-    {data.infographics.map(row => <Element key={v4()} data={row} /> )}
-  </Wrap>;
+  return <div style={{backgroundColor: "#f6f9f2"}}>
+    <p style={{padding:"30px 0 0 0", maxWidth:"780px", color: "#4a4a4a", margin: "0 auto", textAlign: "center"}}>{data.headingParagraph}</p>
+    <Wrap className={classes()}>
+      {data.infographics.map(row => <Element key={v4()} data={row} /> )}
+    </Wrap>
+  </div>;
 }
 
 export default Infographic;
