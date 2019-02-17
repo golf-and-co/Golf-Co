@@ -9,19 +9,17 @@ headingParagraph: >-
   Events. We offer Bespoke Golf Experiences, Exclusive Packages, Corporate
   Events and Golf Insurance across the Middle East and beyond
 infographics:
-  - description: >-
-      All Golf & Co packages are bespoke and customised to match your
-      requirements
-    heading: Tailor Made Packages
-    image: /img/tailor.svg
-  - description: Our team knows the nuances of Golf and are able to speak your language
-    heading: We Speak Golf
-    image: /img/golf_ball_and_tee.svg
+  - description: Taylor-made itineraries to fulfill your every wish
+    heading: Bespoke Golf Experiences
+    image: /img/bespoke_golf_icon.png
+  - description: Browse and select from our list of exclusive packages
+    heading: Golf Packages
+    image: /img/golf_packages_icon.png
   - description: >-
       Hotels, Transportation and everything that goes with it, we have it all
       covered
-    heading: BOOK BEYOND GOLF COURSES
-    image: /img/golf_club_and_bag.svg
+    heading: Golf Insurance
+    image: /img/golf_insurance_icon.png
   - description: We strive to create long lasting memories by going above & beyond
     heading: TEE TIMES TO GOOD TIMES
     image: /img/golf_swing.svg
