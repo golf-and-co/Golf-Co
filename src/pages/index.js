@@ -18,6 +18,9 @@ export const IndexTemplate = ({data, location}) => {
       <Banner home={data.home.edges[0].node.frontmatter} />
       <Blog data={{...data.events}} headline={{...data.home.edges[0].node.frontmatter.recentCalendar}} />
     </div>
+    <div>
+      <ul class='juicer-feed' data-feed-id='golfandco'><h1 class='referral'><a href='www.juicer.io'>Powered by Juicer</a></h1></ul>
+    </div>
     <Footer />
   </Layout>
 }

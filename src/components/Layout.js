@@ -141,6 +141,9 @@ const TemplateWrapper = ({ children }) => (
             crossorigin=""
           />
 
+          <script src='https://assets.juicer.io/embed.js' type='text/javascript'></script>
+          <link href='https://assets.juicer.io/embed.css' media='all' rel='stylesheet' type='text/css' />
+
           <meta property="og:type" content="business.business" />
           <meta property="og:title" content={data.site.siteMetadata.title} />
           <meta property="og:url" content="/" />
