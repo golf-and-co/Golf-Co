@@ -20,9 +20,9 @@ infographics:
       covered
     heading: Golf Insurance
     image: /img/golf_insurance_icon.png
-  - description: We strive to create long lasting memories by going above & beyond
-    heading: TEE TIMES TO GOOD TIMES
-    image: /img/golf_swing.svg
+  - description: The perfect way to engage clients and maximize brand value
+    heading: Corporate Golf Days
+    image: /img/corporate_golf_icons.png
 featured:
   heading1: Featured
   heading2: Golf Courses
