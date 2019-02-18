@@ -24,7 +24,7 @@ infographics:
     heading: Corporate Golf Days
     image: /img/corporate_golf_icons.png
 featured:
-  heading1: Featured
+  heading1: Browse
   heading2: Golf Courses
 course1:
   description: 'Yas Islands, Abu Dhabi'
