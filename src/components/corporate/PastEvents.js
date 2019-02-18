@@ -166,9 +166,9 @@ const Content = () =>   {
       }
       render={data => (
         <Events>
-          {data.allMarkdownRemark.edges.map(({node}) => {
-            if(Date.now() < Date.parse(node.frontmatter.to))
-              return;
+          {data.allMarkdownRemark.edges.filter(node =>
+            (Date.now() < Date.parse(node.frontmatter.to))
+          ).map(({node}) => {
             return <Card>
               <CardImageWrap>
                   <CardImage src={

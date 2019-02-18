@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import ListPackages from "./ListPackages";
 
 const Wrap = styled.div`
   padding: 50px 0px 220px 0px;
@@ -28,16 +27,6 @@ const Paragraph = styled.p`
   }
 `;
 
-const BackgroundImage = styled.div`
-    position: absolute;
-    background-size: cover;
-    height: 43em;
-    width: 100vw;
-    filter: blur(5px) brightness(70%);
-    z-index: -1;
-  }
-`;
-
 const Container = styled.div`
   padding: 1.5em 0em 2em 0em;
   display: block;
@@ -53,15 +42,15 @@ const BespokePackages = ({ data }) => {
       </Container>
       <div style={{"display":"flex", "justifyContent":"center"}}>
         {data.benefits.map(benefit => <div style={{width:"285px"}}>
-          <img src={benefit.image.publicURL} />
+          <img src={benefit.image.publicURL} alt="Glamorous Hotel Scenes: Gourmet appetizers / Light tone lobby with sea view / Dark colored luxury sedan on runway with private jet / Waterfront with docked boat with mass down sail and brightly colored buildings" />
           <h6 style={{color:"#a8844e", textTransform:"uppercase", fontSize:"1.25em", fontWeight:"bold"}}>{benefit.description}</h6>
         </div>)}
       </div>  
 
       <div className="container" style={{margin: "65px auto", width:"960px"}}>
         {data.packages.map(item => <div style={{width:"450px", float:"left", margin:"15px", position: "relative"}}>
-          <img src={item.image.publicURL} />
-          <h6 style={{color:"#FFF", fontSize:"1.25em", fontSize:"30px", top: "120px", position: "absolute", width: "450px"}}>{item.heading}</h6>
+          <img src={item.image.publicURL} alt="Stone bridge on course similiar to Saint Andrew's / Mist over rich golf green, water hazard on left of green, with golfer sizing putt and high-trimmed trees in background / Landscape view of distant reflective clubhouse with high rough and sand bunker at sunset / Golfer in full backswing across large water hazard with distant hills"/>
+          <h6 style={{color:"#FFF", fontSize:"30px", top: "120px", position: "absolute", width: "450px"}}>{item.heading}</h6>
         </div>)}
       </div> 
 

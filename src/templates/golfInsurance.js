@@ -45,7 +45,7 @@ return <Layout>
         {data.markdownRemark.frontmatter.benefits.map(benefit => {
           return <Card className="card">
             <h6>{benefit.title}</h6>
-            <img src={benefit.image.publicURL} />
+            <img src={benefit.image.publicURL} alt="Golf themed images including bladed irons on course grass"/>
             <p>{benefit.description}</p>
           </Card>
         })}
@@ -53,7 +53,7 @@ return <Layout>
 
       <div style={{marginTop: "30px", textAlign:"center", paddingBottom:"30px"}}>
         <p style={{textTransform:"uppercase"}}>Insurance Provided by</p>
-        <img src="/img/rsa.png" />
+        <img src="/img/rsa.png" alt="RSA Logo, the letters R S A followed by a superscripted two-toned gear-like circle, dark blue on top and pink on bottom"/>
       </div>
       </div>
   </div>

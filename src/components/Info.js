@@ -1,5 +1,4 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { v4 } from 'uuid'

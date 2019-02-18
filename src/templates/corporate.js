@@ -8,8 +8,6 @@ import Testimontials from '../components/corporate/Testimontials';
 import PastEvents from '../components/corporate/PastEvents';
 import Footer from '../components/Footer';
 
-const backgroundColor = "#f5f8f1";
-
 const Corporate = ({ data }) => <Layout>
   <HeroSmall data={{...data.markdownRemark.frontmatter, backgroundColor:"#f5f8f1"}} />
   <CorporateContent data={data.markdownRemark.frontmatter} />

@@ -3,7 +3,6 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import {group, rollup} from "d3-array";
-import { v4 } from 'uuid'
 import Select from '../utilities/Select'
 import logo from '../img/logo.svg'
 

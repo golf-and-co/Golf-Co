@@ -59,28 +59,7 @@ const HeadingStrong = styled.strong`
     font-weight: 700;
   }
 `
-const ViewGallery = styled.div`
-  @media (min-width: 768px) {
-    margin-top: 40vh;
-    padding-bottom: 30px;
-  }
-`
 
-const Button = styled.a`
-  font-family: 'Gotham Book';
-  vertical-align: middle !important;
-  margin: auto 10px;
-  width: 200px;
-  height: 50px;
-  font-size: 16px;
-  font-weight: 700;
-
-  @media (max-width: 768px) {
-    position: absolute !important;
-    top: 320px;
-    left: calc(50% - 100px);
-  }
-`
 const Container = styled.div`
   max-width: 100vw !important;
 `
@@ -112,21 +91,6 @@ const Hero = ({data, empty, oneLine}) => {
   const region = () => {
     if(!oneLine) {
        return <div>{data.city}, {data.country}</div>;
-    }
-  }
-
-  const viewGallery = () => {
-    if(!oneLine) {
-      return <ViewGallery>
-        <Button
-          className="button is-link is-rounded"
-          onClick={() =>
-            document.querySelector('#courseDetailBackground').scrollIntoView()
-          }
-        >
-          View Gallery
-        </Button>
-      </ViewGallery>
     }
   }
 

@@ -7,27 +7,6 @@ import styled from 'styled-components'
 import Slider from "react-slick";
 import Footer from '../components/Footer';
 
-const Card = styled.section`
-  width: 356px;
-  height: 428px;
-  border-radius: 10px;
-
-  h6 {
-    color: #1d8649;
-    font-size:26px;
-    font-family: "Gotham Bold";
-    line-height: 26px;
-    padding: 25px 30px;
-    text-align: center;
-  }
-
-  p {
-    padding: 10px 15px;
-    text-align: center;
-    font-size: 14px;
-  }
-`;
-
 const Wrap = styled.div`
   .slick-slider {
     width: 80%;
@@ -57,7 +36,7 @@ return <Layout>
     <Wrap className="container">
       <Slider {...{dots:true}}>
         {data.markdownRemark.frontmatter.images.map(entry => {
-          return <div><img src={entry.image.publicURL} alt="Gallery Image"/></div>;
+          return <div><img src={entry.image.publicURL} alt="Gallery"/></div>;
         })}
       </Slider>
     </Wrap>

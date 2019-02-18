@@ -155,33 +155,6 @@ const Button = styled.button`
     border-color: #1d8649 !important;
 `;
 
-
-
-const Footer = styled.footer`
-    display: block;
-    margin: 0 auto;
-    color: #1d8649;
-    font-family: "Gotham Light";
-    font-size: 30px;
-    font-weight: 300;
-    text-transform: uppercase;
-    text-align: center;
-    line-height: 1.25;
-    padding-bottom: 20px;
-`;
-
-const FooterStrong = styled.footer`
-    font-family: "Gotham Black";
-    font-weight: 900;
-`;
-
-const Logos = styled.section`
-    background-color: #aec3b2;
-    display:flex;
-    justify-content: center;
-    padding: 75px 0;
-`;
-
 const Rounds = styled.div`
     position: absolute;
     z-index: 10000;
@@ -314,20 +287,6 @@ const Featured = ({home, courses}) => {
       <Button className="button is-rounded">{home.featuredViewAll}</Button>     
   </Wrap>;
 }
-
-const FooterComponent = ({home}) => <Footer>
-  {home.featuredFooter.heading1}
-  <br />
-  <FooterStrong>{home.featuredFooter.heading2}</FooterStrong>
-</Footer>;
-
-const LogoComponent = ({home}) => <Logos>
-  {home.featuredLogo.map( (logo, index) => <img key={index} alt={logo.alt} src={
-  !!logo.image.childImageSharp
-      ? logo.image.childImageSharp.fluid.src
-      : logo.image
-  } />)}
-</Logos>;
 
 export default props => (
     <StaticQuery

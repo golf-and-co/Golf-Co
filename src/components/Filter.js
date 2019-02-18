@@ -116,12 +116,12 @@ const select = (field, data, label) => {
 const hide = () => { 
     
     // checkbox classes
-    let classes = Array.from(document.querySelectorAll('.is-checkradio:checked')).map(el => { 
-        if(el.checked) {
-            return el.getAttribute("id");
-        }
-        return;
-    });
+    let classes = Array.from(document.querySelectorAll('.is-checkradio:checked')
+        ).filter(
+            el => el.checked
+        ).map(
+            el => el.getAttribute("id")
+    );
     // select classes
     document.querySelectorAll(".select.filter").forEach(select => {
         if (select.value === '--label--') return;
@@ -139,19 +139,21 @@ export const Flat = ({label, field, data}) => {
 return <Wrap>
     <Box>
         <h6 style={{display: "flex", padding: "5px 10px"}}>{label} <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
-        {data.map(filter => {
-            if(filter === "null") return;
-          return <Item key={v4()}>
-            <Checkbox 
-                className="is-checkradio is-success" 
-                onClick={() => hide()} 
-                data-field={field} 
-                id={`${field}-${filter.replace(/ /g, "")}`} 
-                type="checkbox" 
-                name={`${field}-${filter.replace(/ /g, "")}`}  
-                />
-            <Label className="checkbox" htmlFor={filter.replace(/ /g, "")}>{filter}</Label>
-        </Item>})}
+        {data.filter(
+            filter => filter !== "null"
+        ).map(filter => 
+            <Item key={v4()}>
+                <Checkbox 
+                    className="is-checkradio is-success" 
+                    onClick={() => hide()} 
+                    data-field={field} 
+                    id={`${field}-${filter.replace(/ /g, "")}`} 
+                    type="checkbox" 
+                    name={`${field}-${filter.replace(/ /g, "")}`}  
+                    />
+                <Label className="checkbox" htmlFor={filter.replace(/ /g, "")}>{filter}</Label>
+            </Item>
+        )}
         <a href="/" className="button is-success is-rounded">Apply</a>
     </Box>
 </Wrap>
