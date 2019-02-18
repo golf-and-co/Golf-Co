@@ -6,6 +6,7 @@ import Infographic from '../components/Info'
 import Featured from '../components/Featured'
 import Blog from '../components/Blog'
 import Banner from '../components/Banner'
+import Juicer from '../components/Juicer'
 import Footer from '../components/Footer'
 
 export const IndexTemplate = ({data, location}) => {
@@ -18,9 +19,7 @@ export const IndexTemplate = ({data, location}) => {
       <Banner home={data.home.edges[0].node.frontmatter} />
       <Blog data={{...data.events}} headline={{...data.home.edges[0].node.frontmatter.recentCalendar}} />
     </div>
-    <div>
-      <ul class='juicer-feed' data-feed-id='golfandco'><h1 class='referral'><a href='www.juicer.io'>Powered by Juicer</a></h1></ul>
-    </div>
+    <Juicer count={8} columns={4} />
     <Footer />
   </Layout>
 }
