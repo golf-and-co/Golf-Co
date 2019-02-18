@@ -14,7 +14,7 @@ export const width25 = keyframes`
   }
 `
 
-const SideMenu = styled.nav`
+const Side = styled.nav`
   position: fixed !important;
   width: 30vw;
   height: 102vh;
@@ -32,7 +32,7 @@ const SideMenu = styled.nav`
   }
 `
 
-const MenuLinks = styled.div`
+const Links = styled.div`
   padding: 0px 50px 0px 64px;
 `
 
@@ -56,14 +56,14 @@ const HeaderAnchor = styled.a`
   }
 `
 
-const MenuLink = styled(Link)`
+const LinkParent = styled(Link)`
   color: #1d8649;
   font-family: 'Gotham Book';
   font-size: 22px;
   font-weight: 300;
 `
 
-const MenuLinkChild = styled(Link)`
+const LinkChild = styled(Link)`
   color: #1d8649;
   font-family: 'Gotham Book';
   /* Text style for "UAE" */
@@ -105,13 +105,13 @@ const FontAwesome = styled.i`
   vertical-align: middle;
 `
 
-const MenuFooter = styled.footer`
+const Footer = styled.footer`
   background-color: #1a428a;
   padding: 45px 65px !important;
   height: 80vh;
 `
 
-const MenuFooterHeader = styled.h3`
+const FooterHeader = styled.h3`
   margin-bottom: 10px;
   color: #fff;
   font-family: 'Gotham Light';
@@ -122,9 +122,9 @@ const MenuFooterHeader = styled.h3`
 
 const Social = ({ link }) => (
   <FontAwesomeItem>
-    <MenuLink to={link.href}>
+    <LinkParent to={link.href}>
       <FontAwesome className={`fab fa-${link.text}`} />
-    </MenuLink>
+    </LinkParent>
   </FontAwesomeItem>
 )
 
@@ -133,7 +133,7 @@ const Menu = ({ link }) => {
   if (typeof link.children !== 'undefined') {
     children = link.children.map((child, index) => (
       <li key={v4()}>
-        <MenuLinkChild
+        <LinkChild
           to={child.href}
           link={child}
           style={{
@@ -143,7 +143,7 @@ const Menu = ({ link }) => {
           }}
         >
           {child.text}
-        </MenuLinkChild>
+        </LinkChild>
       </li>
     ))
     children = <ul>{children}</ul>
@@ -151,14 +151,14 @@ const Menu = ({ link }) => {
 
   return (
     <li>
-      <MenuLink to={link.href}>{link.text}</MenuLink>
+      <LinkParent to={link.href}>{link.text}</LinkParent>
       {children}
     </li>
   )
 }
 
 const Navbar = ({ data, close }) => (
-  <SideMenu
+  <Side
     className="navbar"
     role="navigation"
     aria-label="main-navigation"
@@ -188,7 +188,7 @@ const Navbar = ({ data, close }) => (
       </div>
     </Heading>
     <DottedLine />
-    <MenuLinks className="columns">
+    <Links className="columns">
       <div className="column is-half">
         <ul>
           {data.footerColumn1.map(link => (
@@ -203,16 +203,16 @@ const Navbar = ({ data, close }) => (
           ))}
         </ul>
       </div>
-    </MenuLinks>
-    <MenuFooter>
-      <MenuFooterHeader>{data.footerSocialHeading}</MenuFooterHeader>
+    </Links>
+    <Footer>
+      <FooterHeader>{data.footerSocialHeading}</FooterHeader>
       <FontAwesomeList>
         {data.footerSocial.map(link => (
           <Social key={v4()} link={link} />
         ))}
       </FontAwesomeList>
-    </MenuFooter>
-  </SideMenu>
+    </Footer>
+  </Side>
 )
 
 export default props => (
