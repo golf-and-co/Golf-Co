@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Grid from '../components/Grid'
@@ -24,6 +24,28 @@ const FilterWrap = styled.div`
         display: none !important;
     }
 `;
+
+const hide = () => { 
+    
+    // checkbox classes
+    let classes = Array.from(document.querySelectorAll('.is-checkradio:checked')
+        ).filter(
+            el => el.checked
+        ).map(
+            el => el.getAttribute("id")
+    );
+    // select classes
+    document.querySelectorAll(".select.filter").forEach(select => {
+        if (select.value === '--label--') return;
+        classes.push(select.getAttribute("data-field")+"-"+select.value);
+    });
+    if(classes.length > 0) {
+        document.querySelectorAll(".filterable").forEach(el => el.style.display="none");
+        document.querySelectorAll('.'+classes.join(".")).forEach(el => el.style.display="flex");
+    } else {
+        document.querySelectorAll(".filterable").forEach(el => el.style.display="flex");
+    }
+}
 
 const Listing = ({data, side, filter, slugType, footer, hideStats, location}) => <Background>
     <Wrap className="columns">

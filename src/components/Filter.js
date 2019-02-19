@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import { v4 } from 'uuid'
 import queryString from 'query-string';
@@ -109,75 +109,61 @@ const select = (field, data, label) => {
         return `<option>${option}</option>`
     }).join("");
     // filter select
-    hide();
 }
 
 
-const hide = () => { 
-    
-    // checkbox classes
-    let classes = Array.from(document.querySelectorAll('.is-checkradio:checked')
-        ).filter(
-            el => el.checked
-        ).map(
-            el => el.getAttribute("id")
-    );
-    // select classes
-    document.querySelectorAll(".select.filter").forEach(select => {
-        if (select.value === '--label--') return;
-        classes.push(select.getAttribute("data-field")+"-"+select.value);
-    });
-    if(classes.length > 0) {
-        document.querySelectorAll(".filterable").forEach(el => el.style.display="none");
-        document.querySelectorAll('.'+classes.join(".")).forEach(el => el.style.display="flex");
-    } else {
-        document.querySelectorAll(".filterable").forEach(el => el.style.display="flex");
-    }
-}
 
-export const Flat = ({label, field, data}) => {
-return <Wrap>
-    <Box>
-        <h6 style={{display: "flex", padding: "5px 10px"}}>{label} <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
-        {data.filter(
-            filter => filter !== "null"
-        ).map(filter => 
-            <Item key={v4()}>
-                <Checkbox 
-                    className="is-checkradio is-success" 
-                    onClick={() => hide()} 
-                    data-field={field} 
-                    id={`${field}-${filter.replace(/ /g, "")}`} 
-                    type="checkbox" 
-                    name={`${field}-${filter.replace(/ /g, "")}`}  
-                    />
-                <Label className="checkbox" htmlFor={filter.replace(/ /g, "")}>{filter}</Label>
-            </Item>
-        )}
-        <a href="/" className="button is-success is-rounded">Apply</a>
-    </Box>
-</Wrap>
+
+export const Flat = ({label, field, data, click}) => {
+    return <Wrap>
+        <Box>
+            <h6 style={{display: "flex", padding: "5px 10px"}}>{label} <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
+            {data.filter(
+                value => value !== "null"
+            ).map(value => 
+                <Item key={v4()}>
+                    <Checkbox 
+                        className="is-checkradio is-success" 
+                        onClick={click} 
+                        data-field={field} 
+                        id={`${field}-${value.replace(/ /g, "")}`} 
+                        type="checkbox" 
+                        name={`${field}-${value.replace(/ /g, "")}`}  
+                        />
+                    <Label className="checkbox" htmlFor={value.replace(/ /g, "")}>{value}</Label>
+                </Item>
+            )}
+            <a href="/" className="button is-success is-rounded">Apply</a>
+        </Box>
+    </Wrap>
 };
 
-export const Nested  = ({label, field, data, location}) => {   
+export const Nested  = ({label, field, data, location, hide}) => {   
     let defaultValue;
+    const [nested, setNested] = useState(data.secondary.map(row => <option key={v4()} value={row}>{row}</option>));
+
+    const change = (event) => {
+        setNested(Array.from(data.nested.get(event.target.value).keys()).map(row => <option key={v4()} value={row}>{row}</option>));
+    }
+
     if(typeof location !== 'undefined') {
         defaultValue = queryString.parse(location.location.search).city;
     }
+
     return <Wrap>
     <Box>
         <h6>{label.main}</h6>
         <div className="select is-rounded">
-            <select id={`${field.main}-primary`} data-main={field.main} data-field={field.primary} onChange={() => select(field, data , label)} className="select filter">
+            <select id={`${field.main}-primary`} data-main={field.main} data-field={field.primary} onChange={(event) => change(event)} className="select filter">
                 <option value="--label--">{label.primary}</option>
                 {data.primary.map(row => <option key={v4()} value={row}>{row}</option>)}
             </select>
         </div>
         <br />
         <div className="select is-rounded">
-            <select defaultValue={defaultValue} id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={() => hide()} className="select filter">
+            <select defaultValue={defaultValue} id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={() => setNested()} className="select filter">
                 <option value="--label--">{label.secondary}</option>
-                {data.secondary.map(row => <option key={v4()} value={row}>{row}</option>)}
+                {nested}
             </select>
         </div>
         <a href="/" className="button is-success is-rounded">Apply</a>
