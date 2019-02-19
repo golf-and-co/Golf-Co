@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'gatsby'
 import styled, { keyframes } from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
@@ -120,6 +120,50 @@ const FooterHeader = styled.h3`
   text-transform: uppercase;
 `
 
+const HamburgerWrap = styled.div`
+  z-index: 0;
+  color: #fff;
+  margin: 45px 60px;
+
+  :hover {
+    background-color: transparent !important;
+  }
+`
+
+const HamburgerLine1 = styled.span`
+  top: calc(50% - 8px) !important;
+  height: 3px !important;
+  width: 24px !important;
+`
+
+const HamburgerLine2 = styled.span`
+  top: calc(50%) !important;
+  height: 3px !important;
+  width: 24px !important;
+`
+
+const HamburgerLine3 = styled.span`
+  top: calc(50% + 8px) !important;
+  height: 3px !important;
+  width: 24px !important;
+`
+
+const Hamburger = ({click}) => {
+
+  return <HamburgerWrap
+    id="hb"
+    className="navbar-burger burger is-visible-desktop is-hidden-mobile"
+    data-target="navMenu"
+    onClick={click}
+  >
+
+  
+    <HamburgerLine1 />
+    <HamburgerLine2 />
+    <HamburgerLine3 />
+  </HamburgerWrap>
+}
+
 const Social = ({ link }) => (
   <FontAwesomeItem>
     <LinkParent to={link.href}>
@@ -157,23 +201,31 @@ const Menu = ({ link }) => {
   )
 }
 
-const Navbar = ({ data, close }) => (
+const Nav = (props) => {
+  // Declare a new state variable, which we'll call "count"
+  const [visible, setVisibility] = useState("none");
+  // Hamburger menu click handler
+  const click = () => {
+    setVisibility('block'); 
+    console.log(visible);
+  }
+  return <span>
   <Side
     className="navbar"
     role="navigation"
     aria-label="main-navigation"
     id="nav"
-    style={{ display: 'none' }}
+    style={{ display: visible }}
   >
     <Heading className="navbar-start has-text-centered">
       <HeaderLink className="navbar-item" to="/">
         {
           <img
-            alt={data.menuLogo.alt}
+            alt={props.data.menuLogo.alt}
             src={
-              !!data.menuLogo.image.childImageSharp
-                ? data.menuLogo.image.childImageSharp.fluid.src
-                : data.menuLogo.image
+              !!props.data.menuLogo.image.childImageSharp
+                ? props.data.menuLogo.image.childImageSharp.fluid.src
+                : props.data.menuLogo.image
             }
           />
         }
@@ -182,7 +234,7 @@ const Navbar = ({ data, close }) => (
         <HeaderLink className="navbar-item" to="/">
           <i className="fas fa-home" />
         </HeaderLink>
-        <HeaderAnchor className="navbar-item" onClick={close}>
+        <HeaderAnchor className="navbar-item" onClick={() => {setVisibility("none")}}>
           <i className="fas fa-times-circle " />
         </HeaderAnchor>
       </div>
@@ -191,29 +243,31 @@ const Navbar = ({ data, close }) => (
     <Links className="columns">
       <div className="column is-half">
         <ul>
-          {data.footerColumn1.map(link => (
+          {props.data.footerColumn1.map(link => (
             <Menu key={v4()} link={link} />
           ))}
         </ul>
       </div>
       <div className="column is-half">
         <ul>
-          {data.footerColumn2.map(link => (
+          {props.data.footerColumn2.map(link => (
             <Menu key={v4()} link={link} />
           ))}
         </ul>
       </div>
     </Links>
     <Footer>
-      <FooterHeader>{data.footerSocialHeading}</FooterHeader>
+      <FooterHeader>{props.data.footerSocialHeading}</FooterHeader>
       <FontAwesomeList>
-        {data.footerSocial.map(link => (
+        {props.data.footerSocial.map(link => (
           <Social key={v4()} link={link} />
         ))}
       </FontAwesomeList>
     </Footer>
   </Side>
-)
+  <Hamburger id="menu" click={click} />
+  </span>
+}
 
 export default props => (
   <StaticQuery
@@ -256,7 +310,7 @@ export default props => (
       }
     `}
     render={data => (
-      <Navbar
+      <Nav
         data={data.allMarkdownRemark.edges[0].node.frontmatter}
         {...props}
       />
@@ -264,6 +318,6 @@ export default props => (
   />
 )
 
-Navbar.propTypes = {
+Nav.propTypes = {
   data: PropTypes.object.isRequired,
 }

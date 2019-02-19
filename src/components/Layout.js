@@ -10,59 +10,6 @@ const Container = styled.section`
   padding: 0;
   width: 100%;
 `
-const HamburgerWrap = styled.div`
-  z-index: 30;
-  color: #fff;
-  margin: 45px 60px;
-
-  :hover {
-    background-color: transparent !important;
-  }
-`
-
-const HamburgerLine1 = styled.span`
-  top: calc(50% - 8px) !important;
-  height: 3px !important;
-  width: 24px !important;
-`
-
-const HamburgerLine2 = styled.span`
-  top: calc(50%) !important;
-  height: 3px !important;
-  width: 24px !important;
-`
-
-const HamburgerLine3 = styled.span`
-  top: calc(50% + 8px) !important;
-  height: 3px !important;
-  width: 24px !important;
-`
-
-const navClick = () => {
-  const nav = document.getElementById('nav')
-  const hb = document.getElementById('hb')
-  if (nav.style.display === 'block') {
-    nav.style.display = 'none'
-    hb.style.display = 'flex'
-  } else {
-    // nav hidden, open nav
-    nav.style.display = 'block'
-    hb.style.display = 'none'
-  }
-}
-
-const Hamburger = () => (
-  <HamburgerWrap
-    id="hb"
-    className="navbar-burger burger is-visible-desktop is-hidden-mobile"
-    data-target="navMenu"
-    onClick={navClick}
-  >
-    <HamburgerLine1 />
-    <HamburgerLine2 />
-    <HamburgerLine3 />
-  </HamburgerWrap>
-)
 
 const TemplateWrapper = ({ children }) => (
   <StaticQuery
@@ -150,8 +97,7 @@ const TemplateWrapper = ({ children }) => (
           <meta property="og:image" content="/img/og-image.jpg" />
         </Helmet>
         <Container id="main">{children}</Container>
-        <Navbar close={navClick} />
-        <Hamburger id="menu" />
+        <Navbar />
       </div>
     )}
   />
