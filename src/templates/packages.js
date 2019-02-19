@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
@@ -21,8 +21,32 @@ PageTemplate.propTypes = {
 
 
 const packageDetails = ({ data }) => {
+  const [filters, setFilters] = useState();
+  const [visible, setVisible] = useState();
 
- const Filter = (<div>
+  const hide = () => {
+    
+    data.courses.edges.filter(course => {
+      /*
+
+        {city:"Dubai",
+        country: "Country",
+        "hotelType": "5",
+        "Duration": "7 Days or More"}
+
+      */
+      Array.keys(filters).map(key => {
+        // if city is set and is city
+        // check if filter is in data, to avoid label
+        if(course[key] == filters[key]) {
+          
+        }
+      })
+      
+    })
+  }
+
+  const Filter = (<div>
     <Nested data={{
       primary: Array.from((group(data.courses.edges, d => d.node.frontmatter.country).keys())),
       secondary: Array.from((group(data.courses.edges, d => d.node.frontmatter.city).keys())),

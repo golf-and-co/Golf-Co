@@ -91,30 +91,7 @@ const Label = styled.label`
     cursor: default;
 `;
 
-//@TODO: this is a mess. Start using redux or react hooks
-
-// select: change secondary dropdown, and hide
-const select = (field, data, label) => {
-    const primary = document.querySelector(`#`+field.main+`-primary`);
-    let options = [];
-    if (primary.value === '--label--') {
-        options = data.secondary;
-    } else {
-        // lookup value from indexed array, if all, use all
-        options = Array.from(data.nested.get(primary.value).keys());
-    }
-
-    // set values
-    document.querySelector(`#`+field.main+`-secondary`).innerHTML = `<option value="--label--">${label.secondary}</option>`+options.map(option => {
-        return `<option>${option}</option>`
-    }).join("");
-    // filter select
-}
-
-
-
-
-export const Flat = ({label, field, data, click}) => {
+export const Flat = ({label, field, data, change}) => {
     return <Wrap>
         <Box>
             <h6 style={{display: "flex", padding: "5px 10px"}}>{label} <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
@@ -124,7 +101,7 @@ export const Flat = ({label, field, data, click}) => {
                 <Item key={v4()}>
                     <Checkbox 
                         className="is-checkradio is-success" 
-                        onClick={click} 
+                        onClick={change} 
                         data-field={field} 
                         id={`${field}-${value.replace(/ /g, "")}`} 
                         type="checkbox" 
