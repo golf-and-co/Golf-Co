@@ -3,4 +3,8 @@
  * @param {Array} edges Nodes from frontmatter 
  * @param {Object} filters filter name => filter value
  */
-export const hide = (edges, filters) => edges.filter(edge => Object.keys(filters).every(key => (edge[key] === filters[key])));  
+export const hide = (edges, filters) => edges.filter(edge => 
+    Object.keys(filters).every(key => 
+        (edge.node.frontmatter[key] === filters[key])
+    )
+);  

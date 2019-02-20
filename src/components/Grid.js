@@ -54,7 +54,6 @@ const Grid = ({visible, filter, slugType, footer, hideStats, location}) => {
         city: '',
         country: '',
     };*/
-
   return (
     <Wrap>
       {visible.map(edge => {

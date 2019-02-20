@@ -101,11 +101,12 @@ export const Flat = ({label, field, data, handler}) => {
                 <Item key={v4()}>
                     <Checkbox 
                         className="is-checkradio is-success" 
-                        onClick={event => handler(field, event)} 
+                        onClick={event => handler({[field]:event.target.value})}
                         data-field={field} 
                         id={`${field}-${value.replace(/ /g, "")}`} 
                         type="checkbox" 
-                        name={`${field}-${value.replace(/ /g, "")}`}  
+                        name={`${field}-${value.replace(/ /g, "")}`}
+                        value={value}  
                         />
                     <Label className="checkbox" htmlFor={value.replace(/ /g, "")}>{value}</Label>
                 </Item>
@@ -121,9 +122,7 @@ export const Nested  = ({label, field, data, location, handler}) => {
 
     const change = (field, event) => {
         setNested(Array.from(data.nested.get(event.target.value).keys()).map(row => <option key={v4()} value={row}>{row}</option>));
-        const filter = {};
-        filter[field] = event.target.value;
-        handler(filter);
+        handler({[field]:event.target.value});
     }
 
     if(typeof location !== 'undefined') {

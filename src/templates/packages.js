@@ -24,17 +24,15 @@ PageTemplate.propTypes = {
 const packageDetails = ({ data }) => {
   const [filters, setFilters] = useState([]);
   const [visible, setVisible] = useState(data.courses.edges);
-
   const handler = (filter) => {
     setFilters(
-      filters.push(filter)
+      Object.assign(filters,filter)
     );
     setVisible(
       hide(data.courses.edges, filters)
     );
   }
-  
-
+ 
   const Filter = (<div>
     <Nested data={{
       primary: Array.from((group(data.courses.edges, d => d.node.frontmatter.country).keys())),
