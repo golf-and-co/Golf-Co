@@ -63,24 +63,24 @@ footerLogo:
   image: /img/logo.png
 footerColumn1:
   - children:
-      - href: '#uae'
+      - href: /courses?country=UAE
         text: UAE
-      - href: '#oman'
+      - href: /courses?country=Oman
         text: Oman
-    href: '#'
+    href: /courses
     text: Golf Courses
 footerColumn2:
-  - href: '#about'
+  - href: /
     text: About Golf & Co.
 footerSocialHeading: Connect With Us
 footerSocial:
-  - href: '#'
+  - href: /
     text: facebook-f
-  - href: '#'
+  - href: /
     text: twitter
-  - href: '#'
+  - href: /
     text: linkedin-in
-  - href: '#'
+  - href: /
     text: instagram
 ---
 
