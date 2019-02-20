@@ -7,6 +7,7 @@ import Content from "../components/Content";
 import Listing from "../components/Listing";
 import {Nested, Flat} from "../components/Filter";
 import {group, rollup} from "d3-array";
+import {hide} from "../utilities/Hide";
 import Footer from "../components/Footer";
 
 export const PageTemplate = ({ title }) => (
@@ -21,30 +22,18 @@ PageTemplate.propTypes = {
 
 
 const packageDetails = ({ data }) => {
-  const [filters, setFilters] = useState();
-  const [visible, setVisible] = useState();
+  const [filters, setFilters] = useState([]);
+  const [visible, setVisible] = useState(data.courses.edges);
 
-  const hide = () => {
-    
-    data.courses.edges.filter(course => {
-      /*
-
-        {city:"Dubai",
-        country: "Country",
-        "hotelType": "5",
-        "Duration": "7 Days or More"}
-
-      */
-      Array.keys(filters).map(key => {
-        // if city is set and is city
-        // check if filter is in data, to avoid label
-        if(course[key] == filters[key]) {
-          
-        }
-      })
-      
-    })
+  const handler = (filter) => {
+    setFilters(
+      filters.push(filter)
+    );
+    setVisible(
+      hide(data.courses.edges, filters)
+    );
   }
+  
 
   const Filter = (<div>
     <Nested data={{
@@ -53,16 +42,18 @@ const packageDetails = ({ data }) => {
       nested: rollup(data.courses.edges, v => v.length, d => d.node.frontmatter.country, d => d.node.frontmatter.city),
     }}  
     label={{main:"Location", primary:"Country", secondary:"City" }}
-    field={{main:"location", primary:"country", secondary:"city"}}/>
+    field={{main:"location", primary:"country", secondary:"city"}}
+    handler={handler}
+    />
     <br />
-    <Flat label="Hotel Type" data={Array.from((group(data.courses.edges, d => d.node.frontmatter.hotelType).keys()))} field={"hotelType"}/>
+    <Flat label="Hotel Type" data={Array.from((group(data.courses.edges, d => d.node.frontmatter.hotelType).keys()))} field={"hotelType"} handler={handler}/>
     <br />
-    <Flat label="Duration" data={Array.from((group(data.courses.edges, d => d.node.frontmatter.duration).keys()))} field={"duration"} /></div>)
+    <Flat label="Duration" data={Array.from((group(data.courses.edges, d => d.node.frontmatter.duration).keys()))} field={"duration"} handler={handler} /></div>)
 
   return <Layout>
     <HeroSmall data={data.packageListingPage.edges[0].node.frontmatter} />
     <Content data={data.packageListingPage.edges[0].node.frontmatter} />
-    <Listing data={data.courses} side={Filter} filter={["city", "country", "hotelType", "duration"]} slugType="packages" footer={true}/>
+    <Listing data={data.courses} side={Filter} filter={["city", "country", "hotelType", "duration"]} slugType="packages" footer={true} visible={visible}/>
     <Footer />
   </Layout>
 };

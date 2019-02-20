@@ -29,7 +29,7 @@ const Item = styled.div`
   flex-wrap: wrap;
 `;
 
-const Grid = ({data, filter, slugType, footer, hideStats, location}) => {
+const Grid = ({visible, filter, slugType, footer, hideStats, location}) => {
   /*
     edges: (2) […]
     ​​
@@ -57,7 +57,7 @@ const Grid = ({data, filter, slugType, footer, hideStats, location}) => {
 
   return (
     <Wrap>
-      {data.edges.map(edge => {
+      {visible.map(edge => {
         const classes = filter.map(field => {
         
         // filter is an array of fields
@@ -119,7 +119,7 @@ const Grid = ({data, filter, slugType, footer, hideStats, location}) => {
 }
 
 Grid.propTypes = {
-  data: PropTypes.object.isRequired,
+  visible: PropTypes.array.isRequired,
 }
 
 export default Grid

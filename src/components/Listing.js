@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Grid from '../components/Grid'
@@ -25,13 +25,13 @@ const FilterWrap = styled.div`
     }
 `;
 
-const Listing = ({data, side, filter, slugType, footer, hideStats, location}) => <Background>
+const Listing = ({side, filter, slugType, footer, hideStats, location, visible}) => <Background>
     <Wrap className="columns">
         <FilterWrap className="column is-one-fifth">
             {side}
         </FilterWrap>
         <div className="column is-four-fifth">
-            <Grid data={data} filter={filter} slugType={slugType} footer={footer} hideStats={hideStats} location={location} />
+            <Grid visible={visible} filter={filter} slugType={slugType} footer={footer} hideStats={hideStats} location={location} />
         </div>
     </Wrap>
 </Background>

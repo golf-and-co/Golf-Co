@@ -8,7 +8,7 @@
     "bulma": "^0.7.4",
     "bulma-extensions": "^4.1.1",
     "d3-array": "^2.0.3",
-    "gatsby": "^2.1.4",
+    "gatsby": "^2.1.8",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-netlify": "^2.0.11",
     "gatsby-plugin-netlify-cms": "^3.0.12",
@@ -16,14 +16,14 @@
     "gatsby-plugin-purgecss": "^2.4.0",
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-sass": "^2.0.10",
-    "gatsby-plugin-sharp": "^2.0.20",
+    "gatsby-plugin-sharp": "^2.0.21",
     "gatsby-plugin-styled-components": "^3.0.5",
     "gatsby-remark-copy-linked-files": "^2.0.9",
     "gatsby-remark-images": "^3.0.4",
     "gatsby-remark-relative-images": "^0.2.0",
     "gatsby-source-filesystem": "^2.0.20",
     "gatsby-transformer-remark": "^2.2.5",
-    "gatsby-transformer-sharp": "^2.1.13",
+    "gatsby-transformer-sharp": "^2.1.14",
     "leaflet": "^1.4.0",
     "lodash": "^4.17.5",
     "lodash-webpack-plugin": "^0.11.4",
@@ -58,10 +58,15 @@
     "develop": "npm run clean && gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "devDependencies": {
+    "babel-jest": "^24.1.0",
+    "babel-preset-gatsby": "^0.1.7",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.1.0",
     "prettier": "^1.16.4",
+    "react-test-renderer": "^16.8.2",
     "rimraf": "^2.6.3"
   }
 }

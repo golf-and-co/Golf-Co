@@ -91,7 +91,7 @@ const Label = styled.label`
     cursor: default;
 `;
 
-export const Flat = ({label, field, data, change}) => {
+export const Flat = ({label, field, data, handler}) => {
     return <Wrap>
         <Box>
             <h6 style={{display: "flex", padding: "5px 10px"}}>{label} <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
@@ -101,7 +101,7 @@ export const Flat = ({label, field, data, change}) => {
                 <Item key={v4()}>
                     <Checkbox 
                         className="is-checkradio is-success" 
-                        onClick={change} 
+                        onClick={event => handler(field, event)} 
                         data-field={field} 
                         id={`${field}-${value.replace(/ /g, "")}`} 
                         type="checkbox" 
@@ -115,12 +115,15 @@ export const Flat = ({label, field, data, change}) => {
     </Wrap>
 };
 
-export const Nested  = ({label, field, data, location, hide}) => {   
+export const Nested  = ({label, field, data, location, handler}) => {   
     let defaultValue;
     const [nested, setNested] = useState(data.secondary.map(row => <option key={v4()} value={row}>{row}</option>));
 
-    const change = (event) => {
+    const change = (field, event) => {
         setNested(Array.from(data.nested.get(event.target.value).keys()).map(row => <option key={v4()} value={row}>{row}</option>));
+        const filter = {};
+        filter[field] = event.target.value;
+        handler(filter);
     }
 
     if(typeof location !== 'undefined') {
@@ -131,14 +134,14 @@ export const Nested  = ({label, field, data, location, hide}) => {
     <Box>
         <h6>{label.main}</h6>
         <div className="select is-rounded">
-            <select id={`${field.main}-primary`} data-main={field.main} data-field={field.primary} onChange={(event) => change(event)} className="select filter">
+            <select id={`${field.main}-primary`} data-main={field.main} data-field={field.primary} onChange={(event) => change(field.primary, event)} className="select filter">
                 <option value="--label--">{label.primary}</option>
                 {data.primary.map(row => <option key={v4()} value={row}>{row}</option>)}
             </select>
         </div>
         <br />
         <div className="select is-rounded">
-            <select defaultValue={defaultValue} id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={() => setNested()} className="select filter">
+            <select defaultValue={defaultValue} id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={(event) => handler(field.secondary, event)} className="select filter">
                 <option value="--label--">{label.secondary}</option>
                 {nested}
             </select>
@@ -147,17 +150,3 @@ export const Nested  = ({label, field, data, location, hide}) => {
     </Box>
     </Wrap>
 };
-
-/*const Filter = ({data, filter}) => <div>
-    <Nested label={label} data={{primary:countries, secondary:cities}} />
-    <br />
-    <Flat data={filters.hotelType} label="Hotel Type" />
-    <br />
-    <Flat data={filters.duration} label="Duration" />
-</div>;
-
-Filter.propTypes = {
-  data: PropTypes.object.isRequired,
-}
-
-export default Filter*/
