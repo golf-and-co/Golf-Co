@@ -67,7 +67,7 @@ footerColumn1:
         text: UAE
       - href: /courses?country=Oman
         text: Oman
-    href: /courses
+    href: courses
     text: Golf Courses
 footerColumn2:
   - href: /
