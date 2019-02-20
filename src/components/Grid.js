@@ -29,53 +29,11 @@ const Item = styled.div`
   flex-wrap: wrap;
 `;
 
-const Grid = ({visible, filter, slugType, footer, hideStats, location}) => {
-  /*
-    edges: (2) […]
-    ​​
-        0: {…}
-        ​​​
-            node: {…}
-            ​​​​
-              frontmatter: {…}
-            ​​​​​
-                title: "Golf Packages"
-    */
-
-  // @TODO: factor out Course from featured, better adapter
-  // what adapter wants:
-  /*data.fields = {
-        slug: 'a',
-    };
-    data.frontmatter = {};
-    data.frontmatter.featuredDetails = {
-        image: '',
-        name: '',
-        city: '',
-        country: '',
-    };*/
+const Grid = ({visible, slug, footer, hideStats, location}) => {
+  
   return (
     <Wrap>
       {visible.map(edge => {
-        const classes = filter.map(field => {
-        
-        // filter is an array of fields
-        // accomplished by getting value of field, slugify, and setting as a classname
-        // then based on filter, class combination is shown.
-        if(isObject(field)) {
-          const key = Object.keys(field)[0];
-          const value = field[key];
-          //@TODO: replace and use hooks and context api. Nested arrays made using classes too complex
-          return edge.node.frontmatter[key].filter(
-              row => row[value] !== null
-          ).map(row => 
-              key+"-"+row[value].replace(/ /g,'')
-          ).join(" ");
-        } else {
-          return field+"-"+edge.node.frontmatter[field].replace(/ /g,'-');
-        }
-      }).join(" ");
-
         // allows url to hide based on city, for homepage drop downs
         let locationStyle = {};
         if(typeof location !== 'undefined') {  
@@ -88,10 +46,8 @@ const Grid = ({visible, filter, slugType, footer, hideStats, location}) => {
             locationStyle = {};
           }
         }
-      
-
         return (
-          <Item className={classes+" filterable"} key={v4()} style={locationStyle}>
+          <Item key={v4()} style={locationStyle}>
             <Course
               data={{
                 frontmatter: {
@@ -104,7 +60,7 @@ const Grid = ({visible, filter, slugType, footer, hideStats, location}) => {
                   country: edge.node.frontmatter.country,
                 },
                 fields: {
-                  slug: `/${slugType}/`+edge.node.frontmatter.title.replace(/ /g, '-').toLowerCase(),
+                  slug: `/${slug}/`+edge.node.frontmatter.title.replace(/ /g, '-').toLowerCase(),
                 },
               }}
               footer={footer} 

@@ -25,19 +25,19 @@ const FilterWrap = styled.div`
     }
 `;
 
-const Listing = ({side, filter, slugType, footer, hideStats, location, visible}) => <Background>
+const Listing = ({visible, side, slug, footer, hideStats, location}) => <Background>
     <Wrap className="columns">
         <FilterWrap className="column is-one-fifth">
             {side}
         </FilterWrap>
         <div className="column is-four-fifth">
-            <Grid visible={visible} filter={filter} slugType={slugType} footer={footer} hideStats={hideStats} location={location} />
+            <Grid visible={visible} slug={slug} footer={footer} hideStats={hideStats} location={location} />
         </div>
     </Wrap>
 </Background>
 
 Listing.propTypes = {
-    data: PropTypes.object.isRequired,
+    visible: PropTypes.array.isRequired,
 }
 
 export default Listing;

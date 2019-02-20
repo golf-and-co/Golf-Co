@@ -51,7 +51,7 @@ const packageDetails = ({ data }) => {
   return <Layout>
     <HeroSmall data={data.packageListingPage.edges[0].node.frontmatter} />
     <Content data={data.packageListingPage.edges[0].node.frontmatter} />
-    <Listing data={data.courses} side={Filter} filter={["city", "country", "hotelType", "duration"]} slugType="packages" footer={true} visible={visible}/>
+    <Listing visible={visible} side={Filter} slug="packages" footer={true} />
     <Footer />
   </Layout>
 };
