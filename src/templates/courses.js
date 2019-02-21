@@ -25,6 +25,11 @@ const courses = ({ data, location }) => {
   const [filters, setFilters] = useState([]);
   const [visible, setVisible] = useState(data.courses.edges);
   const handler = (filter) => {
+    console.log("filters");
+    console.log(filters);
+    console.log("filter");
+    console.log(filter);
+    debugger;
     if(!Object.values(filter)[0]) {
       // filter has been removed, pop and set.
       delete filters[Object.keys(filter)[0]];
@@ -37,14 +42,15 @@ const courses = ({ data, location }) => {
     setVisible(
       hide(data.courses.edges, filters)
     );
-    
   }
 
   // nested data, list in record for courses and amneties
   // @TODO: replace with d3, try using data()
   let courseTypes = {};   
-  data.courses.edges.map(edge => edge.node.frontmatter.courseType.map(type => courseTypes[type.name]=true));
-  courseTypes = Object.keys(courseTypes);
+  data.courses.edges.map(edge => edge.node.frontmatter.courseType.filter(type => type.name !== null).map(type => {
+     console.log(type);
+     courseTypes[type.name]= (type.name === filters.courseType);
+  }));
 
   let amenities = {};   
   data.courses.edges.map(edge => edge.node.frontmatter.amenities.map(amenity => amenities[amenity.name]=true));
@@ -69,11 +75,11 @@ const courses = ({ data, location }) => {
 
     
 
-    <Flat label="Course Type" data={courseTypes} field={"courseType"} handler={handler} checked={typeof filters['hotelType'] !== 'undefined'} />
+    <Flat label="Course Type" data={courseTypes} field={"courseType"} handler={handler} checked={filters['courseType']} />
     <br />
     <Flat label="Holes" data={Array.from(group(data.courses.edges, d => d.node.frontmatter.holes).keys())} field={"holes"} handler={handler} checked={typeof filters['holes'] !== 'undefined'} />
     <br />
-    <Flat label="Amenities" data={amenities} field={"amenities"} handler={handler} checked={typeof filters['amenities'] !== 'undefined'} />
+    <Flat label="Amenities" data={amenities} field={"amenities"} handler={handler} checked={filters['amenities']} />
     
     
     </div>)

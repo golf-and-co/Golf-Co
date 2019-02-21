@@ -98,13 +98,11 @@ export const Flat = ({label, field, data, handler, checked}) => {
         handler({[field]:event.target.value});
       }
     }
-
+    console.log(data);
     return <Wrap>
         <Box>
             <h6 style={{display: "flex", padding: "5px 10px"}}>{label} <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
-            {data.filter(
-                value => value !== "null"
-            ).map(value => 
+            {Object.keys(data).map(value => 
                 <Item key={v4()}>
                     <Checkbox 
                         className="is-checkradio is-success" 
@@ -113,7 +111,7 @@ export const Flat = ({label, field, data, handler, checked}) => {
                         id={`${field}-${value.replace(/ /g, "")}`} 
                         type="checkbox" 
                         name={`${field}-${value.replace(/ /g, "")}`}
-                        checked={checked}
+                        checked={data[value]}
                         value={value}
                     />
                     <Label className="checkbox" htmlFor={value.replace(/ /g, "")}>{value}</Label>
