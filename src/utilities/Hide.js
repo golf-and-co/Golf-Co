@@ -10,8 +10,7 @@ const arrayCheck = (edge, filter) => {
 }
 
 export const hide = (edges, filters) => edges.filter(edge => 
-    Object.keys(filters).every(key => {
-        // for array value
-        return (edge.node.frontmatter[key] === filters[key] || arrayCheck(edge.node.frontmatter[key], filters[key]))
+    filters.every(filter => {
+        return (edge.node.frontmatter[filter.field] === filter.value || arrayCheck(edge.node.frontmatter[filter.field], filter.value))
     })
 );  

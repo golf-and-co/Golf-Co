@@ -92,29 +92,31 @@ const Label = styled.label`
 
 export const Flat = ({label, field, data, handler, checked}) => {
     const check = (event) => {
-      if(!event.target.checked) {
-        handler({[field]:false});
+      if(event.target.checked) {
+        // target has just been checked, add
+        console.log("Not checked");
+        handler({field: field, value: event.target.value, action: "ADD"});
       } else {
-        handler({[field]:event.target.value});
+        console.log("Checked");
+        // target is no longer checked, removed
+        handler({field: field, value: event.target.value, action: "REMOVE"});
       }
     }
-    console.log(data);
+
     return <Wrap>
         <Box>
             <h6 style={{display: "flex", padding: "5px 10px"}}>{label} <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
-            {Object.keys(data).map(value => 
+            {Object.keys(data).map(filter => 
                 <Item key={v4()}>
                     <Checkbox 
                         className="is-checkradio is-success" 
                         onChange={check}
-                        data-field={field} 
-                        id={`${field}-${value.replace(/ /g, "")}`} 
                         type="checkbox" 
-                        name={`${field}-${value.replace(/ /g, "")}`}
-                        checked={data[value]}
-                        value={value}
+                        checked={data[filter]}
+                        value={filter}
+                        name={field+"-"+filter.replace(/ /g,'')}
                     />
-                    <Label className="checkbox" htmlFor={value.replace(/ /g, "")}>{value}</Label>
+                    <Label className="checkbox">{filter}</Label>
                 </Item>
             )}
             <a href="/" className="button is-success is-rounded">Apply</a>
@@ -129,9 +131,7 @@ export const Nested  = ({label, field, data, handler, defaultValue}) => {
         setNested(Array.from(data.nested.get(event.target.value).keys()).map(row => <option key={v4()} value={row}>{row}</option>));
         handler({[field]:event.target.value});
     }
-
-    console.log(defaultValue);
-    
+ 
     return <Wrap>
     <Box>
         <h6>{label.main}</h6>

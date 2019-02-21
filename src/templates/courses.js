@@ -21,40 +21,53 @@ PageTemplate.propTypes = {
 };
 
 const courses = ({ data, location }) => {
-  // @TODO: Use objects instead of an Array for checkboxes. {value:"5 Star", checked:true}
   const [filters, setFilters] = useState([]);
   const [visible, setVisible] = useState(data.courses.edges);
   const handler = (filter) => {
-    console.log("filters");
-    console.log(filters);
-    console.log("filter");
-    console.log(filter);
-    debugger;
-    if(!Object.values(filter)[0]) {
-      // filter has been removed, pop and set.
-      delete filters[Object.keys(filter)[0]];
-      setFilters(filters);
+    if(filter.action === 'REMOVE') {
+      // state update is async, so this is ugly but required
+      const result = filters.filter(item => (item.name !== filter.name && item.value !== filter.value));
+      const visible = hide(data.courses.edges, result);
+      setFilters(result);
+      setVisible(visible);
     } else {
-      setFilters(
-        Object.assign(filters,filter)
-      );
+      filters.push(filter);
+      const visible = hide(data.courses.edges, filters);
+      setFilters(filters);
+      setVisible(visible);
     }
-    setVisible(
-      hide(data.courses.edges, filters)
-    );
   }
-
-  // nested data, list in record for courses and amneties
-  // @TODO: replace with d3, try using data()
+  // @TODO: clean up. Start with replacing with react filterable table, and passing a Card component
+  // if that doesn't work, structured filter
+  // if that doesn't work, this:
+  // then refactoring code out for helpers, avoid reuse, perhaps a better data model
+  // nested data makes this much more complicated than it should be
+  // fields can have multiple values, like courseType=Earth && courseType=Championship
+  // fixed by using Redux style "filter" objects, emitted on click
+  // and sending a prop to the filter component of {label:checked}
+  // also slow renders. try passing value once, and showing/hiding with css
   let courseTypes = {};   
-  data.courses.edges.map(edge => edge.node.frontmatter.courseType.filter(type => type.name !== null).map(type => {
-     console.log(type);
-     courseTypes[type.name]= (type.name === filters.courseType);
-  }));
+  data.courses.edges.forEach(edge => 
+    edge.node.frontmatter.courseType.filter(type => type.name !== null).forEach(type => {
+      // courseType label:checked
+      courseTypes[type.name] = filters.some(filter => (type.name === filter.value && filter.field === "courseType"));
+    })
+  );
+
+  let holes = {};
+  Array.from(group(data.courses.edges, d => d.node.frontmatter.holes).keys()).forEach(holeCount => {
+    
+      holes[holeCount] = filters.some(filter => (holeCount === filter.value && filter.field === "holes"))  
+    
+  });
 
   let amenities = {};   
-  data.courses.edges.map(edge => edge.node.frontmatter.amenities.map(amenity => amenities[amenity.name]=true));
-  amenities = Object.keys(amenities);
+  data.courses.edges.forEach(edge => 
+    edge.node.frontmatter.amenities.filter(amenity => amenity.name !== null).forEach(amenity => 
+      // amenity label:checked
+      amenities[amenity.name] = filters.some(filter => (amenity.name === filter.value && filter.field === "amenities"))
+    )
+  );
 
   const Filter = (<div>
     <Nested data={{
@@ -77,14 +90,12 @@ const courses = ({ data, location }) => {
 
     <Flat label="Course Type" data={courseTypes} field={"courseType"} handler={handler} checked={filters['courseType']} />
     <br />
-    <Flat label="Holes" data={Array.from(group(data.courses.edges, d => d.node.frontmatter.holes).keys())} field={"holes"} handler={handler} checked={typeof filters['holes'] !== 'undefined'} />
+    <Flat label="Holes" data={holes} field={"holes"} handler={handler} checked={typeof filters['holes'] !== 'undefined'} />
     <br />
     <Flat label="Amenities" data={amenities} field={"amenities"} handler={handler} checked={filters['amenities']} />
     
     
     </div>)
-
-
 
   return <Layout>
     <HeroSmall data={data.coursesPage.edges[0].node.frontmatter} />

@@ -25,7 +25,8 @@ const FilterWrap = styled.div`
     }
 `;
 
-const Listing = ({visible, side, slug, footer, hideStats, location}) => <Background>
+const Listing = ({visible, side, slug, footer, hideStats, location}) => {
+return <Background>
     <Wrap className="columns">
         <FilterWrap className="column is-one-fifth">
             {side}
@@ -35,7 +36,7 @@ const Listing = ({visible, side, slug, footer, hideStats, location}) => <Backgro
         </div>
     </Wrap>
 </Background>
-
+}
 Listing.propTypes = {
     visible: PropTypes.array.isRequired,
 }

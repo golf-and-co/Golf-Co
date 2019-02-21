@@ -6,10 +6,10 @@ const edges = [
     {node:{frontmatter:{name:"3", city:"Dubai", country:"UAE", hotelType:"5", duration: "5"}}}
 ];
 
-const filters = {
-    "courseType": "Earth Course",
-    "duration": "7",
-};
+const filters = [
+    {"field":"courseType", "value":"Earth Course", "action":"ADD"},
+    {"field":"duration", "value":"7", "action":"ADD"},
+];
 
 describe("Hide", () => {
     it("filters edges", () => {

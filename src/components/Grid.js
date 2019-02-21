@@ -29,7 +29,6 @@ const Item = styled.div`
 `;
 
 const Grid = ({visible, slug, footer, hideStats, location}) => {
-  
   return (
     <Wrap>
       {visible.map(edge => {
