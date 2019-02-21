@@ -22,17 +22,26 @@ PageTemplate.propTypes = {
 
 
 const packageDetails = ({ data }) => {
+  // @TODO: Use objects instead of an Array for checkboxes. {value:"5 Star", checked:true}
   const [filters, setFilters] = useState([]);
   const [visible, setVisible] = useState(data.courses.edges);
   const handler = (filter) => {
-    setFilters(
-      Object.assign(filters,filter)
-    );
+    if(!Object.values(filter)[0]) {
+      // filter has been removed, pop and set.
+      delete filters[Object.keys(filter)[0]];
+      setFilters(filters);
+    } else {
+      console.log(Object.assign(filters,filter));
+      setFilters(
+        Object.assign(filters,filter)
+      );
+    }
     setVisible(
       hide(data.courses.edges, filters)
     );
+    
   }
- 
+
   const Filter = (<div>
     <Nested data={{
       primary: Array.from((group(data.courses.edges, d => d.node.frontmatter.country).keys())),
@@ -42,11 +51,14 @@ const packageDetails = ({ data }) => {
     label={{main:"Location", primary:"Country", secondary:"City" }}
     field={{main:"location", primary:"country", secondary:"city"}}
     handler={handler}
-    />
+    defaultValue={{
+      primary:filters['country'],
+      secondary:filters['city'],
+    }} />
     <br />
-    <Flat label="Hotel Type" data={Array.from((group(data.courses.edges, d => d.node.frontmatter.hotelType).keys()))} field={"hotelType"} handler={handler}/>
+    <Flat label="Hotel Type" data={Array.from((group(data.courses.edges, d => d.node.frontmatter.hotelType).keys()))} field={"hotelType"} handler={handler} checked={typeof filters['hotelType'] !== 'undefined'}/>
     <br />
-    <Flat label="Duration" data={Array.from((group(data.courses.edges, d => d.node.frontmatter.duration).keys()))} field={"duration"} handler={handler} /></div>)
+    <Flat label="Duration" data={Array.from((group(data.courses.edges, d => d.node.frontmatter.duration).keys()))} field={"duration"} handler={handler} checked={typeof filters['duration'] !== 'undefined'} /></div>)
 
   return <Layout>
     <HeroSmall data={data.packageListingPage.edges[0].node.frontmatter} />

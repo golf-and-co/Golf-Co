@@ -10,7 +10,6 @@ import Juicer from '../components/Juicer'
 import Footer from '../components/Footer'
 
 export const IndexTemplate = ({data, location}) => {
-  console.log(data);
   return <Layout>
     <Hero />
     <Infographic data={data.home.edges[0].node.frontmatter} />

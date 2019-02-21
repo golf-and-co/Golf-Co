@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Course } from '../components/Featured'
 import { v4 } from 'uuid'
-import { isObject } from 'util';
 import queryString from 'query-string';
 
 const Wrap = styled.section`
@@ -34,6 +33,7 @@ const Grid = ({visible, slug, footer, hideStats, location}) => {
   return (
     <Wrap>
       {visible.map(edge => {
+        // @TODO: move this up to page
         // allows url to hide based on city, for homepage drop downs
         let locationStyle = {};
         if(typeof location !== 'undefined') {  

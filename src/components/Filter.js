@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import { v4 } from 'uuid'
-import queryString from 'query-string';
 
 const Wrap = styled.section`
     display: flex;
@@ -91,7 +90,15 @@ const Label = styled.label`
     cursor: default;
 `;
 
-export const Flat = ({label, field, data, handler}) => {
+export const Flat = ({label, field, data, handler, checked}) => {
+    const check = (event) => {
+      if(!event.target.checked) {
+        handler({[field]:false});
+      } else {
+        handler({[field]:event.target.value});
+      }
+    }
+
     return <Wrap>
         <Box>
             <h6 style={{display: "flex", padding: "5px 10px"}}>{label} <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
@@ -101,13 +108,14 @@ export const Flat = ({label, field, data, handler}) => {
                 <Item key={v4()}>
                     <Checkbox 
                         className="is-checkradio is-success" 
-                        onClick={event => handler({[field]:event.target.value})}
+                        onChange={check}
                         data-field={field} 
                         id={`${field}-${value.replace(/ /g, "")}`} 
                         type="checkbox" 
                         name={`${field}-${value.replace(/ /g, "")}`}
-                        value={value}  
-                        />
+                        checked={checked}
+                        value={value.replace(/ /g, "")}
+                    />
                     <Label className="checkbox" htmlFor={value.replace(/ /g, "")}>{value}</Label>
                 </Item>
             )}
@@ -116,8 +124,7 @@ export const Flat = ({label, field, data, handler}) => {
     </Wrap>
 };
 
-export const Nested  = ({label, field, data, location, handler}) => {   
-    let defaultValue;
+export const Nested  = ({label, field, data, handler, defaultValue}) => {   
     const [nested, setNested] = useState(data.secondary.map(row => <option key={v4()} value={row}>{row}</option>));
 
     const change = (field, event) => {
@@ -125,22 +132,20 @@ export const Nested  = ({label, field, data, location, handler}) => {
         handler({[field]:event.target.value});
     }
 
-    if(typeof location !== 'undefined') {
-        defaultValue = queryString.parse(location.location.search).city;
-    }
-
+    console.log(defaultValue);
+    
     return <Wrap>
     <Box>
         <h6>{label.main}</h6>
         <div className="select is-rounded">
-            <select id={`${field.main}-primary`} data-main={field.main} data-field={field.primary} onChange={(event) => change(field.primary, event)} className="select filter">
+            <select value={defaultValue.primary} onChange={(event) => change(field.primary, event)}>
                 <option value="--label--">{label.primary}</option>
                 {data.primary.map(row => <option key={v4()} value={row}>{row}</option>)}
             </select>
         </div>
         <br />
         <div className="select is-rounded">
-            <select defaultValue={defaultValue} id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={(event) => handler(field.secondary, event)} className="select filter">
+            <select value={defaultValue.secondary} id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={(event) => handler({[field.secondary]:event.target.value})} className="select filter">
                 <option value="--label--">{label.secondary}</option>
                 {nested}
             </select>

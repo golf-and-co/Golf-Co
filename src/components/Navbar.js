@@ -207,7 +207,6 @@ const Nav = (props) => {
   // Hamburger menu click handler
   const click = () => {
     setVisibility('block'); 
-    console.log(visible);
   }
   return <span>
   <Side

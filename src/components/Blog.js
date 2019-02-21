@@ -82,7 +82,6 @@ const Card = ({ card }) => (
 )
 
 export const Blog = ({ data, headline }) => {
-  console.log(data);
 
   return <Cards>
     <Header>
