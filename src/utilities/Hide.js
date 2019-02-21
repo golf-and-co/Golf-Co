@@ -11,6 +11,7 @@ const arrayCheck = (edge, filter) => {
 
 export const hide = (edges, filters) => edges.filter(edge => 
     filters.every(filter => {
+        if(filter.value === null || typeof filter.value === "undefined") return true;
         return (edge.node.frontmatter[filter.field] === filter.value || arrayCheck(edge.node.frontmatter[filter.field], filter.value))
     })
 );  

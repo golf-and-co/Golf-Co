@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Course } from '../components/Featured'
 import { v4 } from 'uuid'
-import queryString from 'query-string';
 
 const Wrap = styled.section`
   display: flex;
@@ -28,25 +27,12 @@ const Item = styled.div`
   flex-wrap: wrap;
 `;
 
-const Grid = ({visible, slug, footer, hideStats, location}) => {
+const Grid = ({visible, slug, footer, hideStats}) => {
   return (
     <Wrap>
       {visible.map(edge => {
-        // @TODO: move this up to page
-        // allows url to hide based on city, for homepage drop downs
-        let locationStyle = {};
-        if(typeof location !== 'undefined') {  
-          const cityURL = queryString.parse(location.search).city;
-          if(typeof cityURL === 'undefined') {
-            locationStyle = {};
-          } else if(cityURL !== edge.node.frontmatter.city) {
-            locationStyle = {display:"none"};
-          } else {
-            locationStyle = {};
-          }
-        }
         return (
-          <Item key={v4()} style={locationStyle}>
+          <Item key={v4()}>
             <Course
               data={{
                 frontmatter: {

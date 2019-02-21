@@ -9,6 +9,7 @@ import {Nested, Flat} from "../components/Filter";
 import {group, rollup} from "d3-array";
 import {hide} from "../utilities/Hide";
 import Footer from "../components/Footer";
+import queryString from 'query-string';
 
 export const PageTemplate = ({ title }) => (
   <section className="section section--gradient">
@@ -20,13 +21,25 @@ PageTemplate.propTypes = {
   title: PropTypes.string
 };
 
+
+
 const courses = ({ data, location }) => {
-  const [filters, setFilters] = useState([]);
-  const [visible, setVisible] = useState(data.courses.edges);
+  const locationFilters = [
+    {"field":"city", "value":queryString.parse(location.search).city, "action":"ADD"},
+    {"field":"country", "value":queryString.parse(location.search).country, "action":"ADD"}
+  ];
+
+  const [filters, setFilters] = useState(locationFilters);
+  const [visible, setVisible] = useState(hide(data.courses.edges,locationFilters));
+
+  
+  console.log(filters);
   const handler = (filter) => {
     if(filter.action === 'REMOVE') {
       // state update is async, so this is ugly but required
-      const result = filters.filter(item => (item.name !== filter.name && item.value !== filter.value));
+      const result = filters.filter(item => {
+         return (item.field !== filter.field && item.value !== filter.value)
+      });
       const visible = hide(data.courses.edges, result);
       setFilters(result);
       setVisible(visible);
