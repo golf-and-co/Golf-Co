@@ -32,14 +32,25 @@ const courses = ({ data, location }) => {
   const [filters, setFilters] = useState(locationFilters);
   const [visible, setVisible] = useState(hide(data.courses.edges,locationFilters));
 
-  
-  console.log(filters);
   const handler = (filter) => {
+    console.log(filter);
     if(filter.action === 'REMOVE') {
       // state update is async, so this is ugly but required
       const result = filters.filter(item => {
          return (item.field !== filter.field && item.value !== filter.value)
       });
+      const visible = hide(data.courses.edges, result);
+      setFilters(result);
+      setVisible(visible);
+    } else if(filter.action === 'REPLACE') {
+      // some fields require multiple filters of the same name, like course type
+      // others must replace existing filter first, like city
+      let result = filters.filter(item => {
+         return (item.field !== filter.field && item.value !== filter.value)
+      });
+      console.log(result);
+      result.push(filter);
+      console.log(result);
       const visible = hide(data.courses.edges, result);
       setFilters(result);
       setVisible(visible);
@@ -93,8 +104,9 @@ const courses = ({ data, location }) => {
     location={{location}}
     handler={handler}
     defaultValue={{
-      primary:filters['country'],
-      secondary:filters['city'],
+      // @TODO: default value looks for object, need to lookup city and country from filter
+      primary:filters.filter(item => item.field ==='country')[0]['value'],
+      secondary:filters.filter(item => item.field ==='city')[0]['value'],
     }}
     />
     <br />

@@ -129,7 +129,7 @@ export const Nested  = ({label, field, data, handler, defaultValue}) => {
 
     const change = (field, event) => {
         setNested(Array.from(data.nested.get(event.target.value).keys()).map(row => <option key={v4()} value={row}>{row}</option>));
-        handler({[field]:event.target.value});
+        handler({field: field, value: event.target.value, action: "REPLACE"});
     }
  
     return <Wrap>
@@ -143,7 +143,7 @@ export const Nested  = ({label, field, data, handler, defaultValue}) => {
         </div>
         <br />
         <div className="select is-rounded">
-            <select value={defaultValue.secondary} id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={(event) => handler({[field.secondary]:event.target.value})} className="select filter">
+            <select value={defaultValue.secondary} id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={(event) => handler({field: field.secondary, value: event.target.value, action: "REPLACE"})} className="select filter">
                 <option value="--label--">{label.secondary}</option>
                 {nested}
             </select>
