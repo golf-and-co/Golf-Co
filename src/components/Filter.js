@@ -114,7 +114,7 @@ export const Flat = ({label, field, data, handler, checked}) => {
                         type="checkbox" 
                         name={`${field}-${value.replace(/ /g, "")}`}
                         checked={checked}
-                        value={value.replace(/ /g, "")}
+                        value={value}
                     />
                     <Label className="checkbox" htmlFor={value.replace(/ /g, "")}>{value}</Label>
                 </Item>

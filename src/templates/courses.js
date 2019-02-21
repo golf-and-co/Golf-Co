@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
@@ -7,6 +7,7 @@ import Content from "../components/Content";
 import Listing from "../components/Listing";
 import {Nested, Flat} from "../components/Filter";
 import {group, rollup} from "d3-array";
+import {hide} from "../utilities/Hide";
 import Footer from "../components/Footer";
 
 export const PageTemplate = ({ title }) => (
@@ -20,9 +21,30 @@ PageTemplate.propTypes = {
 };
 
 const courses = ({ data, location }) => {
-  let courses = {};   
-  data.courses.edges.map(edge => edge.node.frontmatter.courseType.map(type => courses[type.name]=true));
-  courses = Object.keys(courses);
+  // @TODO: Use objects instead of an Array for checkboxes. {value:"5 Star", checked:true}
+  const [filters, setFilters] = useState([]);
+  const [visible, setVisible] = useState(data.courses.edges);
+  const handler = (filter) => {
+    if(!Object.values(filter)[0]) {
+      // filter has been removed, pop and set.
+      delete filters[Object.keys(filter)[0]];
+      setFilters(filters);
+    } else {
+      setFilters(
+        Object.assign(filters,filter)
+      );
+    }
+    setVisible(
+      hide(data.courses.edges, filters)
+    );
+    
+  }
+
+  // nested data, list in record for courses and amneties
+  // @TODO: replace with d3, try using data()
+  let courseTypes = {};   
+  data.courses.edges.map(edge => edge.node.frontmatter.courseType.map(type => courseTypes[type.name]=true));
+  courseTypes = Object.keys(courseTypes);
 
   let amenities = {};   
   data.courses.edges.map(edge => edge.node.frontmatter.amenities.map(amenity => amenities[amenity.name]=true));
@@ -37,13 +59,21 @@ const courses = ({ data, location }) => {
     label={{main:"Location", primary:"Country", secondary:"City" }}
     field={{main:"location", primary:"country", secondary:"city"}}
     location={{location}}
+    handler={handler}
+    defaultValue={{
+      primary:filters['country'],
+      secondary:filters['city'],
+    }}
     />
     <br />
-    <Flat label="Course Type" data={courses} field={"courseType"}/>
+
+    
+
+    <Flat label="Course Type" data={courseTypes} field={"courseType"} handler={handler} checked={typeof filters['hotelType'] !== 'undefined'} />
     <br />
-    <Flat label="Holes" data={Array.from(group(data.courses.edges, d => d.node.frontmatter.holes).keys())} field={"holes"}/>
+    <Flat label="Holes" data={Array.from(group(data.courses.edges, d => d.node.frontmatter.holes).keys())} field={"holes"} handler={handler} checked={typeof filters['holes'] !== 'undefined'} />
     <br />
-    <Flat label="Amenities" data={amenities} field={"amenities"}/>
+    <Flat label="Amenities" data={amenities} field={"amenities"} handler={handler} checked={typeof filters['amenities'] !== 'undefined'} />
     
     
     </div>)
@@ -53,7 +83,7 @@ const courses = ({ data, location }) => {
   return <Layout>
     <HeroSmall data={data.coursesPage.edges[0].node.frontmatter} />
     <Content data={data.coursesPage.edges[0].node.frontmatter} />
-    <Listing data={data.courses} location={location} side={Filter} filter={["city", "country", {"courseType":"name"}, "holes", {"amenities":"name"}]} slugType="courses/details" footer={true}/>
+    <Listing visible={visible} location={location} side={Filter} slug="courses" footer={true} />
     <Footer />
   </Layout>
 };
