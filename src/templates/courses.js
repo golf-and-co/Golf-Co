@@ -54,7 +54,7 @@ const courses = ({ data, location }) => {
       <Wrap className="columns">
         <FilterWrap className="column is-one-fifth">
           <div>
-          <Checkbox label={"test"} />
+           <Checkbox label={"test"} />
             <br />
           </div>
         </FilterWrap>

@@ -10,7 +10,12 @@ const reducer = (state, action) => {
   return state
 }
 
-const initialState = { count: 0 }
+const initialState = { 
+  controls:[
+    {name: "hotelType", value:"5"}
+  ],
+  visible: ["The Club at Dubai"]
+}
 
 const createStore = () => reduxCreateStore(reducer, initialState)
 export default createStore
