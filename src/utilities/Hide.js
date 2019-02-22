@@ -4,14 +4,14 @@
  * @param {Object} filters filter name => filter value
  */
 
-const arrayCheck = (edge, filter) => {
+const arrayCheck = (edge, filter, label) => {
     if(!Array.isArray(edge)) return false;
-    return edge.some( item => item.name === filter);
+    return edge.some( item => item[label] === filter);
 }
 
-export const hide = (edges, filters) => edges.filter(edge => 
+export const hide = (edges, filters, label) => edges.filter(edge => 
     filters.every(filter => {
         if(filter.value === null || typeof filter.value === "undefined") return true;
-        return (edge.node.frontmatter[filter.field] === filter.value || arrayCheck(edge.node.frontmatter[filter.field], filter.value))
+        return (edge.node.frontmatter[filter.field] === filter.value || arrayCheck(edge.node.frontmatter[filter.field], filter.value, label))
     })
 );  

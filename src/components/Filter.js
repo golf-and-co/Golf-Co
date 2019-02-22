@@ -90,14 +90,12 @@ const Label = styled.label`
     cursor: default;
 `;
 
-export const Flat = ({label, field, data, handler, checked}) => {
+export const Flat = ({label, field, data, handler}) => {
     const check = (event) => {
       if(event.target.checked) {
         // target has just been checked, add
-        console.log("Not checked");
         handler({field: field, value: event.target.value, action: "ADD"});
       } else {
-        console.log("Checked");
         // target is no longer checked, removed
         handler({field: field, value: event.target.value, action: "REMOVE"});
       }

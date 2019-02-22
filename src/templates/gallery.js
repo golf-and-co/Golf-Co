@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState}  from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import styled from "styled-components"
@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import HeroSmall from "../components/HeroSmall";
 import Content from "../components/Content";
 import {Flat} from "../components/Filter";
+import {hide} from "../utilities/Hide";
 import Listing from "../components/Listing";
 import Footer from "../components/Footer";
 
@@ -27,18 +28,48 @@ PageTemplate.propTypes = {
 };
 
 const gallery = ({ data }) => {
+  const [filters, setFilters] = useState([]);
+  const [visible, setVisible] = useState(data.gallery.edges);
+
+  const handler = (filter) => {
+    if(filter.action === 'REMOVE') {
+      // state update is async, so this is ugly but required
+      const result = filters.filter(item => {
+         return (item.field !== filter.field && item.value !== filter.value)
+      });
+      const visible = hide(data.gallery.edges, result, "label");
+      setFilters(result);
+      setVisible(visible);
+    } else if(filter.action === 'REPLACE') {
+      // some fields require multiple filters of the same name, like course type
+      // others must replace existing filter first, like city
+      let result = filters.filter(item => {
+         return (item.field !== filter.field && item.value !== filter.value)
+      });
+      result.push(filter);
+      const visible = hide(data.gallery.edges, result, "label");
+      setFilters(result);
+      setVisible(visible);
+    } else {
+      filters.push(filter);
+      const visible = hide(data.gallery.edges, filters, "label");
+      setFilters(filters);
+      setVisible(visible);
+    }
+  }
 
   let types = {};   
-  data.gallery.edges.map(edge => edge.node.frontmatter.type.map(row => types[row.label]=true));
-  types = Object.keys(types);
+  data.gallery.edges.forEach(edge => edge.node.frontmatter.type.forEach(row => {
+    types[row.label]= filters.some(filter => (row.label === filter.value && filter.field === "type")) ;
+  }));
 
-  const Filter = <Flat label="Event" data={types} field={"type"} />;
+  const Filter = <Flat label="Event" data={types} field={"type"} handler={handler} />;
 
   return <Layout>
     <Wrap>
       <HeroSmall data={data.galleryQuery.edges[0].node.frontmatter} />
       <Content data={data.galleryQuery.edges[0].node.frontmatter} />
-      <Listing data={data.gallery} side={Filter} filter={[{"type":"label"}]} footer={false} slugType="gallery" hideStats={true}/>
+      <Listing visible={visible} side={Filter} slug="gallery" footer={false} hideStats={true}/>
       <Footer />
     </Wrap>
   </Layout>

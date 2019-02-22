@@ -30,16 +30,15 @@ const courses = ({ data, location }) => {
   ];
 
   const [filters, setFilters] = useState(locationFilters);
-  const [visible, setVisible] = useState(hide(data.courses.edges,locationFilters));
+  const [visible, setVisible] = useState(hide(data.courses.edges,locationFilters, "name"));
 
   const handler = (filter) => {
-    console.log(filter);
     if(filter.action === 'REMOVE') {
       // state update is async, so this is ugly but required
       const result = filters.filter(item => {
          return (item.field !== filter.field && item.value !== filter.value)
       });
-      const visible = hide(data.courses.edges, result);
+      const visible = hide(data.courses.edges, result, "name");
       setFilters(result);
       setVisible(visible);
     } else if(filter.action === 'REPLACE') {
@@ -48,28 +47,33 @@ const courses = ({ data, location }) => {
       let result = filters.filter(item => {
          return (item.field !== filter.field && item.value !== filter.value)
       });
-      console.log(result);
       result.push(filter);
-      console.log(result);
-      const visible = hide(data.courses.edges, result);
+      const visible = hide(data.courses.edges, result, "name");
       setFilters(result);
       setVisible(visible);
     } else {
       filters.push(filter);
-      const visible = hide(data.courses.edges, filters);
+      const visible = hide(data.courses.edges, filters, "name");
       setFilters(filters);
       setVisible(visible);
     }
   }
-  // @TODO: clean up. Start with replacing with react filterable table, and passing a Card component
-  // if that doesn't work, structured filter
-  // if that doesn't work, this:
-  // then refactoring code out for helpers, avoid reuse, perhaps a better data model
+  // @TODO: clean up. Possible alternatives:
+  // Aggregate with Gatsby build middleware or algolia. Not so bad if there is no nested data
+  // If aggregation in build not feasible, see if it can be done in graphql, which is suppose to be a protocol in front of data sources
+  // Replace entire Listing component with a react data grid. Hide columns, and have one cell for a bulma Card.
+  // Look into Structured Filter. Perhaps swap out just the filters
+  // if no external libraries can be used:
+  // refactor code out for helpers, the filter handler, and the filter list generation.
+  // Make the switch to Redux, and export reducers
+  //
   // nested data makes this much more complicated than it should be
   // fields can have multiple values, like courseType=Earth && courseType=Championship
   // fixed by using Redux style "filter" objects, emitted on click
-  // and sending a prop to the filter component of {label:checked}
-  // also slow renders. try passing value once, and showing/hiding with css
+  // existing problems:
+  //  - building list of filter options label:prop
+  //  - selecting default value for filter, need to look up
+  //  - slow renders. try passing value once, and showing/hiding with css
   let courseTypes = {};   
   data.courses.edges.forEach(edge => 
     edge.node.frontmatter.courseType.filter(type => type.name !== null).forEach(type => {
@@ -113,11 +117,11 @@ const courses = ({ data, location }) => {
 
     
 
-    <Flat label="Course Type" data={courseTypes} field={"courseType"} handler={handler} checked={filters['courseType']} />
+    <Flat label="Course Type" data={courseTypes} field={"courseType"} handler={handler} />
     <br />
-    <Flat label="Holes" data={holes} field={"holes"} handler={handler} checked={typeof filters['holes'] !== 'undefined'} />
+    <Flat label="Holes" data={holes} field={"holes"} handler={handler} checked={false} />
     <br />
-    <Flat label="Amenities" data={amenities} field={"amenities"} handler={handler} checked={filters['amenities']} />
+    <Flat label="Amenities" data={amenities} field={"amenities"} handler={handler} />
     
     
     </div>)

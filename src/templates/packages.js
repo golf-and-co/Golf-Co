@@ -21,27 +21,59 @@ PageTemplate.propTypes = {
 };
 
 
-const packageDetails = ({ data }) => {
-  // @TODO: Use objects instead of an Array for checkboxes. {value:"5 Star", checked:true}
+const packageDetails = ({ data }) => {  
   const [filters, setFilters] = useState([]);
   const [visible, setVisible] = useState(data.courses.edges);
   const handler = (filter) => {
-    if(!Object.values(filter)[0]) {
-      // filter has been removed, pop and set.
-      delete filters[Object.keys(filter)[0]];
-      setFilters(filters);
+    if(filter.action === 'REMOVE') {
+      // state update is async, so this is ugly but required
+      const result = filters.filter(item => {
+         return (item.field !== filter.field && item.value !== filter.value)
+      });
+      const visible = hide(data.courses.edges, result, "name");
+      setFilters(result);
+      setVisible(visible);
+    } else if(filter.action === 'REPLACE') {
+      // some fields require multiple filters of the same name, like course type
+      // others must replace existing filter first, like city
+      let result = filters.filter(item => {
+         return (item.field !== filter.field && item.value !== filter.value)
+      });
+      result.push(filter);
+      const visible = hide(data.courses.edges, result, "name");
+      setFilters(result);
+      setVisible(visible);
     } else {
-      console.log(Object.assign(filters,filter));
-      setFilters(
-        Object.assign(filters,filter)
-      );
+      filters.push(filter);
+      const visible = hide(data.courses.edges, filters, "name");
+      setFilters(filters);
+      setVisible(visible);
     }
-    setVisible(
-      hide(data.courses.edges, filters)
-    );
-    
+  }
+  let hotelType = {};   
+  data.courses.edges.forEach(edge => {
+    hotelType[edge.node.frontmatter.hotelType] = filters.some(filter => {
+      return (edge.node.frontmatter.hotelType === filter.value && filter.field === "hotelType")
+    })
+  });
+
+  let duration = {};   
+  data.courses.edges.forEach(edge => {
+    duration[edge.node.frontmatter.duration] = filters.some(filter => {
+      return (edge.node.frontmatter.duration === filter.value && filter.field === "duration")
+    })
+  });
+
+  let defaultValue = {
+    // @TODO: default value looks for object, need to lookup city and country from filter
+    primary:filters.filter(item => item.field ==='country')[0],
+    secondary:filters.filter(item => item.field ==='city')[0],
   }
 
+  
+  if(typeof defaultValue.primary !== 'undefined') defaultValue.primary = defaultValue.primary["value"];
+  if(typeof defaultValue.secondary !== 'undefined') defaultValue.secondary = defaultValue.secondary["value"];
+  
   const Filter = (<div>
     <Nested data={{
       primary: Array.from((group(data.courses.edges, d => d.node.frontmatter.country).keys())),
@@ -51,14 +83,11 @@ const packageDetails = ({ data }) => {
     label={{main:"Location", primary:"Country", secondary:"City" }}
     field={{main:"location", primary:"country", secondary:"city"}}
     handler={handler}
-    defaultValue={{
-      primary:filters['country'],
-      secondary:filters['city'],
-    }} />
+    defaultValue={defaultValue} />
     <br />
-    <Flat label="Hotel Type" data={Array.from((group(data.courses.edges, d => d.node.frontmatter.hotelType).keys()))} field={"hotelType"} handler={handler} checked={typeof filters['hotelType'] !== 'undefined'}/>
+    <Flat label="Hotel Type" data={hotelType} field={"hotelType"} handler={handler} checked={typeof filters['hotelType'] !== 'undefined'}/>
     <br />
-    <Flat label="Duration" data={Array.from((group(data.courses.edges, d => d.node.frontmatter.duration).keys()))} field={"duration"} handler={handler} checked={typeof filters['duration'] !== 'undefined'} /></div>)
+    <Flat label="Duration" data={duration} field={"duration"} handler={handler} checked={typeof filters['duration'] !== 'undefined'} /></div>)
 
   return <Layout>
     <HeroSmall data={data.packageListingPage.edges[0].node.frontmatter} />
