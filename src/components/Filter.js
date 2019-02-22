@@ -26,7 +26,7 @@ const Wrap = styled.section`
     select {
         width: 170px;
     }
-    a.button.is-success {
+    button.button.is-success {
         background-color: #1d8649;
         font-size: 14px;
         margin: 15px auto;
@@ -90,7 +90,9 @@ const Label = styled.label`
     cursor: default;
 `;
 
-export const Flat = ({label, field, data, handler}) => {
+export const Flat = ({label, field, data, handler, apply, filters}) => {
+    // @TODO: need to split state updates, and apply.
+
     const check = (event) => {
       if(event.target.checked) {
         // target has just been checked, add
@@ -100,6 +102,8 @@ export const Flat = ({label, field, data, handler}) => {
         handler({field: field, value: event.target.value, action: "REMOVE"});
       }
     }
+
+    console.log(filters);
 
     return <Wrap>
         <Box>
@@ -117,19 +121,17 @@ export const Flat = ({label, field, data, handler}) => {
                     <Label className="checkbox">{filter}</Label>
                 </Item>
             )}
-            <a href="/" className="button is-success is-rounded">Apply</a>
+            <button className="button is-success is-rounded" onClick={apply}>Apply</button>
         </Box>
     </Wrap>
 };
 
-export const Nested  = ({label, field, data, handler, defaultValue}) => {   
+export const Nested  = ({label, field, data, handler, apply, defaultValue}) => {   
     const [nested, setNested] = useState(data.secondary.map(row => <option key={v4()} value={row}>{row}</option>));
 
     const change = (field, event, nestedUpdate) => {
         // remove filter if label is selected
-        console.log(event.target.value);
         if(event.target.value === '--label--') {
-            console.log("label filter detected");
             if(nestedUpdate) setNested(Array.from(data.secondary).map(row => <option key={v4()} value={row}>{row}</option>));
             handler({field: field, value: "", action: "REMOVE"});    
         } else {
@@ -154,7 +156,7 @@ export const Nested  = ({label, field, data, handler, defaultValue}) => {
                 {nested}
             </select>
         </div>
-        <a href="/" className="button is-success is-rounded">Apply</a>
+        <button className="button is-success is-rounded" onClick={apply}>Apply</button>
     </Box>
     </Wrap>
 };

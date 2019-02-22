@@ -33,15 +33,12 @@ const courses = ({ data, location }) => {
   const [visible, setVisible] = useState(hide(data.courses.edges,locationFilters, "name"));
 
   const handler = (filter) => {
-    console.log(filter);
     if(filter.action === 'REMOVE') {
       // state update is async, so this is ugly but required
       const result = filters.filter(item => {
          return (item.field !== filter.field && item.value !== filter.value)
       });
-      const visible = hide(data.courses.edges, result, "name");
       setFilters(result);
-      setVisible(visible);
     } else if(filter.action === 'REPLACE') {
       // some fields require multiple filters of the same name, like course type
       // others must replace existing filter first, like city
@@ -49,15 +46,18 @@ const courses = ({ data, location }) => {
          return (item.field !== filter.field && item.value !== filter.value)
       });
       result.push(filter);
-      const visible = hide(data.courses.edges, result, "name");
       setFilters(result);
-      setVisible(visible);
     } else {
+      console.log("adding filter")
       filters.push(filter);
-      const visible = hide(data.courses.edges, filters, "name");
-      setFilters(filters);
-      setVisible(visible);
+      let result = filters;
+      setFilters(result);
     }
+  }
+
+  const apply =() => {
+    const visible = hide(data.courses.edges, filters, "name");
+    setVisible(visible);
   }
 
   let defaultValue = {
@@ -96,9 +96,7 @@ const courses = ({ data, location }) => {
 
   let holes = {};
   Array.from(group(data.courses.edges, d => d.node.frontmatter.holes).keys()).forEach(holeCount => {
-    
-      holes[holeCount] = filters.some(filter => (holeCount === filter.value && filter.field === "holes"))  
-    
+      holes[holeCount] = filters.some(filter => (holeCount === filter.value && filter.field === "holes"))      
   });
 
   let amenities = {};   
@@ -108,8 +106,8 @@ const courses = ({ data, location }) => {
       amenities[amenity.name] = filters.some(filter => (amenity.name === filter.value && filter.field === "amenities"))
     )
   );
-  console.log(filters);
-  const Filter = (<div>
+  
+  const Filter = ({filters}) => (<div>
     <Nested data={{
       primary: Array.from((group(data.courses.edges, d => d.node.frontmatter.country).keys())),
       secondary: Array.from((group(data.courses.edges, d => d.node.frontmatter.city).keys())),
@@ -119,6 +117,7 @@ const courses = ({ data, location }) => {
     field={{main:"location", primary:"country", secondary:"city"}}
     location={{location}}
     handler={handler}
+    apply={apply}
     defaultValue={{
       // @TODO: default value looks for object, need to lookup city and country from filter
       primary:defaultValue.primary,
@@ -129,11 +128,11 @@ const courses = ({ data, location }) => {
 
     
 
-    <Flat label="Course Type" data={courseTypes} field={"courseType"} handler={handler} />
+    <Flat label="Course Type" data={courseTypes} filters={filters} field={"courseType"} handler={handler} apply={apply} />
     <br />
-    <Flat label="Holes" data={holes} field={"holes"} handler={handler} checked={false} />
+    <Flat label="Holes" data={holes} filters={filters} field={"holes"} handler={handler} apply={apply} />
     <br />
-    <Flat label="Amenities" data={amenities} field={"amenities"} handler={handler} />
+    <Flat label="Amenities" data={amenities} filters={filters} field={"amenities"} handler={handler} apply={apply} />
     
     
     </div>)
@@ -141,7 +140,7 @@ const courses = ({ data, location }) => {
   return <Layout>
     <HeroSmall data={data.coursesPage.edges[0].node.frontmatter} />
     <Content data={data.coursesPage.edges[0].node.frontmatter} />
-    <Listing visible={visible} location={location} side={Filter} slug="courses" footer={true} />
+    <Listing visible={visible} location={location} side={(filters) => <Filter filters={filters} />} slug="courses" footer={true} />
     <Footer />
   </Layout>
 };
