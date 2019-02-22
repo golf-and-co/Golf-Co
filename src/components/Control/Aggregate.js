@@ -1,4 +1,5 @@
 import { isObject } from "util";
+import {group, rollup} from "d3-array";
 
 let courseTypes = {}; 
 let holes = {};
@@ -7,33 +8,21 @@ let amenities = {};
 /**
  * Groups data from array of objects
  * @param {Array} data Array of objects to group 
- * @param {*} field Name of object property to group on, supports unstructured data
- */
-const aggregate = (data, field) => {
-    if(isObject(field)) {
-      // structured data
-    } else {
-      data.courses.edges.forEach(edge => 
-        edge.node.frontmatter[field].filter(type => type.name !== null).forEach(type => {
-          // courseType label:checked
-          courseTypes[type.name] = filters.some(filter => (type.name === filter.value && filter.field === "courseType"));
-        })
-      );
-    }
-    
-    
-      console.log(courseTypes);
-
-    Array.from(group(data.courses.edges, d => d.node.frontmatter.holes).keys()).forEach(holeCount => {
-        holes[holeCount] = filters.some(filter => (holeCount === filter.value && filter.field === "holes"))      
+ * @param {*} field Name of object property to group on, send an array of fields to drill down two deep
+  */
+export const aggregate = (edges, field) => {
+  if(Array.isArray(field)) {
+    // @TODO: more efficent algo. Perhaps group first, then flatten 2D rows, then group again?
+    let result = {};
+    edges.forEach(edge => {
+      if(Array.isArray(edge.node.frontmatter[field[0]])) {
+        edge.node.frontmatter[field[0]].forEach(item =>
+          result[item[field[1]]]=false
+        )
+      }
     });
-
-      
-    data.courses.edges.forEach(edge => 
-      edge.node.frontmatter.amenities.filter(amenity => amenity.name !== null).forEach(amenity => 
-        // amenity label:checked
-        amenities[amenity.name] = filters.some(filter => (amenity.name === filter.value && filter.field === "amenities"))
-      )
-    );
-  } 
-  rollup();
+    return Object.keys(result);
+  } else {
+    return Array.from(group(edges, d => d.node.frontmatter[field]).keys());
+  }
+}
