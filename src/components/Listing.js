@@ -29,7 +29,7 @@ const Listing = ({visible, side, slug, footer, hideStats, location}) => {
 return <Background>
     <Wrap className="columns">
         <FilterWrap className="column is-one-fifth">
-            {side()}
+            {side}
         </FilterWrap>
         <div className="column is-four-fifth">
             <Grid visible={visible} slug={slug} footer={footer} hideStats={hideStats} location={location} />

@@ -102,9 +102,7 @@ export const Flat = ({label, field, data, handler, apply, filters}) => {
         handler({field: field, value: event.target.value, action: "REMOVE"});
       }
     }
-
-    console.log(filters);
-
+console.log(data);
     return <Wrap>
         <Box>
             <h6 style={{display: "flex", padding: "5px 10px"}}>{label} <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>

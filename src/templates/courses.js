@@ -4,12 +4,35 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import HeroSmall from "../components/HeroSmall";
 import Content from "../components/Content";
-import Listing from "../components/Listing";
+import styled from "styled-components"
+import Grid from '../components/Grid'
 import {Nested, Flat} from "../components/Filter";
-import {group, rollup} from "d3-array";
+import {group} from "d3-array";
 import {hide} from "../utilities/Hide";
 import Footer from "../components/Footer";
 import queryString from 'query-string';
+
+const Background = styled.section`
+    padding-bottom: 200px;
+    background-color: #E4ECD9;
+`;
+
+const Wrap = styled.section`
+    @media (min-width: 768px) {
+        width: 1110px;
+        max-width: 100%;
+    }
+    margin: 0 auto !important;
+`;
+
+const FilterWrap = styled.div`
+    section {
+        justify-content: right;
+    }
+    @media (max-width: 768px) {
+        display: none !important;
+    }
+`;
 
 export const PageTemplate = ({ title }) => (
   <section className="section section--gradient">
@@ -32,28 +55,7 @@ const courses = ({ data, location }) => {
   const [filters, setFilters] = useState(locationFilters);
   const [visible, setVisible] = useState(hide(data.courses.edges,locationFilters, "name"));
 
-  const handler = (filter) => {
-    if(filter.action === 'REMOVE') {
-      // state update is async, so this is ugly but required
-      const result = filters.filter(item => {
-         return (item.field !== filter.field && item.value !== filter.value)
-      });
-      setFilters(result);
-    } else if(filter.action === 'REPLACE') {
-      // some fields require multiple filters of the same name, like course type
-      // others must replace existing filter first, like city
-      let result = filters.filter(item => {
-         return (item.field !== filter.field && item.value !== filter.value)
-      });
-      result.push(filter);
-      setFilters(result);
-    } else {
-      console.log("adding filter")
-      filters.push(filter);
-      let result = filters;
-      setFilters(result);
-    }
-  }
+  
 
   const apply =() => {
     const visible = hide(data.courses.edges, filters, "name");
@@ -86,61 +88,102 @@ const courses = ({ data, location }) => {
   //  - building list of filter options label:prop
   //  - selecting default value for filter, need to look up
   //  - slow renders. try passing value once, and showing/hiding with css
-  let courseTypes = {};   
-  data.courses.edges.forEach(edge => 
-    edge.node.frontmatter.courseType.filter(type => type.name !== null).forEach(type => {
-      // courseType label:checked
-      courseTypes[type.name] = filters.some(filter => (type.name === filter.value && filter.field === "courseType"));
-    })
-  );
-
+  let courseTypes = {}; 
   let holes = {};
-  Array.from(group(data.courses.edges, d => d.node.frontmatter.holes).keys()).forEach(holeCount => {
-      holes[holeCount] = filters.some(filter => (holeCount === filter.value && filter.field === "holes"))      
-  });
-
-  let amenities = {};   
-  data.courses.edges.forEach(edge => 
-    edge.node.frontmatter.amenities.filter(amenity => amenity.name !== null).forEach(amenity => 
-      // amenity label:checked
-      amenities[amenity.name] = filters.some(filter => (amenity.name === filter.value && filter.field === "amenities"))
-    )
-  );
+  let amenities = {};
   
-  const Filter = ({filters}) => (<div>
-    <Nested data={{
-      primary: Array.from((group(data.courses.edges, d => d.node.frontmatter.country).keys())),
-      secondary: Array.from((group(data.courses.edges, d => d.node.frontmatter.city).keys())),
-      nested: rollup(data.courses.edges, v => v.length, d => d.node.frontmatter.country, d => d.node.frontmatter.city),
-    }}  
-    label={{main:"Location", primary:"Country", secondary:"City" }}
-    field={{main:"location", primary:"country", secondary:"city"}}
-    location={{location}}
-    handler={handler}
-    apply={apply}
-    defaultValue={{
-      // @TODO: default value looks for object, need to lookup city and country from filter
-      primary:defaultValue.primary,
-      secondary:defaultValue.secondary,
-    }}
-    />
-    <br />
+  const rollup = () => {
+    console.log('rolling up');
+    data.courses.edges.forEach(edge => 
+      edge.node.frontmatter.courseType.filter(type => type.name !== null).forEach(type => {
+        // courseType label:checked
+        courseTypes[type.name] = filters.some(filter => (type.name === filter.value && filter.field === "courseType"));
+      })
+    );
+    
+      console.log(courseTypes);
 
-    
+    Array.from(group(data.courses.edges, d => d.node.frontmatter.holes).keys()).forEach(holeCount => {
+        holes[holeCount] = filters.some(filter => (holeCount === filter.value && filter.field === "holes"))      
+    });
 
-    <Flat label="Course Type" data={courseTypes} filters={filters} field={"courseType"} handler={handler} apply={apply} />
-    <br />
-    <Flat label="Holes" data={holes} filters={filters} field={"holes"} handler={handler} apply={apply} />
-    <br />
-    <Flat label="Amenities" data={amenities} filters={filters} field={"amenities"} handler={handler} apply={apply} />
-    
-    
-    </div>)
+      
+    data.courses.edges.forEach(edge => 
+      edge.node.frontmatter.amenities.filter(amenity => amenity.name !== null).forEach(amenity => 
+        // amenity label:checked
+        amenities[amenity.name] = filters.some(filter => (amenity.name === filter.value && filter.field === "amenities"))
+      )
+    );
+  }
+
+  rollup();
+  
+const handler = (filter) => {
+  if(filter.action === 'REMOVE') {
+    // state update is async, so this is ugly but required
+    let result = filters.filter(item => {
+       return (item.field !== filter.field && item.value !== filter.value)
+    });
+    setFilters(result);
+  } else if(filter.action === 'REPLACE') {
+    // some fields require multiple filters of the same name, like course type
+    // others must replace existing filter first, like city
+    let result = filters.filter(item => {
+       return (item.field !== filter.field && item.value !== filter.value)
+    });
+    result.push(filter);
+    setFilters(result);
+  } else {
+    filters.push(filter);
+    console.log(filters);
+    rollup();
+    setFilters(filters);
+  }
+}
 
   return <Layout>
     <HeroSmall data={data.coursesPage.edges[0].node.frontmatter} />
     <Content data={data.coursesPage.edges[0].node.frontmatter} />
-    <Listing visible={visible} location={location} side={(filters) => <Filter filters={filters} />} slug="courses" footer={true} />
+    <Background>
+      <Wrap className="columns">
+        <FilterWrap className="column is-one-fifth">
+          
+        <div>
+          <Nested data={{
+            primary: Array.from((group(data.courses.edges, d => d.node.frontmatter.country).keys())),
+            secondary: Array.from((group(data.courses.edges, d => d.node.frontmatter.city).keys())),
+            nested: rollup(data.courses.edges, v => v.length, d => d.node.frontmatter.country, d => d.node.frontmatter.city),
+          }}  
+          label={{main:"Location", primary:"Country", secondary:"City" }}
+          field={{main:"location", primary:"country", secondary:"city"}}
+          location={{location}}
+          handler={handler}
+          apply={apply}
+          defaultValue={{
+            // @TODO: default value looks for object, need to lookup city and country from filter
+            primary:defaultValue.primary,
+            secondary:defaultValue.secondary,
+          }}
+          />
+          <br />
+
+          
+
+          <Flat label="Course Type" data={courseTypes} field={"courseType"} handler={handler} apply={apply} />
+          <br />
+          <Flat label="Holes" data={holes} field={"holes"} handler={handler} apply={apply} />
+          <br />
+          <Flat label="Amenities" data={amenities} field={"amenities"} handler={handler} apply={apply} />
+          
+          
+        </div>
+
+        </FilterWrap>
+        <div className="column is-four-fifth">
+          <Grid visible={visible} slug={"courses"} footer={true} location={location} />
+        </div>
+      </Wrap>
+    </Background>
     <Footer />
   </Layout>
 };
