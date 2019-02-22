@@ -125,23 +125,31 @@ export const Flat = ({label, field, data, handler}) => {
 export const Nested  = ({label, field, data, handler, defaultValue}) => {   
     const [nested, setNested] = useState(data.secondary.map(row => <option key={v4()} value={row}>{row}</option>));
 
-    const change = (field, event) => {
-        setNested(Array.from(data.nested.get(event.target.value).keys()).map(row => <option key={v4()} value={row}>{row}</option>));
-        handler({field: field, value: event.target.value, action: "REPLACE"});
+    const change = (field, event, nestedUpdate) => {
+        // remove filter if label is selected
+        console.log(event.target.value);
+        if(event.target.value === '--label--') {
+            console.log("label filter detected");
+            if(nestedUpdate) setNested(Array.from(data.secondary).map(row => <option key={v4()} value={row}>{row}</option>));
+            handler({field: field, value: "", action: "REMOVE"});    
+        } else {
+            if(nestedUpdate) setNested(Array.from(data.nested.get(event.target.value).keys()).map(row => <option key={v4()} value={row}>{row}</option>));
+            handler({field: field, value: event.target.value, action: "REPLACE"});
+        }
     }
  
     return <Wrap>
     <Box>
         <h6>{label.main}</h6>
         <div className="select is-rounded">
-            <select value={defaultValue.primary} onChange={(event) => change(field.primary, event)}>
+            <select value={defaultValue.primary} onChange={(event) => change(field.primary, event, true)}>
                 <option value="--label--">{label.primary}</option>
                 {data.primary.map(row => <option key={v4()} value={row}>{row}</option>)}
             </select>
         </div>
         <br />
         <div className="select is-rounded">
-            <select value={defaultValue.secondary} id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={(event) => handler({field: field.secondary, value: event.target.value, action: "REPLACE"})} className="select filter">
+            <select value={defaultValue.secondary} id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={(event) => change(field.secondary, event, false)} className="select filter">
                 <option value="--label--">{label.secondary}</option>
                 {nested}
             </select>

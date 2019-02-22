@@ -182,11 +182,7 @@ const Rounds = styled.div`
         text-transform: uppercase;
     }
 `;
-
-// No interface to trigger focus event outside this component is required, falling back to DOM instead of React props for class
-// traditional way is to pass a prop, and rerender the component.
-// how will that work with a functional component?
-// @TODO: Use redux and observables, fire an event, featuredHover, to allow for other components to listen to it
+// @TODO: use refs
 const courseMouseEnter = (data) => {
     document.querySelector(`#${data.fields.slug.replace(/\//g,'')} .cardContent`).className +=' cardContentHover';
 }

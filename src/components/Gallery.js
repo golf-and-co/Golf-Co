@@ -104,7 +104,7 @@ const Gallery = ({ data }) => {
     return <div />;
 
   const click = img => {
-    // @TODO: Use redux, and observables
+    // @TODO: Use refs
     document.querySelector(
       '#courseDetailBackground'
     ).style.backgroundImage = `url(${img})`

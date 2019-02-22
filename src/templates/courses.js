@@ -33,6 +33,7 @@ const courses = ({ data, location }) => {
   const [visible, setVisible] = useState(hide(data.courses.edges,locationFilters, "name"));
 
   const handler = (filter) => {
+    console.log(filter);
     if(filter.action === 'REMOVE') {
       // state update is async, so this is ugly but required
       const result = filters.filter(item => {
@@ -58,6 +59,17 @@ const courses = ({ data, location }) => {
       setVisible(visible);
     }
   }
+
+  let defaultValue = {
+    // @TODO: default value looks for object, need to lookup city and country from filter
+    primary:filters.filter(item => item.field ==='country')[0],
+    secondary:filters.filter(item => item.field ==='city')[0],
+  }
+
+  
+  if(typeof defaultValue.primary !== 'undefined') defaultValue.primary = defaultValue.primary["value"];
+  if(typeof defaultValue.secondary !== 'undefined') defaultValue.secondary = defaultValue.secondary["value"];
+
   // @TODO: clean up. Possible alternatives:
   // Aggregate with Gatsby build middleware or algolia. Not so bad if there is no nested data
   // If aggregation in build not feasible, see if it can be done in graphql, which is suppose to be a protocol in front of data sources
@@ -96,7 +108,7 @@ const courses = ({ data, location }) => {
       amenities[amenity.name] = filters.some(filter => (amenity.name === filter.value && filter.field === "amenities"))
     )
   );
-
+  console.log(filters);
   const Filter = (<div>
     <Nested data={{
       primary: Array.from((group(data.courses.edges, d => d.node.frontmatter.country).keys())),
@@ -109,8 +121,8 @@ const courses = ({ data, location }) => {
     handler={handler}
     defaultValue={{
       // @TODO: default value looks for object, need to lookup city and country from filter
-      primary:filters.filter(item => item.field ==='country')[0]['value'],
-      secondary:filters.filter(item => item.field ==='city')[0]['value'],
+      primary:defaultValue.primary,
+      secondary:defaultValue.secondary,
     }}
     />
     <br />
