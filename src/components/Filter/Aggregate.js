@@ -1,15 +1,26 @@
+import { isObject } from "util";
+
 let courseTypes = {}; 
 let holes = {};
 let amenities = {};
 
-const rollup = () => {
-    console.log('rolling up');
-    data.courses.edges.forEach(edge => 
-      edge.node.frontmatter.courseType.filter(type => type.name !== null).forEach(type => {
-        // courseType label:checked
-        courseTypes[type.name] = filters.some(filter => (type.name === filter.value && filter.field === "courseType"));
-      })
-    );
+/**
+ * Groups data from array of objects
+ * @param {Array} data Array of objects to group 
+ * @param {*} field Name of object property to group on, supports unstructured data
+ */
+const aggregate = (data, field) => {
+    if(isObject(field)) {
+      // structured data
+    } else {
+      data.courses.edges.forEach(edge => 
+        edge.node.frontmatter[field].filter(type => type.name !== null).forEach(type => {
+          // courseType label:checked
+          courseTypes[type.name] = filters.some(filter => (type.name === filter.value && filter.field === "courseType"));
+        })
+      );
+    }
+    
     
       console.log(courseTypes);
 

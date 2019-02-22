@@ -1,7 +1,8 @@
 import { createStore as reduxCreateStore } from "redux"
 
 const reducer = (state, action) => {
-  if (action.type === `INCREMENT`) {
+  console.log(action);
+  if (action.type === `CHECKBOX_FILTER`) {
     return Object.assign({}, state, {
       count: state.count + 1,
     })

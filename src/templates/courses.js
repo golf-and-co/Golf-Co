@@ -1,16 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
+import { connect } from "react-redux"
+import styled from "styled-components"
 import Layout from "../components/Layout";
 import HeroSmall from "../components/HeroSmall";
 import Content from "../components/Content";
-import styled from "styled-components"
-import Grid from '../components/Grid'
-import {Nested, Flat} from "../components/Filter";
-import {group} from "d3-array";
-import {hide} from "../utilities/Hide";
+import {Checkbox} from "../components/Filter/Checkbox";
 import Footer from "../components/Footer";
-import queryString from 'query-string';
+
 
 const Background = styled.section`
     padding-bottom: 200px;
@@ -46,17 +44,8 @@ PageTemplate.propTypes = {
 
 
 
+
 const courses = ({ data, location }) => {
-  const [filters, setFilters] = useState([]);
-  const [visible, setVisible] = useState(data.courses.edges);
-
-  
-
-  
-
- 
-
-
 
   return <Layout>
     <HeroSmall data={data.coursesPage.edges[0].node.frontmatter} />
@@ -65,11 +54,12 @@ const courses = ({ data, location }) => {
       <Wrap className="columns">
         <FilterWrap className="column is-one-fifth">
           <div>
+          <Checkbox label={"test"} />
             <br />
           </div>
         </FilterWrap>
         <div className="column is-four-fifth">
-          <Grid visible={visible} slug={"courses"} footer={true} location={location} />
+          
         </div>
       </Wrap>
     </Background>
