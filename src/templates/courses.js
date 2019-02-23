@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import { connect } from "react-redux"
 import styled from "styled-components"
 import Layout from "../components/Layout";
 import HeroSmall from "../components/HeroSmall";
 import Content from "../components/Content";
-import {Checkbox} from "../components/Filter/Checkbox";
+import {Checkbox} from "../components/Control/Checkbox";
+import {aggregate} from "../components/Control/Aggregate";
+import slugify from "slugify";
 import Footer from "../components/Footer";
 
 
@@ -43,26 +44,35 @@ PageTemplate.propTypes = {
 };
 
 
+const Controls = ({courseType, holes, amenities}) => {
+return <Background>
+  <Wrap className="columns">
+    <FilterWrap className="column is-one-fifth">
+      <div>
+        {courseType.map(type => <Checkbox key={slugify(type)} name="courseType" value={type} />)}
+        
+        <br />
+      </div>
+    </FilterWrap>
+    <div className="column is-four-fifth">
+      
+    </div>
+  </Wrap>
+</Background>
+}
 
 
 const courses = ({ data, location }) => {
+  // aggregate data for city, country, hotelTypes, and duration
+
+  const courseType = aggregate(data.courses.edges, {column:"courseType", property:"name"});
+  const holes = aggregate(data.courses.edges, "holes");
+  const amenities = aggregate(data.courses.edges, {column:"amenities", property:"name"})
 
   return <Layout>
     <HeroSmall data={data.coursesPage.edges[0].node.frontmatter} />
     <Content data={data.coursesPage.edges[0].node.frontmatter} />
-    <Background>
-      <Wrap className="columns">
-        <FilterWrap className="column is-one-fifth">
-          <div>
-           <Checkbox label={"test"} />
-            <br />
-          </div>
-        </FilterWrap>
-        <div className="column is-four-fifth">
-          
-        </div>
-      </Wrap>
-    </Background>
+    <Controls courseType={courseType} holes={holes} amenities={amenities} />
     <Footer />
   </Layout>
 };

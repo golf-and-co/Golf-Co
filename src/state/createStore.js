@@ -1,11 +1,15 @@
 import { createStore as reduxCreateStore } from "redux"
+import {lookup} from "../components/Control/Lookup";
 
 const reducer = (state, action) => {
-  console.log(action);
   if (action.type === `CHECKBOX_FILTER`) {
-    return Object.assign({}, state, {
-      count: state.count + 1,
-    })
+    console.log("Checkbox filter");
+    
+    if(lookup(state.controls, [{name: "courseType"}, {value: "Earth Course"}]).length === 0) {
+      state.controls.push({name: "courseType", value: "Earth Course"});
+      // return new object to replace state
+      return Object.assign({}, state);
+    }
   }
   return state
 }

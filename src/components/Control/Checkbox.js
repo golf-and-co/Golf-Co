@@ -1,63 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux"
+import {connect} from "react-redux"
+import {lookup} from "../Control/Lookup";
 import styled from "styled-components"
 
-const mapStateToProps = ({ controls }) => {
-    return { controls }
+const mapStateToProps = ({controls}) => {
+    return {controls};
   }
   
 const mapDispatchToProps = dispatch => {
-  return { click: (event) => dispatch({ type: `CHECKBOX_FILTER`, value: event}) }
+  return { click: (event) => {
+    dispatch({ type: `CHECKBOX_FILTER`, value: event}) 
+  }}
 }
 
 
 
-const CheckboxElement = ({ controls, name, value }) => {
+const CheckboxElement = ({ controls, click, name, value }) => {
   // lookup control by name and value, some controls have the same name, but multiple values
 
-  /*
-    controls: [
-      {
-        component: select,
-        parent: none,
-        name: country,
-        defaultValue: <STATE>
-        options: ["UAE", "Oman"]
-      },
-      {
-        component: select,
-        parent: country,
-        name: city,
-        defaultValue: <STATE>
-        options: ["Dubai", "Khalifa"]
-      },
-      {
-        component: checkbox,
-        name: hotelType,
-        checked: <STATE>
-        value: 5
-      },
-      {
-        component: checkbox,
-        name: hotelType,
-        checked: <STATE>
-        value: 7
-      },
-    ]
-    state: {
-      controls: [
-        {name:"hotelType", value: "5"},
-        {name:"hotelType", value: "7"}
-        {name:"city", value: "Dubai"}
-      ]
-    }    
-   */
-  const state = lookup(controls, {"name": name}, {"value": value});
+  
+  // determines if filter exists in state, to determine if to check
+  const checked = lookup(controls, [{"name": name}, {"value": value}]).length > 0;
+  //console.log(controls);
+  //console.log({"name": name}, {"value": value});
+  console.log(lookup(controls, [{"name": name}, {"value": value}]));
 
   return (
     <div>
-        <input type="checkbox" className="is-checkradio is-success" onChange={(event) => click(event)} checked={state.length>0} name={name} value={value} />
+        <input type="checkbox" className="is-checkradio is-success" onChange={(event) => click(event)} checked={checked} name={name} value={value} />
         <label className="checkbox">{value}</label>
     </div>
   );

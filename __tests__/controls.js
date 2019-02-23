@@ -45,6 +45,6 @@ describe("Lookup", () => {
 */
 describe("Aggregate", () => {
     it("groups structured data", () => {
-        expect(aggregate(edges, ["courseType","name"])).toEqual(["Earth Course", "Championship Course"]);
+        expect(aggregate(edges, {column:"courseType",property:"name"})).toEqual(["Earth Course", "Championship Course"]);
     })
 })

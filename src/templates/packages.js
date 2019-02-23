@@ -7,7 +7,7 @@ import Content from "../components/Content";
 import Listing from "../components/Listing";
 import {Nested, Flat} from "../components/Filter";
 import {group, rollup} from "d3-array";
-import {hide} from "../utilities/Hide";
+import {hide} from "../components/Control/Hide";
 import Footer from "../components/Footer";
 
 export const PageTemplate = ({ title }) => (

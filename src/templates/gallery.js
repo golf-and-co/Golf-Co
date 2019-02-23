@@ -6,7 +6,7 @@ import Layout from "../components/Layout";
 import HeroSmall from "../components/HeroSmall";
 import Content from "../components/Content";
 import {Flat} from "../components/Filter";
-import {hide} from "../utilities/Hide";
+import {hide} from "../components/Control/Hide";
 import Listing from "../components/Listing";
 import Footer from "../components/Footer";
 
