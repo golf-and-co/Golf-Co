@@ -17,6 +17,7 @@ const state = {
     filters: [
         {name:"hotelType", value:"5"},
         {name:"hotelType", value:"7"},
+        {name:"courseType", value:"Earth Course"},
     ]
 }
 
@@ -36,6 +37,7 @@ describe("Hide", () => {
 describe("Lookup", () => {
     it("finds state", () => {
         expect(lookup(state.filters, [{name:"hotelType", value:"5"}])).toEqual([state.filters[0]]);
+        expect(lookup(state.filters, [{name:"courseType", value:"Earth Course"}])).toEqual([state.filters[2]]);
     })
 })
 

@@ -10,7 +10,7 @@ const mapStateToProps = ({controls}) => {
   
 const mapDispatchToProps = dispatch => {
   return { click: (event) => {
-    dispatch({ type: `CHECKBOX_FILTER`, value: event}) 
+    dispatch({ type: `CHECKBOX_CONTROL`, value: event}) 
   }}
 }
 
@@ -21,10 +21,8 @@ const CheckboxElement = ({ controls, click, name, value }) => {
 
   
   // determines if filter exists in state, to determine if to check
-  const checked = lookup(controls, [{"name": name}, {"value": value}]).length > 0;
-  //console.log(controls);
-  //console.log({"name": name}, {"value": value});
-  console.log(lookup(controls, [{"name": name}, {"value": value}]));
+  const checked = lookup(controls, [{"name": name, "value": value}]).length > 0;
+  console.log(`checked ${checked}`);
 
   return (
     <div>
