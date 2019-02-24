@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import HeroSmall from "../components/HeroSmall";
 import Content from "../components/Content";
 import {Checkbox} from "../components/Control/Checkbox";
+import {Select} from "../components/Control/Select";
 import {aggregate} from "../components/Control/Aggregate";
 import slugify from "slugify";
 import Footer from "../components/Footer";
@@ -24,7 +25,7 @@ const Wrap = styled.section`
     margin: 0 auto !important;
 `;
 
-const FilterWrap = styled.div`
+const ControlWrap = styled.div`
     section {
         justify-content: right;
     }
@@ -32,6 +33,17 @@ const FilterWrap = styled.div`
         display: none !important;
     }
 `;
+
+const Control = styled.section`
+    background-color: #FFF;
+    width: 260px;
+    height:215px;
+    justify-content:right;
+
+    & > .select {
+        margin: 10px 15px;
+    }
+`
 
 export const PageTemplate = ({ title }) => (
   <section className="section section--gradient">
@@ -44,16 +56,22 @@ PageTemplate.propTypes = {
 };
 
 
-const Controls = ({courseType, holes, amenities}) => {
+const Controls = ({countries, cities, courseType, holes, amenities}) => {
 return <Background>
   <Wrap className="columns">
-    <FilterWrap className="column is-one-fifth">
-      <div>
+    <ControlWrap className="column is-one-fifth">
+      <Control>
+        <Select name="country">
+          {countries.map(country => <option key={slugify(country)} value={country}>{country}</option>)}
+        </Select>
+      </Control>
+
+
+      <Control>
         {courseType.map(type => <Checkbox key={slugify(type)} name="courseType" value={type} />)}
-        
         <br />
-      </div>
-    </FilterWrap>
+      </Control>      
+    </ControlWrap>
     <div className="column is-four-fifth">
       
     </div>
@@ -65,6 +83,8 @@ return <Background>
 const courses = ({ data, location }) => {
   // aggregate data for city, country, hotelTypes, and duration
 
+  const countries = aggregate(data.courses.edges, "country");
+  const cities = aggregate(data.courses.edges, "city");
   const courseType = aggregate(data.courses.edges, {column:"courseType", property:"name"});
   const holes = aggregate(data.courses.edges, "holes");
   const amenities = aggregate(data.courses.edges, {column:"amenities", property:"name"})
@@ -72,7 +92,7 @@ const courses = ({ data, location }) => {
   return <Layout>
     <HeroSmall data={data.coursesPage.edges[0].node.frontmatter} />
     <Content data={data.coursesPage.edges[0].node.frontmatter} />
-    <Controls courseType={courseType} holes={holes} amenities={amenities} />
+    <Controls countries={countries} cities={cities} courseType={courseType} holes={holes} amenities={amenities} />
     <Footer />
   </Layout>
 };
