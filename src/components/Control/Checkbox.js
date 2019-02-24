@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
 }
 
 const CheckboxElement = ({ controls, click, name, value }) => {
-  // if filter exists in state, check
+  // if control exists in state, check
   const checked = lookup(controls, [{"name": name, "value": value}]).length > 0;
 
   return (

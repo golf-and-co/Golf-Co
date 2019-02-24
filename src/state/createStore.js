@@ -3,11 +3,11 @@ import {lookup} from "../components/Control/Lookup";
 
 const reducer = (state, action) => {
   if (action.type === `CHECKBOX_CONTROL`) {
+    const control = {name: action.value.target.name, value: action.value.target.value};
+    const existing = lookup(state.controls, [control]);
     if(action.value.target.checked) {
       // box is not checked, add
-      const control = {name: action.value.target.name, value: action.value.target.value};
       // does control exist in state?    
-      const existing = lookup(state.controls, [control]);
       if(existing.length !== 0) {
         // control already exists, don't add multiple copies, return state
         return state;
@@ -19,9 +19,7 @@ const reducer = (state, action) => {
       });
     } else {
       // box is checked, remove
-      const control = {name: action.value.target.name, value: action.value.target.value};
       // does control exist in state?    
-      const existing = lookup(state.controls, [control]);
       if(typeof existing === 'undefined') {
         // no matching existing control, nothing to remove, return state
         return state;
