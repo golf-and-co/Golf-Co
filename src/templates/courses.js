@@ -142,7 +142,7 @@ const Controls = ({countries, cities, courseType, holes, amenities}) =>
   <br />
   <ControlBox>
     <Control>
-      <h6 style={{display: "flex", padding: "5px 10px"}}>Hotel Type <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
+      <h6 style={{display: "flex", padding: "5px 10px"}}>Course Type <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
       {courseType.map(type => <Checkbox key={slugify(type)} name="courseType" value={type} />)}
       <br />
       <Button value={"Select"} />
@@ -170,8 +170,7 @@ const Controls = ({countries, cities, courseType, holes, amenities}) =>
 
 
 const courses = ({ data, location }) => {
-  // aggregate data for city, country, hotelTypes, and duration
-
+  // aggregate data for controls
   const countries = aggregate(data.courses.edges, "country");
   const cities = aggregate(data.courses.edges, {parent:"country", child:"city"});
   const courseType = aggregate(data.courses.edges, {column:"courseType", property:"name"});
