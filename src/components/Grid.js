@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Course } from '../components/Featured'
+import {connect} from "react-redux"
 import { v4 } from 'uuid'
+import {hide} from "../components/Control/Hide"
 
 const Wrap = styled.section`
   display: flex;
@@ -27,12 +28,24 @@ const Item = styled.div`
   flex-wrap: wrap;
 `;
 
-const Grid = ({visible, slug, footer, hideStats}) => {
+const mapStateToProps = ({controls}) => {
+  return {controls};
+}
+
+const GridElement = ({data, controls, slug, footer, hideStats}) => {
+  // hide per state.controls
+  const visible = hide(data, controls).map(edge => edge.node.frontmatter.title);
+  const style = (title) => {
+    if(visible.includes(title)) {
+      return {display:"block"};
+    }
+    return {display:"none"};
+  };
   return (
     <Wrap>
-      {visible.map(edge => {
+      {data.map(edge => {    
         return (
-          <Item key={v4()}>
+          <Item key={v4()} style={style(edge.node.frontmatter.title)}>
             <Course
               data={{
                 frontmatter: {
@@ -58,8 +71,6 @@ const Grid = ({visible, slug, footer, hideStats}) => {
   )
 }
 
-Grid.propTypes = {
-  visible: PropTypes.array.isRequired,
-}
-
-export default Grid
+export const Grid = connect(
+  mapStateToProps
+)(GridElement);

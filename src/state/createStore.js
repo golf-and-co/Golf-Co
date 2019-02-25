@@ -1,6 +1,7 @@
 import { createStore as reduxCreateStore } from "redux"
 import {lookup} from "../components/Control/Lookup";
 
+
 const reducer = (state, action) => {
   if (action.type === `CHECKBOX_CONTROL`) {
     const control = {name: action.value.target.name, value: action.value.target.value};
@@ -15,7 +16,7 @@ const reducer = (state, action) => {
       }
       return Object.assign({}, state, {
         // add control to state
-        controls: [control].concat(state.controls)
+        controls: [control].concat(state.controls),
       });
     } else {
       // box is checked, remove
@@ -69,7 +70,6 @@ const reducer = (state, action) => {
 
 const initialState = { 
   controls:[],
-  visible: []
 }
 
 const createStore = () => reduxCreateStore(reducer, initialState)

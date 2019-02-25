@@ -8,6 +8,7 @@ import Content from "../components/Content";
 import {Checkbox} from "../components/Control/Checkbox";
 import {Select} from "../components/Control/Select";
 import {aggregate} from "../components/Control/Aggregate";
+import {Grid} from '../components/Grid'
 import slugify from "slugify";
 import Footer from "../components/Footer";
 
@@ -56,32 +57,22 @@ PageTemplate.propTypes = {
 };
 
 
-const Controls = ({countries, cities, courseType, holes, amenities}) => {
-return <Background>
-  <Wrap className="columns">
-    <ControlWrap className="column is-one-fifth">
-      <Control>
-        <Select name="country">
-          {countries.map(country => <option key={slugify(country)} value={country}>{country}</option>)}
-        </Select>
-        <br />
-        <Select name="city" parent="country">
-          {cities.map(city => <option key={slugify(city.value)} value={city.value} data-country={city.parent}>{city.value}</option>)}
-        </Select>
-      </Control>
-
-
-      <Control>
-        {courseType.map(type => <Checkbox key={slugify(type)} name="courseType" value={type} />)}
-        <br />
-      </Control>      
-    </ControlWrap>
-    <div className="column is-four-fifth">
-      
-    </div>
-  </Wrap>
-</Background>
-}
+const Controls = ({countries, cities, courseType, holes, amenities}) => 
+<ControlWrap className="column is-one-fifth">
+  <Control>
+    <Select name="country">
+      {countries.map(country => <option key={slugify(country)} value={country}>{country}</option>)}
+    </Select>
+    <br />
+    <Select name="city" parent="country">
+      {cities.map(city => <option key={slugify(city.value)} value={city.value} data-country={city.parent}>{city.value}</option>)}
+    </Select>
+  </Control>
+  <Control>
+    {courseType.map(type => <Checkbox key={slugify(type)} name="courseType" value={type} />)}
+    <br />
+  </Control>      
+</ControlWrap>
 
 
 const courses = ({ data, location }) => {
@@ -96,7 +87,14 @@ const courses = ({ data, location }) => {
   return <Layout>
     <HeroSmall data={data.coursesPage.edges[0].node.frontmatter} />
     <Content data={data.coursesPage.edges[0].node.frontmatter} />
-    <Controls countries={countries} cities={cities} courseType={courseType} holes={holes} amenities={amenities} />
+    <Background>
+      <Wrap className="columns">
+        <Controls countries={countries} cities={cities} courseType={courseType} holes={holes} amenities={amenities} />
+        <div className="column is-four-fifth">
+          <Grid data={data.courses.edges} slug={"courses"} footer={true} hideStats={false} location={location} />
+        </div>
+      </Wrap>
+    </Background>  
     <Footer />
   </Layout>
 };
