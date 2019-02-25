@@ -2,7 +2,7 @@
 
 const arrayCheck = (edge, filter, label) => {
     if(!Array.isArray(edge)) return false;
-    return edge.some( item => item[label] === filter);
+    return edge.some( item => Object.values(item).includes(filter));
 }
 
 /**
