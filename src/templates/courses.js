@@ -147,6 +147,24 @@ const Controls = ({countries, cities, courseType, holes, amenities}) =>
       <button className="button is-success is-rounded">Apply</button>
     </Control>    
   </ControlBox>  
+  <br />
+  <ControlBox>
+    <Control>
+      <h6 style={{display: "flex", padding: "5px 10px"}}>Holes <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
+      {holes.map(amount => <Checkbox key={slugify(amount)} name="holes" value={amount} />)}
+      <br />
+      <button className="button is-success is-rounded">Apply</button>
+    </Control>    
+  </ControlBox> 
+  <br /> 
+  <ControlBox>
+    <Control>
+      <h6 style={{display: "flex", padding: "5px 10px"}}>Amenities <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
+      {amenities.map(amenity => <Checkbox key={slugify(amenity)} name="amenity" value={amenity} />)}
+      <br />
+      <button className="button is-success is-rounded">Apply</button>
+    </Control>    
+  </ControlBox>
 </ControlWrap>
 
 
