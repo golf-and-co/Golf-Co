@@ -47,6 +47,15 @@ const reducer = (state, action) => {
         ).concat([control])
       })
     }
+    else if(!control.value) {
+      // remove existing filter
+      return Object.assign({}, state, {
+        controls: state.controls.filter(control => 
+          // only return controls which do not match name and value of checkbox target
+          !(control.name === action.value.target.name)
+        )
+      });
+    }
     else {
       // control does not exist, add
       return Object.assign({}, state, {
