@@ -50,3 +50,9 @@ describe("Aggregate", () => {
         expect(aggregate(edges, {column:"courseType",property:"name"})).toEqual(["Earth Course", "Championship Course"]);
     })
 })
+
+describe("Aggregate", () => {
+    it("groups with parent", () => {
+        expect(aggregate(edges, {parent:"country", child:"city"})).toEqual([{parent:"UAE", "value":"Dubai"}, {parent:"Oman", "value":"Abu Dhabi"}]);
+    })
+})

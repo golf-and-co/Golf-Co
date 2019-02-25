@@ -39,7 +39,6 @@ const reducer = (state, action) => {
 const initialState = { 
   controls:[
     {name: "hotelType", value:"5"},
-    {name: "country", value:"UAE"}
   ],
   visible: ["The Club at Dubai"]
 }

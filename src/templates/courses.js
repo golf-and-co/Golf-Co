@@ -8,6 +8,7 @@ import Content from "../components/Content";
 import {Checkbox} from "../components/Control/Checkbox";
 import {Select} from "../components/Control/Select";
 import {aggregate} from "../components/Control/Aggregate";
+import {rollup} from "d3-array";
 import slugify from "slugify";
 import Footer from "../components/Footer";
 
@@ -64,6 +65,10 @@ return <Background>
         <Select name="country">
           {countries.map(country => <option key={slugify(country)} value={country}>{country}</option>)}
         </Select>
+        <br />
+        <Select name="city" parent="country">
+          {cities.map(city => <option key={slugify(city.value)} value={city.value} data-country={city.parent}>{city.value}</option>)}
+        </Select>
       </Control>
 
 
@@ -84,7 +89,7 @@ const courses = ({ data, location }) => {
   // aggregate data for city, country, hotelTypes, and duration
 
   const countries = aggregate(data.courses.edges, "country");
-  const cities = aggregate(data.courses.edges, "city");
+  const cities = aggregate(data.courses.edges, {parent:"country", child:"city"});
   const courseType = aggregate(data.courses.edges, {column:"courseType", property:"name"});
   const holes = aggregate(data.courses.edges, "holes");
   const amenities = aggregate(data.courses.edges, {column:"amenities", property:"name"})

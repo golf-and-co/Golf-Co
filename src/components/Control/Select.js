@@ -28,22 +28,24 @@ const mapDispatchToProps = dispatch => {
 }
 
 const SelectElement = ({ controls, change, name, parent, children }) => {
-  // is there a control for this select's name?
-  let defaultValue = lookup(controls, [{"name": name}])[0];
-  if(typeof defaultValue !== 'undefined') {
-    // control found, set value
-    defaultValue = defaultValue.value;
+  // is there a control for this select's name existing in state?
+  // @TODO: refactor lookup code to return an empty value when name is given, to allow for calling lookup in select attribute
+  let value = lookup(controls, [{"name": name}])[0];
+  if(typeof value !== 'undefined') {
+    // control found, set as value
+    value = value.value;
   }
   
-
-/*  if(lookup(controls, [{"name": parent}])) {
+  // is parent property set, and does it exist in state
+  const parentState = lookup(controls, [{"name": parent}])
+  if(typeof parent !== 'undefined' && typeof parentState !== 'undefined') {
     // only show options that belong to selected parent value
-    children.filter(child => child.attribute[`data-${parent.name}`] === parent.value)
-  } */
+    children.filter(child => child.props.data-attribute === parentState)
+  }
   
   return (
     <Wrap className="select is-rounded">
-        <select type="checkbox" onChange={(event) => change(event)} name={name} defaultValue={defaultValue}>
+        <select type="checkbox" onChange={(event) => change(event)} name={name} value={value}>
         <option value="">{name.charAt(0).toUpperCase() + name.slice(1)}</option>
         {children}
         </select>

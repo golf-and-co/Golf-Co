@@ -11,8 +11,9 @@ let amenities = {};
  * @param {*} field Name of object property to group on, send an array of fields to drill down two deep
   */
 export const aggregate = (edges, field) => {
-  if(field instanceof Object) {
+  if(typeof field.column !== 'undefined') {
     // @TODO: more efficent algo. Perhaps group first, then flatten 2D rows, then group again?
+    // or rollup, like used below, and iterate through maps?
     // also accept batch aggregations, one loop multiple  outputs
     let result = {};
     edges.forEach(edge => {
@@ -23,9 +24,19 @@ export const aggregate = (edges, field) => {
       }
     });
     return Object.keys(result).filter(item => item !== "null");
-  } else {
+  } else if(typeof field.parent !== 'undefined') {
+    // parent child return, useful when needing to return something like value:city, parent:country
+    let result = [];
+    rollup(edges, v => v.length, d => d.node.frontmatter[field.child], d => d.node.frontmatter[field.parent])
+    .forEach(function(parent, child) {
+      result.push({value:child, parent:parent.keys().next().value})
+    });
+    return result;
+  }
+  else {
     return Array.from(group(edges, d => {
       return d.node.frontmatter[field]
     }).keys());
   }
 }
+
