@@ -4,7 +4,7 @@ import {lookup} from "../components/Control/Lookup";
 
 const reducer = (state, action) => {
   if (action.type === `CHECKBOX_CONTROL`) {
-    const control = {name: action.value.target.name, value: action.value.target.value};
+    const control = {name: action.value.target.name, value: action.value.target.value, applied: false};
     const existing = lookup(state.controls, [control]);
     if(action.value.target.checked) {
       // box is not checked, add
@@ -35,7 +35,7 @@ const reducer = (state, action) => {
     }
   }
   else if (action.type === `SELECT_CONTROL`) {
-    const control = {name: action.value.target.name, value: action.value.target.value};
+    const control = {name: action.value.target.name, value: action.value.target.value, applied: false};
     const existing = lookup(state.controls, [control]);
     // does control exist in state?    
     if(existing.length !== 0) {
@@ -64,6 +64,16 @@ const reducer = (state, action) => {
         controls: [control].concat(state.controls)
       });
     }
+  }
+  else if (action.type === `APPLY_CONTROLS`) {
+    // apply existing controls
+    return Object.assign({}, state, {
+      // add control to state
+      controls: state.controls.map(control => {
+        control.applied = true;
+        return control;
+      })
+    });
   }
   return state;
 }
