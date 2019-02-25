@@ -40,7 +40,7 @@ const SelectElement = ({ controls, change, name, parent, children }) => {
   const parentState = lookup(controls, [{"name": parent}])
   if(typeof parent !== 'undefined' && typeof parentState !== 'undefined') {
     // only show options that belong to selected parent value
-    children.filter(child => child.props.data-attribute === parentState)
+    children.filter(child => child.props["data-country"] === parentState)
   }
   
   return (

@@ -8,7 +8,6 @@ import Content from "../components/Content";
 import {Checkbox} from "../components/Control/Checkbox";
 import {Select} from "../components/Control/Select";
 import {aggregate} from "../components/Control/Aggregate";
-import {rollup} from "d3-array";
 import slugify from "slugify";
 import Footer from "../components/Footer";
 

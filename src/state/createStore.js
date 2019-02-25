@@ -33,14 +33,34 @@ const reducer = (state, action) => {
       });
     }
   }
+  else if (action.type === `SELECT_CONTROL`) {
+    const control = {name: action.value.target.name, value: action.value.target.value};
+    const existing = lookup(state.controls, [control]);
+    // does control exist in state?    
+    if(existing.length !== 0) {
+      // control already exists, change
+      return Object.assign({}, state, {
+        controls: state.controls.filter(control => 
+          // only return controls which do not match name and value of checkbox target
+          !(control.name === action.value.target.name && control.value === action.value.target.value)
+        // add control
+        ).concat([control])
+      })
+    }
+    else {
+      // control does not exist, add
+      return Object.assign({}, state, {
+        // add control to state
+        controls: [control].concat(state.controls)
+      });
+    }
+  }
   return state;
 }
 
 const initialState = { 
-  controls:[
-    {name: "hotelType", value:"5"},
-  ],
-  visible: ["The Club at Dubai"]
+  controls:[],
+  visible: []
 }
 
 const createStore = () => reduxCreateStore(reducer, initialState)
