@@ -31,11 +31,14 @@ export const golfInsuranceQuery = graphql`{
       node {
         frontmatter {
           headingParagraph
-          infographics {
-            heading
-            description
-            image {
-              publicURL
+          infographicsContainer {
+            infographicsHeader
+            infographics {
+              heading
+              description
+              image {
+                publicURL
+              }
             }
           }
           recentCalendar {

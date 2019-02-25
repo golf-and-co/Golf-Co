@@ -19,7 +19,7 @@ collections:
           - {label: "Heading First Line", name: heading1, widget: string}
           - {label: "Heading Second Line", name: heading2, widget: string}
           - {label: "Heading Paragraph", name: headingParagraph, widget: string}
-          - {label: "Infographics", name: infographics, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
+          - {label: "Infographics", name: infographicsContainer, widget: object, fields: [{label: "Infographics Header", name: infographicsHeader, widget: string},{label: "Infographics", name: infographics, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}]}
           - {label: "Featured", name: featured, widget: object, fields: [{label: "Heading First Line", name: heading1, widget: string}, {label: "Heading Second Line", name: heading2, widget: string}]}
           - {label: "Featured Course 1", name: course1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}
           - {label: "Featured Course 2", name: course2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}

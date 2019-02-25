@@ -5,7 +5,7 @@ import { v4 } from 'uuid'
 
 const Wrap = styled.section`
   background-color: #f6f9f2;
-  padding: 90px 0 220px 0;
+  padding: 20px 0 220px 0;
   justify-content: center;
 
   &.filled {
@@ -60,7 +60,9 @@ const Heading = styled.p`
   height: 41px;
   color: #1d8649;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 900;
+  width: 90%;
+  margin: 5px auto;
   text-transform: uppercase;
   line-height: 1;
 `
@@ -70,6 +72,16 @@ const Body = styled.p`
   font-size: 14px;
   font-weight: 300;
   line-height: 16px;
+`
+
+const InfographicsHeader = styled.p`
+  font-weight: 300;
+  color: #1d8649;
+  font-size: 26px;
+  margin: 50px auto 0px auto;
+  text-align: center;
+  max-width:780px;
+  text-transform: uppercase;
 `
 
 const Element = ({data}) => {
@@ -91,8 +103,9 @@ const Infographic = ({ data }) => {
 
   return <div style={{backgroundColor: "#f6f9f2"}}>
     <p style={{padding:"30px 0 0 0", maxWidth:"780px", color: "#4a4a4a", margin: "0 auto", textAlign: "center"}}>{data.headingParagraph}</p>
+    <InfographicsHeader>{data.infographicsContainer.infographicsHeader}</InfographicsHeader>
     <Wrap className={classes()}>
-      {data.infographics.map(row => <Element key={v4()} data={row} /> )}
+      {data.infographicsContainer.infographics.map(row => <Element key={v4()} data={row} /> )}
     </Wrap>
   </div>;
 }
