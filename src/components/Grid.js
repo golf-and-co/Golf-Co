@@ -37,7 +37,7 @@ const GridElement = ({data, controls, slug, footer, hideStats}) => {
   const visible = hide(data, controls).map(edge => edge.node.frontmatter.title);
   const style = (title) => {
     if(visible.includes(title)) {
-      return {display:"block"};
+      return {display:"flex"};
     }
     return {display:"none"};
   };
