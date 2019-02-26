@@ -13,6 +13,14 @@ const Container = styled.ul`
   .juicer-feed.modern li.feed-item {
     border: none;
   }
+
+  li[data-source="juicer"] {
+    display: none !important;
+  }
+
+  .referral > a {
+    display: none !important;
+  }
 `
 
 const Juicer = ({count, columns}) => <Container>
