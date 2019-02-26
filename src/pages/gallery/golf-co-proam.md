@@ -5,7 +5,7 @@ title: Golf & Co. ProAm
 location: 'Emirates Golf Club, Faldo course'
 date: 'SATURDAY, 7 DEC 2018'
 type:
-  - label: ProAm
+  - label: Sponsored Events
 description: >-
   Golf & Co. is the proud sponsor and manager of the six round Pro-Am series, an
   established and highly popular member event held at Dubai’s most outstanding
