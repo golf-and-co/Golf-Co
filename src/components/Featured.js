@@ -4,8 +4,12 @@ import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
 import { v4 } from 'uuid'
+<<<<<<< HEAD
 import {group} from "d3-array";
 import slugify from "slugify";
+=======
+import {group, rollup} from "d3-array";
+>>>>>>> Changes on the main page
 import Stats from '../components/Stats';
 
 // @TODO: fix crosscut here, move to card component
@@ -37,7 +41,8 @@ const Heading = styled.h3`
   text-transform: uppercase;
   font-weight: 300;
   text-align:center;
-  padding: 50px 0 50px 0;
+  padding: 50px 0 0;
+  line-height: 1 !important;
 `;
 const HeadingTag = styled.strong`
   font-weight: bold;
@@ -146,7 +151,7 @@ const CardCaption = styled.div`
   text-align:center;
 }`;
 
-const Button = styled.button`
+const Button = styled.a`
     display: block !important;
     margin: 50px auto 0px auto;
     background:none !important;
@@ -154,7 +159,26 @@ const Button = styled.button`
     font-weight: 300;
     text-transform: uppercase;
     border-color: #1d8649 !important;
+    width: 300px;
 `;
+
+const ViewCourseButton = styled.a`
+  font-family: 'Gotham Book';
+  vertical-align: middle !important;
+  margin: auto 10px;
+  width: 200px;
+  height: 50px !important;
+  font-size: 16px;
+  font-weight: 700;
+  border: none !important;
+  background-color: #18438b !important;
+
+  @media (max-width: 768px) {
+    position: absolute !important;
+    top: 75px;
+    left: calc(50% - 100px);
+  }
+`
 
 const Rounds = styled.div`
     position: absolute;
@@ -183,6 +207,24 @@ const Rounds = styled.div`
         text-transform: uppercase;
     }
 `;
+
+const Search = styled.aside`
+  margin: 0 auto;
+  line-height: 90px;
+  text-align: center;
+  vertical-align: middle !important;
+  position: relative;
+
+  @media (min-width: 768px) {
+    width: 640px;
+    height: 90px;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 340px;
+  }
+`
+
 // @TODO: use refs
 const courseMouseEnter = (data) => {
     document.querySelector(`#${slugify(data.frontmatter.title, {remove: /[*+~.()'"!:@]/g})} .cardContent`).className +=' cardContentHover';
@@ -263,14 +305,47 @@ export const Course = ({data, footer, hideStats, location, hideCaption}) => {
 
 // @TODO: get city list --> gql all courses that are featured + all, add classes for featuredCities, onClick handler, hide all, show cities and all if all.
 
-const selectNav = () => {
-  window.location.href = `/courses/?city=${document.querySelector('#featuredCitiesNav').value}`;
-}
+//const selectNav = () => {
+  //window.location.href = `/courses/?city=${document.querySelector('#featuredCitiesNav').value}`;
+//}
 
 const Featured = ({home, courses}) => {
   
-  let cities = Array.from((group(courses, course => {return {value:course.node.frontmatter.city}}).keys()));
-  cities.unshift({value:"--- All ---"});
+  //let cities = Array.from((group(courses, course => {return {value:course.node.frontmatter.city}}).keys()));
+  //cities.unshift({value:"--- All ---"});
+
+  //const courses = home.courses.edges;
+  let countries = Array.from(group(
+    courses, 
+    course => course.node.frontmatter.country
+  ).keys()).map(country => { 
+    return {value:country}
+  });
+
+  let cities = Array.from(group(
+    courses, 
+    course => course.node.frontmatter.city
+  ).keys()).map(city => { 
+    return {value:city}
+  });
+
+  const nested = rollup(courses, v => v.length, d => d.node.frontmatter.country, d => d.node.frontmatter.city);
+
+  const updateCities = () => {
+    const country = document.querySelector('#heroCountry').value;
+    let update = [];
+    if(country === '--- All ---') {
+      update = Array.from(nested.get(country).keys());
+    } else {
+      update = cities;
+    }
+
+    document.querySelector('#heroCities').innerHTML = update.map(city => `<option>${city.value}</option>`).join(" ");
+  }
+
+  const redirect = () => {
+    window.location.href = `/courses/?city=${document.querySelector('#heroCities').value}`;
+  }
 
   return <Wrap>
       <Heading className="title">
@@ -278,7 +353,11 @@ const Featured = ({home, courses}) => {
       <br />
       <HeadingTag>{home.featured.heading2}</HeadingTag>
       <br />
-      <Select id="featuredCitiesNav" onChange={() => selectNav()} options={cities} />
+      <Search>
+        <Select id="heroCountry" options={countries} onChange = {() => updateCities()}/>
+        <Select id="heroCities" options={cities} />
+        <ViewCourseButton className="button is-link is-rounded" onClick={() => redirect()}>View Golf Course</ViewCourseButton>
+      </Search>
       </Heading>
       
       <div className="container">
@@ -287,7 +366,7 @@ const Featured = ({home, courses}) => {
           </div>
       </div>
 
-      <Button className="button is-rounded">{home.featuredViewAll}</Button>     
+      <Button href="/courses" className="button is-rounded">{home.featuredViewAll}</Button>     
   </Wrap>;
 }
 
