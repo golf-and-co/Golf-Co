@@ -34,7 +34,7 @@ return <Layout>
   </div>
   <div style={{paddingBottom:"200px", backgroundColor:"#E4ECD9"}}>
     <Wrap className="container">
-      <Slider {...{dots:true}}>
+      <Slider {...{dots:true, slidesToShow: data.imagesPerSlide, slidesToScroll: data.imagesPerSlide}}>
         {data.markdownRemark.frontmatter.images.map(entry => {
           return <div><img src={entry.image.publicURL} alt="Gallery"/></div>;
         })}
