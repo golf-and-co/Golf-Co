@@ -14,5 +14,6 @@ description: >-
 images:
   - image: /img/emirates-golf-club-course.png
   - image: /img/emirates-golf-club-course.png
+imagesPerSlide: '1'
 ---
 

@@ -203,3 +203,4 @@ collections:
       - {label: "Type", name: type, widget: list, fields: [{label: "Label", name: label, widget: string}]}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Images", name: "images", widget: "list", fields: [{label: "Image", name: image, widget: image}]}
+      - {label: "Images Per Slide", name: "imagesPerSlide", widget: "string"}
