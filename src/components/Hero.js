@@ -3,7 +3,6 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import {group, rollup} from "d3-array";
-import Select from '../utilities/Select'
 import logo from '../img/logo.svg'
 
 const Background = styled.div`
@@ -45,43 +44,6 @@ const HeadingStrong = styled.strong`
   }
 `
 
-const Search = styled.aside`
-  margin: 0 auto;
-  margin-top: -45px;
-  border-radius: 45px;
-  box-shadow: 0 4px 4px rgba(29, 134, 73, 0.14);
-  background-color: #ffffff;
-  line-height: 90px;
-  text-align: center;
-  vertical-align: middle !important;
-  position: relative;
-
-  @media (min-width: 768px) {
-    width: 640px;
-    height: 90px;
-  }
-
-  @media (max-width: 768px) {
-    max-width: 340px;
-  }
-`
-
-const Button = styled.a`
-  font-family: 'Gotham Book';
-  vertical-align: middle !important;
-  margin: auto 10px;
-  width: 200px;
-  height: 50px;
-  font-size: 16px;
-  font-weight: 700;
-
-  @media (max-width: 768px) {
-    position: absolute !important;
-    top: 75px;
-    left: calc(50% - 100px);
-  }
-`
-
 const Logo = styled(Link)`
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.01) !important;
@@ -94,38 +56,6 @@ const Logo = styled(Link)`
 
 const Hero = ({ data }) => {
   const homepage = data.homepage.edges[0].node.frontmatter;
-  const courses = data.courses.edges;
-  let countries = Array.from(group(
-    courses, 
-    course => course.node.frontmatter.country
-  ).keys()).map(country => { 
-    return {value:country}
-  });
-
-  let cities = Array.from(group(
-    courses, 
-    course => course.node.frontmatter.city
-  ).keys()).map(city => { 
-    return {value:city}
-  });
-
-  const nested = rollup(data.courses.edges, v => v.length, d => d.node.frontmatter.country, d => d.node.frontmatter.city);
-
-  const updateCities = () => {
-    const country = document.querySelector('#heroCountry').value;
-    let update = [];
-    if(country === '--- All ---') {
-      update = Array.from(nested.get(country).keys());
-    } else {
-      update = cities;
-    }
-
-    document.querySelector('#heroCities').innerHTML = update.map(city => `<option>${city.value}</option>`).join(" ");
-  }
-
-  const redirect = () => {
-    window.location.href = `/courses/?city=${document.querySelector('#heroCities').value}`;
-  }
 
   return <Background>
     <HeroWrap
@@ -150,11 +80,6 @@ const Hero = ({ data }) => {
         </div>
       </div>
     </HeroWrap>
-    <Search>
-      <Select id="heroCountry" options={countries} onChange = {() => updateCities()}/>
-      <Select id="heroCities" options={cities} />
-      <Button className="button is-link is-rounded" onClick={() => redirect()}>View Golf Course</Button>
-    </Search>
   </Background>
 }
 
