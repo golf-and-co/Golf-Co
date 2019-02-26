@@ -32,7 +32,7 @@ const mapStateToProps = ({controls}) => {
   return {controls};
 }
 
-const GridElement = ({data, controls, slug, footer, hideStats}) => {
+const GridElement = ({data, controls, slug, footer, hideStats, hideCaption}) => {
   // hide per state.controls
   const visible = hide(data, controls).map(edge => edge.node.frontmatter.title);
   const style = (title) => {
@@ -56,7 +56,7 @@ const GridElement = ({data, controls, slug, footer, hideStats}) => {
                   stats: edge.node.frontmatter.stats,
                   city: edge.node.frontmatter.city,
                   country: edge.node.frontmatter.country,
-                  title: edge.node.frontmatter.country,
+                  title: edge.node.frontmatter.title,
                 },
                 fields: {
                   slug: `/${slug}/`+edge.node.frontmatter.title.replace(/ /g, '-').toLowerCase(),
@@ -64,6 +64,7 @@ const GridElement = ({data, controls, slug, footer, hideStats}) => {
               }}
               footer={footer} 
               hideStats={hideStats}
+              hideCaption={hideCaption}
             />
           </Item>
         )

@@ -149,7 +149,11 @@ const gallery = ({ data, location }) => {
       <Wrap className="columns">
         <Controls types={types} />
         <div className="column is-four-fifth">
-          <Grid data={data.gallery.edges} slug={"gallery"} footer={false} hideStats={true} location={location} />
+          <Grid data={data.gallery.edges.map(edge => {
+            // want first gallery image, not gallery hero to show in listing grid
+            edge.node.frontmatter.image = edge.node.frontmatter.images[0].image.publicURL;
+            return edge;
+          })} slug={"gallery"} footer={false} hideStats={true} location={location} hideCaption={true} />
         </div>
       </Wrap>
     </Background>  

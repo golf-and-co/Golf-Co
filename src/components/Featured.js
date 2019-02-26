@@ -194,7 +194,7 @@ const courseMouseExit = (data) => {
 }
 
 // @TODO: refactor, need better properties, start by grouping in a decorator, pass a styled component
-export const Course = ({data, footer, hideStats, location}) => {
+export const Course = ({data, footer, hideStats, location, hideCaption}) => {
     
     
     const mouseEnter = () => {
@@ -230,6 +230,12 @@ export const Course = ({data, footer, hideStats, location}) => {
         }
     }
 
+    const caption = () => {
+      if(!hideCaption) {
+        return <CardCaption>{data.frontmatter.city}</CardCaption>
+      }
+    }
+
     return <CardLink to={data.fields.slug} className="is-quarter">
         <Card id={slugify(data.frontmatter.title, {remove: /[*+~.()'"!:@]/g})} className={classes()} onMouseEnter={() => mouseEnter()} onMouseLeave={() => mouseLeave()}>
             <CardImageWrap className="cardImage">
@@ -240,7 +246,7 @@ export const Course = ({data, footer, hideStats, location}) => {
                     : data.frontmatter.featuredDetails.image
                 } alt="Placeholder" />
             </figure>
-            <CardCaption>{data.frontmatter.city}</CardCaption>
+            {caption()}
             </CardImageWrap>
             <CardContent className="cardContent">
             <div className="content">
