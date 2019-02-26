@@ -4,7 +4,7 @@ import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
 import { v4 } from 'uuid'
-import {group} from "d3-array";
+import {group, rollup} from "d3-array";
 import slugify from "slugify";
 import Stats from '../components/Stats';
 
