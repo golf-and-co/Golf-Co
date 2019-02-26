@@ -4,15 +4,17 @@
  * @param {Array} search
  */
 export const lookup = (data, searches) => data.filter(row => 
-    // Each individual line in rows of data
     searches.every(search => {
-        // Each search provided by user
+        // does search contain a value?        
         if(typeof search.value === 'undefined') {
-            // for controls when only name is to provided, to find value in state
+            // match on name only
+            // used for if state exists
             return search.name === row.name;
         }
         else {
-            // for contorls which have multiple values, and need to see if exists
+            // search does not contain value
+            // looking for both name and value
+            // used for filtering listings
             return search.name === row.name && search.value === row.value;
         }
     })

@@ -7,7 +7,6 @@ import HeroSmall from "../components/HeroSmall";
 import Content from "../components/Content";
 import {aggregate} from "../components/Control/Aggregate";
 import {Checkbox} from "../components/Control/Checkbox";
-import {Select} from "../components/Control/Select";
 import {Button} from "../components/Control/Button";
 import {Grid} from '../components/Grid'
 import slugify from "slugify";

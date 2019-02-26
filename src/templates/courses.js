@@ -8,6 +8,7 @@ import Content from "../components/Content";
 import {aggregate} from "../components/Control/Aggregate";
 import {Checkbox} from "../components/Control/Checkbox";
 import {Select} from "../components/Control/Select";
+import queryString from "query-string";
 import {Button} from "../components/Control/Button";
 import {Grid} from '../components/Grid'
 import slugify from "slugify";
@@ -124,16 +125,16 @@ PageTemplate.propTypes = {
 };
 
 
-const Controls = ({countries, cities, courseType, holes, amenities}) => 
+const Controls = ({countries, cities, courseType, holes, amenities, location}) => 
 <ControlWrap className="column is-one-fifth">
   <ControlBox>
     <Control>
       <h6 style={{display: "flex", padding: "5px 10px"}}>Location <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
-      <Select name="country">
+      <Select name="country" defaultValue={queryString.parse(location.search).country}>
         {countries.map(country => <option key={slugify(country)} value={country}>{country}</option>)}
       </Select>
       <br />
-      <Select name="city" parent="country">
+      <Select name="city" parent="country" defaultValue={queryString.parse(location.search).city}>
         {cities.map(city => <option key={slugify(city.value)} value={city.value} data-country={city.parent}>{city.value}</option>)}
       </Select>
       <Button value={"Select"} />
@@ -182,7 +183,7 @@ const courses = ({ data, location }) => {
     <Content data={data.coursesPage.edges[0].node.frontmatter} />
     <Background>
       <Wrap className="columns">
-        <Controls countries={countries} cities={cities} courseType={courseType} holes={holes} amenities={amenities} />
+        <Controls countries={countries} cities={cities} courseType={courseType} holes={holes} amenities={amenities} location={location} />
         <div className="column is-four-fifth">
           <Grid data={data.courses.edges} slug={"courses"} footer={true} hideStats={false} location={location} />
         </div>
