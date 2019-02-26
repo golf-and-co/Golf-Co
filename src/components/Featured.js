@@ -4,12 +4,8 @@ import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
 import { v4 } from 'uuid'
-<<<<<<< HEAD
 import {group} from "d3-array";
 import slugify from "slugify";
-=======
-import {group, rollup} from "d3-array";
->>>>>>> Changes on the main page
 import Stats from '../components/Stats';
 
 // @TODO: fix crosscut here, move to card component
