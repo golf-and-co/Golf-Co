@@ -9,8 +9,8 @@ const edges = [
 ];
 
 const filters = [
-    {"name":"courseType", "value":"Earth Course"},
-    {"name":"duration", "value":"7"},
+    {"name":"courseType", "value":"Earth Course", "applied":true},
+    {"name":"duration", "value":"7", "applied":true},
 ];
 
 const state = {
@@ -26,7 +26,7 @@ const state = {
 */
 describe("Hide", () => {
     it("filters edges", () => {
-        expect(hide(edges, filters, "name")).toEqual([edges[0]]);
+        expect(hide(edges, filters)).toEqual([edges[0]]);
     })
 })
 

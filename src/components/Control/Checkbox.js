@@ -5,6 +5,11 @@ import {lookup} from "../Control/Lookup";
 import styled from "styled-components"
 
 const Wrap = styled.div`
+  input {
+    margin: 8px 0 0 8px;
+    z-index: 10;
+    cursor: pointer;
+  }
   & .is-checkradio[type="checkbox"] + label {
     color: #000;
     font-size: 0.8rem;

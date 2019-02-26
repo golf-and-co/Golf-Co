@@ -5,9 +5,10 @@ import styled from "styled-components"
 import Layout from "../components/Layout";
 import HeroSmall from "../components/HeroSmall";
 import Content from "../components/Content";
+import {aggregate} from "../components/Control/Aggregate";
 import {Checkbox} from "../components/Control/Checkbox";
 import {Select} from "../components/Control/Select";
-import {aggregate} from "../components/Control/Aggregate";
+import {Button} from "../components/Control/Button";
 import {Grid} from '../components/Grid'
 import slugify from "slugify";
 import Footer from "../components/Footer";
@@ -135,24 +136,41 @@ const Controls = ({countries, cities, courseType, holes, amenities}) =>
       <Select name="city" parent="country">
         {cities.map(city => <option key={slugify(city.value)} value={city.value} data-country={city.parent}>{city.value}</option>)}
       </Select>
-      <button className="button is-success is-rounded">Apply</button>
+      <Button value={"Select"} />
     </Control>
   </ControlBox>
   <br />
   <ControlBox>
     <Control>
-      <h6 style={{display: "flex", padding: "5px 10px"}}>Hotel Type <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
+      <h6 style={{display: "flex", padding: "5px 10px"}}>Course Type <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
       {courseType.map(type => <Checkbox key={slugify(type)} name="courseType" value={type} />)}
       <br />
-      <button className="button is-success is-rounded">Apply</button>
+      <Button value={"Select"} />
     </Control>    
   </ControlBox>  
+  <br />
+  <ControlBox>
+    <Control>
+      <h6 style={{display: "flex", padding: "5px 10px"}}>Holes <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
+      {holes.map(amount => <Checkbox key={slugify(amount)} name="holes" value={amount} />)}
+      <br />
+      <Button value={"Select"} />
+    </Control>    
+  </ControlBox> 
+  <br /> 
+  <ControlBox>
+    <Control>
+      <h6 style={{display: "flex", padding: "5px 10px"}}>Amenities <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
+      {amenities.map(amenity => <Checkbox key={slugify(amenity)} name="amenity" value={amenity} />)}
+      <br />
+      <Button value={"Select"} />
+    </Control>    
+  </ControlBox>
 </ControlWrap>
 
 
 const courses = ({ data, location }) => {
-  // aggregate data for city, country, hotelTypes, and duration
-
+  // aggregate data for controls
   const countries = aggregate(data.courses.edges, "country");
   const cities = aggregate(data.courses.edges, {parent:"country", child:"city"});
   const courseType = aggregate(data.courses.edges, {column:"courseType", property:"name"});
