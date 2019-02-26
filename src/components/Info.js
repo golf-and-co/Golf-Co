@@ -64,7 +64,7 @@ const Heading = styled.p`
   width: 90%;
   margin: 5px auto;
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 1.125;
 `
 
 const Body = styled.p`
