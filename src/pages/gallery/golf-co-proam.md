@@ -1,7 +1,6 @@
 ---
 templateKey: galleryDetails
-image: >-
-  https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/ghala_golf_oman.png
+image: /img/hero_small.png
 title: Golf & Co. ProAm
 location: 'Emirates Golf Club, Faldo course'
 date: 'SATURDAY, 7 DEC 2018'

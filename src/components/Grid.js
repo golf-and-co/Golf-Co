@@ -56,6 +56,7 @@ const GridElement = ({data, controls, slug, footer, hideStats}) => {
                   stats: edge.node.frontmatter.stats,
                   city: edge.node.frontmatter.city,
                   country: edge.node.frontmatter.country,
+                  title: edge.node.frontmatter.country,
                 },
                 fields: {
                   slug: `/${slug}/`+edge.node.frontmatter.title.replace(/ /g, '-').toLowerCase(),

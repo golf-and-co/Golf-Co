@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
 import { v4 } from 'uuid'
 import {group} from "d3-array";
+import slugify from "slugify";
 import Stats from '../components/Stats';
 
 // @TODO: fix crosscut here, move to card component
@@ -184,11 +185,11 @@ const Rounds = styled.div`
 `;
 // @TODO: use refs
 const courseMouseEnter = (data) => {
-    document.querySelector(`#${data.fields.slug.replace(/\//g,'')} .cardContent`).className +=' cardContentHover';
+    document.querySelector(`#${slugify(data.frontmatter.title, {remove: /[*+~.()'"!:@]/g})} .cardContent`).className +=' cardContentHover';
 }
 
 const courseMouseExit = (data) => {
-    let featured = document.querySelector(`#${data.fields.slug.replace(/\//g,'')} .cardContent`);
+    let featured = document.querySelector(`#${slugify(data.frontmatter.title, {remove: /[*+~.()'"!:@]/g})} .cardContent`);
     featured.className = featured.className.replace(/ cardContentHover/g, '');
 }
 
@@ -230,7 +231,7 @@ export const Course = ({data, footer, hideStats, location}) => {
     }
 
     return <CardLink to={data.fields.slug} className="is-quarter">
-        <Card id={data.fields.slug.replace(/\//g,'')} className={classes()} onMouseEnter={() => mouseEnter()} onMouseLeave={() => mouseLeave()}>
+        <Card id={slugify(data.frontmatter.title, {remove: /[*+~.()'"!:@]/g})} className={classes()} onMouseEnter={() => mouseEnter()} onMouseLeave={() => mouseLeave()}>
             <CardImageWrap className="cardImage">
             <figure className="image is-4by3">
                 <CardImage src={
