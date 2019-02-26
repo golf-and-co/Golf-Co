@@ -6,7 +6,7 @@ import styled from "styled-components"
 
 const Wrap = styled.div`
   input {
-    margin-top: 4px;
+    margin: 8px 0 0 8px;
     z-index: 10;
     cursor: pointer;
   }

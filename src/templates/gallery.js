@@ -1,21 +1,121 @@
-import React, {useState}  from "react";
+import React  from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import styled from "styled-components"
 import Layout from "../components/Layout";
 import HeroSmall from "../components/HeroSmall";
 import Content from "../components/Content";
-import {Flat} from "../components/Filter";
-import {hide} from "../components/Control/Hide";
-import Listing from "../components/Listing";
+import {aggregate} from "../components/Control/Aggregate";
+import {Checkbox} from "../components/Control/Checkbox";
+import {Select} from "../components/Control/Select";
+import {Button} from "../components/Control/Button";
+import {Grid} from '../components/Grid'
+import slugify from "slugify";
 import Footer from "../components/Footer";
 
+const Background = styled.section`
+    padding-bottom: 200px;
+    background-color: #E4ECD9;
+`;
+
 const Wrap = styled.section`
-  .cardContentHover {
-    height: 100px !important;
-    top: 0px !important;
+    @media (min-width: 768px) {
+        width: 1110px;
+        max-width: 100%;
+    }
+    margin: 0 auto !important;
+
+    .cardContentHover {
+      height: 100px !important;
+      top: 0px !important;
+    }
+`;
+
+const ControlWrap = styled.div`
+  section {
+    justify-content: right;
+  }
+  @media (max-width: 768px) {
+    display: none !important;
   }
 `;
+
+const ControlBox = styled.div`
+    display: flex;
+    @media (max-width: 768px) {
+      display: none;
+      background-size: inherit;
+    }
+
+    h6 {
+        color: #000;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin: 15px 15px 25px 15px;
+    }
+    .select {
+        font-size: 0.8rem;
+    }
+
+    .select:not(.is-multiple):not(.is-loading)::after {
+        border-color: #AAA;
+    }
+    select {
+        width: 170px;
+    }
+    button.button.is-success {
+        background-color: #1d8649;
+        font-size: 14px;
+        margin: 15px auto;
+        display: block;
+        width: 97px;
+    }
+    a.clear {
+        color: #333;
+        font-size: 0.6rem;
+        text-transform: none;
+        text-align: right;
+        margin-left: 40px;
+    }
+    .is-checkradio[type="checkbox"] + label {
+        color: #000;
+        font-size: 0.8rem;
+    }
+    .is-checkradio[type="checkbox"] + label::before, .is-checkradio[type="checkbox"] + label::before {
+        width: 14px;
+        height: 14px;
+        top: 4px;
+        border: 1px solid #cfddbb;
+        background-color: #f6f9f2;
+    }
+    .is-checkradio[type="checkbox"] + label::after, .is-checkradio[type="checkbox"] + label::after {
+        top: 5px;
+        left: 5px;
+        width: 6px;
+        height: 8px;
+    }
+    .is-checkradio[type="checkbox"].is-success:checked + label::after, .is-checkradio[type="checkbox"].is-success:checked + label::after {
+        border-color: #1d8649 !important;
+    }
+
+    br {
+        line-height: 1;
+    }
+`;
+
+const Control = styled.section`
+    background-color: #FFF;
+    width: 260px;
+    height:225px;
+    justify-content:right;
+    border-radius: 3px;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+
+    & > .select {
+        margin: 10px 15px;
+    }
+`
 
 export const PageTemplate = ({ title }) => (
   <section className="section section--gradient">
@@ -27,51 +127,34 @@ PageTemplate.propTypes = {
   title: PropTypes.string
 };
 
-const gallery = ({ data }) => {
-  const [filters, setFilters] = useState([]);
-  const [visible, setVisible] = useState(data.gallery.edges);
+const Controls = ({types}) => 
+<ControlWrap className="column is-one-fifth">
+  <ControlBox>
+    <Control>
+      <h6 style={{display: "flex", padding: "5px 10px"}}>Galleries<a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
+      {types.map(type => <Checkbox key={slugify(type)} name="type" value={type} />)}
+      <br />
+      <Button value={"Select"} />
+    </Control>    
+  </ControlBox>  
+</ControlWrap>;
 
-  const handler = (filter) => {
-    if(filter.action === 'REMOVE') {
-      // state update is async, so this is ugly but required
-      const result = filters.filter(item => {
-         return (item.field !== filter.field && item.value !== filter.value)
-      });
-      const visible = hide(data.gallery.edges, result, "label");
-      setFilters(result);
-      setVisible(visible);
-    } else if(filter.action === 'REPLACE') {
-      // some fields require multiple filters of the same name, like course type
-      // others must replace existing filter first, like city
-      let result = filters.filter(item => {
-         return (item.field !== filter.field && item.value !== filter.value)
-      });
-      result.push(filter);
-      const visible = hide(data.gallery.edges, result, "label");
-      setFilters(result);
-      setVisible(visible);
-    } else {
-      filters.push(filter);
-      const visible = hide(data.gallery.edges, filters, "label");
-      setFilters(filters);
-      setVisible(visible);
-    }
-  }
-
-  let types = {};   
-  data.gallery.edges.forEach(edge => edge.node.frontmatter.type.forEach(row => {
-    types[row.label]= filters.some(filter => (row.label === filter.value && filter.field === "type")) ;
-  }));
-
-  const Filter = <Flat label="Event" data={types} field={"type"} handler={handler} />;
+const gallery = ({ data, location }) => {
+  // aggregate data for controls
+  const types = aggregate(data.gallery.edges, {column:"type", property:"label"});
 
   return <Layout>
-    <Wrap>
-      <HeroSmall data={data.galleryQuery.edges[0].node.frontmatter} />
-      <Content data={data.galleryQuery.edges[0].node.frontmatter} />
-      <Listing visible={visible} side={Filter} slug="gallery" footer={false} hideStats={true}/>
-      <Footer />
-    </Wrap>
+    <HeroSmall data={data.galleryPages.edges[0].node.frontmatter} />
+    <Content data={data.galleryPages.edges[0].node.frontmatter} />
+    <Background>
+      <Wrap className="columns">
+        <Controls types={types} />
+        <div className="column is-four-fifth">
+          <Grid data={data.gallery.edges} slug={"gallery"} footer={false} hideStats={true} location={location} />
+        </div>
+      </Wrap>
+    </Background>  
+    <Footer />
   </Layout>
 };
 
@@ -87,7 +170,7 @@ export default gallery;
 
 export const galleryQuery = graphql`
  {
-  galleryQuery:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "gallery"}}}) {
+  galleryPages:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "gallery"}}}) {
     edges {
       node {
         frontmatter {
