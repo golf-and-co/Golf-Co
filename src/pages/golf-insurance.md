@@ -10,6 +10,12 @@ paragraph1: >-
 infographics:
   - description: Protection for all your golf equipment both at home and on the course
     image: /img/icons8-security_checked.png
+  - description: New for old replacement for items that cannot be repaired
+    image: >-
+      https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/icons8-replace.png
+  - description: Cover for personal accident or liability
+    image: >-
+      https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/icons8-watch_your_step.png
 title: Worldwide Golf Cover
 paragraph2: >-
   If you are planning to take your golf clubs and equipment on holiday with you,
