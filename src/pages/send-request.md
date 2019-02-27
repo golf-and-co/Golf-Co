@@ -1,6 +1,7 @@
 ---
 templateKey: sendRequest
-image: /img/send-request.png
+image: >-
+  https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/hero_small.png
 title: Send Request
 ---
 
