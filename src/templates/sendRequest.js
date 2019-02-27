@@ -78,6 +78,44 @@ const Wrap = styled.div`
   }
   input[type="date"]::-webkit-inner-spin-button,    
   input[type="date"]::-webkit-clear-button { display: none; }
+
+  .players-wrapper {
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+  }
+
+  .players-wrapper input {
+    width:150px;
+    padding: 10px 15px;
+    text-align: center;
+  }
+
+  .decrease-button, .increase-button {   
+    position: absolute;
+    z-index: 1;
+    border-radius: 15px;
+    box-shadow: none;
+    border: 1px solid #dbdbdb;
+    background: #FFF;
+    height: 28px;
+    top: 5px;
+    width: 30px;
+    padding: 0px;
+    font-size: 30px;
+    line-height: 15px;
+    vertical-align: middle;
+    color: #dbdbdb;
+  }
+  
+  .decrease-button {
+    left: 5px;
+  } 
+  
+  .increase-button {
+    right: 5px;
+  }
+
 `;
 
 const Content = styled.div`
@@ -104,12 +142,12 @@ const DatePicker = styled.input`
 const SendRequest = ({ data }) => {
 
   const [countryCode, setcountryCode] = useState("AE");
+  const [numberOfPlayers, setNumberOfPlayers] = useState(1);
 
 return <Layout>
   <HeroSmall data={{...data.markdownRemark.frontmatter, backgroundColor:"#F6F9F2", height:"160px", logoMargin:"30px"}} />
   <Wrap>
     <Content>We are all set to take your request. Just fill up the form below.</Content>
-    <form>
       <div className="container">
         <div className="columns">
           <div className="column">
@@ -143,8 +181,14 @@ return <Layout>
           <div className="column">
               <div className="field">
                   <label className="label">Number of Players</label>
-                  <div className="control">
-                      <input className="input is-rounded" type="number" style={{width:"100px", padding:"10px 15px"}} min="1"/>
+                  <div className="control players-wrapper">
+                      <button className="is-rounded decrease-button" onClick={() => {
+                        setNumberOfPlayers(Math.max((parseInt(numberOfPlayers) -1), 1));
+                      }}>-</button>
+                      <input name="players" className="input is-rounded" type="text" value={numberOfPlayers}/>
+                      <button className="is-rounded increase-button" onClick={() => {
+                        setNumberOfPlayers(parseInt(numberOfPlayers) + 1);
+                      }}>+</button>
                   </div>
               </div>
               <div className="field">
@@ -193,7 +237,6 @@ return <Layout>
                 <button className="button is-link is-rounded">Send This Request</button>
               </div>
       </div>
-    </form>
   </Wrap>
   <Footer />
 </Layout>;
