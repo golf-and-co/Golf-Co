@@ -19,6 +19,48 @@ const Background = styled.div`
   @media (max-width: 768px) {
     padding: 0 15px;
   }
+
+  .cart{
+    border-radius: 6px;
+    box-shadow: 0px 2px  11px rgba(29,134,73,0.44);
+    width: 260px;
+    height: 249px;
+    background-color: #FFF;
+  }
+
+  .cart h3 {
+    background: #1b8547;
+    border-radius: 6px 6px 0 0;
+    font-size: 22px;
+    font-weight: 400;
+    text-align:center;
+    padding: 20px 20px 10px 20px;
+  }
+
+  .cart .body {
+    background-color: #FFF;
+    text-align:center;
+    padding: 10px 30px;
+  }
+
+  .cart .body p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px
+  }
+
+  .cart button {
+    margin-top: 20px;
+    background: #1a428a;
+    border-radius: 45.5px;
+    padding: 10px 30px;
+    border: none;
+    color: #FFF;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+  }
 `
 
 const ShareWrapper = styled.div`
@@ -142,7 +184,16 @@ const Dialog = ({data}) => {
   ));
 }
 
-const Cart = () => <div />
+const Cart = ({data}) => <div className="cart">
+  <h3>Want to Tee-Off at this Golf Course?</h3>
+  <div className="body">
+    <p>Book from one of our Golf Packages, and let us know your preferred Golf Course.</p>
+    <button onClick={() => {
+      window.location = `/packages?city=${data.city}`
+    }
+    }>View Packages</button>
+  </div>
+</div>
 
 const CourseDetails = ({ data, body }) => (
   <Background className="columns">
@@ -158,7 +209,7 @@ const CourseDetails = ({ data, body }) => (
       <p>{body}</p>
     </div>
     <div className="column is-one-quarters">
-      <Cart />
+      <Cart data={data} />
     </div>
   </Background>
 )
