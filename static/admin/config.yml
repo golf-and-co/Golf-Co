@@ -134,7 +134,7 @@ collections:
   - name: "testimontial"
     label: "Testimontials"
     folder: "src/pages/testimontials"
-    create: false
+    create: true
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "testimonials"}
       - {label: "Profile Picture", name: "profilePicture", widget: "image"}
