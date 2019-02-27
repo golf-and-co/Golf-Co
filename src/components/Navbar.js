@@ -209,11 +209,27 @@ const Menu = ({ link }) => {
 const Nav = (props) => {
   // Declare a new state variable, which we'll call "count"
   const [right, setRight] = useState("-30vw");
+  const [overlay, setOverlay] = useState("none");
   // Hamburger menu click handler
   const click = () => {
     setRight('0'); 
+    setOverlay("block");
   }
   return <span>
+    <div style={{
+      width: "100vw",
+      height: "120vh",
+      position: "fixed",
+      background: "rgba(0,0,0,0.1)",
+      left: "0",
+      top: "0",
+      zIndex: "10",
+      display: overlay
+  }} onClick={() => {
+      setRight("-30vw");
+      setOverlay("none") 
+  }
+    }></div>
   <Side
     className="navbar"
     role="navigation"
@@ -238,7 +254,10 @@ const Nav = (props) => {
         <HeaderLink className="navbar-item" to="/">
           <i className="fas fa-home" />
         </HeaderLink>
-        <HeaderAnchor className="navbar-item" onClick={() => {setRight("-30vw")}}>
+        <HeaderAnchor className="navbar-item" onClick={() => { 
+          setRight("-30vw");
+          setOverlay("none");
+        }}>
           <i className="fas fa-times-circle " />
         </HeaderAnchor>
       </div>
