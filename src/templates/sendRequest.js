@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
@@ -101,7 +101,11 @@ const DatePicker = styled.input`
 
 
 
-const SendRequest = ({ data }) => <Layout>
+const SendRequest = ({ data }) => {
+
+  const [countryCode, setcountryCode] = useState("AE");
+
+return <Layout>
   <HeroSmall data={{...data.markdownRemark.frontmatter, backgroundColor:"#F6F9F2", height:"160px", logoMargin:"30px"}} />
   <Wrap>
     <Content>We are all set to take your request. Just fill up the form below.</Content>
@@ -155,13 +159,19 @@ const SendRequest = ({ data }) => <Layout>
                       <div id="phoneWrap">
                         <div className="control has-icons-left">
                           <div className="select" id="countryCode">
-                            <select className="input is-rounded" style={{padding:"0 30px"}}>
+                            <select className="input is-rounded" style={{padding:"0 30px"}} onChange={(event) => {
+                              if(event.target.value === "+971") {
+                                setcountryCode('AE');
+                              } else {
+                                setcountryCode('QA');
+                              }
+                            }}>
                               <option>+971</option>
                               <option>+974</option>
                             </select>
                           </div>
                           <div className="icon is-small is-left">
-                            <ReactCountryFlag code="us" />
+                            <ReactCountryFlag code={countryCode} />
                           </div>
                         </div>
 
@@ -187,6 +197,7 @@ const SendRequest = ({ data }) => <Layout>
   </Wrap>
   <Footer />
 </Layout>;
+}
 
 SendRequest.propTypes = {
   data: PropTypes.shape({
