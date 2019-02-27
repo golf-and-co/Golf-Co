@@ -1,9 +1,4 @@
-import { isObject } from "util";
 import {group, rollup} from "d3-array";
-
-let courseTypes = {}; 
-let holes = {};
-let amenities = {};
 
 /**
  * Groups data from array of objects
