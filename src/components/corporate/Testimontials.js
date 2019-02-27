@@ -55,6 +55,7 @@ const ProfilePicture = styled.div`
   border-radius: 50%;
   background-color: silver;
   margin: 20px auto;
+  background-size: contain;
 `
 
 const Comment = styled.div`

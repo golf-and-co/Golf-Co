@@ -6,7 +6,7 @@ comment: >-
   scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
   sagittis tempor turpis”
 title: Maria Goldwin
-position: 'HR Manager '
+position: 'HR Manager'
 location: 'BMW, MENA'
 ---
 
