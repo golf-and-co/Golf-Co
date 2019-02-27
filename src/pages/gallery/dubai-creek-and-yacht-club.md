@@ -12,7 +12,7 @@ description: >-
   turpis, sed facilisis eros bibendum aliquam. Nulla sagittis tempor turpis,
   consectetur efficitur est dignissim sit amet. 
 images:
-  - image: /img/emirates-golf-club-course.png
+  - image: /img/golfco-proam-2.png
   - image: /img/emirates-golf-club-course.png
 imagesPerSlide: '1'
 ---
