@@ -27,6 +27,10 @@ const Background = styled.section`
       text-transform: uppercase;
     }
 
+    .galleryDetails {
+      font-size: 12px;
+    }
+
 `;
 
 const Wrap = styled.section`
@@ -164,7 +168,7 @@ const gallery = ({ data, location }) => {
           <Grid data={data.gallery.edges.map(edge => {
             // want first gallery image, not gallery hero to show in listing grid
             edge.node.frontmatter.image = edge.node.frontmatter.images[0].image.publicURL;
-            edge.node.frontmatter.cardDescription = <span>{edge.node.frontmatter.location}<br /><span class="date">{edge.node.frontmatter.date}</span></span>;
+            edge.node.frontmatter.cardDescription = <span class="galleryDetails">{edge.node.frontmatter.location}<br /><span class="date">{edge.node.frontmatter.date}</span></span>;
             return edge;
           })} slug={"gallery"} footer={false} hideStats={true} location={location} hideCaption={true} />
         </div>

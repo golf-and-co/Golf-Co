@@ -166,9 +166,7 @@ const Content = () =>   {
       }
       render={data => (
         <Events>
-          {data.allMarkdownRemark.edges.filter(edge =>
-            (Date.now() < Date.parse(edge.node.frontmatter.to))
-          ).map(({node}) => {
+          {data.allMarkdownRemark.edges.map(({node}) => {
             return <Card>
               <CardImageWrap>
                   <CardImage src={
@@ -189,7 +187,7 @@ const Content = () =>   {
         </Events>
       )}>
     </StaticQuery>
-    <Button className="button is-rounded">View all</Button>
+    <Button className="button is-rounded" onClick={() => window.location.href = "/gallery"}>View all</Button>
   </Wrap>)
 }
 

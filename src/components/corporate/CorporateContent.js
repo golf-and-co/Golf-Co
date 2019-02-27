@@ -38,8 +38,9 @@ const Button = styled.div`
 const Content = ({ data }) => (
   <Wrap>
     <Paragraph>{data.paragraph1}</Paragraph>
-    <Paragraph>{data.paragraph2}</Paragraph>
     <Heading>{data.heading1}</Heading>
+    <Paragraph>{data.paragraph2}</Paragraph>
+    <Heading>Why Use Our Corporate Golf Service?</Heading>
     <Paragraph>{data.paragraph3}</Paragraph>
     <Paragraph>{data.paragraph4}</Paragraph>
     <Button><a href="/" className="button is-link is-rounded">{data.sendEnquiry}</a></Button>
