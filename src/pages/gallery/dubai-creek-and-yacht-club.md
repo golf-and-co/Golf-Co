@@ -13,7 +13,9 @@ description: >-
   consectetur efficitur est dignissim sit amet. 
 images:
   - image: /img/golfco-proam-2.png
-  - image: /img/emirates-golf-club-course.png
+  - image: /img/golfco-proam.png
+  - image: /img/golfco-proam-2.png
+  - image: /img/golfco-proam.png
 imagesPerSlide: '1'
 ---
 
