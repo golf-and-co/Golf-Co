@@ -3,9 +3,11 @@ templateKey: corporate
 image: /img/3ef654df85556ac6a77864224.png
 title: Corporate Golf Days
 paragraph1: >-
-  Golf & Co. is the only specialised Golf Themed Tourism and Events compnay
-  based in Dubai that offers Bespoke Packages, Golf Insurance and Corporate Golf
-  events across the Middle East region and beyond.
+  Who says you can't mix business and pleasure? Corporate Golf Days are the
+  perfect way to distinguish your company from the competition, engage with
+  existing clients, build relationships with potential clients, and thank
+  clients for their valued custom. At Golf & Co. we practice what we preach,
+  which is why our Corporate Golf Days are in a class of their own.
 paragraph2: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
   incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
