@@ -26,6 +26,14 @@ const Wrap = styled.section`
         max-width: 100%;
     }
     margin: 0 auto !important;
+
+    h1.search {
+      color: #1d8649;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
 `;
 
 const ControlWrap = styled.div`
@@ -169,6 +177,13 @@ const Controls = ({countries, cities, courseType, holes, amenities, location}) =
   </ControlBox>
 </ControlWrap>
 
+const title = (location) => {
+  const country = queryString.parse(location.search).country;
+  const city = queryString.parse(location.search).city;
+  if(country || city) {
+    return <h1 className="search">Play {(country || city)}'s finest course(s)</h1>
+  }
+}
 
 const courses = ({ data, location }) => {
   // aggregate data for controls
@@ -185,6 +200,7 @@ const courses = ({ data, location }) => {
       <Wrap className="columns">
         <Controls countries={countries} cities={cities} courseType={courseType} holes={holes} amenities={amenities} location={location} />
         <div className="column is-four-fifth">
+          {title(location)}
           <Grid data={data.courses.edges} slug={"courses"} footer={true} hideStats={false} location={location} />
         </div>
       </Wrap>
