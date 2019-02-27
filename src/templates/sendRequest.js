@@ -44,6 +44,10 @@ const Wrap = styled.div`
     justify-content: center;
   }
 
+  #phoneWrap .icon.is-left {
+    left: 6px;
+  }
+
   #countryCode {
     width: 125px;
     margin: 0 5px;
@@ -157,7 +161,7 @@ const SendRequest = ({ data }) => <Layout>
                             </select>
                           </div>
                           <div className="icon is-small is-left">
-                            <ReactCountryFlag code="AE" />
+                            <ReactCountryFlag code="us" />
                           </div>
                         </div>
 
