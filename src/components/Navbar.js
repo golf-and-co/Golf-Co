@@ -61,14 +61,14 @@ const HeaderAnchor = styled.a`
   }
 `
 
-const LinkParent = styled(Link)`
+const LinkParent = styled.a`
   color: #1d8649;
   font-family: 'Gotham Book';
   font-size: 22px;
   font-weight: 300;
 `
 
-const LinkChild = styled(Link)`
+const LinkChild = styled.a`
   color: #1d8649;
   font-family: 'Gotham Book';
   /* Text style for "UAE" */
@@ -171,7 +171,7 @@ const Hamburger = ({click}) => {
 
 const Social = ({ link }) => (
   <FontAwesomeItem>
-    <LinkParent to={link.href}>
+    <LinkParent href={link.href}>
       <FontAwesome className={`fab fa-${link.text}`} />
     </LinkParent>
   </FontAwesomeItem>
@@ -183,7 +183,7 @@ const Menu = ({ link }) => {
     children = link.children.map((child, index) => (
       <li key={v4()}>
         <LinkChild
-          to={child.href}
+          href={child.href}
           link={child}
           style={{
             fontWeight: '300',
@@ -200,7 +200,7 @@ const Menu = ({ link }) => {
 
   return (
     <li>
-      <LinkParent to={link.href}>{link.text}</LinkParent>
+      <LinkParent href={link.href}>{link.text}</LinkParent>
       {children}
     </li>
   )

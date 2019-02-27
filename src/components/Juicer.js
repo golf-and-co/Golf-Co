@@ -25,13 +25,13 @@ const Container = styled.ul`
 
 const Juicer = ({count, columns}) => <Container>
   <ul className='juicer-feed' data-feed-id='golfandco' data-per={count} data-columns={columns}>
-    <h1 class='referral'><a href='www.juicer.io'>Powered by Juicer</a></h1>
+    <h1 className='referral'><a href='www.juicer.io'>Powered by Juicer</a></h1>
   </ul>
 </Container>
 
 Juicer.propTypes = {
-  count: PropTypes.object.isRequired,
-  columns: PropTypes.object.isRequired,
+  count: PropTypes.number.isRequired,
+  columns: PropTypes.number.isRequired,
 }
 
 export default Juicer;

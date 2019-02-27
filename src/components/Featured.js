@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql, Link } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import PropTypes from 'prop-types'
 import Select from '../utilities/Select'
@@ -45,7 +45,7 @@ const HeadingTag = styled.strong`
   font-family: "Gotham Bold";
 `;
 
-const CardLink = styled(Link)`
+const CardLink = styled.a`
     margin: 0 auto;
 `;
 
@@ -281,7 +281,7 @@ export const Course = ({data, footer, hideStats, location, hideCaption}) => {
       return `${data.frontmatter.city}, ${data.frontmatter.country}`;
     }
 
-    return <CardLink to={data.fields.slug} className="is-quarter">
+    return <CardLink href={data.fields.slug} className="is-quarter">
         <Card id={slugify(data.frontmatter.featuredDetails.name, {remove: /[*+~.()'"!:@]/g})} className={classes()} onMouseEnter={() => mouseEnter()} onMouseLeave={() => mouseLeave()}>
             <CardImageWrap className="cardImage">
             <figure className="image is-4by3">

@@ -2,7 +2,6 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 import { v4 } from 'uuid'
 
 const FooterWrap = styled.section`
@@ -28,7 +27,7 @@ const FooterWrap = styled.section`
   }
 `
 
-const MenuLink = styled(Link)`
+const MenuLink = styled.a`
   color: #fff;
   font-family: 'Gotham Bold';
   font-size: 18px;
@@ -67,7 +66,7 @@ const FontAwesome = styled.i`
 
 const Social = ({ link }) => (
   <FontAwesomeItem>
-    <MenuLink to={link.href}>
+    <MenuLink href={link.href}>
       <FontAwesome className={`fab fa-${link.text}`} />
     </MenuLink>
   </FontAwesomeItem>
@@ -79,7 +78,7 @@ const Menu = ({ link }) => {
     children = link.children.map((child, index) => (
       <li key={v4()}>
         <MenuLink
-          to={child.href}
+          href={child.href}
           link={child}
           style={{
             fontWeight: '300',
@@ -96,7 +95,7 @@ const Menu = ({ link }) => {
 
   return (
     <li>
-      <MenuLink to={link.href}>{link.text}</MenuLink>
+      <MenuLink href={link.href}>{link.text}</MenuLink>
       {children}
     </li>
   )

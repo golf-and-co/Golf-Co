@@ -109,8 +109,8 @@ const SendRequest = ({ data }) => <Layout>
                   <label className="label">Date</label>
                   <div className="control has-icons-right" style={{width:"210px", margin:"0 auto"}}>
                       <DatePicker className="is-rounded " type="date" id="datepicker" defaultValue={new Date().toISOString().slice(0, 10)} required={"required"} />
-                      <span class="icon is-small is-right">
-                        <i class="fa fa-calendar is-right" style={{color:"#1d8649", right:"15px"}}></i>
+                      <span className="icon is-small is-right">
+                        <i className="fa fa-calendar is-right" style={{color:"#1d8649", right:"15px"}}></i>
                       </span>
                   </div>
               </div>
@@ -149,14 +149,14 @@ const SendRequest = ({ data }) => <Layout>
                   <label className="label">Contact Number</label>
                   <div className="control">
                       <div id="phoneWrap">
-                        <div class="control has-icons-left">
-                          <div class="select" id="countryCode">
+                        <div className="control has-icons-left">
+                          <div className="select" id="countryCode">
                             <select className="input is-rounded" style={{padding:"0 30px"}}>
                               <option>+971</option>
                               <option>+974</option>
                             </select>
                           </div>
-                          <div class="icon is-small is-left">
+                          <div className="icon is-small is-left">
                             <ReactCountryFlag code="AE" />
                           </div>
                         </div>

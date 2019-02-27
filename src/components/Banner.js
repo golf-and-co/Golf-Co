@@ -75,7 +75,7 @@ const Banner = ({home}) => <div style={{padding:"70px 0"}}><BannerWrap onClick={
   </div>;
 
 Banner.propTypes = {
-    data: PropTypes.object.isRequired,
+    home: PropTypes.object.isRequired,
 }
 
 export default Banner;
