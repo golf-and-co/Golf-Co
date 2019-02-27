@@ -164,7 +164,7 @@ const ViewCourseButton = styled.a`
   margin: auto 10px;
   width: 200px;
   height: 50px !important;
-  font-size: 16px;
+  font-size: 14px !important;
   font-weight: 700;
   border: none !important;
   background-color: #18438b !important;
