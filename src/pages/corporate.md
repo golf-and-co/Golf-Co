@@ -9,16 +9,26 @@ paragraph1: >-
   clients for their valued custom. At Golf & Co. we practice what we preach,
   which is why our Corporate Golf Days are in a class of their own.
 paragraph2: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-  nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-  eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-  in culpa qui officia deserunt mollit anim id est laborum.
-heading1: Golf Themed Team Building Activities
+  Well-organised Corporate Golf Days create the opportunity for a 10-hour sales
+  call. Compare this to the average 20-minute appointment with a harried client
+  and it becomes clear that a golf day can do wonders for your client
+  relationships. Corporate Golf Days are also extremely effective at luring
+  senior executives away from their heavy workloads and other commitments.
+  Additionally, Corporate Golf Days provide the smart golf day organiser with
+  the chance to pair two attendees up with each other for their mutual benefit.
+  In short, Corporate Golf Days create cost-effective networking opportunities,
+  build brand loyalty and create goodwill among both customers and staff.
+heading1: The Benefits
 paragraph3: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-  incididunt ut labore et dolore magna aliqua
+  Golf & Co.'s experience in running corporate golf days will relieve you of all
+  the time and effort involved in arranging your event, allowing you to sit back
+  and enjoy your day. Through our close association with numerous venues around
+  the UAE are able to find the right venue to suit your budget, location and
+  golfing requirements. We provide our clients with flexible and efficient
+  solutions for promoting their golf events - while managing the time-consuming
+  administration and logistical tasks associated with organising the event. This
+  allows clients to focus on marketing and promoting the Corporate Golf Day -
+  and thoroughly enjoying it.
 paragraph4: >-
   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
   aliquip ex ea commodo consequat.
