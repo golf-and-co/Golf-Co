@@ -223,11 +223,11 @@ const Search = styled.aside`
 
 // @TODO: use refs
 const courseMouseEnter = (data) => {
-    document.querySelector(`#${slugify(data.frontmatter.title, {remove: /[*+~.()'"!:@]/g})} .cardContent`).className +=' cardContentHover';
+    document.querySelector(`#${slugify(data.frontmatter.featuredDetails.name, {remove: /[*+~.()'"!:@]/g})} .cardContent`).className +=' cardContentHover';
 }
 
 const courseMouseExit = (data) => {
-    let featured = document.querySelector(`#${slugify(data.frontmatter.title, {remove: /[*+~.()'"!:@]/g})} .cardContent`);
+    let featured = document.querySelector(`#${slugify(data.frontmatter.featuredDetails.name, {remove: /[*+~.()'"!:@]/g})} .cardContent`);
     featured.className = featured.className.replace(/ cardContentHover/g, '');
 }
 
@@ -274,8 +274,15 @@ export const Course = ({data, footer, hideStats, location, hideCaption}) => {
       }
     }
 
+    const description = () => {
+      if(data.frontmatter.cardDescription) {
+        return data.frontmatter.cardDescription;
+      }
+      return `${data.frontmatter.city}, ${data.frontmatter.country}`;
+    }
+
     return <CardLink to={data.fields.slug} className="is-quarter">
-        <Card id={slugify(data.frontmatter.title, {remove: /[*+~.()'"!:@]/g})} className={classes()} onMouseEnter={() => mouseEnter()} onMouseLeave={() => mouseLeave()}>
+        <Card id={slugify(data.frontmatter.featuredDetails.name, {remove: /[*+~.()'"!:@]/g})} className={classes()} onMouseEnter={() => mouseEnter()} onMouseLeave={() => mouseLeave()}>
             <CardImageWrap className="cardImage">
             <figure className="image is-4by3">
                 <CardImage src={
@@ -290,7 +297,7 @@ export const Course = ({data, footer, hideStats, location, hideCaption}) => {
             <div className="content">
                 {data.frontmatter.featuredDetails.name}
                 <br />
-                <CardContentTag>{data.frontmatter.city}, {data.frontmatter.country}</CardContentTag>
+                <CardContentTag>{description()}</CardContentTag>
             </div>
             <Stats data={data.frontmatter} hideStats={hideStats}/>
             </CardContent>

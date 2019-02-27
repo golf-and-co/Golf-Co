@@ -15,6 +15,18 @@ import Footer from "../components/Footer";
 const Background = styled.section`
     padding-bottom: 200px;
     background-color: #E4ECD9;
+    
+    .cardContent .content {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .cardContent .content .date {
+      color:#797979;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
 `;
 
 const Wrap = styled.section`
@@ -152,6 +164,7 @@ const gallery = ({ data, location }) => {
           <Grid data={data.gallery.edges.map(edge => {
             // want first gallery image, not gallery hero to show in listing grid
             edge.node.frontmatter.image = edge.node.frontmatter.images[0].image.publicURL;
+            edge.node.frontmatter.cardDescription = <span>{edge.node.frontmatter.location}<br /><span class="date">{edge.node.frontmatter.date}</span></span>;
             return edge;
           })} slug={"gallery"} footer={false} hideStats={true} location={location} hideCaption={true} />
         </div>
