@@ -19,12 +19,17 @@ const Side = styled.nav`
   width: 30vw;
   height: 102vh;
   top: 0;
-  right: 0;
   background: #FFF !important;  
   color: #444 !important;
   font-size:30px;
   box-shadow: inset 0 0 5px #CCC;
-  /* animation: ${width25} 0s ease-in-out 1s 1; */
+
+  transition: right 0.5s ease-out;
+  
+  &.navbar {
+    display: block;
+    z-index: 100;
+  }
 
   @media (max-width: 768px) {
     position: absolute;
@@ -203,10 +208,10 @@ const Menu = ({ link }) => {
 
 const Nav = (props) => {
   // Declare a new state variable, which we'll call "count"
-  const [visible, setVisibility] = useState("none");
+  const [right, setRight] = useState("-30vw");
   // Hamburger menu click handler
   const click = () => {
-    setVisibility('block'); 
+    setRight('0'); 
   }
   return <span>
   <Side
@@ -214,7 +219,7 @@ const Nav = (props) => {
     role="navigation"
     aria-label="main-navigation"
     id="nav"
-    style={{ display: visible }}
+    style={{ right: right }}
   >
     <Heading className="navbar-start has-text-centered">
       <HeaderLink className="navbar-item" to="/">
@@ -233,7 +238,7 @@ const Nav = (props) => {
         <HeaderLink className="navbar-item" to="/">
           <i className="fas fa-home" />
         </HeaderLink>
-        <HeaderAnchor className="navbar-item" onClick={() => {setVisibility("none")}}>
+        <HeaderAnchor className="navbar-item" onClick={() => {setRight("-30vw")}}>
           <i className="fas fa-times-circle " />
         </HeaderAnchor>
       </div>

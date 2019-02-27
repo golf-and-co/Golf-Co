@@ -92,7 +92,7 @@ const CardContent = styled.div`
   position: relative;
   z-index: 100;
   background-color: #FFF !important;
-  transition: height 1s ease-out, top 1s ease-out;
+  transition: height 0.5s ease-out, top 0.5s ease-out;
   height: 100px;
   top: 0px;
   overflow: hidden;
