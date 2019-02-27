@@ -24,14 +24,13 @@ paragraph3: >-
   the time and effort involved in arranging your event, allowing you to sit back
   and enjoy your day. Through our close association with numerous venues around
   the UAE are able to find the right venue to suit your budget, location and
-  golfing requirements. We provide our clients with flexible and efficient
-  solutions for promoting their golf events - while managing the time-consuming
-  administration and logistical tasks associated with organising the event. This
-  allows clients to focus on marketing and promoting the Corporate Golf Day -
-  and thoroughly enjoying it.
+  golfing requirements.
 paragraph4: >-
-  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-  aliquip ex ea commodo consequat.
+  We provide our clients with flexible and efficient solutions for promoting
+  their golf events - while managing the time-consuming administration and
+  logistical tasks associated with organising the event. This allows clients to
+  focus on marketing and promoting the Corporate Golf Day - and thoroughly
+  enjoying it.
 sendEnquiry: Send Enquiry
 ---
 
