@@ -6,6 +6,7 @@ import HeroSmall from "../components/HeroSmall";
 import styled from 'styled-components'
 import Slider from "react-slick";
 import Footer from '../components/Footer';
+import { v4 } from 'uuid';
 
 const Wrap = styled.div`
   .slick-slider {
@@ -34,9 +35,9 @@ return <Layout>
   </div>
   <div style={{paddingBottom:"200px", backgroundColor:"#E4ECD9"}}>
     <Wrap className="container">
-      <Slider {...{dots:true, slidesToShow: data.imagesPerSlide, slidesToScroll: data.imagesPerSlide}}>
+      <Slider {...{dots:true, slidesToShow: parseInt(data.markdownRemark.frontmatter.imagesPerSlide), slidesToScroll: parseInt(data.markdownRemark.frontmatter.imagesPerSlide), infinite:true}}>
         {data.markdownRemark.frontmatter.images.map(entry => {
-          return <div><img src={entry.image.publicURL} alt="Gallery"/></div>;
+          return <div key={v4()} ><img src={entry.image.publicURL} alt="Gallery"/></div>;
         })}
       </Slider>
     </Wrap>
@@ -78,6 +79,7 @@ export const galleryDetailsQuery = graphql`
             }
           }
         }
+        imagesPerSlide
       }
     }
   }
