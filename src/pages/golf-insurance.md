@@ -1,12 +1,12 @@
 ---
 templateKey: golfInsurance
-image: /img/golf-insurance.png
+image: /img/golf-insurance-1080p.jpg
 paragraph1: >-
-  We know how much your golf clubs and equipment are worth to you which is why
-  we cover any damage to your golf bags, clubs and select accessories in the
-  case of fire or burglary. You also have the peace of mind to know that your
-  golf equipment is covered by us even while you’re travelling between your home
-  and any UAE golf course.
+  Hit the golf course with confidence and peace of mind with an exceptional
+  value-for-money insurance package that meets the needs of individual golfers.
+  Coverage extends to your valuable golf clubs and equipment, your legal
+  responsibilities for accidental injury to anyone or accidental damage to
+  property, and even the bar bill if you hit that elusive hole in one.
 infographics:
   - description: Protection for all your golf equipment both at home and on the course
     image: /img/icons8-security_checked.png
