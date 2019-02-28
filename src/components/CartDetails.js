@@ -154,6 +154,10 @@ const Courses = styled.div`
   a {
     margin: 10px auto;
   }
+
+  & .content {
+    font-size: 18px;
+  }
 `;
 
 const addOnChange = ({id, price}) => {
