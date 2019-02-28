@@ -122,7 +122,7 @@ PageTemplate.propTypes = {
   title: PropTypes.string
 };
 
-const Controls = ({countries, cities, hotelType, duration}) => 
+const Controls = ({countries, cities, hotelType, duration, rounds}) => 
 <ControlWrap className="column is-one-fifth">
   <ControlBox>
     <Control>
@@ -155,6 +155,15 @@ const Controls = ({countries, cities, hotelType, duration}) =>
       <Button value={"Select"} />
     </Control>    
   </ControlBox> 
+  <br />
+  <ControlBox>
+    <Control>
+      <h6 style={{display: "flex", padding: "5px 10px"}}>Rounds <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
+      {rounds.map(round => <Checkbox key={slugify(round)} name="rounds" value={round} />)}
+      <br />
+      <Button value={"Select"} />
+    </Control>    
+  </ControlBox> 
 </ControlWrap>
 
 const packageDetails = ({ data, location }) => {  
@@ -163,13 +172,14 @@ const packageDetails = ({ data, location }) => {
   const cities = aggregate(data.packages.edges, {parent:"country", child:"city"});
   const hotelType = aggregate(data.packages.edges, "hotelType");
   const duration = aggregate(data.packages.edges, "duration");
+  const rounds = aggregate(data.packages.edges, "rounds");
   
   return <Layout>
     <HeroSmall data={data.packageListingPage.edges[0].node.frontmatter} />
     <Content data={data.packageListingPage.edges[0].node.frontmatter} />
     <Background>
       <Wrap className="columns">
-        <Controls countries={countries} cities={cities} hotelType={hotelType} duration={duration} />
+        <Controls countries={countries} cities={cities} hotelType={hotelType} duration={duration} rounds={rounds} />
         <div className="column is-four-fifth">
           <Grid data={data.packages.edges} slug={"packages"} footer={true} hideStats={false} location={location} />
         </div>
@@ -231,6 +241,7 @@ export const packageDetailsQuery = graphql`
           country
           hotelType
           duration
+          rounds
         }
        }
     }
