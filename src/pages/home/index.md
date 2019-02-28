@@ -58,6 +58,14 @@ footerColumn1:
         text: Oman
     href: courses
     text: Golf Courses
+  - href: /bespoke-golf-holidays
+    text: Bespoke Golf Experiences
+  - href: /packages
+    text: Exclusive Golf Packages
+  - href: /golf-insurance
+    text: Golf Insurance
+  - href: /corporate
+    text: Corporate Golf Days
 footerColumn2:
   - href: /
     text: About Golf & Co.
