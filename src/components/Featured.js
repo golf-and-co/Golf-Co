@@ -168,12 +168,6 @@ const ViewCourseButton = styled.a`
   font-weight: 700;
   border: none !important;
   background-color: #18438b !important;
-
-  @media (max-width: 768px) {
-    position: absolute !important;
-    top: 75px;
-    left: calc(50% - 100px);
-  }
 `
 
 const Rounds = styled.div`
@@ -218,6 +212,7 @@ const Search = styled.aside`
 
   @media (max-width: 768px) {
     max-width: 340px;
+    margin: 0 auto 60px;
   }
 `
 
