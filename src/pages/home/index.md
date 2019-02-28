@@ -28,19 +28,6 @@ infographicsContainer:
 featured:
   heading1: Browse
   heading2: Golf Courses
-course1:
-  description: 'Yas Islands, Abu Dhabi'
-  heading: Yas Links Golf Course
-  image: /img/abu-dhabi.png
-course2:
-  description: 'Yas Islands, Abu Dhabi'
-  heading: Yas Links Golf Course
-course3:
-  description: 'Yas Islands, Abu Dhabi'
-  heading: Yas Links Golf Course
-course4:
-  description: 'Yas Islands, Abu Dhabi'
-  heading: Yas Links Golf Course
 featuredViewAll: View All Golf Courses
 featuredBanner:
   image: /img/featured-banner.png
