@@ -32,8 +32,7 @@ const Side = styled.nav`
   }
 
   @media (max-width: 768px) {
-    position: absolute;
-    width: 96vw;
+    display: none;
   }
 `
 
