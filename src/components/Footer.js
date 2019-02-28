@@ -74,7 +74,7 @@ const Social = ({ link }) => (
 
 const Menu = ({ link }) => {
   let children = ''
-  if (typeof link.children !== 'undefined') {
+  if (typeof link.children !== 'undefined' && link.children !== null) {
     children = link.children.map((child, index) => (
       <li key={v4()}>
         <MenuLink
