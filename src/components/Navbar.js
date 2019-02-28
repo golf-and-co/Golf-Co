@@ -32,7 +32,10 @@ const Side = styled.nav`
   }
 
   @media (max-width: 768px) {
+    position: absolute !important;
     display: none;
+    width: 100vw;
+    height: auto;
   }
 `
 
@@ -129,8 +132,16 @@ const HamburgerWrap = styled.div`
   color: #fff;
   margin: 45px 60px;
 
+  &.navbar-burger {
+    display: block;
+  }
+
   :hover {
     background-color: transparent !important;
+  }
+
+  @media (max-width: 768px) {
+    top: 0px;  
   }
 `
 
@@ -156,7 +167,7 @@ const Hamburger = ({click}) => {
 
   return <HamburgerWrap
     id="hb"
-    className="navbar-burger burger is-visible-desktop is-hidden-mobile"
+    className="navbar-burger burger"
     data-target="navMenu"
     onClick={click}
   >
@@ -207,7 +218,7 @@ const Menu = ({ link }) => {
 
 const Nav = (props) => {
   // Declare a new state variable, which we'll call "count"
-  const [right, setRight] = useState("-30vw");
+  const [right, setRight] = useState("-100vw");
   const [overlay, setOverlay] = useState("none");
   // Hamburger menu click handler
   const click = () => {
@@ -225,7 +236,7 @@ const Nav = (props) => {
       zIndex: "10",
       display: overlay
   }} onClick={() => {
-      setRight("-30vw");
+      setRight("-100vw");
       setOverlay("none") 
   }
     }></div>
@@ -254,7 +265,7 @@ const Nav = (props) => {
           <i className="fas fa-home" />
         </HeaderLink>
         <HeaderAnchor className="navbar-item" onClick={() => { 
-          setRight("-30vw");
+          setRight("-100vw");
           setOverlay("none");
         }}>
           <i className="fas fa-times-circle " />

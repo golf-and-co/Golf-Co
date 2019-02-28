@@ -96,6 +96,7 @@ const CardContent = styled.div`
   height: 100px;
   top: 0px;
   overflow: hidden;
+  border-radius: 6px;
 
   #stats {
       width: 260px;
