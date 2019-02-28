@@ -2,14 +2,15 @@
 templateKey: bespoke-golf-holidays
 image: /img/bespoke.png
 title: Bespoke Golf Holidays
-heading1: We Create Lifetime Memories Out of Extraordinary Moments
+heading1: When Extraordinary Isn't Enough
 paragraph1: >-
-  Our goal is to bring you luxury, outstanding customer service and a chance to
-  play at World’sfinest Golf courses and Private clubs. Let us take you on a
-  journey through time as you followin the footsteps of the world’s great
-  golfers. Every step of the way we will ensure that you areprovided with the
-  highest level of service, whilst staying in the finest hotels and dining in
-  someof our most highly acclaimed restaurants.
+  Unlike some luxury golf holidays that are fashioned with little or no
+  attention to detail and which do not meet your expectations, you will find
+  that our Bespoke Golf Experiences are created with great care to ensure we
+  meet all your requirements. Golf & Co.'s reputation and contacts give us
+  access to the world's best golf courses, most exclusive hotels and resorts,
+  finest restaurants and personal shopping. Most importantly our service is
+  exemplary.
 benefits:
   - description: MICHELIN STAR RESTAURANTS
     image: /img/bespoke_1.png
@@ -19,20 +20,20 @@ benefits:
     image: /img/bitmap-copy-3.png
   - description: EXPERT TOUR GUIDES
     image: /img/bitmap_4.png
-headingPackage: VIEW OUR SAMPLE ITINERARIES
+headingPackage: VIEW OUR SPECIAL ITINERARIES
 packages:
-  - heading: Great Britain
+  - heading: Europe
     image: /img/bespoke1.png
   - heading: Asia
     image: /img/bespoke2.png
-  - heading: 'West Coast, USA'
+  - heading: Africa
     image: /img/bespoke3.png
-  - heading: 'East Coast, USA'
+  - heading: United States of America
     image: /img/bespoke4.png
-heading2: Not Sure Which Package Suits You? Let Us Help!
+heading2: Not Unique Enough? Let Us Help!
 paragraph2: >-
-  Etiam nec tellus eu lorem sodales placerat. Sed non est libero. Aliquam
-  scelerisque dignissim turpis, sed facilisis eros bibendum aliquam. Nulla
-  sagittis tempor turpis, consectetur.
+  We at Golf & Co. pride ourselves in turning your dreams into an exclusive
+  experience that will last a lifetime. Our team of inhouse experts is at your
+  service to turn dreams into reality.
 ---
 
