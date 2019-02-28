@@ -21,9 +21,9 @@ description: >-
   aliquet. Etiam porta cursus urna ac suscipit. Donec et eros nulla.
 city: Dubai
 country: UAE
-hotelType: '5'
-duration: '7'
-rounds: '6'
+hotelType: 5 Stars
+duration: 7 Days or More
+rounds: 6 Rounds
 price: '4500'
 searchable: true
 stats:
