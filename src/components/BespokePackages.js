@@ -59,7 +59,7 @@ const BespokePackages = ({ data }) => {
         <Heading>{data.heading2}</Heading>
         <Paragraph>{data.paragraph2}</Paragraph>
       </Container>
-      <a href="/" className="button is-link is-rounded" style={{background:"#A8844E", padding:"20px", fontSize: "16px", fontFamily: "Gotham Bold"}}>GET IN TOUCH WITH US</a>
+      <a href="/" className="button is-link is-rounded" style={{background:"#A8844E", padding:"20px", fontSize: "16px", fontFamily: "Gotham Bold"}}>START YOUR JOURNEY NOW</a>
     </Wrap>
   );
 };
