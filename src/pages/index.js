@@ -39,6 +39,8 @@ export const golfInsuranceQuery = graphql`{
               image {
                 publicURL
               }
+              url
+              urlText
             }
           }
           recentCalendar {

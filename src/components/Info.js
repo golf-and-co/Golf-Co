@@ -74,8 +74,9 @@ const Button = styled.a`
     font-weight: 300;
     text-transform: uppercase;
     border-color: #1d8649 !important;
+    text-align: center;
     margin: 0 auto;
-    width: 80%;
+    width: 95%;
 `;
 
 const Body = styled.p`
@@ -101,7 +102,7 @@ const Element = ({data}) => {
     <img src={data.image.publicURL} alt="Tailor Made" />
     <Heading className="fillHeading">{data.heading}</Heading>
     <Body className="body">{data.description}</Body>
-    <Button href={"/" + data.url} className="button is-rounded">{data.urlText}</Button>    
+    <Button href={data.url} className="button is-rounded">{data.urlText}</Button>    
   </Graphic>;
 }
 
