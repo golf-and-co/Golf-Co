@@ -47,7 +47,7 @@ const Graphic = styled.div`
 
   @media (min-width: 768px) {
     max-width: 200px;
-    margin: auto 45px;
+    margin: 0 45px;
   }
 
   @media (max-width: 768px) {
@@ -67,11 +67,23 @@ const Heading = styled.p`
   line-height: 1.125;
 `
 
+const Button = styled.a`
+    display: block !important;
+    background:none !important;
+    color: #1d8649 !important;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-color: #1d8649 !important;
+    margin: 0 auto;
+    width: 80%;
+`;
+
 const Body = styled.p`
   color: #4a4a4a;
   font-size: 14px;
   font-weight: 300;
   line-height: 16px;
+  height: 80px;
 `
 
 const InfographicsHeader = styled.p`
@@ -89,6 +101,7 @@ const Element = ({data}) => {
     <img src={data.image.publicURL} alt="Tailor Made" />
     <Heading className="fillHeading">{data.heading}</Heading>
     <Body className="body">{data.description}</Body>
+    <Button href={"/" + data.url} className="button is-rounded">{data.urlText}</Button>    
   </Graphic>;
 }
 

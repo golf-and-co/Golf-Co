@@ -19,7 +19,7 @@ collections:
           - {label: "Heading First Line", name: heading1, widget: string}
           - {label: "Heading Second Line", name: heading2, widget: string}
           - {label: "Heading Paragraph", name: headingParagraph, widget: string}
-          - {label: "Infographics", name: infographicsContainer, widget: object, fields: [{label: "Infographics Header", name: infographicsHeader, widget: string},{label: "Infographics", name: infographics, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}]}]}
+          - {label: "Infographics", name: infographicsContainer, widget: object, fields: [{label: "Infographics Header", name: infographicsHeader, widget: string},{label: "Infographics", name: infographics, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Url, name: url, widget: text}, {label: "Url Text", name: urlText, widget: text}]}]}
           - {label: "Featured", name: featured, widget: object, fields: [{label: "Heading First Line", name: heading1, widget: string}, {label: "Heading Second Line", name: heading2, widget: string}]}
           - {label: "Featured View All Text", name: featuredViewAll, widget: string}
           - {label: "Featured Banner", name: featuredBanner, widget: object, fields: [{label: Desktop Image, name: image, widget: image}, {label: Mobile Image, name: mobileImage, widget: image}, {label: "Heading Line 1", name: heading1, widget: string}, {label: "Heading Line 2", name: heading2, widget: string}]}
