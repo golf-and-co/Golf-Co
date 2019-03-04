@@ -127,10 +127,10 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
       - {label: Hero, name: image, widget: image}
       - {label: "Name", name: "title", widget: "string"}
-      - {label: "Location", name: "location", widget: "string"}
-      - {label: "Date", name: "date", widget: "string"}
-      - {label: "Type", name: type, widget: list, fields: [{label: "Label", name: label, widget: string}]}
-      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Location", name: "location", widget: "string", required: false}
+      - {label: "Date", name: "date", widget: "string", required: false}
+      - {label: "Type", name: type, widget: list, fields: [{label: "Label", name: label, widget: string}], required: false}
+      - {label: "Description", name: "description", widget: "text", required: false}
       - {label: "Images", name: "images", widget: "list", fields: [{label: "Image", name: image, widget: image}]}
       - {label: "Images Per Slide", name: "imagesPerSlide", widget: "string"}
   - name: "testimontial"
