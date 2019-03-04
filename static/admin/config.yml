@@ -124,7 +124,7 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "galleryDetails"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
       - {label: Hero, name: image, widget: image}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Location", name: "location", widget: "string"}
