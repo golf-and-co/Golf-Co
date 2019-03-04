@@ -1,6 +1,7 @@
 ---
 templateKey: event
-image: /img/hero_small.png
+image: >-
+  https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/hero_small.png
 title: Dubai Creek and Yacht Club
 location: Dubai Creek and Yacht Club
 date: 7 Dec 2018
