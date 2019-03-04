@@ -8,6 +8,7 @@ const Background = styled.div`
   background: #f6f9f2;
   padding-bottom: 10px;
   text-align: center;
+  position: relative;
 `
 
 const HeroWrap = styled.section`
@@ -53,8 +54,62 @@ const Logo = styled(Link)`
   }
 `
 
+const Weather = styled.div`
+  font-size: 16px;
+  font-family: 'Gotham Book';
+  text-align: left;
+  margin-left: 20px;
+  color: white;
+  width: 20%;
+  position: absolute;
+  bottom: 75px;
+`
+
+function getCurrentWeather(weather) {
+  const utcoffsetMinutes = weather
+                            .edges[0]
+                            .node
+                            .xmlChildren
+                            .find(element => element.name === "timezone")
+                            .attributes
+                            .utcoffsetMinutes;
+
+    const currentDate = new Date();
+    const currentUTCTime = new Date(new Date().getTime() + utcoffsetMinutes * 60 * 1000 + currentDate.getTimezoneOffset() * 60 * 1000);
+    //find weather correct for our time
+    const currentWeather = weather
+                            .edges[1]
+                            .node
+                            .xmlChildren[0].children.find(weather => {
+                              const from = new Date(weather.attributes.from);
+                              const to = new Date(weather.attributes.to);
+                              if(currentUTCTime >= from && currentUTCTime <= to)
+                                return true;
+                            });
+
+    //if weather not found, then assume first is correct
+    if(!currentWeather) {
+      currentWeather = weather
+        .edges[1]
+        .node
+        .xmlChildren[0].children[0];
+    }
+
+    const celsiusDegrees = weather
+                            .edges[1]
+                            .node
+                            .xmlChildren[0]
+                            .children[0]
+                            .children.find(weatherElement => weatherElement.name === "temperature")
+                            .attributes
+                            .value;
+
+    return {celsius: celsiusDegrees, fahrenheit: parseInt((celsiusDegrees*1.8)+32)}
+}
+
 const Hero = ({ data }) => {
   const homepage = data.homepage.edges[0].node.frontmatter;
+  const weather = getCurrentWeather(data.weather);
 
   return <Background>
     <HeroWrap
@@ -66,7 +121,12 @@ const Hero = ({ data }) => {
         })`,
       }}
     >
+    <Weather>
+      <div>Current temperature on Dubai</div>
+      <div>{weather.celsius} &#x2103; | {weather.fahrenheit} &#x2109;</div>
+    </Weather>
       <div className="container content is-fluid">
+        
         <div className="column is-10 is-offset-1">
           <Logo to="/" className="navbar-item" title="Logo">
             <img src={logo} alt="GolfAndCo" />
@@ -103,6 +163,43 @@ export default props => (
             }
           }
         },
+        weather: allWeatherXml(filter: {name: {in: ["location", "forecast"]}}) {
+          edges {
+            node {
+              xmlChildren {
+                name
+                attributes {
+                  utcoffsetMinutes
+                }
+                children {
+                  children {
+                    name
+                  }
+                  name
+                  attributes {
+                    from
+                    to
+                    period
+                  }
+                  children {
+                    name
+                    attributes {
+                      number
+                      numberEx
+                      name
+                      var
+                      value
+                      deg
+                      code
+                      mps
+                      unit
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
         courses:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "course"}, isFeatured:{eq: true}}}, limit:4 sort:{fields:frontmatter___date, order:DESC}){
           edges{
             node{
