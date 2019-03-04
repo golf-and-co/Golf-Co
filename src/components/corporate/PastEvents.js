@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
+import { Course } from '../../components/Featured'
 
 const Wrap = styled.section`
   background-color: #e4ecd9;
@@ -32,99 +33,6 @@ const Events = styled.div`
   width: 100%;
 `
 
-const Card = styled.div`
-  width: 260px;
-  height: 320px;
-  border-radius: 6px;
-  background-color: #ffffff;
-  margin: 0px 15px 0px 15px;
-
-  @media (max-width: 768px) {
-    margin: 0px auto 40px auto;
-  }
-`
-
-const CardImageWrap = styled.div`
-  height: 216px;
-  position: relative;
-  z-index: 0;
- 
-`;
-
-const CardImage = styled.img`
-  height:216px !important;
-  border-radius: 6px 6px 0 0;
-`;
-
-const CardContent = styled.div`
-  color: #000000;
-  font-size: 20px;
-  font-weight: 300;
-  padding: 16px 0 0 0px !important;
-  position: relative;
-  z-index: 0;
-  background-color: #FFF !important;
-  transition: height 1s ease-out, top 1s ease-out;
-  height: 100px;
-  top: 0px;
-  overflow: hidden;
-
-  #stats {
-      width: 260px;
-      height: 325px;
-      background-color: #81AA8C;
-  }
-
-  #stats ul {
-    color: #FFF;
-    font-size: .8rem;
-  }
-
-  #stats ul li {
-    border-color: #1d8649;
-    padding-top: 10px;
-  }
-
-  #stats ul li i {
-    color: #CFDDBB;
-  }
-
-  .content {
-      margin-left: 15px;
-   }
-`;
-
-const CardContentTitle = styled.div`
-   font-size: 17px;
-   font-weight: 900;
-   white-space: nowrap;
-   text-overflow: ellipsis;
-   overflow: hidden;
-   width: 100%;
-   color: black;
-   line-height: 120%;
-`
-const CardContentSubTitle = styled.div`
-   font-size: 15px;
-   font-weight: 100;
-   white-space: nowrap;
-   text-overflow: ellipsis;
-   overflow: hidden;
-   width: 100%;
-   color: #878787;
-   line-height: 120%;
-`
-
-const CardContentDate = styled.div`
-   font-size: 14px;
-   font-weight: 900;
-   white-space: nowrap;
-   text-overflow: ellipsis;
-   width: 100%;
-   color: #8a8a8a;
-   line-height: 120%;
-`
-
 const Button = styled.button`
   display:block !important;
   width: 150px;
@@ -146,16 +54,16 @@ const Content = () =>   {
         }, limit: 4){
             edges{
               node{
+                fields {
+                  slug
+                }
                 frontmatter{
                   title
                   description
-                  from
-                  to
-                  background {
-                    childImageSharp {
-                      fluid(maxWidth: 2048, quality: 100) {
-                        ...GatsbyImageSharpFluid
-                      }
+                  date
+                  images {
+                    image {
+                      publicURL
                     }
                   }
                 }
@@ -164,30 +72,37 @@ const Content = () =>   {
           }
         }`
       }
-      render={data => (
-        <Events>
-          {data.allMarkdownRemark.edges.map(({node}) => {
-            return <Card>
-              <CardImageWrap>
-                  <CardImage src={
-                  !!node.frontmatter.background.childImageSharp
-                      ? node.frontmatter.background.childImageSharp.fluid.src
-                      : node.frontmatter.background
-                  } alt="Placeholder" />
-              </CardImageWrap>
-              <CardContent>
-                <div className="content">
-                  <CardContentTitle>{node.frontmatter.title}</CardContentTitle>
-                  <CardContentSubTitle>{node.frontmatter.description}</CardContentSubTitle>
-                  <CardContentDate>{node.frontmatter.from}</CardContentDate>
-                </div>
-              </CardContent>
-            </Card>
+      render={data => {
+        return <Events className="container">
+          {data.allMarkdownRemark.edges.map( edge => {
+            // @TODO: centralize cards, take from /components/Featured
+            edge.node.frontmatter.image = edge.node.frontmatter.images[0].image.publicURL;
+            edge.node.frontmatter.cardDescription = <span class="event">{edge.node.frontmatter.location}<br /><span class="date">{edge.node.frontmatter.date}</span></span>;
+            return <Course
+            data={{
+              frontmatter: {
+                featuredDetails: {
+                  image: edge.node.frontmatter.image,
+                  name: edge.node.frontmatter.title,
+                },
+                stats: edge.node.frontmatter.stats,
+                city: edge.node.frontmatter.city,
+                country: edge.node.frontmatter.country,
+                cardDescription: edge.node.frontmatter.cardDescription,
+              },
+              fields: {
+                slug: edge.node.fields.slug,
+              },
+            }}
+            footer={false} 
+            hideStats={true}
+            hideCaption={true}
+          />
           })}
         </Events>
-      )}>
+      }}>
     </StaticQuery>
-    <Button className="button is-rounded" onClick={() => window.location.href = "/gallery"}>View all</Button>
+    <Button className="button is-rounded" onClick={() => window.location.href = "/events"}>View all</Button>
   </Wrap>)
 }
 

@@ -1,11 +1,24 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import { Course } from '../components/Featured'
 import styled from 'styled-components'
-import moment from "moment";
 import PropTypes from 'prop-types'
 
 const Cards = styled.section`
   justify-content: center;
+
+  & .content {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0;
+    margin: 0 20px;
+    text-align: center;
+  }
+
+  & .content .date {
+    display: none;
+  }
 `
 
 const Header = styled.section`
@@ -24,38 +37,6 @@ const HeaderStrong = styled.strong`
   font-weight: 900;
 `
 
-const CardWrap = styled.section`
-  color: #9b9b9b;
-  font-family: 'Gotham Book';
-  font-size: 14px;
-  font-weight: 300;
-  background-color: #fff;
-  width: 260px;
-  margin: 25px 25px 0 25px;
-
-  @media (max-width: 768px) {
-    margin: 25px auto;
-  }
-
-  img {
-    height: 173px;
-    border-radius: 10px 10px 0 0;
-  }
-`
-
-const CardHeader = styled.section`
-  color: #000000;
-  font-family: 'Gotham Book';
-  font-size: 18px;
-  line-height: 20px;
-  font-weight: 300;
-  padding: 12px 20px 0px 15px;
-`
-const CardDescription = styled.section`
-  font-size: 14px;
-  padding: 12px 20px 15px 15px;
-`
-
 const ViewAllButton = styled.button`
   display: block !important;
   margin: 20px auto 44px auto;
@@ -71,36 +52,51 @@ const Columns = styled.div`
   justify-content: center;
 `
 
-const Card = ({ card }) => (
-  <CardWrap>
-    <div>
-      <img src={card.image.publicURL} alt={card.title} />
-    </div>
-    <CardHeader>{card.title}</CardHeader>
-    <CardDescription>{card.description}<br /><strong>{moment(card.from).format("d MMM YYYY")}</strong></CardDescription>
-  </CardWrap>
-)
+const Card = ({ edge }) => {
+
+  return <Course
+    data={{
+      frontmatter: {
+        featuredDetails: {
+          image: edge.node.frontmatter.image,
+          name: edge.node.frontmatter.title,
+        },
+        stats: edge.node.frontmatter.stats,
+        city: edge.node.frontmatter.city,
+        country: edge.node.frontmatter.country,
+        cardDescription: edge.node.frontmatter.cardDescription,
+      },
+      fields: {
+        slug: edge.node.fields.slug,
+      },
+    }}
+    footer={false} 
+    hideStats={true}
+    hideCaption={true}
+  />
+}
 
 export const Blog = ({ data, headline }) => {
 
-  return <Cards>
+  return <Cards className="container">
     <Header>
       {headline.heading1}
       <br />
       <HeaderStrong>{headline.heading2}</HeaderStrong>
     </Header>
+    <br />
+    console.log(data);
     <Columns className="columns">
-      {data.edges.map(data => (
-        <Card
-          className="column is-half"
-          key={data.node.frontmatter.title}
-          card={data.node.frontmatter}
-        />
-      ))}
+      {data.edges.map(edge => {
+        // @TODO: centralize cards, take from /components/Featured
+        edge.node.frontmatter.image = edge.node.frontmatter.images[0].image.publicURL;
+        edge.node.frontmatter.cardDescription = <span className="event">{edge.node.frontmatter.location}<br /><span className="date">{edge.node.frontmatter.date}</span></span>;
+        return <Card key={edge.node.frontmatter.title} edge={edge} />
+      })}
     </Columns>
     <ViewAllButton
       className="button is-rounded"
-      onClick={() => console.log(`Blog View All Click`)}
+      onClick={() => window.location = "/events"}
     >
       View All
     </ViewAllButton>
@@ -112,17 +108,33 @@ export default props => (
     query={graphql`
       {
         allMarkdownRemark(
-          filter: { frontmatter: { templateKey: { eq: "post" } } }
-          limit: 2
+          filter: { frontmatter: { templateKey: { eq: "event" } } }
+          limit: 4
           sort: { fields: frontmatter___date, order: DESC }
         ) {
           edges {
             node {
+              fields {
+                slug
+              }
               frontmatter {
                 title
-                description
-                image {
-                  publicURL
+                image{
+                  childImageSharp{
+                    fluid(maxWidth: 2048, quality: 100) {
+                        ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+                location
+                date
+                type {
+                  label
+                }
+                images {
+                  image {
+                    publicURL
+                  }
                 }
               }
             }

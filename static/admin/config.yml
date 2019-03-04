@@ -53,6 +53,12 @@ collections:
           - {label: "Hotel Type Label", name: "hotelType", widget: "string"}
           - {label: "Duration Label", name: "duration", widget: "string"}
           - {label: "Packages Label", name: "package", widget: "string"}
+      - file: "src/pages/events.md"
+        label: "Event Listings"
+        name: "package"
+        fields:
+          - {label: "Hero", name: "image", widget: "image"}
+          - {label: "View Gallery Label", name: "viewGallery", widget: "string"}
       - file: "src/pages/bespoke-golf-holidays.md"
         label: "Bespoke Golf Holidays"
         name: "bespoke"
@@ -119,14 +125,15 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "From", name: "from", widget: "datetime"}
-      - {label: "To", name: "to", widget: "datetime"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Corporate", name: "corporate", widget: "boolean"}
-      - {label: "Background", name: "background", widget: "image"}
+      - {label: Hero, name: image, widget: image}
+      - {label: "Name", name: "title", widget: "string"}
+      - {label: "Location", name: "location", widget: "string", required: false}
+      - {label: "Date", name: "date", widget: "string", required: false}
+      - {label: "Type", name: type, widget: list, fields: [{label: "Label", name: label, widget: string}], required: false}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Logo", name: image, widget: logo, required: false}
+      - {label: "Images", name: "images", widget: "list", fields: [{label: "Image", name: image, widget: image}]}
+      - {label: "Images Per Slide", name: "imagesPerSlide", widget: "string"}
   - name: "testimontial"
     label: "Testimontials"
     folder: "src/pages/testimontials"
@@ -186,17 +193,15 @@ collections:
       - {label: "Courses", name: "courses", widget: "list", fields: [{label: "Image", name: image, widget: image}, {label: "Name", name: name, widget: string}, {label: "City", name: city, widget: string}, {label: "Region", name: region, widget: string}, {label: "Rounds", name: rounds, widget: string}, {label: "Link", name: slug, widget: string}]}
       - {label: "Add Ons", name: "addOns", widget: "list", fields: [{label: "Name", name: name, widget: string}, {label: "Description", name: description, widget: string}, {label: "Price", name: price, widget: string, required: false}, {label: "Checked By Default", name: checkedByDefault, widget: boolean, required: false}, {label: "Shaded", name: shaded, widget: boolean, required: false}]}
       - {label: "Base Price", name: "basePrice", widget: "string"}
-  - name: "gallery"
-    label: "Gallery"
-    folder: "src/pages/gallery"
+  - label: "Menus"
+    name: "menu"
+    folder: "src/pages/menus"
     create: true
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "galleryDetails"}
-      - {label: Hero, name: image, widget: image}
-      - {label: "Name", name: "title", widget: "string"}
-      - {label: "Location", name: "location", widget: "string"}
-      - {label: "Date", name: "date", widget: "string"}
-      - {label: "Type", name: type, widget: list, fields: [{label: "Label", name: label, widget: string}]}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Images", name: "images", widget: "list", fields: [{label: "Image", name: image, widget: image}]}
-      - {label: "Images Per Slide", name: "imagesPerSlide", widget: "string"}
+      - {label: "Location", name: "title", widget: "string"}
+      - {label: "Items", name: "links", widget: "list", fields: [
+          {label: "Label", name: label, widget: string}, 
+          {label: "href", name: href, widget: string}, 
+          {label: "Order", name: order, widget: string},
+          {label: "Child styles", name: child, widget: boolean, required: false}
+        ]}

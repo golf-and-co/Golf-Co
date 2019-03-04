@@ -27,7 +27,7 @@ const Background = styled.section`
       text-transform: uppercase;
     }
 
-    .galleryDetails {
+    .event {
       font-size: 12px;
     }
 
@@ -156,21 +156,21 @@ const Controls = ({types}) =>
 
 const gallery = ({ data, location }) => {
   // aggregate data for controls
-  const types = aggregate(data.gallery.edges, {column:"type", property:"label"});
+  const types = aggregate(data.event.edges, {column:"type", property:"label"});
 
   return <Layout>
-    <HeroSmall data={data.galleryPages.edges[0].node.frontmatter} />
-    <Content data={data.galleryPages.edges[0].node.frontmatter} />
+    <HeroSmall data={data.events.edges[0].node.frontmatter} />
+    <Content data={data.events.edges[0].node.frontmatter} />
     <Background>
       <Wrap className="columns">
         <Controls types={types} />
         <div className="column is-four-fifth">
-          <Grid data={data.gallery.edges.map(edge => {
-            // want first gallery image, not gallery hero to show in listing grid
+          <Grid data={data.event.edges.map(edge => {
+            // want first event image, not event page hero to show in listing grid
             edge.node.frontmatter.image = edge.node.frontmatter.images[0].image.publicURL;
-            edge.node.frontmatter.cardDescription = <span class="galleryDetails">{edge.node.frontmatter.location}<br /><span class="date">{edge.node.frontmatter.date}</span></span>;
+            edge.node.frontmatter.cardDescription = <span class="event">{edge.node.frontmatter.location}<br /><span class="date">{edge.node.frontmatter.date}</span></span>;
             return edge;
-          })} slug={"gallery"} footer={false} hideStats={true} location={location} hideCaption={true} />
+          })} slug={"event"} footer={false} hideStats={true} location={location} hideCaption={true} />
         </div>
       </Wrap>
     </Background>  
@@ -188,9 +188,9 @@ gallery.propTypes = {
 
 export default gallery;
 
-export const galleryQuery = graphql`
+export const eventsQuery = graphql`
  {
-  galleryPages:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "gallery"}}}) {
+  events:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "events"}}}) {
     edges {
       node {
         frontmatter {
@@ -207,7 +207,7 @@ export const galleryQuery = graphql`
         }
       }
     }
-    gallery:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "galleryDetails"}}}){
+    event:allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "event"}}}){
     edges{
        node{
         frontmatter{
