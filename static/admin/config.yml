@@ -194,7 +194,7 @@ collections:
       - {label: "Base Price", name: "basePrice", widget: "string"}
   - label: "Menus"
     name: "menu"
-    folder: "src/cms/menus"
+    folder: "src/pages/menus"
     create: true
     fields:
       - {label: "Location", name: "title", widget: "string"}
