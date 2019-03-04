@@ -15,6 +15,21 @@ const Wrap = styled.div`
     padding: 5vh 0;
   }
 
+  .slick-slider img {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .slick-track {
+    display: flex;
+  }
+  .slick-track .slick-slide {
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
   @media (min-width: 768px) {
     p {
       padding: 0 20px;
