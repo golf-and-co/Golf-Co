@@ -202,5 +202,5 @@ collections:
           {label: "Label", name: label, widget: string}, 
           {label: "href", name: href, widget: string}, 
           {label: "Order", name: order, widget: string},
-          {label: "Child styles", name: child, widget: boolean}
+          {label: "Child styles", name: child, widget: boolean, required: false}
         ]}
