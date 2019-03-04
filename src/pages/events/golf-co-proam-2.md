@@ -19,7 +19,8 @@ description: >-
   throughout the series• Better ball, 2 scores to count • Afternoon shotgun
   start
 images:
-  - image: /img/golfco-proam.png
+  - image: >-
+      https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/129-layers.png
   - image: /img/golfco-proam-2.png
   - image: /img/golfco-proam.png
   - image: /img/golfco-proam.png
