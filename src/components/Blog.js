@@ -6,6 +6,19 @@ import PropTypes from 'prop-types'
 
 const Cards = styled.section`
   justify-content: center;
+
+  & .content {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0;
+    margin: 0 20px;
+    text-align: center;
+  }
+
+  & .content .date {
+    display: none;
+  }
 `
 
 const Header = styled.section`
