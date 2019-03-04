@@ -1,5 +1,5 @@
 ---
-templateKey: galleryDetails
+templateKey: event
 image: /img/hero_small.png
 title: Golf & Co. ProAm
 location: 'Emirates Golf Club, Faldo course'

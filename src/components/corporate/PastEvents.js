@@ -149,13 +149,10 @@ const Content = () =>   {
                 frontmatter{
                   title
                   description
-                  from
-                  to
-                  background {
-                    childImageSharp {
-                      fluid(maxWidth: 2048, quality: 100) {
-                        ...GatsbyImageSharpFluid
-                      }
+                  date
+                  images {
+                    image {
+                      publicURL
                     }
                   }
                 }
@@ -166,20 +163,19 @@ const Content = () =>   {
       }
       render={data => (
         <Events>
-          {data.allMarkdownRemark.edges.map(({node}) => {
+          {data.allMarkdownRemark.edges.map(({edge}) => {
+            // @TODO: centralize cards, take from /components/Featured
+            edge.node.frontmatter.image = edge.node.frontmatter.images[0].image;
+            edge.node.frontmatter.cardDescription = <span class="event">{edge.node.frontmatter.location}<br /><span class="date">{edge.node.frontmatter.date}</span></span>;
             return <Card>
               <CardImageWrap>
-                  <CardImage src={
-                  !!node.frontmatter.background.childImageSharp
-                      ? node.frontmatter.background.childImageSharp.fluid.src
-                      : node.frontmatter.background
-                  } alt="Placeholder" />
+                  <CardImage src={edge.node.frontmatter.image.publicURL} alt="Placeholder" />
               </CardImageWrap>
               <CardContent>
                 <div className="content">
-                  <CardContentTitle>{node.frontmatter.title}</CardContentTitle>
-                  <CardContentSubTitle>{node.frontmatter.description}</CardContentSubTitle>
-                  <CardContentDate>{node.frontmatter.from}</CardContentDate>
+                  <CardContentTitle>{edge.node.frontmatter.title}</CardContentTitle>
+                  <CardContentSubTitle>{edge.node.frontmatter.cardDescription}</CardContentSubTitle>
+                  <CardContentDate>{edge.node.frontmatter.date}</CardContentDate>
                 </div>
               </CardContent>
             </Card>
@@ -187,7 +183,7 @@ const Content = () =>   {
         </Events>
       )}>
     </StaticQuery>
-    <Button className="button is-rounded" onClick={() => window.location.href = "/gallery"}>View all</Button>
+    <Button className="button is-rounded" onClick={() => window.location.href = "/events"}>View all</Button>
   </Wrap>)
 }
 

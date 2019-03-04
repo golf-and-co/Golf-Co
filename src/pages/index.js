@@ -71,19 +71,22 @@ export const golfInsuranceQuery = graphql`{
   },
   events: allMarkdownRemark(
     filter: { frontmatter: { templateKey: { eq: "event" } } }
-    limit: 3
+    limit: 4
     sort: { fields: frontmatter___date, order: DESC }
   ) {
     edges {
       node {
+        fields {
+          slug
+        }
         frontmatter {
           title
           description
-          from
-          to
           date
-          image: background {
-            publicURL
+          images {
+            image {
+              publicURL
+            }
           }
         }
       }
