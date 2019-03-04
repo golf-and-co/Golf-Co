@@ -1,6 +1,6 @@
 ---
 templateKey: event
-image: /img/hero_small.png
+image: /img/ghala_golf_oman.png
 title: Dubai Creek and Yacht Club
 location: Dubai Creek and Yacht Club
 date: 7 Dec 2018

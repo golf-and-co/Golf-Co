@@ -1,6 +1,6 @@
 ---
 templateKey: event
-image: /img/hero_small.png
+image: /img/ghala_golf_oman.png
 title: Golf & Co. ProAm 2
 location: 'Emirates Golf Club, Faldo course'
 date: 'SATURDAY, 7 DEC 2018'

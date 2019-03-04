@@ -1,6 +1,6 @@
 ---
 templateKey: event
-image: /img/hero_small.png
+image: /img/ghala_golf_oman.png
 title: Ras Al-Khaimah Challenge Tour Grand Final 2018
 location: Ras Al-Khaimah
 date: 31 Oct 2018
