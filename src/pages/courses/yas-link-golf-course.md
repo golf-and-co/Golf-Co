@@ -17,23 +17,31 @@ stats:
     label: Yards
     value: '7,052'
 dialogs:
-  - heading: ''
+  - heading: Note
     icon: /img/swing.svg
+    message: >-
+      After prolonged closure, the condition of the course will not be as good
+      as normal in the first few days (7 days) due to essential summer
+      maintenance. However, course is still playable.
 tags:
-  - {}
+  - icon: >-
+      https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/golf_bag.svg?sanitize=true
+    label: Caddy
 gallery:
-  - {}
-map: Abu Dhabi
+  - category: Course
+    image: >-
+      https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/yas-links.jpg
+map: '24.4777011,54.5995017'
 isFeatured: true
 featuredDetails:
   description: Yas Link Golf Course
   image: /img/abu-dhabi.png
   name: Yas Link Golf Course
 courseType:
-  - {}
+  - name: Links Course
 holes: '72'
 amenities:
-  - {}
+  - name: Club House
 ---
 The Majlis course has developed a worthy reputation worldwide as a testing layout for even the best golfers. The course features hundreds of indigenous species of flora and fauna, beautifully complemented by meandering fairways and seven fresh and saltwater lakes.
 
