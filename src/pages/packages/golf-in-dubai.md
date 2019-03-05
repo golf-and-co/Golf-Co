@@ -59,34 +59,7 @@ courses:
     region: Dubai
     rounds: '1'
     slug: /courses/the-emirates-golf-club-course
-addOns:
-  - checkedByDefault: true
-    description: USD 50 /pax/day
-    name: Club Rental
-    price: '350'
-  - description: Price - on request
-    name: Additional Rounds
-  - description: USD 100 /pax/day
-    name: Half Board
-    price: '700'
-  - description: USD 110 /room/night
-    name: Upgrade to 1 Bedroom Suite
-    price: '770'
-  - description: USD 30 /room/night
-    name: Marina View
-    price: '210'
-  - description: USD 50 /pax
-    name: Burj Khalifa Tickets
-    price: '50'
-    shaded: true
-  - description: USD 100 /pax
-    name: Desert Safari
-    price: '100'
-    shaded: true
-  - description: USD 10 /round
-    name: Golf Insurance
-    price: '10'
-    shaded: true
+addOns: Club Rental
 basePrice: '4500'
 ---
 
