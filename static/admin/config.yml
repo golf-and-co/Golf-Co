@@ -198,7 +198,7 @@ collections:
     folder: "src/pages/metadata"
     create: true
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "menu"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "meta"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Favicon", name: "favicon", widget: "image"}
