@@ -197,7 +197,7 @@ const Cart = ({data}) => <CartWrap className="menu">
     <p>Make your trip even more memorable with these carefully chosen facilities and excursions</p>
   </CartBanner>
   <ul className="menu-list">
-    {data.addOns.map(addOn => <AddOns addOn={addOn} key={v4()}/>)}
+    {/*data.addOns.map(addOn => <AddOns addOn={addOn} key={v4()}/>)*/}
   </ul>
 </CartWrap>;
 

@@ -28,5 +28,27 @@
               "--disable-background-networking"
             ]
         },
+        {
+            "name": "Gatsby develop",
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "program": "${workspaceRoot}/node_modules/gatsby/dist/bin/gatsby",
+            "args": ["develop"],
+            "stopOnEntry": false,
+            "runtimeArgs": ["--nolazy"],
+            "sourceMaps": false
+          },
+          {
+            "name": "Gatsby build",
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "program": "${workspaceRoot}/node_modules/gatsby/dist/bin/gatsby",
+            "args": ["build"],
+            "stopOnEntry": false,
+            "runtimeArgs": ["--nolazy"],
+            "sourceMaps": false
+          }
     ]
 }

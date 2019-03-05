@@ -74,13 +74,7 @@ export const packageDetailsQuery = graphql`
           rounds
           slug
         }
-        addOns {
-          name
-          description
-          price
-          checkedByDefault
-          shaded
-        }
+        addOns
         basePrice
         image {
           childImageSharp{
