@@ -171,7 +171,7 @@ const addOnChange = ({id, price}) => {
 }
 
 const AddOns = ({addOn}) => {
-  const slug = addOn.name.replace(/ /g,"-");
+  const slug = addOn.title.replace(/ /g,"-");
 
   const classes = () => {
     if(addOn.shaded) return "shaded";
@@ -180,28 +180,32 @@ const AddOns = ({addOn}) => {
   return <li className={classes()}>
     <div className="field">
       <input className="is-checkradio is-white" id={slug} type="checkbox" name={slug} onChange={() => addOnChange({id:slug, price:addOn.price})} />
-      <label htmlFor={slug}>+ {addOn.name}<br /><span className="disclaimer">{addOn.description}</span></label>
+      <label htmlFor={slug}>+ {addOn.title}<br /><span className="disclaimer">{addOn.description}</span></label>
     </div>
   </li>
 }
 
-const Cart = ({data}) => <CartWrap className="menu">
-  <CartHeader className="menu-label">
-    <h3>Starting from</h3>
-    <p id="basePrice">{data.basePrice}</p>
-    <h3>USD / Person</h3>
-    <p className="disclaimer">(Prices calculated based on twin sharing basis for two people)</p>
-  </CartHeader>
-  <CartBanner className="menu-label">
-    <h3>Add-Ons</h3>
-    <p>Make your trip even more memorable with these carefully chosen facilities and excursions</p>
-  </CartBanner>
-  <ul className="menu-list">
-    {/*data.addOns.map(addOn => <AddOns addOn={addOn} key={v4()}/>)*/}
-  </ul>
-</CartWrap>;
+const Cart = ({data, addOns}) => {
+  return <CartWrap className="menu">
+    <CartHeader className="menu-label">
+      <h3>Starting from</h3>
+      <p id="basePrice">{data.basePrice}</p>
+      <h3>USD / Person</h3>
+      <p className="disclaimer">(Prices calculated based on twin sharing basis for two people)</p>
+    </CartHeader>
+    <CartBanner className="menu-label">
+      <h3>Add-Ons</h3>
+      <p>Make your trip even more memorable with these carefully chosen facilities and excursions</p>
+    </CartBanner>
+    <ul className="menu-list">
+      {addOns.filter(addOn => {
+        return data.addOns.includes(addOn.node.frontmatter.title);
+      }).map(addOn => <AddOns addOn={addOn.node.frontmatter} key={v4()}/>)}
+    </ul>
+  </CartWrap>;
+}
 
-const CartDetails = ({data}) =>{
+const CartDetails = ({data, addOns}) =>{
 
 // Convert carriage returns to br
 if(typeof data.description === "string") {
@@ -227,7 +231,7 @@ return <Background className="columns">
     <p>{data.description}</p>
   </div>
   <div className="column is-one-quarters">
-    <Cart data={data} />
+    <Cart data={data} addOns={addOns} />
   </div>
 </Background>
 }

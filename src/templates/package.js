@@ -33,7 +33,7 @@ data.markdownRemark.frontmatter.title = data.markdownRemark.frontmatter.pageHead
 return <Layout>
     <HeroCourse data={data.markdownRemark.frontmatter} empty={true} oneLine={true}/>
     <CartStats data={data.markdownRemark.frontmatter} />
-    <CartDetails data={data.markdownRemark.frontmatter} />
+    <CartDetails data={data.markdownRemark.frontmatter} addOns={data.addOnsQuery.edges} />
     <Footer />
 </Layout>
 };
@@ -99,5 +99,20 @@ export const packageDetailsQuery = graphql`
         }
       }
     }
+  addOnsQuery: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "addon" } } }
+    ) {
+    edges {
+      node {
+        frontmatter{
+          title
+          price
+          description
+          shaded
+          checkedByDefault
+        }
+      }
+    }
   }
+}
 `
