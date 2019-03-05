@@ -202,4 +202,4 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Favicon", name: "favicon", widget: "image"}
-      - {label: "Meta", name: "meta", widget: "list", fields: [{label: "Name", name: name, widget: string}, {label: "Content", name: content, widget: string}]
+      - {label: "Meta", name: "meta", widget: "list", fields: [{label: "Name", name: name, widget: string}, {label: "Content", name: content, widget: string}]}
