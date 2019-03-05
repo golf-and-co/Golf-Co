@@ -70,7 +70,7 @@ collections:
           - {label: First Paragraph, name: paragraph1, widget: string}
           - {label: "Benefits", name: "benefits", widget: "list", fields:[{label: Image, name: image, widget: image}, {label: Description, name: description, widget: text}]}
           - {label: Package Heading, name: headingPackage, widget: string}
-          - {label: "Packages", name: "packages", widget: "list", fields:[{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}]}
+          - {label: "Packages", name: "packages", widget: "list", fields:[{label: Image, name: image, widget: image}, {label: Heading, name: heading, widget: string}, {label: PDF, name: pdf, widget: file}]}
           - {label: Second Heading, name: heading2, widget: string}
           - {label: Second Paragraph, name: paragraph2, widget: string}
       - file: "src/pages/corporate.md"
