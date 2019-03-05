@@ -83,6 +83,9 @@ export const golfInsuranceQuery = graphql`{
           title
           description
           date
+          logo {
+              publicURL
+          }
           images {
             image {
               publicURL

@@ -18,8 +18,7 @@ description: >-
   • 24 Teams of 4 (1 professional in each event) • 96 players • 480 players
   throughout the series• Better ball, 2 scores to count • Afternoon shotgun
   start
-logo: >-
-  https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/events-golfco-logo.png
+logo: /static/img/events-golfco-logo.png
 images:
   - image: /img/golfco-proam.png
   - image: /img/golfco-proam-2.png

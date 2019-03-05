@@ -88,8 +88,11 @@ export const Blog = ({ data, headline }) => {
     console.log(data);
     <Columns className="columns">
       {data.edges.map(edge => {
-        // @TODO: centralize cards, take from /components/Featured
-        edge.node.frontmatter.image = edge.node.frontmatter.images[0].image.publicURL;
+        if(typeof edge.node.frontmatter.logo === 'undefined' || edge.node.frontmatter.logo === null ) {
+          edge.node.frontmatter.image = edge.node.frontmatter.images[0].image.publicURL;
+        } else {
+          edge.node.frontmatter.image = edge.node.frontmatter.logo.publicURL;
+        }
         edge.node.frontmatter.cardDescription = <span className="event">{edge.node.frontmatter.location}<br /><span className="date">{edge.node.frontmatter.date}</span></span>;
         return <Card key={edge.node.frontmatter.title} edge={edge} />
       })}
@@ -100,6 +103,7 @@ export const Blog = ({ data, headline }) => {
     >
       View All
     </ViewAllButton>
+  https://raw.githubusercontent.com/urgent/Golf-Co/master
   </Cards>;
 }
 
@@ -130,6 +134,9 @@ export default props => (
                 date
                 type {
                   label
+                }
+                logo {
+                    publicURL
                 }
                 images {
                   image {
