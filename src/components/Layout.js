@@ -14,40 +14,57 @@ const Container = styled.section`
 const TemplateWrapper = ({ children }) => (
   <StaticQuery
     query={graphql`
-      query HeadingQuery {
-        site {
-          siteMetadata {
-            title
-            description
+      {
+        allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "meta" } } }) {
+          edges {
+            node {
+              frontmatter {
+                siteTitle
+                description
+                favicon {
+                  publicURL
+                }
+                meta {
+                  name
+                  property
+                  content
+                }
+              }
+            }
           }
         }
       }
     `}
-    render={data => (
-      <div className="container columns is-fluid no-margin">
+    render={data => {
+      const metatags = data.allMarkdownRemark.edges[0].node.frontmatter.meta.map(tag => {
+      if(typeof tag.property === "undefined" || tag.property === null) {
+        return <meta key={tag.name} name={tag.name} content={tag.content} />
+      } else {
+        return <meta key={tag.property} property={tag.property} content={tag.content} />
+      }
+      })
+
+      return <div className="container columns is-fluid no-margin">
         <Helmet>
           <html lang="en" />
-          <title>{data.site.siteMetadata.title}</title>
-          <meta
-            name="description"
-            content={data.site.siteMetadata.description}
-          />
+          <title>{data.allMarkdownRemark.edges[0].node.frontmatter.siteTitle}</title>
+ 
 
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="/img/apple-touch-icon.png"
+            href={data.allMarkdownRemark.edges[0].node.frontmatter.favicon.publicURL}
           />
           <link
             rel="icon"
             type="image/png"
-            href="/img/favicon-32x32.png"
+            href={data.allMarkdownRemark.edges[0].node.frontmatter.favicon.publicURL}
             sizes="32x32"
           />
           <link
             rel="icon"
             type="image/png"
-            href="/img/favicon-16x16.png"
+            href={data.allMarkdownRemark.edges[0].node.frontmatter.favicon.publicURL}
             sizes="16x16"
           />
           <link
@@ -91,15 +108,12 @@ const TemplateWrapper = ({ children }) => (
           <script src='https://assets.juicer.io/embed.js' type='text/javascript'></script>
           <link href='https://assets.juicer.io/embed.css' media='all' rel='stylesheet' type='text/css' />
 
-          <meta property="og:type" content="business.business" />
-          <meta property="og:title" content={data.site.siteMetadata.title} />
-          <meta property="og:url" content="/" />
-          <meta property="og:image" content="/img/og-image.jpg" />
+          {metatags}
         </Helmet>
         <Container id="main">{children}</Container>
         <Navbar />
       </div>
-    )}
+    }}
   />
 )
 
