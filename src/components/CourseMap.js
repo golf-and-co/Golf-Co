@@ -28,7 +28,7 @@ const MapWrap = styled.div`
     */
 const CourseMap = ({ data }) => (
   <MapWrap>
-    <iframe src={`http://maps.google.com/maps?q=${data.map}&z=15&output=embed`} id="courseMap" title="courseMap" style={{ width: '100%', height: '100%' }} frameborder="0" ></iframe>
+    <iframe src={`https://maps.google.com/maps?q=${data.map}&z=15&output=embed`} id="courseMap" title="courseMap" style={{ width: '100%', height: '100%' }} frameborder="0" ></iframe>
     
   </MapWrap>
 )

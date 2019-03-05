@@ -204,3 +204,13 @@ collections:
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Favicon", name: "favicon", widget: "image"}
       - {label: "Meta", name: "meta", widget: "list", fields: [{label: "Name", name: name, widget: string}, {label: "Property", name: property, widget: string}, {label: "Content", name: content, widget: string}]}
+  - name: "addon"
+    label: "Add Ons"
+    folder: "src/pages/addon"
+    create: true
+    fields:
+    - {label: "Name", name: name, widget: string}
+    - {label: "Description", name: description, widget: string}
+    - {label: "Price", name: price, widget: string, required: false}
+    - {label: "Checked By Default", name: checkedByDefault, widget: boolean, required: false}
+    - {label: "Shaded", name: shaded, widget: boolean, required: false}]}
