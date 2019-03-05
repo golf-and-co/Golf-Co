@@ -49,6 +49,9 @@ export const packageListingsQuery = graphql`
                 publicURL
               }
               heading
+              pdf {
+                publicURL
+              }
             }
             heading2
             paragraph2

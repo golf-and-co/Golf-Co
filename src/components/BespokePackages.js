@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { Link } from "gatsby";
 
 const Wrap = styled.div`
   padding: 50px 0px 220px 0px;
@@ -49,8 +50,10 @@ const BespokePackages = ({ data }) => {
 
       <div className="container" style={{margin: "65px auto", width:"960px"}}>
         {data.packages.map(item => <div style={{width:"450px", float:"left", margin:"15px", position: "relative"}}>
-          <img src={item.image.publicURL} alt="Stone bridge on course similiar to Saint Andrew's / Mist over rich golf green, water hazard on left of green, with golfer sizing putt and high-trimmed trees in background / Landscape view of distant reflective clubhouse with high rough and sand bunker at sunset / Golfer in full backswing across large water hazard with distant hills"/>
-          <h6 style={{color:"#FFF", fontSize:"30px", top: "120px", position: "absolute", width: "450px"}}>{item.heading}</h6>
+          <a href={item.pdf.publicURL}>
+            <img src={item.image.publicURL} alt="Stone bridge on course similiar to Saint Andrew's / Mist over rich golf green, water hazard on left of green, with golfer sizing putt and high-trimmed trees in background / Landscape view of distant reflective clubhouse with high rough and sand bunker at sunset / Golfer in full backswing across large water hazard with distant hills"/>
+            <h6 style={{color:"#FFF", fontSize:"30px", top: "120px", position: "absolute", width: "450px"}}>{item.heading}</h6>
+          </a>
         </div>)}
       </div> 
 
