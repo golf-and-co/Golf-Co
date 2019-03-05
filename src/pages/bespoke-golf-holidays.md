@@ -24,12 +24,16 @@ headingPackage: VIEW OUR SPECIAL ITINERARIES
 packages:
   - heading: Europe
     image: /img/bespoke1.png
+    pdf: /img/events-golfco-logo.pdf
   - heading: Asia
     image: /img/bespoke2.png
+    pdf: /img/events-golfco-logo.pdf
   - heading: Africa
     image: /img/bespoke3.png
+    pdf: /img/events-golfco-logo.pdf
   - heading: United States of America
     image: /img/bespoke4.png
+    pdf: /img/events-golfco-logo.pdf
 heading2: Not Unique Enough? Let Us Help!
 paragraph2: >-
   We at Golf & Co. pride ourselves in turning your dreams into an exclusive
