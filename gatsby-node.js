@@ -1,6 +1,7 @@
 const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
 
 exports.createPages = ({ actions, graphql }) => {
@@ -57,5 +58,26 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value,
     })
+  }
+}
+
+exports.sourceNodes = async ({ actions, store, cache, createNodeId }) => {
+  const { createNode, createNodeField } = actions
+  // Fetch data
+
+  // use for loop for async/await support
+  try {
+    await createRemoteFileNode({
+      // Add split so createRemoteFileNode creates the correct extension
+      // (Instagram sometimes adds additional url params causing this bug)
+      url: 'https://www.yr.no/place/United_Arab_Emirates/Dubai/Dubai/forecast.xml',
+      cache,
+      store,
+      createNode,
+      createNodeId,
+      ext: '.xml',
+    })
+  } catch (error) {
+    console.warn('error creating node', error)
   }
 }

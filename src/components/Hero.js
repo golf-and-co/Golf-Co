@@ -77,7 +77,7 @@ function getCurrentWeather(weather) {
     const currentDate = new Date();
     const currentUTCTime = new Date(new Date().getTime() + utcoffsetMinutes * 60 * 1000 + currentDate.getTimezoneOffset() * 60 * 1000);
     //find weather correct for our time
-    const currentWeather = weather
+    let currentWeather = weather
                             .edges[1]
                             .node
                             .xmlChildren[0].children.find(weather => {
@@ -93,13 +93,10 @@ function getCurrentWeather(weather) {
         .edges[1]
         .node
         .xmlChildren[0].children[0];
+      console.log("Didn't find correct weather forecast. Setting first one.");
     }
 
-    const celsiusDegrees = weather
-                            .edges[1]
-                            .node
-                            .xmlChildren[0]
-                            .children[0]
+    const celsiusDegrees = currentWeather
                             .children.find(weatherElement => weatherElement.name === "temperature")
                             .attributes
                             .value;
@@ -163,7 +160,7 @@ export default props => (
             }
           }
         },
-        weather: allWeatherXml(filter: {name: {in: ["location", "forecast"]}}) {
+        weather: allForecastXml(filter: {name: {in: ["location", "forecast"]}}) {
           edges {
             node {
               xmlChildren {
