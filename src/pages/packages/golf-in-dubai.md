@@ -59,7 +59,15 @@ courses:
     region: Dubai
     rounds: '1'
     slug: /courses/the-emirates-golf-club-course
-addOns: Club Rental
+addOns:
+  - Club Rental
+  - Additional Rounds
+  - Half Board
+  - Upgrade to 1 Bedroom Suite
+  - Marina View
+  - Burj Khalifa Tickets
+  - Desert Safari
+  - Golf Insurance
 basePrice: '4500'
 ---
 
