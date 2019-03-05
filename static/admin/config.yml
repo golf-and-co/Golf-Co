@@ -200,7 +200,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "meta"}
       - {label: "Label", name: "title", widget: "string"}
-      - {label: "Site Title", name: "title", widget: "string"}
+      - {label: "Site Title", name: "siteTitle", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Favicon", name: "favicon", widget: "image"}
       - {label: "Meta", name: "meta", widget: "list", fields: [{label: "Name", name: name, widget: string}, {label: "Content", name: content, widget: string}]}
