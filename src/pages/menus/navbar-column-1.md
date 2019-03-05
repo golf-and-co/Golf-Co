@@ -1,4 +1,5 @@
 ---
+templateKey: menu
 title: Navbar Column 1
 links:
   - href: /courses
