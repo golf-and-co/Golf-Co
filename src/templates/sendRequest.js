@@ -230,13 +230,13 @@ return <Layout>
           <div className="field">
                 <label className="label">Notes</label>
                 <div className="control">
-                  <textarea tabindex="7" className="textarea is-rounded"/>
+                  <textarea name="notes" tabindex="7" className="textarea is-rounded"/>
                 </div>
               </div>
 
               <div className="control">
                 <input type="hidden" name="form-name" value="inquiries" /> 
-                <input name="notes" type="submit" tabindex="8" className="button is-link is-rounded" value="Send This Request" />
+                <input name="submit" type="submit" tabindex="8" className="button is-link is-rounded" value="Send This Request" />
               </div>
         </form>
       </div>
