@@ -3,8 +3,6 @@ templateKey: static
 image: /img/ghala_golf_oman.png
 title: About
 content: >-
-
-
   ## A little about ourselves
 
 
@@ -28,12 +26,12 @@ content: >-
   else:
 
 
-  * \    We include courses that other operators do not even consider.
+  * We include courses that other operators do not even consider.
 
-  * \    We use hotels that meet our, not to mention your, high standards. 
+  * We use hotels that meet our, not to mention your, high standards. 
 
-  * \    Our contact list in the industry is incomparable… we make the
-  impossible possible
+  * Our contact list in the industry is incomparable… we make the impossible
+  possible
 
 
   We constantly challenge ourselves to break out from the merely ordinary and
