@@ -1,7 +1,6 @@
 ---
 templateKey: static
-image: >-
-  https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/ghala_golf_oman.png
+image: /img/ghala_golf_oman.png
 title: About
 content: >-
 
