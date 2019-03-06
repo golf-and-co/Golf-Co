@@ -149,12 +149,13 @@ return <Layout>
   <Wrap>
     <Content>We are all set to take your request. Just fill up the form below.</Content>
       <div className="container">
+        <form data-netlify="true" name="inquiries" method="POST">
         <div className="columns">
           <div className="column">
               <div className="field">
                   <label className="label">Date</label>
                   <div className="control has-icons-right" style={{width:"210px", margin:"0 auto"}}>
-                      <DatePicker className="is-rounded " type="date" id="datepicker" defaultValue={new Date().toISOString().slice(0, 10)} required={"required"} />
+                      <DatePicker className="is-rounded" type="date" id="datepicker" defaultValue={new Date().toISOString().slice(0, 10)} required={"required"} />
                       <span className="icon is-small is-right">
                         <i className="fa fa-calendar is-right" style={{color:"#1d8649", right:"15px"}}></i>
                       </span>
@@ -236,6 +237,7 @@ return <Layout>
               <div className="control">
                 <button className="button is-link is-rounded">Send This Request</button>
               </div>
+        </form>
       </div>
   </Wrap>
   <Footer />
