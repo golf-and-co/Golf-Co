@@ -166,6 +166,7 @@ return <Layout>
     <label>Message: <textarea name="message"></textarea></label>
   </p>
   <p>
+    <input type="hidden" name="form-name" value="contact" />
     <button type="submit">Send</button>
   </p>
 </form>
