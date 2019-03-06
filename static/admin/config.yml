@@ -217,7 +217,7 @@ collections:
     - {label: "Shaded", name: shaded, widget: boolean, required: false}
   - name: "static"
     label: "Static Pages"
-    folder: "src/pages"
+    folder: "src/pages/en/"
     create: true
     fields:
     - {label: "Template Key", name: "templateKey", widget: "hidden", default: "static"}
