@@ -215,3 +215,12 @@ collections:
     - {label: "Price", name: price, widget: string, required: false}
     - {label: "Checked By Default", name: checkedByDefault, widget: boolean, required: false}
     - {label: "Shaded", name: shaded, widget: boolean, required: false}
+  - name: "static"
+    label: "Static Pages"
+    folder: "src/pages/static"
+    create: true
+    fields:
+    - {label: "Template Key", name: "templateKey", widget: "hidden", default: "static"}
+    - {label: Hero, name: image, widget: image}
+    - {label: "Name", name: title, widget: string}
+    - {label: "Content", name: "content", widget: "markdown"}
