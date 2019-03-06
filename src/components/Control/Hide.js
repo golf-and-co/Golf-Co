@@ -14,7 +14,7 @@ const arrayCheck = (edge, filter, label) => {
 export const hide = (edges, controls, label) => edges.filter(edge => 
     controls.every(control => {
         // do not hide on an empty control
-        if(control.value === null || typeof control.value === "undefined" || !control.applied) return true;
+        if(!control.value || !control.applied) return true;
         // hide if value does not match, or not in array
         return (edge.node.frontmatter[control.name] === control.value || arrayCheck(edge.node.frontmatter[control.name], control.value, label))
     })
