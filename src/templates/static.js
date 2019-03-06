@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout';
 import HeroSmall from "../components/HeroSmall";
 import Content from '../components/Content'
+import ReactMarkdown from 'react-markdown';
 import Footer from '../components/Footer';
 
 const Static = ({ data }) => {
