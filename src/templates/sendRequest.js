@@ -149,7 +149,7 @@ return <Layout>
   <Wrap>
     <Content>We are all set to take your request. Just fill up the form below.</Content>
       <div className="container">
-        <form data-netlify="true" name="inquiries" method="POST" data-netlify-honeypot="bot-field">
+        <form data-netlify="true" name="request" method="POST" data-netlify-honeypot="bot-field">
         <div className="columns">
           <div className="column">
               <div className="field">
@@ -235,7 +235,7 @@ return <Layout>
               </div>
 
               <div className="control">
-                <input type="hidden" name="form-name" value="inquiries" /> 
+                <input type="hidden" name="form-name" value="request" /> 
                 <input name="submit" type="submit" tabindex="8" className="button is-link is-rounded" value="Send This Request" />
               </div>
         </form>
