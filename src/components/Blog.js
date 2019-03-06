@@ -103,7 +103,6 @@ export const Blog = ({ data, headline }) => {
     >
       View All
     </ViewAllButton>
-  https://raw.githubusercontent.com/urgent/Golf-Co/master
   </Cards>;
 }
 
