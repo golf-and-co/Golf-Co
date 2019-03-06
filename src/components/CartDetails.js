@@ -179,7 +179,7 @@ const AddOns = ({addOn}) => {
 
   return <li className={classes()}>
     <div className="field">
-      <input className="is-checkradio is-white" id={slug} type="checkbox" name={slug} onChange={() => addOnChange({id:slug, price:addOn.price})} />
+      <input className="is-checkradio is-white" id={slug} type="checkbox" name={slug} value={addOn.description} onChange={() => addOnChange({id:slug, price:addOn.price})} />
       <label htmlFor={slug}>+ {addOn.title}<br /><span className="disclaimer">{addOn.description}</span></label>
     </div>
   </li>
@@ -197,11 +197,16 @@ const Cart = ({data, addOns}) => {
       <h3>Add-Ons</h3>
       <p>Make your trip even more memorable with these carefully chosen facilities and excursions</p>
     </CartBanner>
+    <form action="/send-request" method="GET">
+    <input type="hidden" name="Course" value={data.title} />
     <ul className="menu-list">
       {addOns.filter(addOn => {
         return data.addOns.includes(addOn.node.frontmatter.title);
       }).map(addOn => <AddOns addOn={addOn.node.frontmatter} key={v4()}/>)}
+      <li><input name="submit" type="submit" className="button is-link is-rounded" value="Send Enquiry" style={{margin:"20px auto", display: "block", width: "80%"}} /></li>
     </ul>
+    
+    </form>
   </CartWrap>;
 }
 
