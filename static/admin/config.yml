@@ -4,6 +4,7 @@ backend:
 
 media_folder: static/img
 public_folder: /img
+public_folder_relative: true
 
 collections:
   - name: "pages"

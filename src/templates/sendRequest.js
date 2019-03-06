@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Layout from '../components/Layout';
 import HeroSmall from "../components/HeroSmall";
 import ReactCountryFlag from "react-country-flag";
+import queryString from "query-string";
 import Footer from '../components/Footer';
 
 const Wrap = styled.div`
@@ -139,11 +140,18 @@ const DatePicker = styled.input`
 
 
 
-const SendRequest = ({ data }) => {
+const SendRequest = ({ data, location }) => {
 
   const [countryCode, setcountryCode] = useState("AE");
   const [numberOfPlayers, setNumberOfPlayers] = useState(1);
 
+  const addOns = queryString.parse(location.search);
+  let notesValue='';
+  Object.keys(addOns).forEach(addOn => {
+    if(addOn === 'submit') return;
+    notesValue = `${notesValue} ${addOn}: ${addOns[addOn]}\r\n`;
+  });
+console.log(notesValue);
 return <Layout>
   <HeroSmall data={{...data.markdownRemark.frontmatter, backgroundColor:"#F6F9F2", height:"160px", logoMargin:"30px"}} />
   <Wrap>
@@ -230,7 +238,7 @@ return <Layout>
           <div className="field">
                 <label className="label">Notes</label>
                 <div className="control">
-                  <textarea name="notes" tabindex="7" className="textarea is-rounded"/>
+                  <textarea name="notes" tabindex="7" className="textarea is-rounded">{notesValue}</textarea>
                 </div>
               </div>
 
