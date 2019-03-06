@@ -1,6 +1,7 @@
 ---
 templateKey: golfInsurance
-image: /img/golf-insurance-1080p.jpg
+image: >-
+  https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/golf-insurance-1080p.jpg
 paragraph1: >-
   Hit the golf course with confidence and peace of mind with an exceptional
   value-for-money insurance package that meets the needs of individual golfers.
@@ -11,11 +12,9 @@ infographics:
   - description: Protection for all your golf equipment both at home and on the course
     image: /img/icons8-security_checked.png
   - description: New for old replacement for items that cannot be repaired
-    image: >-
-      /img/icons8-replace.png
+    image: /img/icons8-replace.png
   - description: Cover for personal accident or liability
-    image: >-
-      /img/icons8-watch_your_step.png
+    image: /img/icons8-watch_your_step.png
 title: Worldwide Golf Cover
 paragraph2: >-
   If you are planning to take your golf clubs and equipment on holiday with you,
