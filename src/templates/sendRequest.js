@@ -149,96 +149,26 @@ return <Layout>
   <Wrap>
     <Content>We are all set to take your request. Just fill up the form below.</Content>
       <div className="container">
-        <form data-netlify="true" name="request" method="POST" data-netlify-honeypot="bot-field">
-        <div className="columns">
-          <div className="column">
-              <div className="field">
-                  <label className="label">Date</label>
-                  <div className="control has-icons-right" style={{width:"210px", margin:"0 auto"}}>
-                      <DatePicker name="date" tabindex="0" className="is-rounded" type="date" id="datepicker" defaultValue={new Date().toISOString().slice(0, 10)} required={"required"} />
-                      <span className="icon is-small is-right">
-                        <i className="fa fa-calendar is-right" style={{color:"#1d8649", right:"15px"}}></i>
-                      </span>
-                  </div>
-              </div>
-
-              <div className="field">
-                  <label className="label">First Name</label>
-                  <div className="control">
-                      <input name="firstName" tabindex="2" className="input is-rounded" type="text"/>
-                  </div>
-              </div>
-
-              <div className="field">
-                  <label className="label">Email</label>
-                  <div className="control">
-                      <input name="email" tabindex="4" className="input is-rounded" type="text"/>
-                  </div>
-              </div>
-          </div>
-
-              
-
-          <div className="column">
-              <div className="field">
-                  <label className="label">Number of Players</label>
-                  <div className="control players-wrapper">
-                      <button className="is-rounded decrease-button" onClick={() => {
-                        setNumberOfPlayers(Math.max((parseInt(numberOfPlayers) -1), 1));
-                      }}>-</button>
-                      <input name="players" tabindex="1" className="input is-rounded" type="text" value={numberOfPlayers}/>
-                      <button className="is-rounded increase-button" onClick={() => {
-                        setNumberOfPlayers(parseInt(numberOfPlayers) + 1);
-                      }}>+</button>
-                  </div>
-              </div>
-              <div className="field">
-                  <label className="label">Last Name</label>
-                  <div className="control">
-                      <input name="lastName" tabindex="3" className="input is-rounded" type="text"/>
-                  </div>
-              </div>
-              <div className="field">
-                  <label className="label">Contact Number</label>
-                  <div className="control">
-                      <div id="phoneWrap">
-                        <div className="control has-icons-left">
-                          <div className="select" id="countryCode">
-                            <select name="countryCode" tabindex="5" className="input is-rounded" style={{padding:"0 30px"}} onChange={(event) => {
-                              if(event.target.value === "+971") {
-                                setcountryCode('AE');
-                              } else {
-                                setcountryCode('QA');
-                              }
-                            }}>
-                              <option>+971</option>
-                              <option>+974</option>
-                            </select>
-                          </div>
-                          <div className="icon is-small is-left">
-                            <ReactCountryFlag code={countryCode} />
-                          </div>
-                        </div>
-
-                       <input name="phone" tabindex="6" className="input is-rounded" type="text" id="phone"/>
-                      </div>
-                      <p>Our representative will call you on this number to personalise your trip.</p>
-                  </div>
-              </div>
-          </div>
-          </div>
-          <div className="field">
-                <label className="label">Notes</label>
-                <div className="control">
-                  <textarea name="notes" tabindex="7" className="textarea is-rounded"/>
-                </div>
-              </div>
-
-              <div className="control">
-                <input type="hidden" name="form-name" value="request" /> 
-                <input name="submit" type="submit" tabindex="8" className="button is-link is-rounded" value="Send This Request" />
-              </div>
-        </form>
+      <form name="contact" method="POST" data-netlify="true">
+  <p>
+    <label>Your Name: <input type="text" name="name" /></label>   
+  </p>
+  <p>
+    <label>Your Email: <input type="email" name="email" /></label>
+  </p>
+  <p>
+    <label>Your Role: <select name="role[]" multiple>
+      <option value="leader">Leader</option>
+      <option value="follower">Follower</option>
+    </select></label>
+  </p>
+  <p>
+    <label>Message: <textarea name="message"></textarea></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
       </div>
   </Wrap>
   <Footer />
