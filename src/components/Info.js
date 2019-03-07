@@ -97,12 +97,20 @@ const InfographicsHeader = styled.p`
   text-transform: uppercase;
 `
 
-const Element = ({data}) => {
+
+
+const Element = ({data, filled}) => {
+  const Buttons = () => {
+    if(!filled) {
+      return <Button href={data.url} className="button is-rounded">{data.urlText}</Button>   
+    }
+  }
+
   return <Graphic className="column is-one-quarter">
     <img src={data.image.publicURL} alt="Tailor Made" />
     <Heading className="fillHeading">{data.heading}</Heading>
     <Body className="body">{data.description}</Body>
-    <Button href={data.url} className="button is-rounded">{data.urlText}</Button>    
+    {Buttons()}
   </Graphic>;
 }
 
@@ -127,7 +135,7 @@ const Infographic = ({ data }) => {
     return <div style={{backgroundColor: "#f6f9f2"}}>
         <p style={{padding:"30px 0 0 0", maxWidth:"780px", color: "#4a4a4a", margin: "0 auto", textAlign: "center"}}>{data.headingParagraph}</p>
         <Wrap className={classes()}>
-          {data.infographics.map(row => <Element key={v4()} data={row} /> )}
+          {data.infographics.map(row => <Element key={v4()} data={row} filled={data.filled}/> )}
         </Wrap>
     </div>
   }
