@@ -24,13 +24,11 @@ dialogs:
       as normal in the first few days (7 days) due to essential summer
       maintenance. However, course is still playable.
 tags:
-  - icon: >-
-      https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/golf_bag.svg?sanitize=true
+  - icon: /img/golf_bag.svg?sanitize=true
     label: Caddy
 gallery:
   - category: Course
-    image: >-
-      https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/yas-links.jpg
+    image: /img/yas-links.jpg
 map: '24.4777011,54.5995017'
 isFeatured: true
 featuredDetails:
