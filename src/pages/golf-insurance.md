@@ -1,6 +1,7 @@
 ---
 templateKey: golfInsurance
-image: /static/img/golf-insurance-1080p.jpg
+image: >-
+  https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/golf-insurance-1080p.jpg
 paragraph1: >-
   Hit the golf course with confidence and peace of mind with an exceptional
   value-for-money insurance package that meets the needs of individual golfers.
