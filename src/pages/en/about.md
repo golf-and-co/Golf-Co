@@ -1,6 +1,6 @@
 ---
 templateKey: static
-image: /static/img/ghala_golf_oman.png
+image: /img/ghala_golf_oman.png
 title: About
 content: >-
   ## A little about ourselves
