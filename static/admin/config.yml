@@ -55,7 +55,7 @@ collections:
           - {label: "Packages Label", name: "package", widget: "string"}
       - file: "src/pages/events.md"
         label: "Event Listings"
-        name: "package"
+        name: "event"
         fields:
           - {label: "Hero", name: "image", widget: "image"}
           - {label: "View Gallery Label", name: "viewGallery", widget: "string"}
