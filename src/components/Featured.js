@@ -47,6 +47,7 @@ const HeadingTag = styled.strong`
 
 const CardLink = styled.a`
     margin: 0 auto;
+    z-index: 110;
 `;
 
 const Card = styled.div`
@@ -92,7 +93,7 @@ const CardContent = styled.div`
   position: relative;
   z-index: 100;
   background-color: #FFF !important;
-  transition: height 0.5s ease-out, top 0.5s ease-out;
+  transition: height 0.2s ease-out, top 0.2s ease-out;
   height: 100px;
   top: 0px;
   overflow: hidden;
@@ -278,7 +279,7 @@ export const Course = ({data, footer, hideStats, location, hideCaption}) => {
     }
 
     return <CardLink href={data.fields.slug} className="is-quarter">
-        <Card id={slugify(data.frontmatter.featuredDetails.name, {remove: /[*+~.()'"!:@]/g})} className={classes()} onMouseEnter={() => mouseEnter()} onMouseLeave={() => mouseLeave()}>
+        <Card id={slugify(data.frontmatter.featuredDetails.name, {remove: /[*+~.()'"!:@]/g})} className={classes()} onClick={() => window.location = data.fields.slug} onMouseEnter={() => mouseEnter()} onMouseLeave={() => mouseLeave()}>
             <CardImageWrap className="cardImage">
             <figure className="image is-4by3">
                 <CardImage src={
@@ -295,7 +296,7 @@ export const Course = ({data, footer, hideStats, location, hideCaption}) => {
                 <br />
                 <CardContentTag>{description()}</CardContentTag>
             </div>
-            <Stats data={data.frontmatter} hideStats={hideStats}/>
+            <Stats data={data.frontmatter} slug={data.fields.slug} hideStats={hideStats}/>
             </CardContent>
             {rounds()}
         </Card>

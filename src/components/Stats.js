@@ -44,10 +44,10 @@ const StatItem = ({ data }) => (
   </Item>
 )
 
-const StatList = ({ data, hideStats }) => {
+const StatList = ({ data, slug, hideStats }) => {
   if(hideStats) return <span />;
 
-  return <Section id="stats">
+  return <Section onClick={() => window.location = slug} id="stats">
     <List>
       {data.stats.map(stat => (
         <StatItem data={stat} key={v4()} />

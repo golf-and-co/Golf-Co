@@ -15,20 +15,10 @@ const MapWrap = styled.div`
     height: 100vh;
   }
 `
-/*
-<iframe
-      id="courseMap"
-      title="courseMap"
-      src={`https://www.google.com/maps/embed/v1/place?q=${
-        data.map
-      }&key=AIzaSyDQs2MX2IHTKR_ng_dfAhLk-ob2Hwahy6M&zoom=15`}
-      
-    />
 
-    */
 const CourseMap = ({ data }) => (
   <MapWrap>
-    <iframe src={`https://maps.google.com/maps?q=${data.map}&z=15&output=embed`} id="courseMap" title="courseMap" style={{ width: '100%', height: '100%' }} frameborder="0" ></iframe>
+    <iframe src={`https://maps.google.com/maps?q=${data.map}&z=15&output=embed`} id="courseMap" title="courseMap" style={{ width: '100%', height: '100%' }} frameBorder="0" ></iframe>
     
   </MapWrap>
 )
