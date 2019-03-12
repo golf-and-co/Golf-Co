@@ -1,6 +1,7 @@
 ---
 templateKey: bespoke-golf-holidays
-image: /img/bespoke.png
+image: >-
+  https://raw.githubusercontent.com/urgent/Golf-Co/master/static/img/ghala_golf_oman.png
 title: Bespoke Golf Holidays
 heading1: When Extraordinary Isn't Enough
 paragraph1: >-
