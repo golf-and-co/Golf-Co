@@ -66,8 +66,9 @@ const Weather = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    margin-left: 40px;
+    margin-left: 0px;
     bottom: 20px;
+    text-align: center;
     
     .weatherLead {
       display: none;

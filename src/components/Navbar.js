@@ -28,7 +28,7 @@ const Side = styled.nav`
   
   &.navbar {
     display: block;
-    z-index: 100;
+    z-index: 200;
   }
 
   @media (max-width: 768px) {

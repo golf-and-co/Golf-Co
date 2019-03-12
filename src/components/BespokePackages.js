@@ -6,6 +6,43 @@ import { Link } from "gatsby";
 const Wrap = styled.div`
   padding: 50px 0px 220px 0px;
   text-align: center;
+
+  .benefits {
+    display: flex;
+    justifyContent: center;
+
+    @media (max-width: 768px) {
+      display:block;
+    }
+  }
+  
+  .packages {
+    @media (min-width: 960px) {
+      margin: 65px auto;
+      width: 960px;
+    }
+  }
+
+  .package {
+    @media (min-width: 960px) {
+      width:450px;
+      float:left; 
+      margin:15px;
+      position:relative;
+    }
+  }
+
+  .package a {
+    position: relative;
+  }
+
+  .package h6 {
+      color: rgb(255, 255, 255);
+      font-size: 30px;
+      top: -120px;
+      position: absolute;
+      width: 100%;
+  }
 `;
 
 const Heading = styled.h1`
@@ -41,18 +78,18 @@ const BespokePackages = ({ data }) => {
         <Heading>{data.heading1}</Heading>
         <Paragraph>{data.paragraph1}</Paragraph>
       </Container>
-      <div style={{"display":"flex", "justifyContent":"center"}}>
-        {data.benefits.map(benefit => <div style={{width:"285px"}}>
+      <div className="benefits container" style={{}}>
+        {data.benefits.map(benefit => <div className="column is-one-quarter">
           <img src={benefit.image.publicURL} alt="Glamorous Hotel Scenes: Gourmet appetizers / Light tone lobby with sea view / Dark colored luxury sedan on runway with private jet / Waterfront with docked boat with mass down sail and brightly colored buildings" />
           <h6 style={{color:"#a8844e", textTransform:"uppercase", fontSize:"1.25em", fontWeight:"bold"}}>{benefit.description}</h6>
         </div>)}
       </div>  
 
-      <div className="container" style={{margin: "65px auto", width:"960px"}}>
-        {data.packages.map(item => <div style={{width:"450px", float:"left", margin:"15px", position: "relative"}}>
+      <div className="container packages">
+        {data.packages.map(item => <div className="package">
           <a href={item.pdf.publicURL}>
             <img src={item.image.publicURL} alt="Stone bridge on course similiar to Saint Andrew's / Mist over rich golf green, water hazard on left of green, with golfer sizing putt and high-trimmed trees in background / Landscape view of distant reflective clubhouse with high rough and sand bunker at sunset / Golfer in full backswing across large water hazard with distant hills"/>
-            <h6 style={{color:"#FFF", fontSize:"30px", top: "120px", position: "absolute", width: "450px"}}>{item.heading}</h6>
+            <h6>{item.heading}</h6>
           </a>
         </div>)}
       </div> 
