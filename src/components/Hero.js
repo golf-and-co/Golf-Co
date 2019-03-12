@@ -63,6 +63,16 @@ const Weather = styled.div`
   width: 20%;
   position: absolute;
   bottom: 75px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-left: 40px;
+    bottom: 20px;
+    
+    .weatherLead {
+      display: none;
+    }
+  }
 `
 
 function getCurrentWeather(weather) {
@@ -119,7 +129,7 @@ const Hero = ({ data }) => {
       }}
     >
     <Weather>
-      <div>Current temperature on Dubai</div>
+      <div><span className="weatherLead">Current temperature in </span>Dubai</div>
       <div>{weather.celsius} &#x2103; | {weather.fahrenheit} &#x2109;</div>
     </Weather>
       <div className="container content is-fluid">
