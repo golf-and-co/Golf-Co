@@ -14,7 +14,7 @@ paragraph1: >-
 benefits:
   - description: MICHELIN STAR RESTAURANTS
     image: /img/bespoke_1.png
-  - description: ICONIC GOLF RESORTSAND HOTELS
+  - description: ICONIC GOLF RESORTS AND HOTELS
     image: /img/bespoke_2.png
   - description: PRIVATE TRANSFERS
     image: /img/bitmap-copy-3.png
