@@ -33,11 +33,6 @@ const MenuLink = styled.a`
   font-family: 'Gotham Bold';
   font-size: 18px;
   font-weight: 700;
-
-  :hover {
-    color: #fff;
-    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
-  }
 `
 
 const FontAwesomeList = styled.ul`
