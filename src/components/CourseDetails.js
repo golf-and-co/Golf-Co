@@ -26,6 +26,10 @@ const Background = styled.div`
     width: 260px;
     height: 249px;
     background-color: #FFF;
+    
+    @media (max-width: 768px) {
+      margin: 0 auto;
+    }
   }
 
   .cart h3 {
@@ -117,6 +121,7 @@ const TagsWrap = styled.ul`
   font-size: 14px;
   font-weight: 300;
   vertical-align: middle;
+  flex-wrap: wrap;
 `
 
 const TagItem = styled.li`
@@ -145,6 +150,13 @@ const About = styled.h1`
   font-size: 40px;
   font-weight: 300;
   margin-top: 30px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    line-height: 2rem;
+    margin: 20px auto;
+    text-align:center;
+  }
 `
 
 const Box = ({ data }) => (
