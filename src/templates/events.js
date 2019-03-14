@@ -170,7 +170,7 @@ const gallery = ({ data, location }) => {
             edge.node.frontmatter.image = edge.node.frontmatter.images[0].image.publicURL;
             edge.node.frontmatter.cardDescription = <span class="event">{edge.node.frontmatter.location}<br /><span class="date">{edge.node.frontmatter.date}</span></span>;
             return edge;
-          })} slug={"event"} footer={false} hideStats={true} location={location} hideCaption={true} />
+          })} slug={"events"} footer={false} hideStats={true} location={location} hideCaption={true} />
         </div>
       </Wrap>
     </Background>  
