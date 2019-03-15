@@ -12,6 +12,22 @@ const settings = {
   speed: 500,
   slidesToShow: slideCount,
   slidesToScroll: 3,
+  responsive: [
+    {
+        breakpoint: 980, // tablet breakpoint
+        settings: {
+            slidesToShow: 5,
+            slidesToScroll: 2
+        }
+    },
+    {
+        breakpoint: 480, // mobile breakpoint
+        settings: {
+            slidesToShow: 4,
+            slidesToScroll: 2
+        }
+    }
+  ]
 }
 
 const Background = styled.div`
@@ -22,11 +38,15 @@ const Background = styled.div`
 const SliderWrap = styled(Slider)`
   max-width: 640px !important;
   margin: 0 auto;
-  height: 80vh;
+  height: 86vh;
   background-position: 20vh;
   padding-top: calc(80vh - 32px);
   z-index: 10;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+
+  @media(max-width:760px) {
+    max-width: 70% !important;
+  }
 
   .slick-list {
     background-color: #fff;

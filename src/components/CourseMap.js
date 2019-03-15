@@ -8,7 +8,7 @@ const MapWrap = styled.div`
   z-index: 0;
 
   @media (max-width: 768px) {
-    margin-top: 32px;
+    margin-top: 0px;
   }
 
   .map__reactleaflet {
