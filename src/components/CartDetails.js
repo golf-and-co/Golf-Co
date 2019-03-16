@@ -20,6 +20,11 @@ const Background = styled.div`
 
   @media (max-width: 768px) {
     padding: 0 15px;
+    padding-bottom: 50px;
+
+    p, h1 {
+      text-align: center;
+    }
   }
 `;
 
