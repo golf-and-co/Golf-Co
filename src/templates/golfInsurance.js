@@ -4,16 +4,25 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout';
 import HeroSmall from "../components/HeroSmall";
 import Infographic from '../components/Info';
+import styled from 'styled-components'
 import Footer from '../components/Footer';
+
+const Wrapper = styled.div`
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
+`;
 
 const Insurance = ({ data }) => { 
 return <Layout>  
   <HeroSmall data={{...data.markdownRemark.frontmatter, backgroundColor:"#f6f9f2", title:false}}  />
-  <div style={{backgroundColor:"#f6f9f2"}}>
-    <div className="container">
-      <p style={{color: "#4a4a4a", paddingTop:"20px", textAlign:"center"}}>{data.markdownRemark.frontmatter.paragraph1}</p>
+  <Wrapper>
+    <div style={{backgroundColor:"#f6f9f2"}}>
+      <div className="container">
+        <p style={{color: "#4a4a4a", paddingTop:"20px", textAlign:"center"}}>{data.markdownRemark.frontmatter.paragraph1}</p>
+      </div>
     </div>
-  </div>
+  </Wrapper>
   <Infographic data={{...data.markdownRemark.frontmatter, filled:true}} />    
   <Footer />
 </Layout>;

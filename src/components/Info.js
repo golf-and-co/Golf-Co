@@ -11,10 +11,15 @@ const Wrap = styled.section`
   &.filled {
     padding: 90px 0;
     margin-bottom: 0;
+
+    @media (max-width: 768px) {
+      padding: 0;
+    }
   }
 
   &.filled.columns {
     margin-bottom:0;
+    padding-bottom: 50px;
   }
   
   &.filled > div {
@@ -52,7 +57,7 @@ const Graphic = styled.div`
 
   @media (max-width: 768px) {
     max-width: 200px;
-    margin: auto;
+    margin: 20px auto;
   }
 `
 
