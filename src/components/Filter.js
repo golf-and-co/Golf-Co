@@ -147,7 +147,7 @@ export const Nested  = ({label, field, data, handler, apply, defaultValue}) => {
                 {data.primary.map(row => <option key={v4()} value={row}>{row}</option>)}
             </select>
         </div>
-        <br />
+        
         <div className="select is-rounded">
             <select value={defaultValue.secondary} id={`${field.main}-secondary`} data-main={field.main} data-field={field.secondary} onChange={(event) => change(field.secondary, event, false)} className="select filter">
                 <option value="--label--">{label.secondary}</option>

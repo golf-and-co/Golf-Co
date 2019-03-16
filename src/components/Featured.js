@@ -73,6 +73,12 @@ const Card = styled.div`
     margin-left: 10px;
     height: 54px;
   }
+
+  .featuredDetails.name {
+    height: 42px;
+    overflow: hidden;
+    line-height: 1;
+  }
 `;
 
 const CardImageWrap = styled.div`
@@ -89,7 +95,7 @@ const CardContent = styled.div`
   color: #000000;
   font-size: 20px;
   font-weight: 300;
-  padding: 16px 0 0 0px !important;
+  padding: 16px 0 5px 0px !important;
   position: relative;
   z-index: 100;
   background-color: #FFF !important;
@@ -121,13 +127,14 @@ const CardContent = styled.div`
 
   .content {
       margin-left: 15px;
+      padding-bottom: 5px;
   }   
 `;
 
 const CardContentTag = styled.div`
   color: #9b9b9b;
   font-size: 14px;
-  margin-top: 9px;
+  line-height: 1;
 `;
 
 const CardCaption = styled.div`
@@ -292,8 +299,7 @@ export const Course = ({data, footer, hideStats, location, hideCaption}) => {
             </CardImageWrap>
             <CardContent className="cardContent">
             <div className="content">
-                {data.frontmatter.featuredDetails.name}
-                <br />
+                <div class="featuredDetails name">{data.frontmatter.featuredDetails.name}</div>
                 <CardContentTag>{description()}</CardContentTag>
             </div>
             <Stats data={data.frontmatter} slug={data.fields.slug} hideStats={hideStats}/>

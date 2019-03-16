@@ -8,6 +8,10 @@ const Wrap = styled.section`
   padding: 30px;
   height: 615px;
 
+  @media (max-width: 768px) {
+    height: auto !important;
+  }
+
   p {
     max-width: 920px;
     
@@ -34,6 +38,9 @@ const Testimontials = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  @media (max-width: 768px) {
+    display: block;
+  }
 `
 
 const Testimontial = styled.div`

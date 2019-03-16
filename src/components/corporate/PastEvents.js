@@ -31,6 +31,10 @@ const Events = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 `
 
 const Button = styled.button`

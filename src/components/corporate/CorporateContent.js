@@ -24,6 +24,10 @@ const Heading = styled.h1`
   font-size: 150%;
   color: #1d8649;
   font-weight: 900;
+
+  @media (max-width: 768px) {
+    margin: 20px auto 0 auto;
+  }
 `
 
 const Button = styled.div`
@@ -32,6 +36,10 @@ const Button = styled.div`
   a {
     margin: 0 auto;
     width: 250px;
+
+    @media (max-width: 768px) {
+      margin: 20px auto 0 auto;
+    }
   }
 `
 

@@ -153,7 +153,7 @@ const Controls = ({countries, cities, courseType, holes, amenities, location}) =
     <Control>
       <h6 style={{display: "flex", padding: "5px 10px"}}>Course Type <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
       {courseType.map(type => <Checkbox key={slugify(type)} name="courseType" value={type} />)}
-      <br />
+      
       <Button value={"Select"} />
     </Control>    
   </ControlBox>  
@@ -171,7 +171,7 @@ const Controls = ({countries, cities, courseType, holes, amenities, location}) =
     <Control>
       <h6 style={{display: "flex", padding: "5px 10px"}}>Amenities <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
       {amenities.map(amenity => <Checkbox key={slugify(amenity)} name="amenity" value={amenity} />)}
-      <br />
+      
       <Button value={"Select"} />
     </Control>    
   </ControlBox>
