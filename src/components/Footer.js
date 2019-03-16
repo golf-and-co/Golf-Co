@@ -103,7 +103,7 @@ const Menu = ({ link }) => {
 
 const Footer = ({ data }) => {
   return (
-    <FooterWrap>
+    <FooterWrap id="footer">
       <div className="container">
         <div className="columns is-desktop">
           <div className="column one-quater">

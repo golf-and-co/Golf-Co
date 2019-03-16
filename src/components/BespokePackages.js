@@ -7,6 +7,11 @@ const Wrap = styled.div`
   padding: 50px 0px 220px 0px;
   text-align: center;
 
+  @media (max-width: 768px) {
+    padding: 0px;
+    padding-bottom: 50px;
+  }
+
   .benefits {
     display: flex;
     justifyContent: center;
@@ -30,6 +35,9 @@ const Wrap = styled.div`
       margin:15px;
       position:relative;
     }
+    @media (max-width: 768px) {
+      margin: 20px;
+    }
   }
 
   .package a {
@@ -51,6 +59,10 @@ const Heading = styled.h1`
   font-size: 2em;
   font-family: Gotham;
   text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    margin: 0 auto;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -61,7 +73,8 @@ const Paragraph = styled.p`
   padding: 0 10%;
 
   @media (max-width: 768px) {
-    text-align: left;
+    text-align: center;
+    padding: 5px 10px;
   }
 `;
 
@@ -95,11 +108,11 @@ const BespokePackages = ({ data }) => {
       </div> 
 
 
-      <Container className="container">
+      <Container className="container sendRequest">
         <Heading>{data.heading2}</Heading>
         <Paragraph>{data.paragraph2}</Paragraph>
+        <a href="/send-request" className="button is-link is-rounded" style={{background:"#A8844E", padding:"20px", fontSize: "16px", fontFamily: "Gotham Bold"}}>START YOUR JOURNEY NOW</a>
       </Container>
-      <a href="/send-request" className="button is-link is-rounded" style={{background:"#A8844E", padding:"20px", fontSize: "16px", fontFamily: "Gotham Bold"}}>START YOUR JOURNEY NOW</a>
     </Wrap>
   );
 };
