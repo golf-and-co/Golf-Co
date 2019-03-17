@@ -19,7 +19,7 @@ const Wrap = styled.section`
   }
   .cardContentHover {
       height: 320px;
-      top: -215px
+      top: -215px;
   }
 `
 
@@ -59,7 +59,7 @@ const GridElement = ({data, controls, slug, footer, hideStats, hideCaption}) => 
                   cardDescription: edge.node.frontmatter.cardDescription,
                 },
                 fields: {
-                  slug: `/${slug}/`+edge.node.frontmatter.title.replace(/ /g, '-').toLowerCase(),
+                  slug: edge.node.fields.slug,
                 },
               }}
               footer={footer} 

@@ -69,16 +69,7 @@ const ControlBox = styled.div`
         font-weight: bold;
         margin: 15px 15px 25px 15px;
     }
-    .select {
-        font-size: 0.8rem;
-    }
-
-    .select:not(.is-multiple):not(.is-loading)::after {
-        border-color: #AAA;
-    }
-    select {
-        width: 170px;
-    }
+    
     button.button.is-success {
         background-color: #1d8649;
         font-size: 14px;
@@ -229,6 +220,9 @@ export const eventsQuery = graphql`
               publicURL
             }
           }
+        }
+        fields {
+          slug
         }
        }
     }
