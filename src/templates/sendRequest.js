@@ -12,6 +12,10 @@ const Wrap = styled.div`
   background: #F6F9F2;
   padding-bottom: 345px; 
 
+  @media (max-width: 768px) {
+    padding-bottom: 100px;
+  }
+
   .container {
     max-width: 980px;
   }
@@ -27,6 +31,16 @@ const Wrap = styled.div`
   p {
     color: #1d8649;
     line-height: 1.5rem;
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+  }
+
+  .column {
+    @media (max-width: 768px) {
+      padding-bottom: 0;
+    }
   }
 
   .field {
@@ -62,6 +76,12 @@ const Wrap = styled.div`
 
   .textarea.is-rounded {
     border-radius: 20px;
+
+    @media (max-width: 768px) {
+      margin:0 auto;
+      width: 80%;
+      min-width: auto;
+    }
   }
 
   input[type="submit"] {
@@ -123,6 +143,10 @@ const Content = styled.div`
   color: #1a428a;
   text-align: center;
   padding: 45px 0 50px 0;
+
+  @media (max-width: 768px) {
+    padding: 20px 0 0 0;
+  }
 `;
 
 const DatePicker = styled.input`
@@ -163,7 +187,7 @@ return <Layout>
               <div className="field">
                   <label className="label">Date</label>
                   <div className="control has-icons-right" style={{width:"210px", margin:"0 auto"}}>
-                      <DatePicker name="date" tabindex="0" className="is-rounded" type="date" id="datepicker" defaultValue={new Date().toISOString().slice(0, 10)} required={"required"} />
+                      <DatePicker name="date" className="is-rounded" type="date" id="datepicker" defaultValue={new Date().toISOString().slice(0, 10)} required={"required"} />
                       <span className="icon is-small is-right">
                         <i className="fa fa-calendar is-right" style={{color:"#1d8649", right:"15px"}}></i>
                       </span>
@@ -173,14 +197,14 @@ return <Layout>
               <div className="field">
                   <label className="label">First Name</label>
                   <div className="control">
-                      <input name="firstName" tabindex="2" className="input is-rounded" type="text"/>
+                      <input name="firstName" className="input is-rounded" type="text"/>
                   </div>
               </div>
 
               <div className="field">
                   <label className="label">Email</label>
                   <div className="control">
-                      <input name="email" tabindex="4" className="input is-rounded" type="text"/>
+                      <input name="email" className="input is-rounded" type="text"/>
                   </div>
               </div>
           </div>
@@ -191,11 +215,13 @@ return <Layout>
               <div className="field">
                   <label className="label">Number of Players</label>
                   <div className="control players-wrapper">
-                      <button className="is-rounded decrease-button" onClick={() => {
+                      <button className="is-rounded decrease-button" onClick={(event) => {
+                        event.preventDefault();
                         setNumberOfPlayers(Math.max((parseInt(numberOfPlayers) -1), 1));
                       }}>-</button>
-                      <input name="players" tabindex="1" className="input is-rounded" type="text" value={numberOfPlayers}/>
-                      <button className="is-rounded increase-button" onClick={() => {
+                      <input name="players" className="input is-rounded" type="text" value={numberOfPlayers}/>
+                      <button className="is-rounded increase-button" onClick={(event) => {
+                        event.preventDefault();
                         setNumberOfPlayers(parseInt(numberOfPlayers) + 1);
                       }}>+</button>
                   </div>
@@ -203,7 +229,7 @@ return <Layout>
               <div className="field">
                   <label className="label">Last Name</label>
                   <div className="control">
-                      <input name="lastName" tabindex="3" className="input is-rounded" type="text"/>
+                      <input name="lastName" className="input is-rounded" type="text"/>
                   </div>
               </div>
               <div className="field">
@@ -212,7 +238,7 @@ return <Layout>
                       <div id="phoneWrap">
                         <div className="control has-icons-left">
                           <div className="select" id="countryCode">
-                            <select name="countryCode" tabindex="5" className="input is-rounded" style={{padding:"0 30px"}} onChange={(event) => {
+                            <select name="countryCode" className="input is-rounded" style={{padding:"0 30px"}} onChange={(event) => {
                               if(event.target.value === "+971") {
                                 setcountryCode('AE');
                               } else {
@@ -228,7 +254,7 @@ return <Layout>
                           </div>
                         </div>
 
-                       <input name="phone" tabindex="6" className="input is-rounded" type="text" id="phone"/>
+                       <input name="phone" className="input is-rounded" type="text" id="phone"/>
                       </div>
                       <p>Our representative will call you on this number to personalise your trip.</p>
                   </div>
@@ -238,13 +264,13 @@ return <Layout>
           <div className="field">
                 <label className="label">Notes</label>
                 <div className="control">
-                  <textarea name="notes" tabindex="7" className="textarea is-rounded">{notesValue}</textarea>
+                  <textarea name="notes" className="textarea is-rounded">{notesValue}</textarea>
                 </div>
               </div>
 
               <div className="control">
                 <input type="hidden" name="form-name" value="request" /> 
-                <input name="submit" type="submit" tabindex="8" className="button is-link is-rounded" value="Send This Request" />
+                <input name="submit" type="submit" className="button is-link is-rounded" value="Send This Request" />
               </div>
         </form>
       </div>

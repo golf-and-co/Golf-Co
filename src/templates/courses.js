@@ -267,6 +267,9 @@ export const coursesQuery = graphql`
             name
           }
         }
+        fields {
+          slug
+        }
        }
     }
     }

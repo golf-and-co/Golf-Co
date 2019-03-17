@@ -243,6 +243,9 @@ export const packageDetailsQuery = graphql`
           duration
           rounds
         }
+        fields {
+          slug
+        }
        }
     }
     }
