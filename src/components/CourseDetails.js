@@ -162,14 +162,14 @@ const About = styled.h1`
 `
 
 const Box = ({ data }) => {
-  if(data.icon === null || data.header === "empty") {
+  if(data.icon === null || data.heading === "empty") {
     return <div />;
   }
 
   return <BoxWrap className={`message is-primary`}>
     <div className="message-header">
       <DialogImg id="image" src={data.icon.publicURL} />
-      <p>{data.header}</p>
+      <p>{data.heading}</p>
     </div>
     <div className="message-body">{data.message}</div>
   </BoxWrap>
@@ -195,7 +195,7 @@ const Tag = ({ data }) => (
 
 const Dialog = ({data}) => {
 
-  if(data.dialogs.length ===) {
+  if(data.dialogs.length === 0) {
     return <div />;
   }
   return data.dialogs.map(dialog => (
