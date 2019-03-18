@@ -15,14 +15,17 @@ stats:
     value: '72'
   - icon: /img/golf_cart._light.png
     label: Yards
-    value: '7,052'
-dialogs:
-  - heading: Note
-    icon: /img/swing.svg
-    message: >-
-      After prolonged closure, the condition of the course will not be as good
-      as normal in the first few days (7 days) due to essential summer
-      maintenance. However, course is still playable.
+    value: '7414'
+  - icon: /img/icons8-calendar.svg
+    label: Established
+    value: '2001'
+  - icon: /img/icons8-wind_speed_48_52.svg
+    label: Course Type
+    value: Links
+  - icon: /img/icons8-grass.svg
+    label: Grass Type
+    value: Bermuda
+dialogs: []
 tags:
   - icon: /img/golf_bag.svg?sanitize=true
     label: Caddy
