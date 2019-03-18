@@ -31,8 +31,6 @@ dialogs: []
 tags:
   - icon: /img/golf_cart.svg
     label: Golf Carts
-  - icon: /img/golf_cart._light.png
-    label: Golf Carts
   - icon: /img/icons8-shopping_cart.svg
     label: Golf Shop
   - icon: /img/icons8-golf-swing.svg
