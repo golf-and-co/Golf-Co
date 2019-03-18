@@ -4,14 +4,9 @@ import PropTypes from 'prop-types'
 import Slider from 'react-slick'
 import { v4 } from 'uuid'
 
-const slideCount = 7 / 1
-
 const settings = {
-  dots: false,
-  infinite: false,
-  speed: 500,
-  slidesToShow: slideCount,
-  slidesToScroll: 3,
+  dots: true,
+  adaptiveHeight: true,
   responsive: [
     {
         breakpoint: 980, // tablet breakpoint
@@ -23,133 +18,86 @@ const settings = {
     {
         breakpoint: 480, // mobile breakpoint
         settings: {
-            slidesToShow: 4,
+            slidesToShow: 3,
             slidesToScroll: 2
         }
     }
   ]
 }
 
+//padding: 0 115px;
 const Background = styled.div`
-  background-repeat: none;
-  background-size: cover;
+  background-color: #f6f9f2;
+  padding: 0 74px;
+  display: block !important;
+
+  @media(max-width:760px) {
+    padding: 0 25px !important;
+  }
 `
 
 const SliderWrap = styled(Slider)`
-  max-width: 640px !important;
+  width: 100%
   margin: 0 auto;
-  height: 86vh;
-  background-position: 20vh;
-  padding-top: calc(80vh - 32px);
-  z-index: 10;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  padding-bottom: 150px !important;
 
-  @media(max-width:760px) {
-    max-width: 70% !important;
-  }
-
-  .slick-list {
-    background-color: #fff;
-  }
-
-  .slick-slide {
-    background: #fff;
-    height: 64px;
-  }
-
-  .slick-arrow {
-    top: 80vh;
-    background-color: #fff;
-    width: 64px;
-    height: 64px;
-  }
-
-  .slick-next:focus,
-  .slick-next:hover,
-  .slick-prev:focus,
-  .slick-prev:hover {
-    background: #fff !important;
+  .slick-dots {
+    bottom: auto !important
   }
 
   .slick-prev {
-    left: -64px;
-    border-radius: 64px 0 0 64px;
+    z-index: 2;
+    left: 35px;
+    top: 42%;
   }
 
   .slick-next {
-    right: -64px;
-    border-radius: 0 64px 64px 0;
+    z-index: 2;
+    right: 35px;
+    top: 42%;
   }
 
-  .slick-prev::before {
-    content: '❬';
-  }
+  @media(max-width:760px) {
 
-  .slick-next::before {
-    content: '❭';
   }
+`
 
-  .slick-prev::before,
-  .slick-next::before {
-    color: #91bc9b !important;
-    border-radius: 20px;
-    border: 1px solid #417d4f;
-    padding: 4px 8px 10px;
-    height: 35px;
-    font-stretch: expanded;
-    font-size: 12px;
+const About = styled.h1`
+  color: #1d8649;
+  font-family: 'Gotham Book';
+  font-size: 40px;
+  font-weight: 300;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    line-height: 2rem;
+    margin: 20px auto;
+    text-align:center;
   }
 `
 
 const Slide = styled.div`
-  color: #000;
-  width: 64px !important;
-  height: 64px;
-  background-color: #d8d8d8;
-  text-align: center;
-  line-height: 64px;
-  vertical-align: center;
-  border: 1px solid #ccc;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-  margin: 0 16px;
-  cursor: pointer;
-
-  img {
-    height: 64px;
-  }
+  padding: 0 10px;
 `
 
 const Gallery = ({ data }) => {
   if(data.gallery[0].image === null)
     return <div />;
 
-  const click = img => {
-    // @TODO: Use refs
-    document.querySelector(
-      '#courseDetailBackground'
-    ).style.backgroundImage = `url(${img})`
-  }
-
   return (
-    <Background
-      id="courseDetailBackground"
-      style={{
-        backgroundImage: `url(${
-          data.gallery[0].image.childImageSharp.fluid.src
-        })`,
-      }}
-    >
-      <SliderWrap {...settings}>
+    <Background className="columns">
+      <About className="column">Gallery</About>
+      <SliderWrap className="column" {...settings}>
         {data.gallery.map(exhibit => (
           <Slide key={v4()}>
             <img
               alt={exhibit.category}
-              onClick={() => click(exhibit.image.childImageSharp.fluid.src)}
               src={exhibit.image.childImageSharp.fluid.src}
             />
           </Slide>
         ))}
       </SliderWrap>
+
     </Background>
   )
 }
