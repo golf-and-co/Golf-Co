@@ -12,10 +12,7 @@ stats:
   - icon: /img/golf_tee.svg
     label: Holes
     value: '18'
-dialogs:
-  - heading: test
-    icon: /img/icons8-shopping_cart.svg
-    message: test
+dialogs: []
 tags:
   - icon: /img/golf_cart.svg
     label: Golf Carts
