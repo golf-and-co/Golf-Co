@@ -42,6 +42,8 @@ tags:
 gallery:
   - category: Course
     image: /img/dubai-creek-golf-yacht-club_045700_full.jpg
+  - category: Course
+    image: /img/dubai-creek-golf-yacht-club-5-xl.jpg
 map: Dubai
 isFeatured: true
 featuredDetails:
@@ -54,6 +56,10 @@ holes: '18'
 amenities:
   - name: Golf Academy
 ---
-The Majlis course has developed a worthy reputation worldwide as a testing layout for even the best golfers. The course features hundreds of indigenous species of flora and fauna, beautifully complemented by meandering fairways and seven fresh and saltwater lakes.
+The Dubai Creek Golf and Yacht Club is a top destination and a must-visit for golfers in the UAE, opened in 1993 when golf was still just in its developing state in this part of the world. Situated just a few minutes from the Dubai International Airport afforded the serene environment of a tranquil Creek but just minutes away from the City Centre. It has an eighteen hole golf course for championships, another nine hole par 3 course, a golf academy, six exquisite restaurants with bars, a gymnasium, one of the very best swimming pools around, the world-class 225 room Park Hyatt, top notch 92 executive residential villas and a marina that is 121 berth.
 
-The Majlis, the first grass course in the Middle East, takes its name from the Arabic word for 'meeting place'. One of the most prominent features on the course is the Majlis building itself positioned between the 8th and 9th holes and a Dubai landmark since 1988.
+The Dubai Creek Golf Club Academy has a newly refurbished and improved swing studio, which meets up with the very latest in golf technologies and the very best golf academy facilities. The Dubai Creek Golf Academy is the most established golf academy in the UAE and is managed by a team of qualified top PGA professionals that will sure help improve every aspect of your game.
+
+The Dubai Creek Club excels when it comes to food, as there are six of the very best restaurants in Dubai in the Dubai Creek Club with the “Casa de Tapas” being one of the most incredible restaurants in the UAE. It is modelled on the rustic traditional Bodega venues style in Madrid. It offers the best Spanish delicacies Dubai has to offer. The Cielo Sky Lounge is a rooftop bar, that overlooks the beautiful waters at the Dubai Creek Club. The Cielo Sky Lounge offers guests innovative cocktails accompanied by live music provided by local and international talent.
+
+The Pro Shop at the Dubai Creek Club gives you the chance to endear yourself with retail pleasures; be it clothing, bags, shoes, sunglasses and other accessories.
