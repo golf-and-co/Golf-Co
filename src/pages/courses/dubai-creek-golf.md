@@ -2,7 +2,7 @@
 image: /img/dubai-creek-golf-yacht-club-hole-103200x2125.jpg
 templateKey: course
 title: Dubai Creek Golf and Yacht Club
-city: Dubai
+city: Deira
 region: Dubai
 country: UAE
 statsDescription: >-
@@ -27,7 +27,8 @@ stats:
   - icon: /img/icons8-grass.svg
     label: Grass Type
     value: Bermuda
-dialogs: []
+dialogs:
+  - {}
 tags:
   - icon: /img/golf_bag.svg
     label: Caddy

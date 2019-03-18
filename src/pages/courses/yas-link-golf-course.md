@@ -15,17 +15,29 @@ stats:
     value: '72'
   - icon: /img/golf_cart._light.png
     label: Yards
-    value: '7,052'
+    value: '7414'
+  - icon: /img/icons8-calendar.svg
+    label: Established
+    value: '2001'
+  - icon: /img/icons8-wind_speed_48_52.svg
+    label: Course Type
+    value: Links
+  - icon: /img/icons8-grass.svg
+    label: Grass Type
+    value: Bermuda
 dialogs:
-  - heading: Note
-    icon: /img/swing.svg
-    message: >-
-      After prolonged closure, the condition of the course will not be as good
-      as normal in the first few days (7 days) due to essential summer
-      maintenance. However, course is still playable.
+  - {}
 tags:
   - icon: /img/golf_bag.svg?sanitize=true
     label: Caddy
+  - icon: /img/icons8-golf_ball.svg
+    label: Lessons
+  - icon: /img/icons8-spinning.svg
+    label: Health Club
+  - icon: /img/icons8-light_on.svg
+    label: Night Golf
+  - icon: /img/icons8-vegan_shoes.svg
+    label: Equipment Rental
 gallery:
   - category: Course
     image: /img/yas-links.jpg
@@ -41,6 +53,10 @@ holes: '72'
 amenities:
   - name: Club House
 ---
-The Majlis course has developed a worthy reputation worldwide as a testing layout for even the best golfers. The course features hundreds of indigenous species of flora and fauna, beautifully complemented by meandering fairways and seven fresh and saltwater lakes.
+The Yas Links is probably the most naturally pleasing golf course in all of the UAE. It is located in Abu Dhabi, situated in one of the most attractive areas surrounded by mangrove forests on the shores to the west of the Yas Island, opened in 2010. The Yas Links is believed to have the very first and possibly only true links. The Yas Links has an eighteen hole layout, a nine hole golf academy course, also the practice area is fitted with floodlights. There is a world class restaurant with international and local cuisines; there are other interesting fun places to visit like the Yas Waterworld, the Yas Ferrari World, the Yas Marina Circuit, the Al Mahara Kayaking and the Yas Beach.
 
-The Majlis, the first grass course in the Middle East, takes its name from the Arabic word for 'meeting place'. One of the most prominent features on the course is the Majlis building itself positioned between the 8th and 9th holes and a Dubai landmark since 1988.
+The Academy Golf Course of the Yas Links is the perfect place to try to take off a number of shots from your handicap. The Yas Links is the best place to learn and also to improve your game. There are customized one on one classes to help meet your personal golfing needs.
+
+The restaurant at the Yas Links is known as the Hickory Restaurant and Bar. The bar is named after the wood that was used in making most clubs in the 19th century. The Hickory Restaurant offers soothing views from the terrace of the coastline and the mangroves. Recipes at the Hickory Restaurant and Bar are either international cuisines of Asia or Europe origin or recipes that are health focused.
+
+There is a professional shop at the Yas Links with merchandise from all of the top manufacturers and designers. Also, there is the option to hire Golf kits and also a club repair outlet.

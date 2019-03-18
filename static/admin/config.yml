@@ -157,17 +157,17 @@ collections:
       - {label: "Region", name: "region", widget: "string"}
       - {label: "Country", name: "country", widget: "string"}
       - {label: "CTA Description", name: "statsDescription", widget: "string"}
-      - {label: "Stats", name: "stats", widget: "list", required: false, fields: [{label: "Icon", name: icon, widget: image}, {label: "Label", name: label, widget: string}, {label: "Value", name: value, widget: string}]}
-      - {label: "Dialogs", name: "dialogs", widget: "list", required: false, fields: [{label: "Icon", name: icon, widget: image}, {label: "Heading", name: "heading", widget: "string"}, {label: "Message", name: "message", widget: "markdown"}]}
-      - {label: "Tags", name: tags, widget: list, required: false, fields: [{label: "Icon", name: icon, widget: image}, {label: "Label", name: label, widget: string}]}
+      - {label: "Stats", name: "stats", widget: "list", required: false, fields: [{label: "Icon", name: icon, widget: image, required: false}, {label: "Label", name: label, widget: string, required: false}, {label: "Value", name: value, widget: string, required: false}]}
+      - {label: "Dialogs", name: "dialogs", widget: "list", required: false, fields: [{label: "Icon", name: icon, widget: image, required: false}, {label: "Heading", name: "heading", widget: "string", required: false}, {label: "Message", name: "message", widget: "markdown", required: false}]}
+      - {label: "Tags", name: tags, widget: list, required: false, fields: [{label: "Icon", name: icon, widget: image, required: false}, {label: "Label", name: label, widget: string, required: false}]}
       - {label: "Body", name: "body", widget: "markdown", required: false}
-      - {label: "Gallery", name: "gallery", widget: "list", required: false, fields: [{label: "Image", name: image, widget: image}, {label: "Category", name: category, widget: string}]}
+      - {label: "Gallery", name: "gallery", widget: "list", required: false, fields: [{label: "Image", name: image, widget: image, required: false}, {label: "Category", name: category, widget: string, required: false}]}
       - {label: "Google Map Location", name: "map", widget: "string", required: false}
       - {label: "Featured", name: "isFeatured", widget: "boolean", required: false}
-      - {label: "Featured Details", name: "featuredDetails", widget: "object", required: false, fields: [{label: "Image", name: image, widget: image}, {label: "Name", name: name, widget: string}, {label: "Description", name: description, widget: string}]}
-      - {label: "Course Type", name: courseType, widget: list, required: false, fields: [{label: "Type Name", name: name, widget: string}]}
-      - {label: "Holes", name: holes, widget: string, required: false}
-      - {label: "Amenities", name: "amenities", widget: "list", required: false, fields: [{label: "Amenity Name", name: name, widget: string}]}
+      - {label: "Featured Details", name: "featuredDetails", widget: "object", required: false, fields: [{label: "Image", name: image, widget: image, required: false}, {label: "Name", name: name, widget: string, required: false}, {label: "Description", name: description, widget: string, required: false}]}
+      - {label: "Course Type", name: courseType, widget: list, required: false, fields: [{label: "Type Name", name: name, widget: string, required: false}]}
+      - {label: "Holes", name: holes, widget: string}
+      - {label: "Amenities", name: "amenities", widget: "list", required: false, fields: [{label: "Amenity Name", name: name, widget: string, required: false}]}
   - name: "package"
     label: "Packages"
     folder: "src/pages/packages"
