@@ -2,7 +2,7 @@
 image: /img/saadiyat-beach-golf-club-next-golf-1.jpg
 templateKey: course
 title: Saadiyat Beach Golf Club
-city: Abu Dhabi
+city: Sheikh Khalifa Highway
 region: Abu Dhabi
 country: UAE
 statsDescription: >-
