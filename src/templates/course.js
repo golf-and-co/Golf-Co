@@ -6,7 +6,6 @@ import HeroCourse from '../components/HeroCourse'
 import Stats from '../components/Stats'
 import CourseDetails from '../components/CourseDetails'
 import Gallery from '../components/Gallery'
-import CourseMap from '../components/CourseMap'
 import Footer from '../components/Footer'
 
 export const PageTemplate = ({ title }) => (
@@ -28,7 +27,6 @@ const Course = ({ data, location }) => {
       body={data.markdownRemark.rawMarkdownBody}
     />
     <Gallery data={data.markdownRemark.frontmatter} />
-    <CourseMap data={data.markdownRemark.frontmatter} />
     <Footer />
   </Layout>
 }
