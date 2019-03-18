@@ -2,7 +2,7 @@
 image: /img/trump_dubai_17th_behind_6005_web.jpg
 templateKey: course
 title: Trump International Golf Club
-city: Mudon
+city: DAMAC Hills
 region: Dubai
 country: UAE
 statsDescription: >-
