@@ -24,7 +24,8 @@ stats:
   - icon: /img/icons8-wind_speed_48_52.svg
     label: Course Type
     value: Desert
-dialogs: []
+dialogs:
+  - {}
 tags:
   - icon: /img/golf_cart.svg
     label: Golf Carts

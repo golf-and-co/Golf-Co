@@ -27,7 +27,8 @@ stats:
   - icon: /img/icons8-grass.svg
     label: Grass Type
     value: Bermuda
-dialogs: []
+dialogs:
+  - {}
 tags:
   - icon: /img/golf_cart.svg
     label: Golf Carts
