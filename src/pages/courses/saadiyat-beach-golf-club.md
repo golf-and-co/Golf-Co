@@ -1,5 +1,5 @@
 ---
-image: /img/saadiyat-beach-golf-club-next-golf-1.jpg
+image: /img/saadiyat-16th-9828.jpg
 templateKey: course
 title: Saadiyat Beach Golf Club
 city: Sheikh Khalifa Highway
@@ -21,7 +21,7 @@ tags:
     label: test
 gallery:
   - category: Course
-    image: /img/saadiyat-beach-golf-club-next-golf-1.jpg
+    image: /img/saadiyat-16th-9828.jpg
 featuredDetails:
   description: Abu Dhabi
   image: /img/saadiyat-beach-golf-club-next-golf-1.jpg
@@ -32,7 +32,7 @@ holes: '18'
 amenities:
   - name: Golf Shop
 ---
-, required: falseThe Saadiyat Beach Golf Club is definitely the most beautiful golf course in the UAE, opened in 2010. It is situated by the beach and has holes by the beach front to give one of the best golfing experiences; guests to the driving range, the Academy and the Par 3 course are bound to have a feel of nature. The 18-hole 72 par course, designed by Gary Player, has a slightly undulating terrain and a total length of about 7806 yards. It is one of the most beautiful courses in the world, definitely the most beautiful in the Gulf region. The Saadiyat Beach Golf Club has a “member of the day” which allows a member special services.
+The Saadiyat Beach Golf Club is definitely the most beautiful golf course in the UAE, opened in 2010. It is situated by the beach and has holes by the beach front to give one of the best golfing experiences; guests to the driving range, the Academy and the Par 3 course are bound to have a feel of nature. The 18-hole 72 par course, designed by Gary Player, has a slightly undulating terrain and a total length of about 7806 yards. It is one of the most beautiful courses in the world, definitely the most beautiful in the Gulf region. The Saadiyat Beach Golf Club has a “member of the day” which allows a member special services.
 
 The practice facilities at the Saadiyat Beach Golf Club are like no other. There is a driving range, a putting green, a chipping green and also a pitching green which are just a few of the features that make the Golf Academy stand out from other golf academies.
 
