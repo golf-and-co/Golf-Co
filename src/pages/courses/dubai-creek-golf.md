@@ -31,6 +31,14 @@ dialogs: []
 tags:
   - icon: /img/golf_bag.svg
     label: Caddy
+  - icon: /img/golf_cart._light.png
+    label: Golf Carts
+  - icon: /img/icons8-shopping_cart.svg
+    label: Golf Shop
+  - icon: /img/icons8-golf-swing.svg
+    label: Practice Facilities
+  - icon: /img/icons8-vegan_shoes.svg
+    label: Equipment Rental
 gallery:
   - category: Course
     image: /img/dubai-creek-golf-yacht-club_045700_full.jpg
