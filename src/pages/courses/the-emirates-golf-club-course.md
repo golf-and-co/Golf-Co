@@ -15,22 +15,35 @@ stats:
   - icon: /img/swing.svg
     label: Par
     value: '72'
-dialogs:
-  - heading: 'Note:'
-    icon: /img/alert.svg
-    message: >-
-      After prolonged closure, the condition of the course will not be as good
-      as normal in the first few days (7 days) due to essential summer
-      maintenance. However, course is still playable.
+  - icon: /img/golf_cart._light.png
+    label: Yards
+    value: '7348'
+  - icon: /img/icons8-calendar.svg
+    label: Established
+    value: '1996'
+  - icon: /img/icons8-wind_speed_48_52.svg
+    label: Course Type
+    value: Desert
+dialogs: []
 tags:
-  - icon: /img/golf_bag.svg
-    label: Caddy
+  - icon: /img/golf_cart.svg
+    label: Golf Carts
+  - icon: /img/icons8-shopping_cart.svg
+    label: Golf Shop
+  - icon: /img/icons8-golf-swing.svg
+    label: Practice Facilities
+  - icon: /img/icons8-golf_ball.svg
+    label: Lessons
+  - icon: /img/icons8-restaurant.svg
+    label: Dining / Restaurants    
+  - icon: /img/icons8-spinning.svg
+    label: Health Club
+  - icon: /img/icons8-light_on.svg
+    label: Night Golf
+  - icon: /img/icons8-vegan_shoes.svg
+    label: Equipment Rental
   - icon: /img/spa.svg
     label: Spa
-  - icon: /img/nearby_hotel.svg
-    label: Nearby Hotel
-  - icon: /img/golf_cart.svg
-    label: Golf Cart
 gallery:
   - category: Course
     image: /img/faldo_at_emirates_golf_club_cover_picture.jpg
