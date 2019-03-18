@@ -28,8 +28,12 @@ stats:
     label: Grass Type
     value: Bermuda
 dialogs:
-  - {}
-tags: []
+  - heading: empty
+    icon: /img/icons8-light_on.svg
+    message: empty
+tags:
+  - icon:
+    label:
 gallery:
   - category: Course
     image: /img/saadiyat-beach-golf-club-next-golf-1.jpg

@@ -11,11 +11,15 @@ stats:
     label: Holes
     value: '18'
 dialogs:
-  - {}
+  - heading: empty
+    icon: /img/icons8-light_on.svg
+    message: empty
 tags:
-  - {}
+  - icon:
+    label:
 gallery:
-  - {}
+  - category:
+    image:
 map: Khalifa City
 isFeatured: true
 featuredDetails:

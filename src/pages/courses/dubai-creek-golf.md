@@ -28,7 +28,9 @@ stats:
     label: Grass Type
     value: Bermuda
 dialogs:
-  - {}
+  - heading: empty
+    icon: /img/icons8-light_on.svg
+    message: empty
 tags:
   - icon: /img/golf_bag.svg
     label: Caddy

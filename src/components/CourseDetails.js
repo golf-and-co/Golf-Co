@@ -162,7 +162,7 @@ const About = styled.h1`
 `
 
 const Box = ({ data }) => {
-  if(data.icon === null) {
+  if(data.icon === null || data.header === "empty") {
     return <div />;
   }
 
@@ -195,7 +195,7 @@ const Tag = ({ data }) => (
 
 const Dialog = ({data}) => {
 
-  if(data.dialogs.length === 0) {
+  if(data.dialogs.length ===) {
     return <div />;
   }
   return data.dialogs.map(dialog => (

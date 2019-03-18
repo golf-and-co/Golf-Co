@@ -25,7 +25,9 @@ stats:
     label: Course Type
     value: Desert
 dialogs:
-  - {}
+  - heading: empty
+    icon: /img/icons8-light_on.svg
+    message: empty
 tags:
   - icon: /img/golf_cart.svg
     label: Golf Carts
