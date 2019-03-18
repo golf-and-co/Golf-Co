@@ -21,10 +21,13 @@ stats:
   - icon: /img/icons8-calendar.svg
     label: Established
     value: '1989'
-dialogs:
-  - heading: .
-    icon: /img/icons8-calendar.svg
-    message: .as
+  - icon: /img/icons8-wind_speed_48_52.svg
+    label: Course Type
+    value: Links
+  - icon: /img/icons8-grass.svg
+    label: Grass Type
+    value: Bermuda
+dialogs: []
 tags:
   - icon: /img/golf_bag.svg
     label: Caddy
