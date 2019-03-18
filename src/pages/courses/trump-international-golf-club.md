@@ -12,10 +12,31 @@ stats:
   - icon: /img/golf_tee.svg
     label: Holes
     value: '18'
+  - icon: /img/swing.svg
+    label: Par
+    value: '71'
+  - icon: /img/golf_cart._light.png
+    label: Yards
+    value: '7205'
+  - icon: /img/icons8-calendar.svg
+    label: Established
+    value: '2000'
+  - icon: /img/icons8-wind_speed_48_52.svg
+    label: Course Type
+    value: Parkland
+  - icon: /img/icons8-grass.svg
+    label: Grass Type
+    value: Bermuda
 dialogs: []
 tags:
   - icon: /img/golf_cart.svg
     label: Golf Carts
+  - icon: /img/golf_cart._light.png
+    label: Golf Carts
+  - icon: /img/icons8-shopping_cart.svg
+    label: Golf Shop
+  - icon: /img/icons8-golf-swing.svg
+    label: Practice Facilities
 gallery:
   - category: Course
     image: /img/trump_dubai_17th_behind_6005_web.jpg
