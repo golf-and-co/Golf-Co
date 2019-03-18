@@ -188,7 +188,8 @@ const Tag = ({ data }) => (
 )
 
 const Dialog = ({data}) => {
-  if(data.dialogs[0].icon === null) {
+
+  if(data.dialogs.length === 0) {
     return <div />;
   }
   return data.dialogs.map(dialog => (
