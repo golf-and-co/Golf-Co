@@ -161,15 +161,19 @@ const About = styled.h1`
   }
 `
 
-const Box = ({ data }) => (
-  <BoxWrap className={`message is-primary`}>
+const Box = ({ data }) => {
+  if(data.icon === null) {
+    return <div />;
+  }
+
+  return <BoxWrap className={`message is-primary`}>
     <div className="message-header">
       <DialogImg id="image" src={data.icon.publicURL} />
       <p>{data.header}</p>
     </div>
     <div className="message-body">{data.message}</div>
   </BoxWrap>
-)
+}
 
 const Tags = ({data}) => {
   if(data.tags[0].icon === null) {
