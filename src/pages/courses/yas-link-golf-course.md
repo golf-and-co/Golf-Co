@@ -29,6 +29,14 @@ dialogs: []
 tags:
   - icon: /img/golf_bag.svg?sanitize=true
     label: Caddy
+  - icon: /img/icons8-golf_ball.svg
+    label: Lessons
+  - icon: /img/icons8-spinning.svg
+    label: Health Club
+  - icon: /img/icons8-light_on.svg
+    label: Night Golf
+  - icon: /img/icons8-vegan_shoes.svg
+    label: Equipment Rental
 gallery:
   - category: Course
     image: /img/yas-links.jpg
