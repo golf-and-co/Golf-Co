@@ -1,34 +1,43 @@
 ---
-image: /img/saadiyat-16th-9828.jpg
+image: /img/saadiyat-beach-golf-club-next-golf-1.jpg
 templateKey: course
 title: Saadiyat Beach Golf Club
-city: Sheikh Khalifa Highway
+city: Abu Dhabi
 region: Abu Dhabi
 country: UAE
 statsDescription: >-
   Just Add it to your Golf Cart and Submit your request and we will take care of
   the rest.
 stats:
-  - icon: /img/icons8-golf_ball.svg
+  - icon: /img/golf_tee.svg
     label: Holes
     value: '18'
-dialogs:
-  - heading: test
-    icon: /img/icons8-light_on.svg
-    message: test
-tags:
-  - icon: /img/icons8-light_on.svg
-    label: test
+  - icon: /img/swing.svg
+    label: Par
+    value: '72'
+  - icon: /img/golf_cart._light.png
+    label: Yards
+    value: '6733'
+  - icon: /img/icons8-calendar.svg
+    label: Established
+    value: '2009'
+  - icon: /img/icons8-wind_speed_48_52.svg
+    label: Course Type
+    value: Links
+  - icon: /img/icons8-grass.svg
+    label: Grass Type
+    value: Bermuda
+dialogs: []
+tags: []
 gallery:
   - category: Course
-    image: /img/saadiyat-16th-9828.jpg
+    image: /img/saadiyat-beach-golf-club-next-golf-1.jpg
 featuredDetails:
   description: Abu Dhabi
   image: /img/saadiyat-beach-golf-club-next-golf-1.jpg
   name: Saadiyat Beach Golf Club
 courseType:
   - name: Golf Academy
-holes: '18'
 amenities:
   - name: Golf Shop
 ---
