@@ -37,6 +37,8 @@ tags:
     label: Golf Shop
   - icon: /img/icons8-golf-swing.svg
     label: Practice Facilities
+  - icon: /img/icons8-restaurant.svg
+    label: Dining / Restaurants
 gallery:
   - category: Course
     image: /img/trump_dubai_17th_behind_6005_web.jpg
