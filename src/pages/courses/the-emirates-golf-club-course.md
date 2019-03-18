@@ -1,11 +1,13 @@
 ---
 image: /img/faldo-banner.jpg
 templateKey: course
-title: The Emirates Golf Club Course
-city: Dubai
+title: Emirates Golf Club (Faldo)
+city: Shk Zayed Road
 region: Dubai
 country: UAE
-statsDescription: Book from one of our Golf Packages and let us know your preferred Golf Course.
+statsDescription: >-
+  Just Add it to your Golf Cart and Submit your request and we will take care of
+  the rest.
 stats:
   - icon: /img/golf_tee.svg
     label: Holes
@@ -31,17 +33,9 @@ tags:
     label: Golf Cart
 gallery:
   - category: Course
-    image: /img/emirates-golf-club-course.png
+    image: /img/faldo_at_emirates_golf_club_cover_picture.jpg
   - category: Course
-    image: /img/the-emirates-golf-club-course.png
-  - category: Course
-    image: /img/emirates-golf-club-course.png
-  - image: /img/emirates-golf-club-course.png
-  - image: /img/emirates-golf-club-course.png
-  - image: /img/emirates-golf-club-course.png
-  - image: /img/emirates-golf-club-course.png
-  - image: /img/emirates-golf-club-course.png
-  - image: /img/emirates-golf-club-course.png
+    image: /img/emirates_faldo.jpg
 map: Dubai
 isFeatured: true
 featuredDetails:
@@ -60,8 +54,8 @@ amenities:
   - name: Championship Course
   - name: Sealinks Course
 ---
-The Majlis course has developed a worthy reputation worldwide as a testing layout for even the best golfers. The course features hundreds of indigenous species of flora and fauna, beautifully complemented by meandering fairways and seven fresh and saltwater lakes.
+The Faldo Course of the Emirates Golf Course is the only fully lit, with flood lights, course allowing you to play golf at any time of the day. It is located in Dubai, the largest and most populated city of the UAE, first opened in 1996 but a new course was opened in 2006. It is a par 72 course and is just a little bit over 7,052 yards and is said to be one of the very finest courses in all of Dubai. It is home to the Dubai Desert Classic, a European PGA tour golfing event. The clubhouse at the Emirates Golf Club is built in a tent-style. One thing that sets the Faldo Course of the Emirates Golf Club from other golf courses is the tough experience of playing on the same course as professionals.
 
+There are actually two courses at the Emirates Golf Club, the new one popularly known as the Faldo because it was built under the supervision of Nick Faldo is a 9 hole, par 72 golf course that is renowned for its night golf.
 
-
-The Majlis, the first grass course in the Middle East, takes its name from the Arabic word for 'meeting place'. One of the most prominent features on the course is the Majlis building itself positioned between the 8th and 9th holes and a Dubai landmark since 1988.
+The Emirates Golf Club has quite a number of restaurants, including The Carine which is a French Mediterranean restaurant with tasty dishes and amazing cocktails and is located just on the first floor. Another restaurant at the Emirates Golf Club is the Jones the Grocer, which is of Australian roots, and is situated on the ground floor with both an indoor and outdoor sitting area. This also offers a kiddies area for the children.
