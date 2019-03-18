@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import ReactMarkdown from 'react-markdown';
 import { v4 } from 'uuid'
 
 const Background = styled.div`
@@ -14,6 +15,7 @@ const Background = styled.div`
     font-size: 16px;
     font-weight: 300;
     line-height: 20px;
+    margin-bottom: 20px;
   }
 
   @media (max-width: 768px) {
@@ -219,7 +221,7 @@ const CourseDetails = ({ data, body }) => (
       <Dialog data={data} />
       <Tags data={data} className="tags" />
       <About>About {data.title}</About>
-      <p>{body}</p>
+      <ReactMarkdown source={body} />
     </div>
     <div className="column is-one-quarters">
       <Cart data={data} />
