@@ -21,7 +21,7 @@ PageTemplate.propTypes = {
 const Course = ({ data, location }) => {
   return <Layout>
     <HeroCourse data={data.markdownRemark.frontmatter} />
-    <Stats data={data.markdownRemark.frontmatter} />
+    <Stats data={data.markdownRemark.frontmatter} center={true}/>
     <CourseDetails
       data={data.markdownRemark.frontmatter}
       body={data.markdownRemark.rawMarkdownBody}
@@ -48,6 +48,7 @@ export const courseQuery = graphql`
       frontmatter {
         title
         city
+        region
         country
         image {
           childImageSharp {

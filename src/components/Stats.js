@@ -9,7 +9,7 @@ const Section = styled.section`
 
 const List = styled.ul`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 0 0 20px 0;
 `
 
@@ -36,21 +36,34 @@ const Value = styled.span`
   text-transform: uppercase;
 `
 
-const StatItem = ({ data }) => (
-  <Item>
+const StatItem = ({ data, style }) => {
+  data.label = data.label.split(" ");
+  data.label = data.label[0];
+  return <Item style={style}>
     <img id="image" src={data.icon.publicURL} alt={data.label} />
     <Label>{data.label}</Label>
     <Value>{data.value}</Value>
   </Item>
-)
+}
 
-const StatList = ({ data, slug, hideStats }) => {
+const StatList = ({ data, slug, hideStats, center }) => {
   if(hideStats) return <span />;
 
+  const listStyle = {};
+  const itemStyle = {};
+  if(center) {
+    listStyle.justifyContent="center";
+  }
+  else {
+    // for cards
+    data.stats = data.stats.slice(0,3);
+    itemStyle.width = "86px";
+    itemStyle.padding ="10px";
+  }
   return <Section onClick={() => window.location = slug} id="stats">
-    <List>
+    <List style={listStyle}>
       {data.stats.map(stat => (
-        <StatItem data={stat} key={v4()} />
+        <StatItem data={stat} key={v4()} style={itemStyle}/>
       ))}
     </List>
   </Section>

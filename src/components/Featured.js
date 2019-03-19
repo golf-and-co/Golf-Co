@@ -89,6 +89,7 @@ const CardImageWrap = styled.div`
 
 const CardImage = styled.img`
   height:216px !important;
+  border-radius: 6px;
 `;
 
 const CardContent = styled.div`
@@ -140,6 +141,7 @@ const CardContentTag = styled.div`
 const CardCaption = styled.div`
   width: 80px;
   height: 20px;
+  overflow: hidden;
   border-radius: 8px;
   background-color: #1d8649;
   color: #ffffff;
@@ -236,7 +238,7 @@ const courseMouseExit = (data) => {
 }
 
 // @TODO: refactor, need better properties, start by grouping in a decorator, pass a styled component
-export const Course = ({data, footer, hideStats, location, hideCaption}) => {
+export const Course = ({data, footer, hideStats, location, hideCaption, centered}) => {
     
     
     const mouseEnter = () => {
@@ -302,7 +304,7 @@ export const Course = ({data, footer, hideStats, location, hideCaption}) => {
                 <div class="featuredDetails name">{data.frontmatter.featuredDetails.name}</div>
                 <CardContentTag>{description()}</CardContentTag>
             </div>
-            <Stats data={data.frontmatter} slug={data.fields.slug} hideStats={hideStats}/>
+            <Stats data={data.frontmatter} slug={data.fields.slug} hideStats={hideStats} center={centered}/>
             </CardContent>
             {rounds()}
         </Card>
@@ -315,7 +317,7 @@ export const Course = ({data, footer, hideStats, location, hideCaption}) => {
   //window.location.href = `/courses/?city=${document.querySelector('#featuredCitiesNav').value}`;
 //}
 
-const Featured = ({home, courses}) => {
+const Featured = ({home, courses, centered}) => {
   
   //let cities = Array.from((group(courses, course => {return {value:course.node.frontmatter.city}}).keys()));
   //cities.unshift({value:"--- All ---"});
@@ -368,7 +370,7 @@ const Featured = ({home, courses}) => {
       
       <div className="container">
           <div className="columns">
-              {courses.map(course => <Course key={v4()} data={course.node}  footer={false}/>)}
+              {courses.map(course => <Course key={v4()} data={course.node} centered={centered} footer={false}/>)}
           </div>
       </div>
 

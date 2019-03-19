@@ -90,7 +90,7 @@ const Hero = ({data, empty, oneLine}) => {
 
   const region = () => {
     if(!oneLine) {
-       return <div>{data.city}, {data.country}</div>;
+       return <div>{data.city}, {data.region}</div>;
     }
   }
 
