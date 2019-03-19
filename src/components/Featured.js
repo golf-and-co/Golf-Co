@@ -217,7 +217,7 @@ const Search = styled.aside`
   position: relative;
 
   @media (min-width: 768px) {
-    width: 640px;
+    width: 750px;
     height: 90px;
   }
 
