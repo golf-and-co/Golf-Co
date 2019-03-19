@@ -6,8 +6,10 @@ import { v4 } from 'uuid'
 
 const settings = {
   dots: true,
-  adaptiveHeight: true,
-  infinite: false,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000
 }
 
 const Background = styled.div`
@@ -21,10 +23,29 @@ const Background = styled.div`
 `
 
 const SliderWrap = styled(Slider)`
-  width: 100%
-  margin: 0 auto;
   padding-bottom: 150px !important;
-  padding-right: 2px !important;
+
+  .slick-slide {
+    height: 80vh; 
+    line-height: 80vh;
+    vertical-align: middle;
+
+    @media(max-width:768px) {
+      height: 50vh;
+      line-height: 50vh;
+      vertical-align: middle;
+    }
+  }
+
+  .slick-slide img {
+    line-height: 80vh;
+    vertical-align: middle;
+
+    @media(max-width:768px) {
+      line-height: 50vh;
+      vertical-align: middle;
+    }
+  }
 
   .slick-dots {
     bottom: auto !important
@@ -32,33 +53,10 @@ const SliderWrap = styled(Slider)`
 
   .slick-arrow {
     z-index: 2;
-    &:first-of-type {
-      left: 35px;
-    }
-
-    &:last-of-type {
-      right: 35px;
-    }
-  }
-
-  .slick-prev {
-    top: calc((100% - 140px) / 2)
-  }
-
-  .slick-next {
-    top: calc((100% - 140px) / 2)
   }
 
   @media(max-width:768px) {
     padding-bottom: 90px !important;
-
-    .slick-prev {
-      top: calc((100% - 80px) / 2)
-    }
-  
-    .slick-next {
-      top: calc((100% - 80px) / 2)
-    }
   }
 `
 
@@ -76,27 +74,20 @@ const Header = styled.h1`
   }
 `
 
-const Slide = styled.div`
-  &:not(first-child) {
-    padding: 0 10px 0 0px;
-}
-`
-
 const Gallery = ({ data }) => {
   if(data.gallery[0].image === null)
     return <div />;
 
   return (
-    <Background className="columns">
+    <Background>
       <Header className="column">Gallery</Header>
       <SliderWrap className="column" {...settings}>
         {data.gallery.map(exhibit => (
-          <Slide key={v4()}>
             <img
+              key={v4()}
               alt={exhibit.category}
               src={exhibit.image.childImageSharp.fluid.src}
             />
-          </Slide>
         ))}
       </SliderWrap>
 
