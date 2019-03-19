@@ -38,7 +38,7 @@ tags:
   - icon: /img/icons8-golf_ball.svg
     label: Lessons
   - icon: /img/icons8-restaurant.svg
-    label: Dining / Restaurants    
+    label: Dining / Restaurants
   - icon: /img/icons8-spinning.svg
     label: Health Club
   - icon: /img/icons8-light_on.svg
@@ -55,9 +55,7 @@ gallery:
 map: Dubai
 isFeatured: true
 featuredDetails:
-  description: >-
-    Hundreds of indigenous species of flora and fauna, beautifully complemented
-    by meandering fairways and seven fresh and saltwater lakes
+  description: 'Shk Zayed Road, Dubai'
   image: /img/emirates-golf-club-course.png
   name: The Emirates Golf Club
 courseType:
@@ -66,9 +64,8 @@ courseType:
   - name: Sealinks Course
 holes: '18'
 amenities:
-  - name: Earth Course
-  - name: Championship Course
-  - name: Sealinks Course
+  - name: Night Golf
+  - name: Dining / Restaurant
 ---
 The Faldo Course of the Emirates Golf Course is the only fully lit, with flood lights, course allowing you to play golf at any time of the day. It is located in Dubai, the largest and most populated city of the UAE, first opened in 1996 but a new course was opened in 2006. It is a par 72 course and is just a little bit over 7,052 yards and is said to be one of the very finest courses in all of Dubai. It is home to the Dubai Desert Classic, a European PGA tour golfing event. The clubhouse at the Emirates Golf Club is built in a tent-style. One thing that sets the Faldo Course of the Emirates Golf Club from other golf courses is the tough experience of playing on the same course as professionals.
 
