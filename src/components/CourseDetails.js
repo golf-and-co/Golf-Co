@@ -176,7 +176,7 @@ const Box = ({ data }) => {
 }
 
 const Tags = ({data}) => {
-  if(data.tags[0].icon === null) {
+  if(data.tags[0].icon === null || data.tags[0].label === "empty") {
     return <div />;
   }
   return <TagsWrap>
