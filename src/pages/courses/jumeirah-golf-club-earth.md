@@ -40,9 +40,11 @@ tags:
     label: Equipment Rental
 gallery:
   - category: Course
-    image: /img/faldo_at_emirates_golf_club_cover_picture.jpg
+    image: /img/370ca9ff6fe63955240fc7ebee3f63da_f280.jpg
   - category: Course
-    image: /img/emirates_faldo.jpg
+    image: /img/jumeirah-6th-fire-8875.jpg
+  - category: Course
+    image: /img/jumeirah-golf-club-earth.jpg
 map: Dubai
 isFeatured: true
 featuredDetails:
