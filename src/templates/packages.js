@@ -102,7 +102,7 @@ const ControlBox = styled.div`
 const Control = styled.section`
     background-color: #FFF;
     width: 260px;
-    height:225px;
+    min-height:225px;
     justify-content:right;
     border-radius: 3px;
     box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
