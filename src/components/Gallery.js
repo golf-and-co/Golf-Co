@@ -7,31 +7,15 @@ import { v4 } from 'uuid'
 const settings = {
   dots: true,
   adaptiveHeight: true,
-  responsive: [
-    {
-        breakpoint: 980, // tablet breakpoint
-        settings: {
-            slidesToShow: 5,
-            slidesToScroll: 2
-        }
-    },
-    {
-        breakpoint: 480, // mobile breakpoint
-        settings: {
-            slidesToShow: 3,
-            slidesToScroll: 2
-        }
-    }
-  ]
+  infinite: false,
 }
 
-//padding: 0 115px;
 const Background = styled.div`
   background-color: #f6f9f2;
   padding: 0 74px;
   display: block !important;
 
-  @media(max-width:760px) {
+  @media(max-width:768px) {
     padding: 0 25px !important;
   }
 `
@@ -40,29 +24,45 @@ const SliderWrap = styled(Slider)`
   width: 100%
   margin: 0 auto;
   padding-bottom: 150px !important;
+  padding-right: 2px !important;
 
   .slick-dots {
     bottom: auto !important
   }
 
-  .slick-prev {
+  .slick-arrow {
     z-index: 2;
-    left: 35px;
-    top: 42%;
+    &:first-of-type {
+      left: 35px;
+    }
+
+    &:last-of-type {
+      right: 35px;
+    }
+  }
+
+  .slick-prev {
+    top: calc((100% - 140px) / 2)
   }
 
   .slick-next {
-    z-index: 2;
-    right: 35px;
-    top: 42%;
+    top: calc((100% - 140px) / 2)
   }
 
-  @media(max-width:760px) {
+  @media(max-width:768px) {
+    padding-bottom: 90px !important;
 
+    .slick-prev {
+      top: calc((100% - 80px) / 2)
+    }
+  
+    .slick-next {
+      top: calc((100% - 80px) / 2)
+    }
   }
 `
 
-const About = styled.h1`
+const Header = styled.h1`
   color: #1d8649;
   font-family: 'Gotham Book';
   font-size: 40px;
@@ -71,13 +71,15 @@ const About = styled.h1`
   @media (max-width: 768px) {
     font-size: 2rem;
     line-height: 2rem;
-    margin: 20px auto;
+    padding: 20px !important;
     text-align:center;
   }
 `
 
 const Slide = styled.div`
-  padding: 0 10px;
+  &:not(first-child) {
+    padding: 0 10px 0 0px;
+}
 `
 
 const Gallery = ({ data }) => {
@@ -86,7 +88,7 @@ const Gallery = ({ data }) => {
 
   return (
     <Background className="columns">
-      <About className="column">Gallery</About>
+      <Header className="column">Gallery</Header>
       <SliderWrap className="column" {...settings}>
         {data.gallery.map(exhibit => (
           <Slide key={v4()}>
