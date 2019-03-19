@@ -42,7 +42,7 @@ map: Dubai
 isFeatured: true
 featuredDetails:
   description: Shk Muhammed Bin Zayed Rd
-  image: /img/emirates-golf-club-course.png
+  image: /img/jumeirah_golf_club_fire.png
   name: Jumeirah Golf Club (Fire)
 courseType:
   - name: Desert Course
