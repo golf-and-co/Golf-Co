@@ -44,9 +44,11 @@ tags:
     label: Nearby Hotel
 gallery:
   - category: Course
-    image: /img/faldo_at_emirates_golf_club_cover_picture.jpg
+    image: /img/al-zorah-golf-club-36-xl.jpg
   - category: Course
-    image: /img/emirates_faldo.jpg
+    image: /img/al-zorah-golf-club-67-xl.jpg
+  - category: Course
+    image: /img/30807_1450350316.277.jpg
 map: Al Ettehad St
 isFeatured: true
 featuredDetails:
