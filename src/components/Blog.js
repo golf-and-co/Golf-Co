@@ -88,11 +88,6 @@ export const Blog = ({ data, headline }) => {
     console.log(data);
     <Columns className="columns">
       {data.edges.map(edge => {
-        if(typeof edge.node.frontmatter.logo === 'undefined' || edge.node.frontmatter.logo === null ) {
-          edge.node.frontmatter.image = edge.node.frontmatter.images[0].image.publicURL;
-        } else {
-          edge.node.frontmatter.image = edge.node.frontmatter.logo.publicURL;
-        }
         edge.node.frontmatter.cardDescription = <span className="event">{edge.node.frontmatter.location}<br /><span className="date">{edge.node.frontmatter.date}</span></span>;
         return <Card key={edge.node.frontmatter.title} edge={edge} />
       })}
@@ -136,11 +131,6 @@ export default props => (
                 }
                 logo {
                     publicURL
-                }
-                images {
-                  image {
-                    publicURL
-                  }
                 }
               }
             }
