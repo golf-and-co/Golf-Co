@@ -30,7 +30,7 @@ dialogs:
     icon: /img/icons8-light_on.svg
     message: empty
 tags:
-  - icon: /img/golf_bag.svg?sanitize=true
+  - icon: /img/golf_bag.svg
     label: Caddy
   - icon: /img/icons8-golf_ball.svg
     label: Lessons
