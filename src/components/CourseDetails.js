@@ -208,7 +208,7 @@ const Cart = ({data}) => <div className="cart">
   <div className="body">
     <p>Book from one of our Golf Packages, and let us know your preferred Golf Course.</p>
     <button onClick={() => {
-      window.location = `/packages?city=${data.city}`
+      window.location = `/packages`
     }
     }>View Packages</button>
   </div>
