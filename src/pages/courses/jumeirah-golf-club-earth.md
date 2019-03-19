@@ -1,5 +1,5 @@
 ---
-image: /img/faldo-banner.jpg
+image: /img/jumeirah-golf-club-earth.jpg
 templateKey: course
 title: Jumeirah Golf Club (Earth)
 city: Shk Muhammed Bin Zayed Rd
@@ -33,7 +33,7 @@ tags:
   - icon: /img/icons8-golf_ball.svg
     label: Lessons
   - icon: /img/icons8-restaurant.svg
-    label: Dining / Restaurants    
+    label: Dining / Restaurants
   - icon: /img/icons8-light_on.svg
     label: Night Golf
   - icon: /img/icons8-vegan_shoes.svg
@@ -46,11 +46,9 @@ gallery:
 map: Dubai
 isFeatured: true
 featuredDetails:
-  description: >-
-    Hundreds of indigenous species of flora and fauna, beautifully complemented
-    by meandering fairways and seven fresh and saltwater lakes
-  image: /img/emirates-golf-club-course.png
-  name: The Emirates Golf Club
+  description: 'Shk Muhammed Bin Zayed Rd, Dubai'
+  image: /img/jumeirah-golf-club-earth.jpg
+  name: Jumeirah Golf Club (Earth)
 courseType:
   - name: Earth Course
 holes: '18'
