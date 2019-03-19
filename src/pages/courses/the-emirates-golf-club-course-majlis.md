@@ -1,7 +1,7 @@
 ---
 image: /img/faldo-banner.jpg
 templateKey: course
-title: Emirates Golf Club (Majils)
+title: Emirates Golf Club (Majlis)
 city: Shk Zayed Road
 region: Dubai
 country: UAE
@@ -36,7 +36,7 @@ tags:
   - icon: /img/icons8-golf-swing.svg
     label: Practice Facilities
   - icon: /img/icons8-golf_ball.svg
-    label: Lessons 
+    label: Lessons
   - icon: /img/icons8-spinning.svg
     label: Health Club
   - icon: /img/icons8-light_on.svg
