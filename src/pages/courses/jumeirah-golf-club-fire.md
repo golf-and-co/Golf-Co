@@ -1,5 +1,5 @@
 ---
-image: /img/jumeirah_golf_club_fire.png
+image: /img/jumeirah_golf_club_fire_height.png
 templateKey: course
 title: Jumeirah Golf Club (Fire)
 city: Shk Muhammed Bin Zayed Rd
