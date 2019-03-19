@@ -54,14 +54,19 @@ const Wrap = styled.div`
 `;
 
 const Heading = styled.h1`
-  margin: 0px auto 50px auto;
+  margin: 0px auto 10px auto;
   color: #a8844e;
   font-size: 2em;
   font-family: Gotham;
   text-transform: uppercase;
 
+  &.bottomMargin {
+    margin-bottom: 50px;
+  }
+
   @media (max-width: 768px) {
     margin: 0 auto;
+    margin-bottom: 0px;
   }
 `;
 
@@ -88,7 +93,7 @@ const BespokePackages = ({ data }) => {
   return (
     <Wrap style={{backgroundColor:"#F6F9F2"}}>
       <Container className="container">
-        <Heading>{data.heading1}</Heading>
+        <Heading className="bottomMargin">{data.heading1}</Heading>
         <Paragraph>{data.paragraph1}</Paragraph>
       </Container>
       <div className="benefits container" style={{}}>
@@ -111,7 +116,7 @@ const BespokePackages = ({ data }) => {
       <Container className="container sendRequest">
         <Heading>{data.heading2}</Heading>
         <Paragraph>{data.paragraph2}</Paragraph>
-        <a href="/send-request" className="button is-link is-rounded" style={{background:"#A8844E", padding:"20px", fontSize: "16px", fontFamily: "Gotham Bold"}}>START YOUR JOURNEY NOW</a>
+        <a href="/send-request" className="button is-link is-rounded" style={{marginTop:"10px", background:"#A8844E", padding:"20px", fontSize: "16px", fontFamily: "Gotham Bold"}}>START YOUR JOURNEY NOW</a>
       </Container>
     </Wrap>
   );
