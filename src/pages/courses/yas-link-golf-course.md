@@ -42,6 +42,10 @@ tags:
     label: Equipment Rental
 gallery:
   - category: Course
+    image: /img/yas-links-1-the-leading-abu-dhabi-golf-club.jpg
+  - category: Course
+    image: /img/yas-links-4-the-leading-abu-dhabi-golf-club.jpg
+  - category: Course
     image: /img/yas-links.jpg
 map: '24.4777011,54.5995017'
 isFeatured: true
