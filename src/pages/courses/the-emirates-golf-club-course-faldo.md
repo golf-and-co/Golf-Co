@@ -64,7 +64,7 @@ courseType:
   - name: Earth Course
   - name: Championship Course
   - name: Sealinks Course
-holes: '36'
+holes: '18'
 amenities:
   - name: Earth Course
   - name: Championship Course

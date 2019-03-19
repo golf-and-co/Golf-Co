@@ -51,7 +51,7 @@ featuredDetails:
   name: Yas Link Golf Course
 courseType:
   - name: Links Course
-holes: '72'
+holes: '18'
 amenities:
   - name: Club House
 ---

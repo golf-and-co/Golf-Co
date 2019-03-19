@@ -51,7 +51,7 @@ featuredDetails:
   name: Trump International Golf Club
 courseType:
   - name: Links
-holes: '71'
+holes: '18'
 amenities:
   - name: Golf Academy
 ---

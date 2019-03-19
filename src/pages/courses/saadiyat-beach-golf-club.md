@@ -43,6 +43,7 @@ featuredDetails:
   name: Saadiyat Beach Golf Club
 courseType:
   - name: Golf Academy
+holes: '18'
 amenities:
   - name: Golf Shop
 ---
