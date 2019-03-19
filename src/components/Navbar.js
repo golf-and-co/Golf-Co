@@ -68,6 +68,33 @@ const LinkParent = styled.a`
   font-family: 'Gotham Book';
   font-size: 22px;
   font-weight: 300;
+  position: relative;
+
+  :hover {
+    color: #1d8649;
+  }
+
+  :before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 2px;
+    left: 0;
+    background-color: #1d8649;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all .3s ease-in-out 0s;
+    transition: all .3s ease-in-out 0s;
+    display: inline-block;
+  }
+
+  :hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
 `
 
 const LinkChild = styled.a`
@@ -76,6 +103,33 @@ const LinkChild = styled.a`
   /* Text style for "UAE" */
   font-size: 20px;
   line-height: 30px;
+  position: relative;
+
+  :hover {
+    color: #1d8649;
+  }
+
+  :before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 2px;
+    left: 0;
+    background-color: #1d8649;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all .3s ease-in-out 0s;
+    transition: all .3s ease-in-out 0s;
+    display: inline-block;
+  }
+
+  :hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
 `
 
 const Heading = styled.div`
