@@ -43,17 +43,17 @@ tags:
     label: Nearby Hotel
 gallery:
   - category: Course
-    image: /img/faldo_at_emirates_golf_club_cover_picture.jpg
+    image: /img/abu-dhabi-golf-club-30-xl.jpg
   - category: Course
-    image: /img/emirates_faldo.jpg
-map: Dubai
+    image: /img/abu-dhabi-golf-club-24-xl.jpg
+  - category: Course
+    image: /img/50842.jpg
+map: Abu Dhabi
 isFeatured: true
 featuredDetails:
-  description: >-
-    Hundreds of indigenous species of flora and fauna, beautifully complemented
-    by meandering fairways and seven fresh and saltwater lakes
-  image: /img/emirates-golf-club-course.png
-  name: The Emirates Golf Club
+  description: 'Sas Al Nakhl, Abu Dhabi'
+  image: /img/abu-dhabi-golf-club_next-golf-1.jpg
+  name: Abu Dhabi Golf Club (Holes 1-27)
 courseType:
   - name: Championship Course
 holes: '18'
