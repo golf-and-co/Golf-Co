@@ -20,7 +20,7 @@ description: >-
   start
 logo: /static/img/events-golfco-logo.png
 images:
-  - image: /static/img/c1e75a955df41e3ac1a36cec3b327647e60105cf.png
+  - image: /img/c1e75a955df41e3ac1a36cec3b327647e60105cf.png
   - image: /img/golfco-proam-2.png
   - image: /img/golfco-proam.png
   - image: /img/golfco-proam.png
