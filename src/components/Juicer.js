@@ -4,11 +4,7 @@ import styled from 'styled-components'
 
 const Container = styled.ul`
   background-color: #cfddba;
-  padding: 0 50px 50px;
-
-  .j-paginate.juicer-button {
-    display: none;
-  }
+  padding: 0 10vw 50px;
 
   .juicer-feed.modern li.feed-item {
     border: none;
@@ -20,6 +16,18 @@ const Container = styled.ul`
 
   .referral > a {
     display: none !important;
+  }
+
+  .j-paginate.juicer-button {
+    display: block !important;
+    margin: 50px auto 50px auto;
+    background: none !important;
+    color: #1d8649 !important;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-color: #1d8649 !important;
+    width: 300px;
+    border-radius: 20px;
   }
 `
 

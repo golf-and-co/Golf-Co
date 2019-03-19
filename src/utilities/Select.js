@@ -11,7 +11,7 @@ const SelectWrap = styled.div`
   font-size: 1rem;
 
   @media (min-width: 768px) {
-    width: 180px;
+    width: 240px;
     margin: auto 10px;
   }
 `
@@ -20,7 +20,7 @@ const SelectBox = styled.select`
   height: auto !important;
   line-height: 50px;
   height: 48px !important;
-  width: 180px;
+  width: 240px;
 `
 
 const Select = ({ options, id, onChange }) => (
