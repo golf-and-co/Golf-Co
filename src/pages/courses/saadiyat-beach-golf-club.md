@@ -1,5 +1,5 @@
 ---
-image: /img/saadiyat-beach-golf-club-next-golf-1.jpg
+image: /img/saadiyat-16th-9828.jpg
 templateKey: course
 title: Saadiyat Beach Golf Club
 city: Sheikh Khalifa Highway
