@@ -1,5 +1,5 @@
 ---
-image: /img/faldo-banner.jpg
+image: /img/jumeirah_golf_club_fire.png
 templateKey: course
 title: Jumeirah Golf Club (Fire)
 city: Shk Muhammed Bin Zayed Rd
@@ -30,24 +30,20 @@ tags:
   - icon: /img/icons8-golf_ball.svg
     label: Lessons
   - icon: /img/icons8-restaurant.svg
-    label: Dining / Restaurants    
+    label: Dining / Restaurants
   - icon: /img/icons8-light_on.svg
     label: Night Golf
   - icon: /img/icons8-vegan_shoes.svg
     label: Equipment Rental
 gallery:
   - category: Course
-    image: /img/faldo_at_emirates_golf_club_cover_picture.jpg
-  - category: Course
-    image: /img/emirates_faldo.jpg
+    image: /img/jumeirah_golf_club_fire.png
 map: Dubai
 isFeatured: true
 featuredDetails:
-  description: >-
-    Hundreds of indigenous species of flora and fauna, beautifully complemented
-    by meandering fairways and seven fresh and saltwater lakes
+  description: Shk Muhammed Bin Zayed Rd
   image: /img/emirates-golf-club-course.png
-  name: The Emirates Golf Club
+  name: Jumeirah Golf Club (Fire)
 courseType:
   - name: Desert Course
 holes: '18'
