@@ -1,5 +1,5 @@
 ---
-image: /img/faldo-banner.jpg
+image: /img/al_ain5_1960x1280.jpg
 templateKey: course
 title: Al Ain Golf Club
 city: Tawam Street
@@ -29,17 +29,17 @@ tags:
     label: Spa
 gallery:
   - category: Course
-    image: /img/faldo_at_emirates_golf_club_cover_picture.jpg
+    image: /img/al_ain4_1960x1280.jpg
   - category: Course
-    image: /img/emirates_faldo.jpg
-map: Dubai
+    image: /img/al-ain-18th-i82a5352.jpg
+  - category: Course
+    image: /img/al-ain-golf-club-no-12-1.jpg
+map: Abu Dhabi
 isFeatured: true
 featuredDetails:
-  description: >-
-    Hundreds of indigenous species of flora and fauna, beautifully complemented
-    by meandering fairways and seven fresh and saltwater lakes
-  image: /img/emirates-golf-club-course.png
-  name: The Emirates Golf Club
+  description: 'Tawam Street, Abu Dhabi'
+  image: /img/al_ain5_1960x1280.jpg
+  name: Al Ain Golf Club
 courseType:
   - name: Championship Course
 holes: '18'
