@@ -1,5 +1,5 @@
 ---
-image: /img/faldo-banner.jpg
+image: /img/majlis_at_emirates_golf_club_cover_picture.jpg
 templateKey: course
 title: Emirates Golf Club (Majlis)
 city: Shk Zayed Road
@@ -46,16 +46,14 @@ tags:
   - icon: /img/spa.svg
     label: Spa
 gallery:
+  - category: Clubhouse
+    image: /img/emirates_majlis.jpg
   - category: Course
-    image: /img/faldo_at_emirates_golf_club_cover_picture.jpg
-  - category: Course
-    image: /img/emirates_faldo.jpg
+    image: /img/emirates_majlis_2.jpeg
 map: Dubai
 isFeatured: true
 featuredDetails:
-  description: >-
-    Hundreds of indigenous species of flora and fauna, beautifully complemented
-    by meandering fairways and seven fresh and saltwater lakes
+  description: 'Shk Zayed Road, Dubai'
   image: /img/emirates-golf-club-course.png
   name: The Emirates Golf Club
 courseType:
