@@ -1,5 +1,5 @@
 ---
-image: /img/the_els_club.jpg
+image: /img/3_the_els_club.jpg
 templateKey: course
 title: The Els Club
 city: Shk Muhammed Bin Zayed Rd
@@ -45,6 +45,8 @@ gallery:
     image: /img/the-els-club-dubai.jpg
   - category: Course
     image: /img/the_els_club.jpg
+  - category: Course
+    image: /img/3_the_els_club.jpg
 map: Dubai
 isFeatured: true
 featuredDetails:
