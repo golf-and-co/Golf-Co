@@ -47,7 +47,7 @@ const Wrap = styled.div`
   .package h6 {
       color: rgb(255, 255, 255);
       font-size: 30px;
-      top: -120px;
+      top: -143px;
       position: absolute;
       width: 100%;
   }
