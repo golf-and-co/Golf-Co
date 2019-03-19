@@ -1,5 +1,5 @@
 ---
-image: /img/faldo-banner.jpg
+image: /img/the-address-montgomerie.jpg
 templateKey: course
 title: The Address Montgomerie
 city: Emirates Hills
@@ -38,17 +38,17 @@ tags:
     label: Spa
 gallery:
   - category: Course
-    image: /img/faldo_at_emirates_golf_club_cover_picture.jpg
+    image: /img/the_address_montgomerie_dubai_cover_picture_2.jpg
   - category: Course
-    image: /img/emirates_faldo.jpg
+    image: /img/the_address_montgomerie_bunkers.jpg
+  - category: Course
+    image: /img/the_address_montgomerie_dubai_cover_picture.jpg
 map: Dubai
 isFeatured: true
 featuredDetails:
-  description: >-
-    Hundreds of indigenous species of flora and fauna, beautifully complemented
-    by meandering fairways and seven fresh and saltwater lakes
-  image: /img/emirates-golf-club-course.png
-  name: The Emirates Golf Club
+  description: 'Emirates Hills, Dubai'
+  image: /img/the-address-montgomerie.jpg
+  name: The Address Montgomerie
 courseType:
   - name: Championship Course
 holes: '18'
