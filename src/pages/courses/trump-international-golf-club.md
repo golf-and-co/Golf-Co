@@ -42,7 +42,13 @@ tags:
     label: Dining / Restaurants
 gallery:
   - category: Course
+    image: /img/trump-international-golf-club-dubai-15-xl.jpg
+  - category: Course
     image: /img/trump_dubai_17th_behind_6005_web.jpg
+  - category: Course
+    image: /img/trump-international-golf-club-dubai-2.jpeg
+  - category: Course
+    image: /img/trump-international-golf-club-dubai.jpeg
 map: Mulon UAE
 isFeatured: false
 featuredDetails:
