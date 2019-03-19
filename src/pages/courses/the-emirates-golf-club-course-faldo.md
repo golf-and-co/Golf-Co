@@ -65,7 +65,7 @@ courseType:
 holes: '18'
 amenities:
   - name: Night Golf
-  - name: Dining / Restaurant
+  - name: Dining / Restaurants
 ---
 The Faldo Course of the Emirates Golf Course is the only fully lit, with flood lights, course allowing you to play golf at any time of the day. It is located in Dubai, the largest and most populated city of the UAE, first opened in 1996 but a new course was opened in 2006. It is a par 72 course and is just a little bit over 7,052 yards and is said to be one of the very finest courses in all of Dubai. It is home to the Dubai Desert Classic, a European PGA tour golfing event. The clubhouse at the Emirates Golf Club is built in a tent-style. One thing that sets the Faldo Course of the Emirates Golf Club from other golf courses is the tough experience of playing on the same course as professionals.
 
