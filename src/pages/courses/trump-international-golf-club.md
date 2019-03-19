@@ -56,7 +56,7 @@ featuredDetails:
   image: /img/trump_dubai_17th_behind_6005_web.jpg
   name: Trump International Golf Club
 courseType:
-  - name: Links
+  - name: Links Course
 holes: '18'
 amenities:
   - name: Golf Academy
