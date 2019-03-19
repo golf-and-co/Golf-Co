@@ -1,5 +1,5 @@
 ---
-image: /img/faldo-banner.jpg
+image: /img/abu-dhabi-golf-club_next-golf-1.jpg
 templateKey: course
 title: Abu Dhabi Golf Club (Holes 1-27)
 city: Sas Al Nakhl
@@ -32,14 +32,14 @@ tags:
   - icon: /img/icons8-golf_ball.svg
     label: Lessons
   - icon: /img/icons8-restaurant.svg
-    label: Dining / Restaurants    
+    label: Dining / Restaurants
   - icon: /img/icons8-spinning.svg
     label: Health Club
   - icon: /img/icons8-light_on.svg
     label: Night Golf
   - icon: /img/icons8-vegan_shoes.svg
     label: Equipment Rental
-  - icon: /img/spa.svg
+  - icon: /img/nearby_hotel.svg
     label: Nearby Hotel
 gallery:
   - category: Course
