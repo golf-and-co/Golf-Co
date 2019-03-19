@@ -1,5 +1,5 @@
 ---
-image: /img/faldo-banner.jpg
+image: /img/al_zorah_golf_club_cover_picture.jpg
 templateKey: course
 title: Al Zorah Golf Club
 city: Al Ettehad St
@@ -35,26 +35,24 @@ tags:
   - icon: /img/icons8-golf_ball.svg
     label: Lessons
   - icon: /img/icons8-restaurant.svg
-    label: Dining / Restaurants    
+    label: Dining / Restaurants
   - icon: /img/icons8-vegan_shoes.svg
     label: Equipment Rental
   - icon: /img/spa.svg
     label: Spa
-  - icon: /img/spa.svg
+  - icon: /img/nearby_hotel.svg
     label: Nearby Hotel
 gallery:
   - category: Course
     image: /img/faldo_at_emirates_golf_club_cover_picture.jpg
   - category: Course
     image: /img/emirates_faldo.jpg
-map: Dubai
+map: Al Ettehad St
 isFeatured: true
 featuredDetails:
-  description: >-
-    Hundreds of indigenous species of flora and fauna, beautifully complemented
-    by meandering fairways and seven fresh and saltwater lakes
-  image: /img/emirates-golf-club-course.png
-  name: The Emirates Golf Club
+  description: 'Al Ettehad St, Ajman'
+  image: /img/al_zorah_golf_club_cover_picture.jpg
+  name: Al Zorah Golf Club
 courseType:
   - name: Championship Course
 holes: '18'
