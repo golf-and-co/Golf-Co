@@ -54,7 +54,7 @@ featuredDetails:
   image: /img/blog_perfect_holiday.png
   name: Dubai Creek Golf
 courseType:
-  - name: Championship
+  - name: Championship Course
 holes: '18'
 amenities:
   - name: Golf Academy
