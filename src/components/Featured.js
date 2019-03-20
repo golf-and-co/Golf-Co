@@ -53,7 +53,7 @@ const CardLink = styled.a`
 const Card = styled.div`
   width: 260px;
   height: 315px;
-  border-radius: 6px;
+  border-radius: 6px 6px 0px 0px;
   background-color: #ffffff;
 
   @media (max-width: 768px) {
@@ -89,7 +89,7 @@ const CardImageWrap = styled.div`
 
 const CardImage = styled.img`
   height:216px !important;
-  border-radius: 6px;
+  border-radius: 6px 6px 0 0;
 `;
 
 const CardContent = styled.div`
@@ -238,7 +238,7 @@ const courseMouseExit = (data) => {
 }
 
 // @TODO: refactor, need better properties where JSX is passed, start by grouping in a decorator, pass a styled component
-export const Course = ({data, footer, hideStats, location, hideCaption, centered, button}) => {
+export const Course = ({data, footer, hideStats, location, hideCaption, centered, button, restoreWindow}) => {
     
     
     const mouseEnter = () => {
@@ -287,9 +287,27 @@ export const Course = ({data, footer, hideStats, location, hideCaption, centered
       return `${data.frontmatter.city}, ${data.frontmatter.country}`;
     }
 
+    const RestoreWindowIcon = () => {
+      if(restoreWindow) {
+        return <object onClick={() => window.location = data.fields.slug} type="image/svg+xml" data="/img/icons8-restore_window.svg" class="logo" style={{
+          position: "absolute",
+          top: "5px",
+          right: "10px",
+          zIndex: "100",
+          height: "25px",
+          filter: "contrast(50%) brightness(100)",
+          pointerEvents: "none",
+        }}/>
+      }
+      else {
+        return <span />;
+      }
+    }
+
     return <CardLink href={data.fields.slug} className="is-quarter">
         <Card id={slugify(data.frontmatter.featuredDetails.name, {remove: /[*+~.()'"!:@]/g})} className={classes()} onClick={() => window.location = data.fields.slug} onMouseEnter={() => mouseEnter()} onMouseLeave={() => mouseLeave()}>
             <CardImageWrap className="cardImage">
+            <RestoreWindowIcon />
             <figure className="image is-4by3">
                 <CardImage src={
                 !!data.frontmatter.featuredDetails.image.childImageSharp
@@ -317,7 +335,7 @@ export const Course = ({data, footer, hideStats, location, hideCaption, centered
   //window.location.href = `/courses/?city=${document.querySelector('#featuredCitiesNav').value}`;
 //}
 
-const Featured = ({home, courses, centered}) => {
+const Featured = ({home, courses, centered, restoreWindow}) => {
   
   //let cities = Array.from((group(courses, course => {return {value:course.node.frontmatter.city}}).keys()));
   //cities.unshift({value:"--- All ---"});
@@ -370,7 +388,7 @@ const Featured = ({home, courses, centered}) => {
       
       <div className="container">
           <div className="columns">
-              {courses.map(course => <Course key={v4()} data={course.node} centered={centered} footer={false}/>)}
+              {courses.map(course => <Course key={v4()} data={course.node} centered={centered} footer={false} restoreWindow={restoreWindow} />)}
           </div>
       </div>
 

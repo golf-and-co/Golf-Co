@@ -73,6 +73,7 @@ const Card = ({ edge }) => {
     footer={false} 
     hideStats={true}
     hideCaption={true}
+    restoreWindow={true} 
   />
 }
 
@@ -85,7 +86,6 @@ export const Blog = ({ data, headline }) => {
       <HeaderStrong>{headline.heading2}</HeaderStrong>
     </Header>
     <br />
-    console.log(data);
     <Columns className="columns">
       {data.edges.map(edge => {
         if(typeof edge.node.frontmatter.logo === 'undefined' || edge.node.frontmatter.logo === null ) {

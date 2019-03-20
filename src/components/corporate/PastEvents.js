@@ -101,6 +101,7 @@ const Content = () =>   {
             footer={false} 
             hideStats={true}
             hideCaption={true}
+            restoreWindow={true}
           />
           })}
         </Events>

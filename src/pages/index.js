@@ -13,7 +13,7 @@ export const IndexTemplate = ({data, location}) => {
   return <Layout>
     <Hero />
     <Infographic data={data.home.edges[0].node.frontmatter} />
-    <Featured centered={false}/>
+    <Featured centered={false} restoreWindow={false} />
     <div style={{backgroundColor:"#f6f9f2", padding: "50px 0 50px 0"}}>
       <Banner home={data.home.edges[0].node.frontmatter} />
       <Blog data={{...data.events}} headline={{...data.home.edges[0].node.frontmatter.recentCalendar}} />
