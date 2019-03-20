@@ -9,7 +9,7 @@ const Wrap = styled.section`
   display: flex;
   margin: 0 auto;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 
   a {
     margin: 0px 10px 20px 10px;
