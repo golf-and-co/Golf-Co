@@ -29,6 +29,10 @@ export const Wrap = styled.div`
       transform: scaleX(1);
     }
   }
+
+  .padded {
+    margin-bottom:20px;
+  }
 ` 
 
 export const width25 = keyframes`
@@ -288,14 +292,14 @@ const Menu = ({ link, doubleLine }) => {
     children = <ul>{children}</ul>
   }
 
-  let decorators = "";
+  let decorators = [];
   if(link.text.length > 14 && doubleLine) {
-    decorators = "doubleLine";
+    decorators.push("doubleLine");
   }
   
   return (
-    <li>
-      <LinkParent className={decorators} href={link.href}>{link.text}</LinkParent>
+    <li className="padded">
+      <LinkParent className={decorators.join(" ")} href={link.href}>{link.text}</LinkParent>
       {children}
     </li>
   )
@@ -350,7 +354,7 @@ const Nav = (props) => {
     <Links className="columns">
       <div className="column is-half">
         <ul>
-          <LinkParent href="/">Home</LinkParent>
+          <li className="padded"><LinkParent href="/">Home</LinkParent></li>
           {props.data.footerColumn1.map(link => (
             <Menu key={v4()} link={link} doubleLine={true}/>
           ))}
