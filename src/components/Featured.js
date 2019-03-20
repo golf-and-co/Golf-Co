@@ -289,7 +289,7 @@ export const Course = ({data, footer, hideStats, location, hideCaption, centered
 
     const RestoreWindowIcon = () => {
       if(restoreWindow) {
-        return <object onClick={() => window.location = data.fields.slug} type="image/svg+xml" data="/img/icons8-restore_window.svg" class="logo" style={{
+        return <object onClick={() => window.location = data.fields.slug} type="image/svg+xml" data="/img/icons8-restore_window.svg" className="logo" style={{
           position: "absolute",
           top: "5px",
           right: "10px",
