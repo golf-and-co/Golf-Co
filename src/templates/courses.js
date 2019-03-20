@@ -201,7 +201,7 @@ const courses = ({ data, location }) => {
         <Controls countries={countries} cities={cities} courseType={courseType} holes={holes} amenities={amenities} location={location} />
         <div className="column is-four-fifth">
           {title(location)}
-          <Grid data={data.courses.edges} slug={"courses"} footer={false} hideStats={false} location={location} />
+          <Grid data={data.courses.edges} slug={"courses"} footer={false} hideStats={false} location={location} button={true} />
         </div>
       </Wrap>
     </Background>  

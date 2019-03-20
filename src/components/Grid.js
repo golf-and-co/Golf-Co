@@ -32,7 +32,7 @@ const mapStateToProps = ({controls}) => {
   return {controls};
 }
 
-const GridElement = ({data, controls, slug, footer, hideStats, hideCaption}) => {
+const GridElement = ({data, controls, slug, footer, hideStats, hideCaption, button}) => {
   // hide per state.controls
   const visible = hide(data, controls).map(edge => edge.node.frontmatter.title);
   const style = (title) => {
@@ -65,6 +65,7 @@ const GridElement = ({data, controls, slug, footer, hideStats, hideCaption}) => 
               footer={footer} 
               hideStats={hideStats}
               hideCaption={hideCaption}
+              button={button}
             />
           </Item>
         )

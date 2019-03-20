@@ -237,8 +237,8 @@ const courseMouseExit = (data) => {
     featured.className = featured.className.replace(/ cardContentHover/g, '');
 }
 
-// @TODO: refactor, need better properties, start by grouping in a decorator, pass a styled component
-export const Course = ({data, footer, hideStats, location, hideCaption, centered}) => {
+// @TODO: refactor, need better properties where JSX is passed, start by grouping in a decorator, pass a styled component
+export const Course = ({data, footer, hideStats, location, hideCaption, centered, button}) => {
     
     
     const mouseEnter = () => {
@@ -259,7 +259,7 @@ export const Course = ({data, footer, hideStats, location, hideCaption, centered
         } else {
             return "card";
         }
-    }
+    }    
 
     const rounds = () => {
         if(data.fields.rounds > 0) {
@@ -304,7 +304,7 @@ export const Course = ({data, footer, hideStats, location, hideCaption, centered
                 <div class="featuredDetails name">{data.frontmatter.featuredDetails.name}</div>
                 <CardContentTag>{description()}</CardContentTag>
             </div>
-            <Stats data={data.frontmatter} slug={data.fields.slug} hideStats={hideStats} center={centered}/>
+            <Stats data={data.frontmatter} slug={data.fields.slug} hideStats={hideStats} center={centered} button={button}/>
             </CardContent>
             {rounds()}
         </Card>

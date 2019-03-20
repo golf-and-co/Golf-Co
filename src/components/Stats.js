@@ -5,6 +5,13 @@ import { v4 } from 'uuid'
 
 const Section = styled.section`
   background-color: #81aa8c;
+
+  button.button.is-success {
+    background-color: #1d8649;
+    font-size: 14px;
+    margin: 15px auto;
+    display: block;
+  }
 `
 
 const List = styled.ul`
@@ -46,7 +53,7 @@ const StatItem = ({ data, style }) => {
   </Item>
 }
 
-const StatList = ({ data, slug, hideStats, center }) => {
+const StatList = ({ data, slug, hideStats, center, button }) => {
   if(hideStats) return <span />;
 
   const listStyle = {};
@@ -60,12 +67,23 @@ const StatList = ({ data, slug, hideStats, center }) => {
     itemStyle.width = "86px";
     itemStyle.padding ="10px";
   }
+
+  let Button = () => {
+    if(button) {
+      return <button className="button is-success is-rounded">View Course Details</button>
+    }
+    else {
+      return <span />
+    }
+  }
+
   return <Section onClick={() => window.location = slug} id="stats">
     <List style={listStyle}>
       {data.stats.map(stat => (
         <StatItem data={stat} key={v4()} style={itemStyle}/>
       ))}
     </List>
+    <Button />
   </Section>
 }
 
