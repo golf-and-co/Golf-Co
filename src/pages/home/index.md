@@ -9,7 +9,6 @@ headingParagraph: >-
   Events. We offer Bespoke Golf Experiences, Exclusive Packages, Corporate
   Events and Golf Insurance across the Middle East and beyond
 infographicsContainer:
-  infographicsHeader: What we do?
   infographics:
     - description: Taylor-made itineraries to fulfill your every wish
       heading: Bespoke Golf Experiences
@@ -33,6 +32,7 @@ infographicsContainer:
       image: /img/corporate_golf_icons.png
       url: /corporate
       urlText: Explore more
+  infographicsHeader: What we do?
 featured:
   heading1: Browse
   heading2: Golf Courses
@@ -46,7 +46,8 @@ featuredFooter:
   heading1: We Are Covered
   heading2: In Media
 featuredLogo:
-  - image: /img/golfasia.png
+  - alt: White lowercase letters spelling golf asia with no space
+    image: /img/golfasia.png
 recentPosts:
   heading1: LET’S TALK GOLF
   heading2: WITH GOLF NEWS & BLOG
@@ -54,9 +55,10 @@ recentCalendar:
   heading1: UPCOMING
   heading2: GOLF EVENTS
 menuLogo:
+  alt: Two tone green and blue shield with golf ball and swoosh
   image: /img/129-layers.png
 footerLogo:
-  alt: Golf & Co.
+  alt: Golf & Co. white letters
   image: /img/logo.png
 footerColumn1:
   - children:
@@ -79,13 +81,11 @@ footerColumn2:
     text: About Golf & Co.
 footerSocialHeading: Connect With Us
 footerSocial:
-  - href: /
+  - href: 'https://www.facebook.com/GolfandCo.Co/'
     text: facebook-f
-  - href: /
+  - href: 'https://twitter.com/GolfandCo1/'
     text: twitter
-  - href: /
-    text: linkedin-in
-  - href: /
+  - href: 'https://www.instagram.com/golfandco/'
     text: instagram
 ---
 
