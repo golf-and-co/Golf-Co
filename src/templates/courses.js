@@ -170,7 +170,7 @@ const Controls = ({countries, cities, courseType, holes, amenities, location}) =
   <ControlBox>
     <Control>
       <h6 style={{display: "flex", padding: "5px 10px"}}>Amenities <a style={{marginLeft:"auto"}} href="/" className="clear">Clear</a></h6>
-      {amenities.map(amenity => <Checkbox key={slugify(amenity)} name="amenity" value={amenity} />)}
+      {amenities.map(amenity => <Checkbox key={slugify(amenity)} name="amenities" value={amenity} />)}
       
       <Button value={"Select"} />
     </Control>    
