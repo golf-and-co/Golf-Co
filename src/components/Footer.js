@@ -26,6 +26,10 @@ const FooterWrap = styled.section`
     padding-top: 0px;
     text-align: center;
   }
+
+  h3 {
+    margin-bottom: 20px;
+  }
 `
 
 const MenuLink = styled.a`
