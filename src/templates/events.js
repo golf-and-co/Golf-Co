@@ -67,7 +67,7 @@ const ControlBox = styled.div`
         text-transform: uppercase;
         font-size: 0.8rem;
         font-weight: bold;
-        margin: 15px 15px 25px 15px;
+        margin: 15px 15px 25px 5px;
     }
     
     button.button.is-success {
@@ -97,7 +97,7 @@ const ControlBox = styled.div`
     }
     .is-checkradio[type="checkbox"] + label::after, .is-checkradio[type="checkbox"] + label::after {
         top: 5px;
-        left: 5px;
+        left: 12px;
         width: 6px;
         height: 8px;
     }

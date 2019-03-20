@@ -5,7 +5,7 @@ import styled from "styled-components"
 
 const Wrap = styled.div`
   input {
-    margin: 8px 0 0 8px;
+    margin: 8px 0 0 12px;
     z-index: 10;
     cursor: pointer;
   }
@@ -17,12 +17,13 @@ const Wrap = styled.div`
     width: 14px;
     height: 14px;
     top: 4px;
+    left: 8px;
     border: 1px solid #cfddbb;
     background-color: #f6f9f2;
   }
   & .is-checkradio[type="checkbox"] + label::after, .is-checkradio[type="checkbox"] + label::after {
     top: 5px;
-    left: 5px;
+    left: 9px;
     width: 6px;
     height: 8px;
   }
