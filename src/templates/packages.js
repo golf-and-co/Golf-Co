@@ -181,7 +181,7 @@ const packageDetails = ({ data, location }) => {
       <Wrap className="columns">
         <Controls countries={countries} cities={cities} hotelType={hotelType} duration={duration} rounds={rounds} />
         <div className="column is-four-fifth">
-          <Grid data={data.packages.edges} slug={"packages"} footer={true} hideStats={false} location={location} />
+          <Grid data={data.packages.edges} slug={"packages"} footer={false} hideStats={false} location={location} />
         </div>
       </Wrap>
     </Background>  
