@@ -238,6 +238,7 @@ export const packageDetailsQuery = graphql`
             value
           }
           city
+          region
           country
           hotelType
           duration

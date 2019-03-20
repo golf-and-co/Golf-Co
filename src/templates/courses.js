@@ -258,6 +258,7 @@ export const coursesQuery = graphql`
             value
           }
           city
+          region
           country
           courseType{
             name

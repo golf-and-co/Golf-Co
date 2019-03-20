@@ -25,7 +25,7 @@ const Wrap = styled.section`
 
   .cardContentHover {
     height: 315px;
-    top: -215px
+    top: -216px
   }
 
   padding-bottom: 60px;
@@ -104,7 +104,7 @@ const CardContent = styled.div`
   height: 100px;
   top: 0px;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 6px 6px 0 0;
 
   #stats {
       width: 260px;
@@ -127,7 +127,7 @@ const CardContent = styled.div`
   }
 
   .content {
-      margin-left: 15px;
+      margin: 0 15px;
       padding-bottom: 5px;
   }   
 `;
@@ -284,7 +284,7 @@ export const Course = ({data, footer, hideStats, location, hideCaption, centered
       if(data.frontmatter.cardDescription) {
         return data.frontmatter.cardDescription;
       }
-      return `${data.frontmatter.city}, ${data.frontmatter.country}`;
+      return `${data.frontmatter.city}, ${data.frontmatter.region}`;
     }
 
     const RestoreWindowIcon = () => {

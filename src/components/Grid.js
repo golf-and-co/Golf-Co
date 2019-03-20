@@ -11,6 +11,10 @@ const Wrap = styled.section`
   flex-wrap: wrap;
   justify-content: flex-start;
 
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+
   a {
     margin: 0px 10px 20px 10px;
     @media (max-width: 768px) {
@@ -19,7 +23,7 @@ const Wrap = styled.section`
   }
   .cardContentHover {
       height: 320px;
-      top: -215px;
+      top: -220px;
   }
 `
 
@@ -41,9 +45,16 @@ const GridElement = ({data, controls, slug, footer, hideStats, hideCaption, butt
     }
     return {display:"none"};
   };
+
   return (
     <Wrap>
       {data.map(edge => {    
+
+        if(edge.node.frontmatter.region === null) {
+          //@TODO: better data model and props, add region to package to remove this
+          edge.node.frontmatter.region = edge.node.frontmatter.country;
+        }
+
         return (
           <Item key={v4()} style={style(edge.node.frontmatter.title)}>
             <Course
@@ -55,6 +66,7 @@ const GridElement = ({data, controls, slug, footer, hideStats, hideCaption, butt
                   },
                   stats: edge.node.frontmatter.stats,
                   city: edge.node.frontmatter.city,
+                  region: edge.node.frontmatter.region,
                   country: edge.node.frontmatter.country,
                   cardDescription: edge.node.frontmatter.cardDescription,
                 },
