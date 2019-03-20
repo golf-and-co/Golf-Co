@@ -9,6 +9,38 @@ import './all.sass'
 const Container = styled.section`
   padding: 0;
   width: 100%;
+
+  .button, button, .juicer-button {
+    transition: color 0.3s 0.1s ease-out;
+    overflow: hidden;
+    z-index:1;
+
+    :hover {
+      color: #FFF !important;
+      :before {
+        box-shadow:inset 0 0 0 300px #1d8649 !important;
+      }
+    }
+  }
+
+  .button:before, button:before, .juicer-button:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    content: '';
+    border-radius: 50%;
+    display: block;
+    width: 100%;
+    height: 300px;
+    line-height: 100%;
+    text-align: center;
+    transition: box-shadow 0.5s ease-out;
+    z-index: -1;
+    box-shadow:inset 0 0 0 0 #1d8649 !important;
+  }
 `
 
 const TemplateWrapper = ({ children }) => (
