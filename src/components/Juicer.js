@@ -22,7 +22,7 @@ const Container = styled.ul`
     display: block !important;
     margin: 50px auto 50px auto;
     background: none !important;
-    color: #1d8649 !important;
+    color: #1d8649;
     font-weight: 300;
     text-transform: uppercase;
     border-color: #1d8649 !important;

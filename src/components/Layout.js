@@ -13,6 +13,7 @@ const Container = styled.section`
   .button, button, .juicer-button {
     transition: color 0.3s 0.1s ease-out;
     overflow: hidden;
+    position: relative;
     z-index:1;
 
     :hover {
