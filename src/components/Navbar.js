@@ -5,6 +5,32 @@ import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import { v4 } from 'uuid'
 
+export const Wrap = styled.div`
+  .doubleLine {
+    :after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: -2.75rem;
+      left: 0;
+      background-color: #1d8649;
+      visibility: hidden;
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition: all .3s ease-in-out 0s;
+      transition: all .3s ease-in-out 0s;
+      display: inline-block;
+    }
+
+    :hover:after {
+      visibility: visible;
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+    }
+  }
+` 
+
 export const width25 = keyframes`
   0% {
     width: 0;
@@ -241,7 +267,7 @@ const Social = ({ link }) => (
   </FontAwesomeItem>
 )
 
-const Menu = ({ link }) => {
+const Menu = ({ link, doubleLine }) => {
   let children = ''
   if (typeof link.children !== 'undefined' && link.children !== null) {
     children = link.children.map((child, index) => (
@@ -262,9 +288,14 @@ const Menu = ({ link }) => {
     children = <ul>{children}</ul>
   }
 
+  let decorators = "";
+  if(link.text.length > 14 && doubleLine) {
+    decorators = "doubleLine";
+  }
+  
   return (
     <li>
-      <LinkParent href={link.href}>{link.text}</LinkParent>
+      <LinkParent className={decorators} href={link.href}>{link.text}</LinkParent>
       {children}
     </li>
   )
@@ -314,31 +345,21 @@ const Nav = (props) => {
           />
         }
       </HeaderLink>
-      <div>
-        <HeaderLink className="navbar-item" to="/">
-          <i className="fas fa-home" />
-        </HeaderLink>
-        <HeaderAnchor className="navbar-item" onClick={() => { 
-          setRight("-100vw");
-          setOverlay("none");
-        }}>
-          <i className="fas fa-times-circle " />
-        </HeaderAnchor>
-      </div>
     </Heading>
     <DottedLine />
     <Links className="columns">
       <div className="column is-half">
         <ul>
+          <LinkParent href="/">Home</LinkParent>
           {props.data.footerColumn1.map(link => (
-            <Menu key={v4()} link={link} />
+            <Menu key={v4()} link={link} doubleLine={true}/>
           ))}
         </ul>
       </div>
       <div className="column is-half">
         <ul>
           {props.data.footerColumn2.map(link => (
-            <Menu key={v4()} link={link} />
+            <Menu key={v4()} link={link} doubleLine={false} />
           ))}
         </ul>
       </div>
@@ -397,10 +418,12 @@ export default props => (
       }
     `}
     render={data => (
-      <Nav
-        data={data.allMarkdownRemark.edges[0].node.frontmatter}
-        {...props}
-      />
+      <Wrap>
+        <Nav
+          data={data.allMarkdownRemark.edges[0].node.frontmatter}
+          {...props}
+        />
+      </Wrap>
     )}
   />
 )
