@@ -304,7 +304,7 @@ export const Course = ({data, footer, hideStats, location, hideCaption, centered
                 <div class="featuredDetails name">{data.frontmatter.featuredDetails.name}</div>
                 <CardContentTag>{description()}</CardContentTag>
             </div>
-            <Stats data={data.frontmatter} slug={data.fields.slug} hideStats={hideStats} center={centered} button={button}/>
+            <Stats data={data.frontmatter} fields={data.fields} slug={data.fields.slug} hideStats={hideStats} center={centered} button={button}/>
             </CardContent>
             {rounds()}
         </Card>

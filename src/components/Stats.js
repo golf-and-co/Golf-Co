@@ -53,7 +53,7 @@ const StatItem = ({ data, style }) => {
   </Item>
 }
 
-const StatList = ({ data, slug, hideStats, center, button }) => {
+const StatList = ({ data, fields, slug, hideStats, center, button }) => {
   if(hideStats) return <span />;
 
   const listStyle = {};
@@ -70,7 +70,7 @@ const StatList = ({ data, slug, hideStats, center, button }) => {
 
   let Button = () => {
     if(button) {
-      return <button className="button is-success is-rounded">View Course Details</button>
+      return <button onClick={() => window.location = fields.slug}  className="button is-success is-rounded">View Course Details</button>
     }
     else {
       return <span />
