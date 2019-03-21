@@ -349,6 +349,14 @@ const Nav = (props) => {
           />
         }
       </HeaderLink>
+      <div>
+        <HeaderAnchor className="navbar-item" onClick={() => { 
+          setRight("-100vw");
+          setOverlay("none");
+        }}>
+          <i className="fas fa-times-circle " />
+        </HeaderAnchor>
+      </div>
     </Heading>
     <DottedLine />
     <Links className="columns">
