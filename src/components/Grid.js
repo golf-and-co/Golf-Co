@@ -4,6 +4,7 @@ import { Course } from '../components/Featured'
 import {connect} from "react-redux"
 import { v4 } from 'uuid'
 import {hide} from "../components/Control/Hide"
+import queryString from "query-string";
 
 const Wrap = styled.section`
   display: flex;
@@ -36,7 +37,7 @@ const mapStateToProps = ({controls}) => {
   return {controls};
 }
 
-const GridElement = ({data, controls, slug, footer, hideStats, hideCaption, button}) => {
+const GridElement = ({data, controls, slug, footer, hideStats, hideCaption, button, location}) => {
   // hide per state.controls
   const visible = hide(data, controls).map(edge => edge.node.frontmatter.title);
   const style = (title) => {
@@ -46,7 +47,28 @@ const GridElement = ({data, controls, slug, footer, hideStats, hideCaption, butt
     return {display:"none"};
   };
 
+  const Title = (location) => {
+    const country = queryString.parse(location.location.search).country;
+    const city = queryString.parse(location.location.search).city;
+
+    
+
+    if(country || city) {
+        if(controls.length > 0) {
+          if(!(controls[0].value === city || controls[0].value === country)) {
+            return <span />
+          }
+        return <h1 className="search">Play {(country || city)}'s finest course(s)</h1>
+      }
+    }
+
+    return <span />;
+  }
+
+
   return (
+  <div>
+    <Title location={location} />
     <Wrap>
       {data.map(edge => {    
 
@@ -83,6 +105,7 @@ const GridElement = ({data, controls, slug, footer, hideStats, hideCaption, butt
         )
       })}
     </Wrap>
+  </div>
   )
 }
 

@@ -177,14 +177,6 @@ const Controls = ({countries, cities, courseType, holes, amenities, location}) =
   </ControlBox>
 </ControlWrap>
 
-const title = (location) => {
-  const country = queryString.parse(location.search).country;
-  const city = queryString.parse(location.search).city;
-  if(country || city) {
-    return <h1 className="search">Play {(country || city)}'s finest course(s)</h1>
-  }
-}
-
 const courses = ({ data, location }) => {
   // aggregate data for controls
   const countries = aggregate(data.courses.edges, "country");
@@ -200,7 +192,6 @@ const courses = ({ data, location }) => {
       <Wrap className="columns">
         <Controls countries={countries} cities={cities} courseType={courseType} holes={holes} amenities={amenities} location={location} />
         <div className="column is-four-fifth">
-          {title(location)}
           <Grid data={data.courses.edges} slug={"courses"} footer={false} hideStats={false} location={location} button={true} />
         </div>
       </Wrap>
