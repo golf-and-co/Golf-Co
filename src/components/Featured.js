@@ -127,7 +127,7 @@ const CardContent = styled.div`
   }
 
   .content {
-      margin: 0 15px 0 25px;
+      margin: 0 15px 25px 15px;
       padding-bottom: 5px;
   }   
 `;
