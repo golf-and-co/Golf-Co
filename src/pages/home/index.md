@@ -79,6 +79,12 @@ footerColumn1:
 footerColumn2:
   - href: /
     text: About Golf & Co.
+  - href: /contact
+    text: Contact Us
+  - href: /en/privacy-policy
+    text: Privacy Policy
+  - href: /en/terms-of-use
+    text: Terms of Use
 footerSocialHeading: Connect With Us
 footerSocial:
   - href: 'https://www.facebook.com/GolfandCo.Co/'
