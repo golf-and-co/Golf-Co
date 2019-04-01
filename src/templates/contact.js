@@ -73,7 +73,7 @@ const Wrap = styled.div`
     margin-right: 10px;
   }
 
-  button.button {
+  input.button {
     margin: 20px auto;
     text-align: center;
     display: block;
