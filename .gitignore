@@ -10,3 +10,5 @@ yarn-error.log
 .vscode/*
 .netlify
 .directory
+yarn.lock
+package-lock.json
