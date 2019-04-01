@@ -73,7 +73,7 @@ const Wrap = styled.div`
     margin-right: 10px;
   }
 
-  button.button {
+  input.button {
     margin: 20px auto;
     text-align: center;
     display: block;
@@ -307,9 +307,13 @@ const Contact = ({ data }) => {
                 <label for="charity">Charity Day</label>
               </div>
             </div>
-            <button className="button is-rounded is-link" name="submit">
-              Submit
-            </button>
+            <input type="hidden" name="form-name" value="request" />
+            <input
+              name="submit"
+              type="submit"
+              className="button is-link is-rounded"
+              value="Send This Request"
+            />
           </form>
         </div>
       </Wrap>
