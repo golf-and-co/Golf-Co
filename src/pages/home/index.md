@@ -40,7 +40,7 @@ featuredViewAll: View All Golf Courses
 featuredBanner:
   image: /img/bitmap.png
   heading1: TEE-OFF With Our
-  heading2: Tee-Times Booking App (Coming Soon)
+  heading2: Tee-Times Booking App
   mobileImage: /img/mobile_featured_banner.png
 featuredFooter:
   heading1: We Are Covered
