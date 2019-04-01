@@ -52,8 +52,8 @@ recentPosts:
   heading1: LET’S TALK GOLF
   heading2: WITH GOLF NEWS & BLOG
 recentCalendar:
-  heading1: UPCOMING
-  heading2: GOLF EVENTS
+  heading1: Golf & Co
+  heading2: Events
 menuLogo:
   alt: Two tone green and blue shield with golf ball and swoosh
   image: /img/129-layers.png
