@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import {Course} from '../components/Featured'
-import { v4 } from 'uuid'
+import React from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
+import { Course } from "../components/Featured";
+import { v4 } from "uuid";
 
 const Background = styled.div`
   background-color: #f6f9f2;
@@ -22,7 +22,8 @@ const Background = styled.div`
     padding: 0 15px;
     padding-bottom: 50px;
 
-    p, h1 {
+    p,
+    h1 {
       text-align: center;
     }
   }
@@ -39,7 +40,7 @@ const Share = styled.button`
   background-color: #81aa8c;
   border: none;
   margin-bottom: 20px;
-  color: #FFF;
+  color: #fff;
   cursor: pointer;
 
   i {
@@ -56,8 +57,8 @@ const BodyHeader = styled.h1`
 `;
 
 const CartWrap = styled.aside`
-  box-shadow: 0px 2px 11px 0px rgba(29,134,73,0.44);
-  background: #FFF;
+  box-shadow: 0px 2px 11px 0px rgba(29, 134, 73, 0.44);
+  background: #fff;
   border-radius: 10px;
 
   ul li {
@@ -78,10 +79,10 @@ const CartWrap = styled.aside`
     margin-left: 3.5rem;
   }
 
-  
   .is-checkradio[type="radio"] + label::before,
   .is-checkradio[type="radio"]:hover:not([disabled]) + label::before,
-  .is-checkradio[type="checkbox"].is-white:hover:not([disabled]) + label::before  {
+  .is-checkradio[type="checkbox"].is-white:hover:not([disabled])
+    + label::before {
     border: 1px solid #cfddbb !important;
     background: #f6f9f2;
   }
@@ -89,9 +90,9 @@ const CartWrap = styled.aside`
   .is-checkradio[type="checkbox"]:checked + label::before {
     background: #1d8649 !important;
   }
-  
+
   .shaded {
-    background: #F6F9F2;
+    background: #f6f9f2;
   }
 `;
 
@@ -130,18 +131,18 @@ const CartHeader = styled.div`
 `;
 
 const CartBanner = styled.div`
-  background: #1d8649;  
+  background: #1d8649;
   h3 {
     font-size: 22px;
     font-weight: bold;
     line-height: 29px;
     text-align: center;
-    color:#FFF;
+    color: #fff;
     padding-top: 10px;
   }
 
-  p {  
-    color: #FFF;
+  p {
+    color: #fff;
     text-transform: none;
     font-size: 12px;
     letter-spacing: 0;
@@ -165,89 +166,145 @@ const Courses = styled.div`
   }
 `;
 
-const addOnChange = ({id, price}) => {
-  if(!isNaN(parseInt(price))) {
-    if(document.querySelector(`#${id}`).checked) {
-      document.querySelector('#basePrice').innerHTML = (parseInt(document.querySelector('#basePrice').innerHTML) + parseInt(price)).toString()
+const addOnChange = ({ id, price }) => {
+  if (!isNaN(parseInt(price))) {
+    if (document.querySelector(`#${id}`).checked) {
+      document.querySelector("#basePrice").innerHTML = (
+        parseInt(document.querySelector("#basePrice").innerHTML) +
+        parseInt(price)
+      ).toString();
     } else {
-      document.querySelector('#basePrice').innerHTML = (parseInt(document.querySelector('#basePrice').innerHTML) - parseInt(price)).toString()
+      document.querySelector("#basePrice").innerHTML = (
+        parseInt(document.querySelector("#basePrice").innerHTML) -
+        parseInt(price)
+      ).toString();
     }
   }
-}
+};
 
-const AddOns = ({addOn}) => {
-  const slug = addOn.title.replace(/ /g,"-");
+const AddOns = ({ addOn }) => {
+  const slug = addOn.title.replace(/ /g, "-");
 
   const classes = () => {
-    if(addOn.shaded) return "shaded";
+    if (addOn.shaded) return "shaded";
+  };
+
+  return (
+    <li className={classes()}>
+      <div className="field">
+        <input
+          className="is-checkradio is-white"
+          id={slug}
+          type="checkbox"
+          name={slug}
+          value={addOn.description}
+          onChange={() => addOnChange({ id: slug, price: addOn.price })}
+        />
+        <label htmlFor={slug}>
+          + {addOn.title}
+          <br />
+          <span className="disclaimer">{addOn.description}</span>
+        </label>
+      </div>
+    </li>
+  );
+};
+
+const Cart = ({ data, addOns }) => {
+  return (
+    <CartWrap className="menu">
+      <CartHeader className="menu-label">
+        <h3>Starting from</h3>
+        <p id="basePrice">{data.basePrice}</p>
+        <h3>USD / Person</h3>
+        <p className="disclaimer">
+          (Prices calculated based on twin sharing basis for two people)
+        </p>
+      </CartHeader>
+      <CartBanner className="menu-label">
+        <h3>Add-Ons</h3>
+        <p>
+          Make your trip even more memorable with these carefully chosen
+          facilities and excursions
+        </p>
+      </CartBanner>
+      <form action="/send-request" method="GET">
+        <input type="hidden" name="Course" value={data.title} />
+        <ul className="menu-list">
+          {addOns
+            .filter(addOn => {
+              return data.addOns.includes(addOn.node.frontmatter.title);
+            })
+            .map(addOn => (
+              <AddOns addOn={addOn.node.frontmatter} key={v4()} />
+            ))}
+          <li>
+            <input
+              name="submit"
+              type="submit"
+              className="button is-link is-rounded"
+              value="Send Enquiry"
+              style={{ margin: "20px auto", display: "block", width: "80%" }}
+            />
+          </li>
+        </ul>
+      </form>
+    </CartWrap>
+  );
+};
+
+const CartDetails = ({ data, addOns }) => {
+  // Convert carriage returns to br
+  if (typeof data.description === "string") {
+    data.description = data.description.split("\n").map((item, key) => {
+      return (
+        <span key={key}>
+          {item}
+          <br />
+        </span>
+      );
+    });
   }
 
-  return <li className={classes()}>
-    <div className="field">
-      <input className="is-checkradio is-white" id={slug} type="checkbox" name={slug} value={addOn.description} onChange={() => addOnChange({id:slug, price:addOn.price})} />
-      <label htmlFor={slug}>+ {addOn.title}<br /><span className="disclaimer">{addOn.description}</span></label>
-    </div>
-  </li>
-}
+  return (
+    <Background className="columns">
+      <div className="column is-three-quarters">
+        <ShareWrapper>
+          <Share>
+            <i className="fas fa-share-square" /> Share
+          </Share>
+        </ShareWrapper>
 
-const Cart = ({data, addOns}) => {
-  return <CartWrap className="menu">
-    <CartHeader className="menu-label">
-      <h3>Starting from</h3>
-      <p id="basePrice">{data.basePrice}</p>
-      <h3>USD / Person</h3>
-      <p className="disclaimer">(Prices calculated based on twin sharing basis for two people)</p>
-    </CartHeader>
-    <CartBanner className="menu-label">
-      <h3>Add-Ons</h3>
-      <p>Make your trip even more memorable with these carefully chosen facilities and excursions</p>
-    </CartBanner>
-    <form action="/send-request" method="GET">
-    <input type="hidden" name="Course" value={data.title} />
-    <ul className="menu-list">
-      {addOns.filter(addOn => {
-        return data.addOns.includes(addOn.node.frontmatter.title);
-      }).map(addOn => <AddOns addOn={addOn.node.frontmatter} key={v4()}/>)}
-      <li><input name="submit" type="submit" className="button is-link is-rounded" value="Send Enquiry" style={{margin:"20px auto", display: "block", width: "80%"}} /></li>
-    </ul>
-    
-    </form>
-  </CartWrap>;
-}
-
-const CartDetails = ({data, addOns}) =>{
-
-// Convert carriage returns to br
-if(typeof data.description === "string") {
-  data.description = data.description.split('\n').map((item, key) => {
-    return <span key={key}>{item}<br/></span>
-  })
-}
-
-
-
-return <Background className="columns">
-  <div className="column is-three-quarters">
-    <ShareWrapper>
-      <Share><i className="fas fa-share-square"></i> Share</Share>
-    </ShareWrapper>
-
-    <BodyHeader>{data.bodyHeader}</BodyHeader>
-    <Courses>
-      {data.courses.map(course => {
-        return <Course data={{fields:course, frontmatter:{featuredDetails:course, city: course.city, country: course.region, stats:[]}}} key={v4()} />
-      })}
-    </Courses>
-    <p>{data.description}</p>
-  </div>
-  <div className="column is-one-quarters">
-    <Cart data={data} addOns={addOns} />
-  </div>
-</Background>
-}
+        <BodyHeader>{data.bodyHeader}</BodyHeader>
+        <Courses>
+          {data.courses.map(course => {
+            return (
+              <Course
+                data={{
+                  fields: course,
+                  frontmatter: {
+                    featuredDetails: course,
+                    city: course.city,
+                    country: course.region,
+                    stats: []
+                  }
+                }}
+                key={v4()}
+              />
+            );
+          })}
+        </Courses>
+        <p>{data.description}</p>
+      </div>
+      <div className="column is-one-quarters">
+        <Cart data={data} addOns={addOns} />
+      </div>
+    </Background>
+  );
+};
 
 export default CartDetails;
 
 CartDetails.propTypes = {
-  data: PropTypes.object.isRequired,
-}
+  data: PropTypes.object.isRequired
+};

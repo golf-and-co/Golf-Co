@@ -1,52 +1,58 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import {withCookies} from "react-cookie";
-import Layout from '../components/Layout'
-import HeroCourse from '../components/HeroCourse';
-import CartStats from '../components/CartStats';
-import CartDetails from '../components/CartDetails';
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import { withCookies } from "react-cookie";
+import Layout from "../components/Layout";
+import HeroCourse from "../components/HeroCourse";
+import CartStats from "../components/CartStats";
+import CartDetails from "../components/CartDetails";
 
-import Footer from '../components/Footer';
+import Footer from "../components/Footer";
 
-export const PageTemplate = ({
-  title,
-}) => (
+export const PageTemplate = ({ title }) => (
   <section className="section section--gradient">
-    <div className="container">
-      Preview Offline
-    </div>
+    <div className="container">Preview Offline</div>
   </section>
-)
+);
 
 PageTemplate.propTypes = {
-  title: PropTypes.string,
-}
+  title: PropTypes.string
+};
 
 const PackageDetails = ({ data, cookies }) => {
+  // adapter to use existing Hero Course component
+  data.markdownRemark.frontmatter.image = data.markdownRemark.frontmatter.hero;
+  data.markdownRemark.frontmatter.packageTitle =
+    data.markdownRemark.frontmatter.title;
+  data.markdownRemark.frontmatter.title =
+    data.markdownRemark.frontmatter.pageHeader;
 
-// adapter to use existing Hero Course component
-data.markdownRemark.frontmatter.image = data.markdownRemark.frontmatter.hero;
-data.markdownRemark.frontmatter.packageTitle = data.markdownRemark.frontmatter.title;
-data.markdownRemark.frontmatter.title = data.markdownRemark.frontmatter.pageHeader;
-
-return <Layout>
-    <HeroCourse data={data.markdownRemark.frontmatter} empty={true} oneLine={true}/>
-    <CartStats data={data.markdownRemark.frontmatter} />
-    <CartDetails data={data.markdownRemark.frontmatter} addOns={data.addOnsQuery.edges} />
-    <Footer />
-</Layout>
+  return (
+    <Layout>
+      <HeroCourse
+        data={data.markdownRemark.frontmatter}
+        empty={true}
+        oneLine={true}
+      />
+      <CartStats data={data.markdownRemark.frontmatter} />
+      <CartDetails
+        data={data.markdownRemark.frontmatter}
+        addOns={data.addOnsQuery.edges}
+      />
+      <Footer />
+    </Layout>
+  );
 };
 
 PackageDetails.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
-}
+      frontmatter: PropTypes.object
+    })
+  })
+};
 
-export default withCookies(PackageDetails)
+export default withCookies(PackageDetails);
 
 export const packageDetailsQuery = graphql`
   query packageDetailsQuery($id: String!) {
@@ -62,9 +68,9 @@ export const packageDetailsQuery = graphql`
         statsDescription
         courses {
           image {
-            childImageSharp{
+            childImageSharp {
               fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -77,20 +83,20 @@ export const packageDetailsQuery = graphql`
         addOns
         basePrice
         image {
-          childImageSharp{
+          childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid
             }
           }
         }
         hero {
-          childImageSharp{
+          childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid
             }
           }
         }
-        stats{
+        stats {
           icon {
             publicURL
           }
@@ -99,20 +105,20 @@ export const packageDetailsQuery = graphql`
         }
       }
     }
-  addOnsQuery: allMarkdownRemark(
+    addOnsQuery: allMarkdownRemark(
       filter: { frontmatter: { templateKey: { eq: "addon" } } }
     ) {
-    edges {
-      node {
-        frontmatter{
-          title
-          price
-          description
-          shaded
-          checkedByDefault
+      edges {
+        node {
+          frontmatter {
+            title
+            price
+            description
+            shaded
+            checkedByDefault
+          }
         }
       }
     }
   }
-}
-`
+`;

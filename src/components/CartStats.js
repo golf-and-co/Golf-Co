@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from "styled-components"
-import { v4 } from 'uuid'
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import { v4 } from "uuid";
 
 const Wrap = styled.div`
     display: flex;
@@ -10,16 +10,16 @@ const Wrap = styled.div`
     z-index: -10;
 
     > section {
-        width: 50vw;
+        width: 100vw;
         padding-top: 100px;
     }
 
     #stats {
-        background-color: #81AA8C;
+        background-color: #1B8243;
     }
 
     #cart {
-        background-color: #1A428A;
+        background-color: #1B8243;
         font-size: 22px;
         font-weight: 700;
         line-height: 64px;
@@ -36,60 +36,79 @@ const Wrap = styled.div`
 `;
 
 const List = styled.ul`
-    display: flex;
-    justify-content: center;
-    padding: 0 0 20px 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 20px 0;
 `;
 
 const Item = styled.li`
-    background-color: #81AA8C;
-    border-right: 1px dashed #000;
-    padding: 1px 40px;
-    text-align: center;
+  display: flex;
+  background-color: #1b8243;
+  border-right: 1px dashed #000;
+  padding: 1px 40px;
+  text-align: center;
 
-    &:last-child {
-        border-right: none !important;
+  &:last-child {
+    border-right: none !important;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1px 20px;
+    display: none;
+
+    &:first-child {
+      display: block;
     }
-
-    @media (max-width: 768px) {
-        padding: 1px 20px;
-        display: none;
-
-        &:first-child {
-            display:block;
-        }
-        &:nth-child(2) {
-            display:block;
-        }
+    &:nth-child(2) {
+      display: block;
     }
+  }
 `;
 
 const Label = styled.h6`
-    text-transform:uppercase;
+  text-transform: uppercase;
+  margin: 0 10px;
 `;
 
 const Value = styled.span`
-    text-transform:uppercase;
+  text-transform: uppercase;
 `;
 
-const StatItem = ({data}) =>  <Item><img id="image" src={data.icon.publicURL} alt={data.label}/><Label>{data.label}</Label><Value>{data.value}</Value></Item>;
+const StatItem = ({ data }) => (
+  <Item>
+    <img id="image" src={data.icon.publicURL} alt={data.label} />
+    <Label>{data.label}</Label>
+    <Value>{data.value}</Value>
+  </Item>
+);
 
-const CartStat = ({data}) => { 
-
-return <Wrap>
-    <section id="stats">
+const CartStat = ({ data }) => {
+  return (
+    <Wrap>
+      <section id="cart">
         <List>
-            {data.stats.map(stat => <StatItem data={stat} key={v4()} />)}
+          <Item>
+            <img id="image" src="" alt={data.label} />
+            <Label>{data.label}</Label>
+            <Value>{data.value}</Value>
+          </Item>
+          <Item>
+            <img id="image" src="" alt={data.label} />
+            <Label>{data.label}</Label>
+            <Value>{data.value}</Value>
+          </Item>
+
+          {data.stats.map(stat => (
+            <StatItem data={stat} key={v4()} />
+          ))}
         </List>
-    </section>
-    <section id="cart">
-        <p>{data.statsDescription}</p>
-    </section>
-</Wrap>;
-}
+      </section>
+    </Wrap>
+  );
+};
 
 export default CartStat;
 
 CartStat.propTypes = {
-  data: PropTypes.object.isRequired,
-}
+  data: PropTypes.object.isRequired
+};
