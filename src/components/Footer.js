@@ -1,8 +1,8 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import { v4 } from 'uuid'
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import styled from "styled-components";
+import PropTypes from "prop-types";
+import { v4 } from "uuid";
 
 const FooterWrap = styled.section`
   background-color: #1a428a;
@@ -30,43 +30,42 @@ const FooterWrap = styled.section`
   h3 {
     margin-bottom: 20px;
   }
-`
+`;
 
 const MenuLink = styled.a`
   color: #fff;
-  font-family: 'Gotham Bold';
+  font-family: "Gotham Bold";
   font-size: 18px;
   font-weight: 700;
 
   :hover {
     color: #fff;
   }
-`
+`;
 
 const FontAwesomeList = styled.ul`
   display: flex;
   @media (max-width: 768px) {
     justify-content: center;
   }
-`
+`;
 
 const FontAwesomeItem = styled.li`
   margin-right: 10px;
   border: 3px solid #fff;
   border-radius: 1.5rem;
   padding: 3px;
-`
+`;
 
 const FontAwesome = styled.i`
-  color: #1a428a;
-  background: #fff;
+  color: #fff;
   border-radius: 2rem;
   height: 2rem;
   width: 2rem;
   text-align: center;
   line-height: 2rem !important;
   vertical-align: middle;
-`
+`;
 
 const Social = ({ link }) => (
   <FontAwesomeItem>
@@ -74,27 +73,27 @@ const Social = ({ link }) => (
       <FontAwesome className={`fab fa-${link.text}`} />
     </MenuLink>
   </FontAwesomeItem>
-)
+);
 
 const Menu = ({ link }) => {
-  let children = ''
-  if (typeof link.children !== 'undefined' && link.children !== null) {
+  let children = "";
+  if (typeof link.children !== "undefined" && link.children !== null) {
     children = link.children.map((child, index) => (
       <li key={v4()}>
         <MenuLink
           href={child.href}
           link={child}
           style={{
-            fontWeight: '300',
-            fontFamily: 'Gotham Book',
-            marginLeft: '10px',
+            fontWeight: "300",
+            fontFamily: "Gotham Book",
+            marginLeft: "10px"
           }}
         >
           {child.text}
         </MenuLink>
       </li>
-    ))
-    children = <ul>{children}</ul>
+    ));
+    children = <ul>{children}</ul>;
   }
 
   return (
@@ -102,8 +101,8 @@ const Menu = ({ link }) => {
       <MenuLink href={link.href}>{link.text}</MenuLink>
       {children}
     </li>
-  )
-}
+  );
+};
 
 const Footer = ({ data }) => {
   return (
@@ -132,7 +131,7 @@ const Footer = ({ data }) => {
           </div>
           <div
             className="columns is-mobile is-hidden-tablet"
-            style={{ marginTop: '40px' }}
+            style={{ marginTop: "40px" }}
           >
             <div className="column one-half is-hidden-tablet">
               <ul>
@@ -175,8 +174,8 @@ const Footer = ({ data }) => {
         </div>
       </div>
     </FooterWrap>
-  )
-}
+  );
+};
 
 export default props => (
   <StaticQuery
@@ -226,8 +225,8 @@ export default props => (
       />
     )}
   />
-)
+);
 
 Footer.propTypes = {
-  data: PropTypes.object.isRequired,
-}
+  data: PropTypes.object.isRequired
+};

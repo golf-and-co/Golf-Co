@@ -1,66 +1,86 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Hero from '../components/Hero'
-import Infographic from '../components/Info'
-import Featured from '../components/Featured'
-import Blog from '../components/Blog'
-import Banner from '../components/Banner'
-import Juicer from '../components/Juicer'
-import Footer from '../components/Footer'
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/Layout";
+import Hero from "../components/Hero";
+import Infographic from "../components/Info";
+import Featured from "../components/Featured";
+import Blog from "../components/Blog";
+import Banner from "../components/Banner";
+import Juicer from "../components/Juicer";
+import Footer from "../components/Footer";
 
-export const IndexTemplate = ({data, location}) => {
-  return <Layout>
-    <Hero />
-    <Infographic data={data.home.edges[0].node.frontmatter} />
-    <Featured centered={false} restoreWindow={false} />
-    <div style={{backgroundColor:"#f6f9f2", padding: "50px 0 50px 0"}}>
-      <Banner home={data.home.edges[0].node.frontmatter} />
-      <Blog data={{...data.events}} headline={{...data.home.edges[0].node.frontmatter.recentCalendar}} />
-    </div>
-    <Juicer count={8} columns={4} />
-    <Footer />
-  </Layout>
-}
+export const IndexTemplate = ({ data, location }) => {
+  return (
+    <Layout>
+      <Hero />
+      <Infographic data={data.home.edges[0].node.frontmatter} />
+      <Featured centered={false} restoreWindow={false} />
+      <div style={{ backgroundColor: "#f6f9f2", padding: "50px 0 50px 0" }}>
+        <h6
+          style={{
+            textAlign: "center",
+            color: "#1d8649",
+            textTransform: "uppercase",
+            fontFamily: "Gotham Light",
+            marginTop: "60px"
+          }}
+        >
+          Coming Soon
+        </h6>
+        <Banner home={data.home.edges[0].node.frontmatter} />
+        <Blog
+          data={{ ...data.events }}
+          headline={{ ...data.home.edges[0].node.frontmatter.recentCalendar }}
+        />
+      </div>
+      <Juicer count={8} columns={4} />
+      <Footer />
+    </Layout>
+  );
+};
 
-export default IndexTemplate
+export default IndexTemplate;
 
-export const golfInsuranceQuery = graphql`{
-  home: allMarkdownRemark(filter: { frontmatter: { title: { eq: "Home" } } }) {
-    edges {
-      node {
-        frontmatter {
-          headingParagraph
-          infographicsContainer {
-            infographicsHeader
-            infographics {
-              heading
-              description
-              image {
-                publicURL
+export const golfInsuranceQuery = graphql`
+  {
+    home: allMarkdownRemark(
+      filter: { frontmatter: { title: { eq: "Home" } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            headingParagraph
+            infographicsContainer {
+              infographicsHeader
+              infographics {
+                heading
+                description
+                image {
+                  publicURL
+                }
+                url
+                urlText
               }
-              url
-              urlText
             }
-          }
-          recentCalendar {
-            heading1
-            heading2
-          }
-          featuredBanner {
-            heading1
-            heading2
-            image{
-              childImageSharp{
-                fluid(maxWidth: 2048, quality: 100) {
+            recentCalendar {
+              heading1
+              heading2
+            }
+            featuredBanner {
+              heading1
+              heading2
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 2048, quality: 100) {
                     ...GatsbyImageSharpFluid
+                  }
                 }
               }
-            }
-            mobileImage{
-              childImageSharp{
-                fluid(maxWidth: 2048, quality: 100) {
+              mobileImage {
+                childImageSharp {
+                  fluid(maxWidth: 2048, quality: 100) {
                     ...GatsbyImageSharpFluid
+                  }
                 }
               }
             }
@@ -68,31 +88,31 @@ export const golfInsuranceQuery = graphql`{
         }
       }
     }
-  },
-  events: allMarkdownRemark(
-    filter: { frontmatter: { templateKey: { eq: "event" } } }
-    limit: 4
-    sort: { fields: frontmatter___date, order: DESC }
-  ) {
-    edges {
-      node {
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          description
-          date
-          logo {
-              publicURL
+    events: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "event" } } }
+      limit: 4
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
           }
-          images {
-            image {
+          frontmatter {
+            title
+            description
+            date
+            logo {
               publicURL
+            }
+            images {
+              image {
+                publicURL
+              }
             }
           }
         }
       }
     }
   }
-}`;
+`;

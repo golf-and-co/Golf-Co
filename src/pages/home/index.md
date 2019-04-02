@@ -12,24 +12,24 @@ infographicsContainer:
   infographics:
     - description: Taylor-made itineraries to fulfill your every wish
       heading: Bespoke Golf Experiences
-      image: /img/bespoke_golf_icon.png
+      image: /img/bespoke_golf_icon_empty.png
       url: /bespoke-golf-holidays
       urlText: Explore more
     - description: Browse and select from our list of exclusive packages
       heading: Golf Packages
-      image: /img/golf_packages_icon.png
+      image: /img/golf_packages_icon_empty.png
       url: /packages
       urlText: Explore more
     - description: >-
         Hotels, Transportation and everything that goes with it, we have it all
         covered
       heading: Golf Insurance
-      image: /img/golf_insurance_icon.png
+      image: /img/golf_insurance_icon_empty.png
       url: /golf-insurance
       urlText: Explore more
     - description: The perfect way to engage clients and maximize brand value
       heading: Corporate Golf Days
-      image: /img/corporate_golf_icons.png
+      image: /img/corporate_golf_icons_empty.png
       url: /corporate
       urlText: Explore more
   infographicsHeader: What we do?
@@ -38,9 +38,9 @@ featured:
   heading2: Golf Courses
 featuredViewAll: View All Golf Courses
 featuredBanner:
-  image: /img/featured-banner.png
+  image: /img/bitmap.png
   heading1: TEE-OFF With Our
-  heading2: Customized Packages
+  heading2: Tee-Times Booking App
   mobileImage: /img/mobile_featured_banner.png
 featuredFooter:
   heading1: We Are Covered
@@ -52,8 +52,8 @@ recentPosts:
   heading1: LET’S TALK GOLF
   heading2: WITH GOLF NEWS & BLOG
 recentCalendar:
-  heading1: UPCOMING
-  heading2: GOLF EVENTS
+  heading1: Golf & Co
+  heading2: Events
 menuLogo:
   alt: Two tone green and blue shield with golf ball and swoosh
   image: /img/129-layers.png
@@ -79,6 +79,12 @@ footerColumn1:
 footerColumn2:
   - href: /
     text: About Golf & Co.
+  - href: /contact
+    text: Contact Us
+  - href: /en/privacy-policy
+    text: Privacy Policy
+  - href: /en/terms-of-use
+    text: Terms of Use
 footerSocialHeading: Connect With Us
 footerSocial:
   - href: 'https://www.facebook.com/GolfandCo.Co/'

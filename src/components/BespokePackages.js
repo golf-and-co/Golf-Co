@@ -14,13 +14,13 @@ const Wrap = styled.div`
 
   .benefits {
     display: flex;
-    justifyContent: center;
+    justifycontent: center;
 
     @media (max-width: 768px) {
-      display:block;
+      display: block;
     }
   }
-  
+
   .packages {
     @media (min-width: 960px) {
       margin: 65px auto;
@@ -30,17 +30,18 @@ const Wrap = styled.div`
 
   .package {
     @media (min-width: 960px) {
-      width:450px;
-      float:left; 
-      margin:15px;
-      position:relative;
+      width: 450px;
+      float: left;
+      margin: 15px;
+      position: relative;
     }
     @media (max-width: 768px) {
       margin: 20px;
     }
 
-    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),-webkit-transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+      -webkit-transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
     :hover {
       transform: translateY(-6px);
       filter: brightness(102%) hue-rotate(12deg);
@@ -52,11 +53,11 @@ const Wrap = styled.div`
   }
 
   .package h6 {
-      color: rgb(255, 255, 255);
-      font-size: 30px;
-      top: -143px;
-      position: absolute;
-      width: 100%;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    top: -143px;
+    position: absolute;
+    width: 100%;
   }
 `;
 
@@ -64,7 +65,7 @@ const Heading = styled.h1`
   margin: 0px auto 10px auto;
   color: #a8844e;
   font-size: 2em;
-  font-family: Gotham;
+  font-family: "Gotham Black";
   text-transform: uppercase;
 
   &.bottomMargin {
@@ -98,32 +99,67 @@ const Container = styled.div`
 
 const BespokePackages = ({ data }) => {
   return (
-    <Wrap style={{backgroundColor:"#F6F9F2"}}>
+    <Wrap style={{ backgroundColor: "#F6F9F2" }}>
       <Container className="container">
         <Heading className="bottomMargin">{data.heading1}</Heading>
         <Paragraph>{data.paragraph1}</Paragraph>
       </Container>
       <div className="benefits container" style={{}}>
-        {data.benefits.map(benefit => <div className="column is-one-quarter">
-          <img src={benefit.image.publicURL} alt="Glamorous Hotel Scenes: Gourmet appetizers / Light tone lobby with sea view / Dark colored luxury sedan on runway with private jet / Waterfront with docked boat with mass down sail and brightly colored buildings" />
-          <h6 style={{color:"#a8844e", textTransform:"uppercase", fontSize:"1.25em", fontWeight:"bold"}}>{benefit.description}</h6>
-        </div>)}
-      </div>  
+        {data.benefits.map(benefit => (
+          <div className="column is-one-quarter">
+            <img
+              src={benefit.image.publicURL}
+              alt="Glamorous Hotel Scenes: Gourmet appetizers / Light tone lobby with sea view / Dark colored luxury sedan on runway with private jet / Waterfront with docked boat with mass down sail and brightly colored buildings"
+              style={{
+                filter:
+                  "sepia(30%) saturate(120%) brightness(90%) hue-rotate(350deg)"
+              }}
+            />
+            <h6
+              style={{
+                color: "#a8844e",
+                textTransform: "uppercase",
+                fontSize: "1.25em",
+                fontWeight: "bold",
+                fontFamily: "Gotham Bold"
+              }}
+            >
+              {benefit.description}
+            </h6>
+          </div>
+        ))}
+      </div>
 
       <div className="container packages">
-        {data.packages.map(item => <div className="package">
-          <a href={item.pdf.publicURL}>
-            <img src={item.image.publicURL} alt="Stone bridge on course similiar to Saint Andrew's / Mist over rich golf green, water hazard on left of green, with golfer sizing putt and high-trimmed trees in background / Landscape view of distant reflective clubhouse with high rough and sand bunker at sunset / Golfer in full backswing across large water hazard with distant hills"/>
-            <h6>{item.heading}</h6>
-          </a>
-        </div>)}
-      </div> 
-
+        {data.packages.map(item => (
+          <div className="package">
+            <a href={item.pdf.publicURL}>
+              <img
+                src={item.image.publicURL}
+                alt="Stone bridge on course similiar to Saint Andrew's / Mist over rich golf green, water hazard on left of green, with golfer sizing putt and high-trimmed trees in background / Landscape view of distant reflective clubhouse with high rough and sand bunker at sunset / Golfer in full backswing across large water hazard with distant hills"
+              />
+              <h6>{item.heading}</h6>
+            </a>
+          </div>
+        ))}
+      </div>
 
       <Container className="container sendRequest">
         <Heading>{data.heading2}</Heading>
         <Paragraph>{data.paragraph2}</Paragraph>
-        <a href="/send-request" className="button is-link is-rounded" style={{marginTop:"10px", background:"#A8844E", padding:"20px", fontSize: "16px", fontFamily: "Gotham Bold"}}>START YOUR JOURNEY NOW</a>
+        <a
+          href="/send-request"
+          className="button is-link is-rounded"
+          style={{
+            marginTop: "10px",
+            background: "#A8844E",
+            padding: "20px",
+            fontSize: "16px",
+            fontFamily: "Gotham Bold"
+          }}
+        >
+          START YOUR JOURNEY NOW
+        </a>
       </Container>
     </Wrap>
   );
