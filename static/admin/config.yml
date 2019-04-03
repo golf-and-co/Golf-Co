@@ -190,7 +190,7 @@ collections:
       - {label: "Searchable", name: "searchable", widget: "boolean"}
       - {label: "Stats", name: "stats", widget: "list", fields: [{label: "Icon", name: icon, widget: image}, {label: "Label", name: label, widget: string}, {label: "Value", name: value, widget: string}]}
       - {label: "Stats Description", name: "statsDescription", widget: "string"}
-      - {label: "Courses", name: "courses", widget: "relation", collection: "addon", searchFields: ["title", "city"], valueField: "title", displayFields: ["title"], multiple: true}
+      - {label: "Courses", name: "courses", widget: "list", fields: [{label: "Course", name: course, widget: "relation", collection: "courses", searchFields: ["title", "city"], valueField: "title", displayFields: ["title"]}, {label: "Rounds", name: rounds, widget: string}]}
       - {label: "Add Ons", name: "addOns", widget: "relation", collection: "addon", searchFields: ["title", "description"], valueField: "title", displayFields: ["title", "description", "price"], multiple: true}
       - {label: "Base Price", name: "basePrice", widget: "string"}
   - name: "meta"

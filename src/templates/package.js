@@ -20,6 +20,26 @@ PageTemplate.propTypes = {
 };
 
 const PackageDetails = ({ data, cookies }) => {
+  // lookup course from package course relation
+  data.markdownRemark.frontmatter.courses = data.markdownRemark.frontmatter.courses.map(
+    course => {
+      const row = data.courses.edges.filter(
+        edge => edge.node.frontmatter.title === course.course
+      )[0]["node"];
+
+      return {
+        name: course.course,
+        rounds: course.rounds,
+        title: row.frontmatter.title,
+        image: row.frontmatter.image,
+        city: row.frontmatter.city,
+        region: row.frontmatter.region,
+        country: row.frontmatter.country,
+        slug: row.fields.slug
+      };
+    }
+  );
+
   // adapter to use existing Hero Course component
   data.markdownRemark.frontmatter.image = data.markdownRemark.frontmatter.hero;
   data.markdownRemark.frontmatter.packageTitle =
@@ -67,18 +87,8 @@ export const packageDetailsQuery = graphql`
         country
         statsDescription
         courses {
-          image {
-            childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          name
-          city
-          region
+          course
           rounds
-          slug
         }
         addOns
         basePrice
@@ -116,6 +126,30 @@ export const packageDetailsQuery = graphql`
             description
             shaded
             checkedByDefault
+          }
+        }
+      }
+    }
+    courses: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "course" } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            city
+            region
+            country
+          }
+          fields {
+            slug
           }
         }
       }

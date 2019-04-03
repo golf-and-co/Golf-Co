@@ -285,6 +285,7 @@ const CartDetails = ({ data, addOns }) => {
                   frontmatter: {
                     featuredDetails: course,
                     city: course.city,
+                    region: course.region,
                     country: course.region,
                     stats: []
                   }
