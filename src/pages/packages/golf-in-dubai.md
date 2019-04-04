@@ -24,41 +24,19 @@ country: UAE
 hotelType: 5 Stars
 duration: 7 Days or More
 rounds: 6 Rounds
-price: '4500'
+price: "4500"
 searchable: true
 stats:
   - icon: /img/golf_tee.svg
     label: Holes
-    value: '18'
+    value: "18"
   - icon: /img/swing.svg
     label: Par
-    value: '72'
+    value: "72"
 statsDescription: 7 Nights (BB Base) + 4 Rounds
 courses:
-  - image: /img/the-emirates-golf-club-course.png
-    city: Dubai
-    name: The Emirates Golf Club Course
-    region: Dubai
-    rounds: '2'
-    slug: /courses/the-emirates-golf-club-course
-  - image: /img/the-emirates-golf-club-course.png
-    city: Dubai
-    name: The Emirates Golf Club Course
-    region: Dubai
-    rounds: '1'
-    slug: /courses/the-emirates-golf-club-course
-  - image: /img/the-emirates-golf-club-course.png
-    city: Dubai
-    name: The Emirates Golf Club Course
-    region: Dubai
-    rounds: '1'
-    slug: /courses/the-emirates-golf-club-course
-  - image: /img/the-emirates-golf-club-course.png
-    city: Dubai
-    name: The Emirates Golf Club Course
-    region: Dubai
-    rounds: '1'
-    slug: /courses/the-emirates-golf-club-course
+  - course: Abu Dhabi Golf Club (Holes 1-27)
+    rounds: "2"
 addOns:
   - Club Rental
   - Additional Rounds
@@ -68,6 +46,5 @@ addOns:
   - Burj Khalifa Tickets
   - Desert Safari
   - Golf Insurance
-basePrice: '4500'
+basePrice: "4500"
 ---
-
