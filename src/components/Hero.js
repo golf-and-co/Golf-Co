@@ -93,6 +93,7 @@ function getCurrentWeather(weather) {
       const from = new Date(weather.attributes.from);
       const to = new Date(weather.attributes.to);
       if (currentUTCTime >= from && currentUTCTime <= to) return true;
+      else return false;
     }
   );
 

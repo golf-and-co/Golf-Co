@@ -93,8 +93,9 @@ export const Blog = ({ data, headline }) => {
             typeof edge.node.frontmatter.logo === "undefined" ||
             edge.node.frontmatter.logo === null
           ) {
+            console.log(edge.node.frontmatter);
             edge.node.frontmatter.image =
-              edge.node.frontmatter.images[0].image.publicURL;
+              edge.node.frontmatter.albums.images[0].image.publicURL;
           } else {
             edge.node.frontmatter.image = edge.node.frontmatter.logo.publicURL;
           }
