@@ -80,9 +80,7 @@ const Content = () => {
                     date
                     albums {
                       images {
-                        image {
-                          publicURL
-                        }
+                        image
                       }
                     }
                   }
@@ -96,8 +94,10 @@ const Content = () => {
             <Events className="container">
               {data.allMarkdownRemark.edges.map(edge => {
                 // @TODO: centralize cards, take from /components/Featured
-                edge.node.frontmatter.image =
-                  edge.node.frontmatter.albums.images[0].image.publicURL;
+                edge.node.frontmatter.image = edge.node.frontmatter.albums[0].images[0].image.replace(
+                  "../../../static",
+                  ""
+                );
                 edge.node.frontmatter.cardDescription = (
                   <span class="event">
                     {edge.node.frontmatter.location}

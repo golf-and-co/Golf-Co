@@ -107,9 +107,7 @@ export const golfInsuranceQuery = graphql`
             }
             albums {
               images {
-                image {
-                  publicURL
-                }
+                image
               }
             }
           }

@@ -12,12 +12,12 @@ description: >-
   turpis, sed facilisis eros bibendum aliquam. Nulla sagittis tempor turpis,
   consectetur efficitur est dignissim sit amet.
 albums:
-  date: 7 Dec 2018
-  name: GolfCo
-  images:
-    - image: /img/golfco-proam-2.png
-    - image: /img/golfco-proam.png
-    - image: /img/golfco-proam-2.png
-    - image: /img/golfco-proam.png
+  - name: GolfCo
+    date: 7 Dec 2018
+    images:
+      - image: /img/golfco-proam-2.png
+      - image: /img/golfco-proam.png
+      - image: /img/golfco-proam-2.png
+      - image: /img/golfco-proam.png
 imagesPerSlide: "3"
 ---

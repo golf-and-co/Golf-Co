@@ -173,8 +173,10 @@ const gallery = ({ data, location }) => {
             <Grid
               data={data.event.edges.map(edge => {
                 // want first event image, not event page hero to show in listing grid
-                edge.node.frontmatter.image =
-                  edge.node.frontmatter.albums.images[0].image.publicURL;
+                edge.node.frontmatter.image = edge.node.frontmatter.albums[0].images[0].image.replace(
+                  "../../../static",
+                  ""
+                );
                 edge.node.frontmatter.cardDescription = (
                   <span class="event">
                     {edge.node.frontmatter.location}
@@ -250,9 +252,7 @@ export const eventsQuery = graphql`
             }
             albums {
               images {
-                image {
-                  publicURL
-                }
+                image
               }
             }
           }

@@ -38,6 +38,7 @@ const Wrap = styled.div`
 `;
 
 const galleryDetails = ({ data }) => {
+  console.log(data);
   return (
     <Layout>
       <HeroSmall
@@ -90,10 +91,13 @@ const galleryDetails = ({ data }) => {
               infinite: true
             }}
           >
-            {data.markdownRemark.frontmatter.albums.images.map(entry => {
+            {data.markdownRemark.frontmatter.albums.map(entry => {
               return (
                 <div key={v4()}>
-                  <img src={entry.image.publicURL} alt="Gallery" />
+                  <img
+                    src={entry.images[0].image.replace("../../../static", "")}
+                    alt="Gallery"
+                  />
                 </div>
               );
             })}
@@ -128,9 +132,7 @@ export const galleryDetailsQuery = graphql`
         }
         albums {
           images {
-            image {
-              publicURL
-            }
+            image
           }
         }
         image {

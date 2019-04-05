@@ -20,13 +20,13 @@ description: >-
   start
 logo: /static/img/events-golfco-logo.png
 albums:
-  date: 7 Dec 2018
-  name: GolfCo
-  images:
-    - image: /img/c1e75a955df41e3ac1a36cec3b327647e60105cf.png
-    - image: /img/golfco-proam-2.png
-    - image: /img/golfco-proam.png
-    - image: /img/golfco-proam.png
-    - image: /img/golfco-proam-2.png
+  - name: GolfCo
+    date: 7 Dec 2018
+    images:
+      - image: /img/c1e75a955df41e3ac1a36cec3b327647e60105cf.png
+      - image: /img/golfco-proam-2.png
+      - image: /img/golfco-proam.png
+      - image: /img/golfco-proam.png
+      - image: /img/golfco-proam-2.png
 imagesPerSlide: "4"
 ---

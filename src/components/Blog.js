@@ -93,9 +93,10 @@ export const Blog = ({ data, headline }) => {
             typeof edge.node.frontmatter.logo === "undefined" ||
             edge.node.frontmatter.logo === null
           ) {
-            console.log(edge.node.frontmatter);
-            edge.node.frontmatter.image =
-              edge.node.frontmatter.albums.images[0].image.publicURL;
+            edge.node.frontmatter.image = edge.node.frontmatter.albums[0].images[0].image.replace(
+              "../../../static",
+              ""
+            );
           } else {
             edge.node.frontmatter.image = edge.node.frontmatter.logo.publicURL;
           }

@@ -62,7 +62,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 };
 
 exports.sourceNodes = async ({ actions, store, cache, createNodeId }) => {
-  const { createNode, createNodeField } = actions;
+  const { createNode, createNodeField, createTypes } = actions;
   // Fetch data
 
   // use for loop for async/await support
