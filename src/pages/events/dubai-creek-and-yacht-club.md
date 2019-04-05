@@ -11,13 +11,20 @@ description: >-
   lorem sodales placerat. Sed non est libero. Aliquam scelerisque dignissim
   turpis, sed facilisis eros bibendum aliquam. Nulla sagittis tempor turpis,
   consectetur efficitur est dignissim sit amet.
+logo: /img/events-golfco-logo.png
 albums:
-  - name: GolfCo
-    date: 7 Dec 2018
+  - date: 'Saturday 6th October, 2018'
     images:
-      - image: /img/golfco-proam-2.png
-      - image: /img/golfco-proam.png
-      - image: /img/golfco-proam-2.png
-      - image: /img/golfco-proam.png
-imagesPerSlide: "3"
+      - image: /img/events3.png
+    name: 'Emirates Golf Club, Faldo Course'
+  - date: 'Saturday 3rd November, 2018'
+    images:
+      - image: /img/events.png
+    name: 'Jumeriah Golf Estates, Fire course'
+  - date: 'Friday 7th December, 2018'
+    images:
+      - image: /img/events2.png
+    name: Dubai Creek Golf & Yacht Club
+imagesPerSlide: '3'
 ---
+
