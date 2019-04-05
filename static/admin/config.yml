@@ -132,7 +132,7 @@ collections:
       - {label: "Type", name: type, widget: list, fields: [{label: "Label", name: label, widget: string}], required: false}
       - {label: "Description", name: "description", widget: "text", required: false}
       - {label: "Logo", name: logo, widget: image, required: false}
-      - {label: "Albums", name: "albums", widget: "list", fields: [{label: "Date", name: date, widget: string}, {label: "Name", name: name, widget: string}, {label: "Images", name: "images", widget: "list", fields: [{label: "Image", name: image, widget: image}]}]
+      - {label: "Albums", name: "albums", widget: "list", fields: [{label: "Date", name: date, widget: string}, {label: "Name", name: name, widget: string}, {label: "Images", name: "images", widget: "list", fields: [{label: "Image", name: image, widget: image}]}]}
       - {label: "Images Per Slide", name: "imagesPerSlide", widget: "string"}
   - name: "testimontial"
     label: "Testimontials"
