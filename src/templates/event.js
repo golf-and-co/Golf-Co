@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
@@ -38,7 +38,18 @@ const Wrap = styled.div`
 `;
 
 const galleryDetails = ({ data }) => {
-  console.log(data);
+  const [gallery, setGallery] = useState(false);
+  let displayGallery;
+  let displayAlbums;
+
+  if (!!gallery) {
+    displayGallery = "block";
+    displayAlbums = "none";
+  } else {
+    displayGallery = "none";
+    displayAlbums = "block";
+  }
+
   return (
     <Layout>
       <HeroSmall
@@ -79,29 +90,93 @@ const galleryDetails = ({ data }) => {
       </div>
       <div style={{ paddingBottom: "200px", backgroundColor: "#E4ECD9" }}>
         <Wrap className="container">
-          <Slider
-            {...{
-              dots: true,
-              slidesToShow: parseInt(
-                data.markdownRemark.frontmatter.imagesPerSlide
-              ),
-              slidesToScroll: parseInt(
-                data.markdownRemark.frontmatter.imagesPerSlide
-              ),
-              infinite: true
-            }}
-          >
+          <div style={{ display: displayGallery }}>
+            <button
+              onClick={() => setGallery(false)}
+              className="is-rounded "
+              style={{
+                backgroundColor: "#1d8649",
+                color: "#ffffff",
+                fontFamily: "Gotham Book",
+                fontSize: "1rem",
+                fontWeight: "300",
+                textTransform: "uppercase",
+                position: "relative",
+                padding: "5px 10px",
+                margin: "10px 0px",
+                letterSpacing: ".1px",
+                textAlign: "center",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer"
+              }}
+            >
+              Back
+            </button>
             {data.markdownRemark.frontmatter.albums.map(entry => {
+              let displayValue;
+              if (gallery === entry.name) {
+                displayValue = "block";
+              } else {
+                displayValue = "none";
+              }
+
               return (
-                <div key={v4()}>
-                  <img
-                    src={entry.images[0].image.replace("../../../static", "")}
-                    alt="Gallery"
-                  />
+                <div style={{ display: displayValue }}>
+                  <Slider
+                    key={v4()}
+                    {...{
+                      dots: true,
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                      autoplay: true,
+                      autoplaySpeed: 2000
+                    }}
+                  >
+                    {entry.images.map(image => (
+                      <img
+                        key={v4()}
+                        alt={entry.name}
+                        src={image.image.replace("../../../static", "")}
+                      />
+                    ))}
+                  </Slider>
                 </div>
               );
             })}
-          </Slider>
+          </div>
+
+          <div style={{ display: displayAlbums }}>
+            <Slider
+              {...{
+                dots: true,
+                slidesToShow: parseInt(
+                  data.markdownRemark.frontmatter.imagesPerSlide
+                ),
+                slidesToScroll: parseInt(
+                  data.markdownRemark.frontmatter.imagesPerSlide
+                ),
+                infinite: true
+              }}
+            >
+              {data.markdownRemark.frontmatter.albums.map(entry => {
+                return (
+                  <div key={v4()} onClick={() => setGallery(entry.name)}>
+                    <img
+                      src={entry.images[0].image.replace("../../../static", "")}
+                      alt="Gallery"
+                    />
+                    <div style={{ color: "#000", textAlign: "center" }}>
+                      {entry.date}
+                    </div>
+                    <div style={{ color: "#555", textAlign: "center" }}>
+                      {entry.name}
+                    </div>
+                  </div>
+                );
+              })}
+            </Slider>
+          </div>
         </Wrap>
       </div>
       <Footer />
@@ -131,6 +206,8 @@ export const galleryDetailsQuery = graphql`
           label
         }
         albums {
+          name
+          date
           images {
             image
           }
