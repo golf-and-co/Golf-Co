@@ -2,8 +2,8 @@
 templateKey: event
 image: /img/ghala_golf_oman.png
 title: Golf & Co. ProAm 2
-location: 'Emirates Golf Club, Faldo course'
-date: 'SATURDAY, 7 DEC 2018'
+location: "Emirates Golf Club, Faldo course"
+date: "SATURDAY, 7 DEC 2018"
 type:
   - label: Sponsored Events
 description: >-
@@ -19,12 +19,14 @@ description: >-
   throughout the series• Better ball, 2 scores to count • Afternoon shotgun
   start
 logo: /static/img/events-golfco-logo.png
-images:
-  - image: /img/c1e75a955df41e3ac1a36cec3b327647e60105cf.png
-  - image: /img/golfco-proam-2.png
-  - image: /img/golfco-proam.png
-  - image: /img/golfco-proam.png
-  - image: /img/golfco-proam-2.png
-imagesPerSlide: '4'
+albums:
+  - name: GolfCo
+    date: 7 Dec 2018
+    images:
+      - image: /img/c1e75a955df41e3ac1a36cec3b327647e60105cf.png
+      - image: /img/golfco-proam-2.png
+      - image: /img/golfco-proam.png
+      - image: /img/golfco-proam.png
+      - image: /img/golfco-proam-2.png
+imagesPerSlide: "4"
 ---
-

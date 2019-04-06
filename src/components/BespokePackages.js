@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { Link } from "gatsby";
 
 const Wrap = styled.div`
   padding: 50px 0px 220px 0px;

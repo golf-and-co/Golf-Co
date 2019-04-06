@@ -308,6 +308,7 @@ export const Course = ({
     if (restoreWindow) {
       return (
         <object
+          alt="Restore Window Icon"
           onClick={() => (window.location = data.fields.slug)}
           type="image/svg+xml"
           data="/img/icons8-restore_window.svg"
@@ -321,7 +322,9 @@ export const Course = ({
             filter: "contrast(50%) brightness(100)",
             pointerEvents: "none"
           }}
-        />
+        >
+          Restore Window Icon
+        </object>
       );
     } else {
       return <span />;

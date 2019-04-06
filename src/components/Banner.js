@@ -31,8 +31,8 @@ const BannerHeader = styled.p`
   line-height: 1.25;
 
   @media (max-width: 768px) {
-    font-size: 18px;
-    margin-left: 105px;
+    font-size: 17px;
+    margin-left: 100px;
   }
 `;
 
