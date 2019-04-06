@@ -17,6 +17,10 @@ albums:
     images:
       - image: /img/events4.jpg
       - image: /img/events7.jpg
+      - image: /img/events8.jpg
+      - image: /img/events9.jpg
+      - image: /img/events10.jpg
+      - image: /img/events11.jpg
     name: 'Emirates Golf Club, Faldo Course'
   - date: 'Saturday 3rd November, 2018'
     images:
