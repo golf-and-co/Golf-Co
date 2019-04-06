@@ -15,15 +15,20 @@ logo: /img/events-golfco-logo.png
 albums:
   - date: 'Saturday 6th October, 2018'
     images:
-      - image: /img/events3.png
+      - image: /img/events4.jpg
+      - image: /img/events7.jpg
+      - image: /img/events8.jpg
+      - image: /img/events9.jpg
+      - image: /img/events10.jpg
+      - image: /img/events11.jpg
     name: 'Emirates Golf Club, Faldo Course'
   - date: 'Saturday 3rd November, 2018'
     images:
-      - image: /img/events.png
+      - image: /img/events5.jpg
     name: 'Jumeriah Golf Estates, Fire course'
   - date: 'Friday 7th December, 2018'
     images:
-      - image: /img/events2.png
+      - image: /img/events6.jpg
     name: Dubai Creek Golf & Yacht Club
 imagesPerSlide: '3'
 ---
