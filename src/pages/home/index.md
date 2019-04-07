@@ -61,11 +61,7 @@ footerLogo:
   alt: Golf & Co. white letters
   image: /img/logo.png
 footerColumn1:
-  - children:
-      - href: /courses?country=UAE
-        text: UAE
-      - href: /courses?country=Oman
-        text: Oman
+  - children: []
     href: courses
     text: Golf Courses
   - href: /bespoke-golf-holidays
