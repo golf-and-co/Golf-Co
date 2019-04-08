@@ -198,10 +198,6 @@ export default props => (
                 footerColumn1 {
                   text
                   href
-                  children {
-                    text
-                    href
-                  }
                 }
                 footerColumn2 {
                   text

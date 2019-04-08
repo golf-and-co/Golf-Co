@@ -95,16 +95,6 @@ const Wrap = styled.div`
   }
 `;
 
-const Content = styled.div`
-  color: #1a428a;
-  text-align: center;
-  padding: 45px 0 50px 0;
-
-  @media (max-width: 768px) {
-    padding: 20px 0 0 0;
-  }
-`;
-
 const Contact = ({ data }) => {
   return (
     <Layout>
@@ -117,204 +107,244 @@ const Contact = ({ data }) => {
         }}
       />
       <Wrap>
-        <Content>
-          We are all set to take your request. Just fill up the form below.
-        </Content>
         <div className="container">
-          <form
-            data-netlify="true"
-            name="request"
-            method="POST"
-            data-netlify-honeypot="bot-field"
-          >
-            <div className="columns">
-              <div className="column is-one-fifth">
-                <div className="control">
-                  <input
-                    name="title"
-                    className="input is-rounded"
-                    type="text"
-                    placeholder="Title"
-                  />
-                </div>
-              </div>
-              <div className="column is-two-fifths">
-                <div className="control">
-                  <input
-                    name="firstName"
-                    className="input is-rounded"
-                    type="text"
-                    placeholder="First Name"
-                  />
-                </div>
-              </div>
-              <div className="column is-two-fifths">
-                <div className="control">
-                  <input
-                    name="lastName"
-                    className="input is-rounded"
-                    type="text"
-                    placeholder="Last Name"
-                  />
-                </div>
-              </div>
+          <div className="columns">
+            <div className="column is-one-fifth">
+              <img src="/static/d6050f4008ae6df127cfe84347ba1644/e139a/abu-dhabi-golf-club_next-golf-1.jpg" />
+              <ul>
+                <li>
+                  <label>Code</label>
+                  <p>XXXXXX</p>
+                </li>
+                <li>
+                  <label>City</label>
+                  <p>Pattaya</p>
+                </li>
+                <li>
+                  <label>Country</label>
+                  <p>Thailand</p>
+                </li>
+                <li>
+                  <label>Nights</label>
+                  <p>7</p>
+                </li>
+                <li>
+                  <label>Rounds of Golf</label>
+                  <p>3</p>
+                </li>
+                <li>
+                  <label>Hotel</label>
+                  <p>XXXXXXXXXXXX</p>
+                </li>
+                <li>
+                  <label>Add-Ons</label>
+                  <ul>
+                    <li>Club Rental</li>
+                    <li>Additional Round</li>
+                    <li>Golf Insurance</li>
+                  </ul>
+                </li>
+              </ul>
             </div>
+            <div className="column is-fourth-fifths">
+              <form
+                data-netlify="true"
+                name="request"
+                method="POST"
+                data-netlify-honeypot="bot-field"
+              >
+                <div className="columns">
+                  <div className="column is-one-fifth">
+                    <div className="control">
+                      <input
+                        name="title"
+                        className="input is-rounded"
+                        type="text"
+                        placeholder="Title"
+                      />
+                    </div>
+                  </div>
+                  <div className="column is-two-fifths">
+                    <div className="control">
+                      <input
+                        name="firstName"
+                        className="input is-rounded"
+                        type="text"
+                        placeholder="First Name"
+                      />
+                    </div>
+                  </div>
+                  <div className="column is-two-fifths">
+                    <div className="control">
+                      <input
+                        name="lastName"
+                        className="input is-rounded"
+                        type="text"
+                        placeholder="Last Name"
+                      />
+                    </div>
+                  </div>
+                </div>
 
-            <div className="columns">
-              <div className="column is-full">
-                <div className="control">
-                  <input
-                    name="company"
-                    className="input is-rounded"
-                    type="text"
-                    placeholder="Company"
-                  />
+                <div className="columns">
+                  <div className="column is-full">
+                    <div className="control">
+                      <input
+                        name="company"
+                        className="input is-rounded"
+                        type="text"
+                        placeholder="Company"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <h6>Your Contact Details</h6>
-            <div className="columns">
-              <div className="column is-full">
-                <div className="control">
-                  <input
-                    name="email"
-                    className="input is-rounded"
-                    type="email"
-                    placeholder="Email"
-                  />
+                <h6>Your Contact Details</h6>
+                <div className="columns">
+                  <div className="column is-full">
+                    <div className="control">
+                      <input
+                        name="email"
+                        className="input is-rounded"
+                        type="email"
+                        placeholder="Email"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <div className="columns is-mobile">
-              <div className="column is-2-desktop is-one-quarter-mobile">
-                <div className="control is-block-desktop is-hidden-mobile">
-                  <input
-                    name="areaCodeWork"
-                    className="input is-rounded"
-                    type="text"
-                    placeholder="UAE (+971)"
-                    defaultValue="UAE (+971)"
-                  />
+                <div className="columns is-mobile">
+                  <div className="column is-2-desktop is-one-quarter-mobile">
+                    <div className="control is-block-desktop is-hidden-mobile">
+                      <input
+                        name="areaCodeWork"
+                        className="input is-rounded"
+                        type="text"
+                        placeholder="UAE (+971)"
+                        defaultValue="UAE (+971)"
+                      />
+                    </div>
+                    <div className="control is-hidden-desktop is-block-mobile">
+                      <input
+                        name="areaCodeWork"
+                        className="input is-rounded"
+                        type="text"
+                        placeholder="+971"
+                        defaultValue="+971"
+                      />
+                    </div>
+                  </div>
+                  <div className="column is-4-desktop is-three-quarters-mobile">
+                    <div className="control">
+                      <input
+                        name="workPhone"
+                        className="input is-rounded"
+                        type="text"
+                        placeholder="Work Phone"
+                      />
+                    </div>
+                  </div>
+                  <div className="column is-2-desktop is-one-quarter-mobile is-hidden-mobile is-flex-desktop">
+                    <div className="control">
+                      <input
+                        name="areaCodeMobile"
+                        className="input is-rounded"
+                        type="text"
+                        placeholder="UAE (+971)"
+                        defaultValue="UAE (+971)"
+                      />
+                    </div>
+                  </div>
+                  <div className="column is-4-desktop is-three-quarters-mobile is-hidden-mobile is-flex-desktop">
+                    <div className="control">
+                      <input
+                        name="workMobile"
+                        className="input is-rounded"
+                        type="text"
+                        placeholder="Mobile Phone"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div className="control is-hidden-desktop is-block-mobile">
-                  <input
-                    name="areaCodeWork"
-                    className="input is-rounded"
-                    type="text"
-                    placeholder="+971"
-                    defaultValue="+971"
-                  />
+                <div className="columns is-flex-mobile is-hidden-desktop">
+                  <div className="column is-2-desktop is-one-quarter-mobile">
+                    <div className="control">
+                      <input
+                        name="areaCodeMobile"
+                        className="input is-rounded"
+                        type="text"
+                        placeholder="+971"
+                        defaultValue="+971"
+                      />
+                    </div>
+                  </div>
+                  <div className="column is-4-desktop is-three-quarters-mobile">
+                    <div className="control">
+                      <input
+                        name="workMobile"
+                        className="input is-rounded"
+                        type="text"
+                        placeholder="Mobile Phone"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="column is-4-desktop is-three-quarters-mobile">
-                <div className="control">
-                  <input
-                    name="workPhone"
-                    className="input is-rounded"
-                    type="text"
-                    placeholder="Work Phone"
-                  />
+                <h6>What is the Primary Purpose of the Event</h6>
+                <div className="columns purpose">
+                  <div className="column is-quarter">
+                    <input
+                      type="radio"
+                      id="advertising"
+                      name="purpose"
+                      value="advertising"
+                      checked
+                    />
+                    <label for="advertising">
+                      Advertising / Promoting Brand
+                    </label>
+                  </div>
+                  <div className="column is-quarter">
+                    <input
+                      type="radio"
+                      id="clients"
+                      name="purpose"
+                      value="clients"
+                      checked
+                    />
+                    <label for="clients">
+                      Relationship Building with Clients and Staff
+                    </label>
+                  </div>
+                  <div className="column is-quarter">
+                    <input
+                      type="radio"
+                      id="launch"
+                      name="purpose"
+                      value="launch"
+                      checked
+                    />
+                    <label for="launch">Product Launch</label>
+                  </div>
+                  <div className="column is-quarter">
+                    <input
+                      type="radio"
+                      id="charity"
+                      name="purpose"
+                      value="charity"
+                      checked
+                    />
+                    <label for="charity">Charity Day</label>
+                  </div>
                 </div>
-              </div>
-              <div className="column is-2-desktop is-one-quarter-mobile is-hidden-mobile is-flex-desktop">
-                <div className="control">
-                  <input
-                    name="areaCodeMobile"
-                    className="input is-rounded"
-                    type="text"
-                    placeholder="UAE (+971)"
-                    defaultValue="UAE (+971)"
-                  />
-                </div>
-              </div>
-              <div className="column is-4-desktop is-three-quarters-mobile is-hidden-mobile is-flex-desktop">
-                <div className="control">
-                  <input
-                    name="workMobile"
-                    className="input is-rounded"
-                    type="text"
-                    placeholder="Mobile Phone"
-                  />
-                </div>
-              </div>
+                <input type="hidden" name="form-name" value="request" />
+                <input
+                  name="submit"
+                  type="submit"
+                  className="button is-link is-rounded"
+                  value="Send This Request"
+                />
+              </form>
             </div>
-            <div className="columns is-flex-mobile is-hidden-desktop">
-              <div className="column is-2-desktop is-one-quarter-mobile">
-                <div className="control">
-                  <input
-                    name="areaCodeMobile"
-                    className="input is-rounded"
-                    type="text"
-                    placeholder="+971"
-                    defaultValue="+971"
-                  />
-                </div>
-              </div>
-              <div className="column is-4-desktop is-three-quarters-mobile">
-                <div className="control">
-                  <input
-                    name="workMobile"
-                    className="input is-rounded"
-                    type="text"
-                    placeholder="Mobile Phone"
-                  />
-                </div>
-              </div>
-            </div>
-            <h6>What is the Primary Purpose of the Event</h6>
-            <div className="columns purpose">
-              <div className="column is-quarter">
-                <input
-                  type="radio"
-                  id="advertising"
-                  name="purpose"
-                  value="advertising"
-                  checked
-                />
-                <label for="advertising">Advertising / Promoting Brand</label>
-              </div>
-              <div className="column is-quarter">
-                <input
-                  type="radio"
-                  id="clients"
-                  name="purpose"
-                  value="clients"
-                  checked
-                />
-                <label for="clients">
-                  Relationship Building with Clients and Staff
-                </label>
-              </div>
-              <div className="column is-quarter">
-                <input
-                  type="radio"
-                  id="launch"
-                  name="purpose"
-                  value="launch"
-                  checked
-                />
-                <label for="launch">Product Launch</label>
-              </div>
-              <div className="column is-quarter">
-                <input
-                  type="radio"
-                  id="charity"
-                  name="purpose"
-                  value="charity"
-                  checked
-                />
-                <label for="charity">Charity Day</label>
-              </div>
-            </div>
-            <input type="hidden" name="form-name" value="request" />
-            <input
-              name="submit"
-              type="submit"
-              className="button is-link is-rounded"
-              value="Send This Request"
-            />
-          </form>
+          </div>
         </div>
       </Wrap>
       <Footer />

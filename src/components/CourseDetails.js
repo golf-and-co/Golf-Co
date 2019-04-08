@@ -47,6 +47,7 @@ const Background = styled.div`
     background-color: #fff;
     text-align: center;
     padding: 10px 30px;
+    border-radius: 0 6px;
   }
 
   .cart .body p {

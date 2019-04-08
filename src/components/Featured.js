@@ -54,7 +54,7 @@ const CardLink = styled.a`
 const Card = styled.div`
   width: 260px;
   height: 315px;
-  border-radius: 6px 6px 0px 0px;
+  border-radius: 6px;
   background-color: #ffffff;
 
   @media (max-width: 768px) {
@@ -105,7 +105,7 @@ const CardContent = styled.div`
   height: 100px;
   top: 0px;
   overflow: hidden;
-  border-radius: 6px 6px 0 0;
+  border-radius: 6px;
 
   #stats {
     width: 260px;
@@ -140,7 +140,7 @@ const CardContentTag = styled.div`
 `;
 
 const CardCaption = styled.div`
-  width: 80px;
+  width: 140px;
   height: 20px;
   overflow: hidden;
   border-radius: 8px;
@@ -154,7 +154,7 @@ const CardCaption = styled.div`
   z-index: 10;
   top: -185px;
   left: 10px;
-  line-height: 1.1rem;
+  line-height: 20px;
   letter-spacing: .1px;
   text-align:center;
 }`;
