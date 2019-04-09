@@ -44,24 +44,22 @@ const List = styled.ul`
 const Item = styled.li`
   display: flex;
   background-color: #1b8243;
-  border-right: 1px dashed #000;
   padding: 1px 40px;
   text-align: center;
+  align-items: center;
 
-  &:last-child {
-    border-right: none !important;
+  img {
+    height: 3rem;
   }
 
-  @media (max-width: 768px) {
-    padding: 1px 20px;
-    display: none;
+  .description {
+    text-align: left;
+    margin-left: 20px;
+    max-width: 220px;
+  }
 
-    &:first-child {
-      display: block;
-    }
-    &:nth-child(2) {
-      display: block;
-    }
+  .description div {
+    line-height: 1.5rem;
   }
 `;
 
@@ -88,19 +86,56 @@ const CartStat = ({ data }) => {
       <section id="cart">
         <List>
           <Item>
-            <img id="image" src="" alt={data.label} />
-            <Label>{data.label}</Label>
-            <Value>{data.value}</Value>
+            <img
+              id="image"
+              src="/img/nearby_hotel.svg"
+              alt="Bed front view with headboard and pillows"
+            />
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "30px"
+              }}
+            >
+              <div style={{ fontSize: "3rem" }}>{data.duration[0]}</div>
+              <div className="description">
+                <div>Nights</div>
+                <div style={{ fontSize: ".8rem", lineHeight: ".8rem" }}>
+                  BB Basis
+                </div>
+              </div>
+            </div>
           </Item>
+          <div style={{ padding: "1px" }}>
+            <div>+</div>
+          </div>
           <Item>
-            <img id="image" src="" alt={data.label} />
-            <Label>{data.label}</Label>
-            <Value>{data.value}</Value>
+            <img
+              id="image"
+              src="/img/nearby_hotel.svg"
+              alt="Bed front view with headboard and pillows"
+            />
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "30px"
+              }}
+            >
+              <div style={{ fontSize: "3rem" }}>{data.rounds[0]}</div>
+              <div className="description">
+                <div>Rounds of Golf</div>
+                <div style={{ fontSize: ".8rem", lineHeight: ".8rem" }}>
+                  All greens fees include buggy & range balls
+                </div>
+              </div>
+            </div>
           </Item>
-
-          {data.stats.map(stat => (
-            <StatItem data={stat} key={v4()} />
-          ))}
+          <div>
+            <div>+</div>
+          </div>
+          <Item>Airport & Golf Transfers</Item>
         </List>
       </section>
     </Wrap>

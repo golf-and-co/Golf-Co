@@ -85,6 +85,8 @@ export const packageDetailsQuery = graphql`
         description
         city
         country
+        duration
+        rounds
         hotelType
         statsDescription
         courses {
