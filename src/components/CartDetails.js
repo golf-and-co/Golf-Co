@@ -31,6 +31,7 @@ const Background = styled.div`
 
 const ShareWrapper = styled.div`
   text-align: right;
+  min-height: 50px;
 `;
 
 const Share = styled.button`
@@ -287,13 +288,26 @@ const CartDetails = ({ data, addOns }) => {
     });
   }
 
+  const [shareThisVisible, setShareThisVisible] = useState("none");
+  const [shareButtonVisible, setshareButtonVisible] = useState("inline-block");
+
   return (
     <Background className="columns">
       <div className="column is-three-quarters">
         <ShareWrapper>
-          <Share>
+          <Share
+            onClick={() => {
+              setShareThisVisible("block");
+              setshareButtonVisible("none");
+            }}
+            style={{ display: shareButtonVisible }}
+          >
             <i className="fas fa-share-square" /> Share
           </Share>
+          <div
+            class="addthis_inline_share_toolbox"
+            style={{ display: shareThisVisible }}
+          />
         </ShareWrapper>
 
         <BodyHeader>{data.bodyHeader}</BodyHeader>
