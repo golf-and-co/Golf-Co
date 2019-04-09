@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import styled from "styled-components";
+import queryString from "query-string";
 import Layout from "../components/Layout";
 import HeroSmall from "../components/HeroSmall";
 import Footer from "../components/Footer";
@@ -9,6 +10,7 @@ import Footer from "../components/Footer";
 const Wrap = styled.div`
   background: #f6f9f2;
   padding-bottom: 345px;
+  padding-top: 35px;
 
   @media (max-width: 768px) {
     padding: 20px 20px 100px 20px;
@@ -16,8 +18,9 @@ const Wrap = styled.div`
 
   h6 {
     color: #5267a3;
-    text-align: center;
+    text-align: left;
     margin: 20px auto 10px auto;
+    font-size: 1.2rem;
   }
 
   .container {
@@ -93,9 +96,82 @@ const Wrap = styled.div`
       min-width: auto;
     }
   }
+
+  .sidebar {
+    background-color: #dae6cd;
+    padding: 0;
+
+    img {
+      height: 250px;
+      width: 250px;
+      object-fit: cover;
+    }
+
+    .body {
+      padding: 10px;
+    }
+    p,
+    label {
+      color: #435a98;
+    }
+    p {
+      font-weight: bold;
+    }
+    label {
+      font-weight: normal;
+      border-bottom: 1px solid #1d8649;
+    }
+    ul li ul li:before {
+      content: "+";
+      margin-right: 4px;
+    }
+    ul li ul li {
+      margin-bottom: 0rem;
+      font-weight: bold;
+    }
+    li {
+      color: #435a98;
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  .contactForm {
+    padding-left: 40px;
+
+    h2 {
+      color: #253f8e;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+  }
 `;
 
-const Contact = ({ data }) => {
+const DatePicker = styled.input`
+  border: 1px solid #d9d9d9;
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  border-radius: 30px;
+  display: block;
+  margin: 0;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+`;
+
+const NumberInput = styled.input`
+  border: 1px solid #d9d9d9;
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  border-radius: 30px;
+  display: block;
+  margin: 0;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  padding-left: 20px;
+`;
+
+const Contact = ({ data, location }) => {
+  const addOns = queryString.parse(location.search);
+
   return (
     <Layout>
       <HeroSmall
@@ -109,44 +185,50 @@ const Contact = ({ data }) => {
       <Wrap>
         <div className="container">
           <div className="columns">
-            <div className="column is-one-fifth">
-              <img src="/static/d6050f4008ae6df127cfe84347ba1644/e139a/abu-dhabi-golf-club_next-golf-1.jpg" />
-              <ul>
-                <li>
-                  <label>Code</label>
-                  <p>XXXXXX</p>
-                </li>
-                <li>
-                  <label>City</label>
-                  <p>Pattaya</p>
-                </li>
-                <li>
-                  <label>Country</label>
-                  <p>Thailand</p>
-                </li>
-                <li>
-                  <label>Nights</label>
-                  <p>7</p>
-                </li>
-                <li>
-                  <label>Rounds of Golf</label>
-                  <p>3</p>
-                </li>
-                <li>
-                  <label>Hotel</label>
-                  <p>XXXXXXXXXXXX</p>
-                </li>
-                <li>
-                  <label>Add-Ons</label>
-                  <ul>
-                    <li>Club Rental</li>
-                    <li>Additional Round</li>
-                    <li>Golf Insurance</li>
-                  </ul>
-                </li>
-              </ul>
+            <div className="column is-3 sidebar">
+              <img
+                src="/static/d6050f4008ae6df127cfe84347ba1644/e139a/abu-dhabi-golf-club_next-golf-1.jpg"
+                alt="Course landscape for this package"
+              />
+              <div class="body">
+                <ul>
+                  <li>
+                    <label>Code</label>
+                    <p>{addOns.code}</p>
+                  </li>
+                  <li>
+                    <label>City</label>
+                    <p>{addOns.city}</p>
+                  </li>
+                  <li>
+                    <label>Country</label>
+                    <p>{addOns.country}</p>
+                  </li>
+                  <li>
+                    <label>Nights</label>
+                    <p>{addOns.nights.split("+")[0]}</p>
+                  </li>
+                  <li>
+                    <label>Rounds of Golf</label>
+                    <p>{addOns.rounds.split("+")[1]}</p>
+                  </li>
+                  <li>
+                    <label>Hotel</label>
+                    <p>{addOns.hotel}</p>
+                  </li>
+                  <li>
+                    <label>Add-Ons</label>
+                    <ul>
+                      {JSON.parse(addOns.addOns).map(addOn => (
+                        <li>{addOn}</li>
+                      ))}
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className="column is-fourth-fifths">
+            <div className="column is-9 contactForm">
+              <h2>Booking Enquiry Form</h2>
               <form
                 data-netlify="true"
                 name="request"
@@ -185,20 +267,6 @@ const Contact = ({ data }) => {
                     </div>
                   </div>
                 </div>
-
-                <div className="columns">
-                  <div className="column is-full">
-                    <div className="control">
-                      <input
-                        name="company"
-                        className="input is-rounded"
-                        type="text"
-                        placeholder="Company"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <h6>Your Contact Details</h6>
                 <div className="columns">
                   <div className="column is-full">
                     <div className="control">
@@ -211,42 +279,21 @@ const Contact = ({ data }) => {
                     </div>
                   </div>
                 </div>
-
-                <div className="columns is-mobile">
-                  <div className="column is-2-desktop is-one-quarter-mobile">
-                    <div className="control is-block-desktop is-hidden-mobile">
+                <div className="columns">
+                  <div className="column is-5">
+                    <div className="control">
                       <input
-                        name="areaCodeWork"
+                        name="Country"
                         className="input is-rounded"
                         type="text"
-                        placeholder="UAE (+971)"
-                        defaultValue="UAE (+971)"
-                      />
-                    </div>
-                    <div className="control is-hidden-desktop is-block-mobile">
-                      <input
-                        name="areaCodeWork"
-                        className="input is-rounded"
-                        type="text"
-                        placeholder="+971"
-                        defaultValue="+971"
+                        placeholder="Country"
                       />
                     </div>
                   </div>
-                  <div className="column is-4-desktop is-three-quarters-mobile">
+                  <div className="column is-3">
                     <div className="control">
                       <input
-                        name="workPhone"
-                        className="input is-rounded"
-                        type="text"
-                        placeholder="Work Phone"
-                      />
-                    </div>
-                  </div>
-                  <div className="column is-2-desktop is-one-quarter-mobile is-hidden-mobile is-flex-desktop">
-                    <div className="control">
-                      <input
-                        name="areaCodeMobile"
+                        name="areaCode"
                         className="input is-rounded"
                         type="text"
                         placeholder="UAE (+971)"
@@ -254,87 +301,95 @@ const Contact = ({ data }) => {
                       />
                     </div>
                   </div>
-                  <div className="column is-4-desktop is-three-quarters-mobile is-hidden-mobile is-flex-desktop">
+                  <div className="column is-4">
                     <div className="control">
                       <input
-                        name="workMobile"
+                        name="phone"
                         className="input is-rounded"
                         type="text"
-                        placeholder="Mobile Phone"
+                        placeholder="Phone"
                       />
                     </div>
                   </div>
                 </div>
-                <div className="columns is-flex-mobile is-hidden-desktop">
-                  <div className="column is-2-desktop is-one-quarter-mobile">
-                    <div className="control">
-                      <input
-                        name="areaCodeMobile"
-                        className="input is-rounded"
-                        type="text"
-                        placeholder="+971"
-                        defaultValue="+971"
-                      />
-                    </div>
-                  </div>
-                  <div className="column is-4-desktop is-three-quarters-mobile">
-                    <div className="control">
-                      <input
-                        name="workMobile"
-                        className="input is-rounded"
-                        type="text"
-                        placeholder="Mobile Phone"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <h6>What is the Primary Purpose of the Event</h6>
+                <h6>Package Specifics</h6>
                 <div className="columns purpose">
-                  <div className="column is-quarter">
-                    <input
-                      type="radio"
-                      id="advertising"
-                      name="purpose"
-                      value="advertising"
-                      checked
-                    />
-                    <label for="advertising">
-                      Advertising / Promoting Brand
-                    </label>
+                  <div className="column is-half" style={{ display: "block" }}>
+                    <label>Proposed Arrival Date</label>
+
+                    <div
+                      className="control has-icons-right"
+                      style={{ width: "100%", margin: "0" }}
+                    >
+                      <DatePicker
+                        name="arrival"
+                        className="is-rounded"
+                        type="date"
+                        id="datepicker"
+                        required={"required"}
+                        defaultValue={new Date().toISOString().slice(0, 10)}
+                      />
+                      <span className="icon is-small is-right">
+                        <i
+                          className="fa fa-calendar is-right"
+                          style={{ color: "#1d8649", right: "15px" }}
+                        />
+                      </span>
+                    </div>
                   </div>
-                  <div className="column is-quarter">
-                    <input
-                      type="radio"
-                      id="clients"
-                      name="purpose"
-                      value="clients"
-                      checked
-                    />
-                    <label for="clients">
-                      Relationship Building with Clients and Staff
-                    </label>
-                  </div>
-                  <div className="column is-quarter">
-                    <input
-                      type="radio"
-                      id="launch"
-                      name="purpose"
-                      value="launch"
-                      checked
-                    />
-                    <label for="launch">Product Launch</label>
-                  </div>
-                  <div className="column is-quarter">
-                    <input
-                      type="radio"
-                      id="charity"
-                      name="purpose"
-                      value="charity"
-                      checked
-                    />
-                    <label for="charity">Charity Day</label>
+                  <div className="column is-half" style={{ display: "block" }}>
+                    <label>Proposed Departure Date</label>
+                    <div
+                      className="control has-icons-right"
+                      style={{ width: "100%", margin: "0" }}
+                    >
+                      <DatePicker
+                        name="departure"
+                        className="is-rounded"
+                        type="date"
+                        id="datepicker"
+                        defaultValue={new Date().toISOString().slice(0, 10)}
+                        required={"required"}
+                      />
+                      <span className="icon is-small is-right">
+                        <i
+                          className="fa fa-calendar is-right"
+                          style={{ color: "#1d8649", right: "15px" }}
+                        />
+                      </span>
+                    </div>
                   </div>
                 </div>
+
+                <div className="columns purpose">
+                  <div className="column is-half" style={{ display: "block" }}>
+                    <label>Number of Golfers</label>
+                    <NumberInput
+                      type="number"
+                      pattern="[0-9]*"
+                      data-numeric-input
+                      required
+                      min="0"
+                      name="golfers"
+                    />
+                  </div>
+                  <div className="column is-half" style={{ display: "block" }}>
+                    <label>Number of Non-Golfers</label>
+                    <NumberInput
+                      type="number"
+                      pattern="[0-9]*"
+                      data-numeric-input
+                      required
+                      min="0"
+                      name="nongolfers"
+                    />
+                  </div>
+                </div>
+                <textarea
+                  name="notes"
+                  className="textarea is-rounded"
+                  placeholder="Please enter any additional comments (if any)"
+                />
                 <input type="hidden" name="form-name" value="request" />
                 <input
                   name="submit"

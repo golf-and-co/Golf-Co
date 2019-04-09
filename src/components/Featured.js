@@ -359,7 +359,7 @@ export const Course = ({
         </CardImageWrap>
         <CardContent className="cardContent">
           <div className="content">
-            <div class="featuredDetails name">
+            <div className="featuredDetails name">
               {data.frontmatter.featuredDetails.name}
             </div>
             <CardContentTag>{description()}</CardContentTag>
