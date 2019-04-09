@@ -8,16 +8,16 @@ import Footer from "../components/Footer";
 
 const Wrap = styled.div`
   background: #faf7f2;
-  padding-bottom: 345px;
+  padding-bottom: 80px;
 
   @media (max-width: 768px) {
-    padding: 20px 20px 100px 20px;
+    padding: 20px 20px 80px 20px;
   }
 
   h6 {
-    color: #5267a3;
+    color: #b69148;
     text-align: center;
-    margin: 20px auto 10px auto;
+    font-weight: lighter;
   }
 
   .header {
@@ -32,6 +32,14 @@ const Wrap = styled.div`
   .info > p {
     margin-bottom: 20px;
     color: black !important;
+    text-align: center;
+  }
+
+  .form-header {
+    margin-bottom: 25px;
+    font-size: 20px;
+    color: #b69148;
+    text-align: center;
   }
 
   .separator {
@@ -41,6 +49,12 @@ const Wrap = styled.div`
     margin: 30px 0;
   }
 
+  .enquiry {
+    resize: none;
+    height: 150px;
+    border-radius: 40px !important;
+  }
+
   .container {
     max-width: 980px;
   }
@@ -48,14 +62,14 @@ const Wrap = styled.div`
   label {
     display: flex;
     align-items: center;
-    color: #1d8649;
+    color: #b69148;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 14px;
   }
 
   p {
-    color: #1d8649;
+    color: #b69148;
     line-height: 1.5rem;
 
     @media (max-width: 768px) {
@@ -77,8 +91,7 @@ const Wrap = styled.div`
     margin: 0 auto;
     display: block;
     padding: 15px;
-    border: 1px solid #81b997;
-    box-shadow: 1px 1px 1px #cde1cf;
+    border: 1px solid #ba9751;
   }
 
   .control {
@@ -87,7 +100,13 @@ const Wrap = styled.div`
 
   .callback .column {
     display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 30px;
+  }
+
+  .callback .column label {
+    font-weight: lighter;
   }
 
   .callback input {
@@ -101,8 +120,12 @@ const Wrap = styled.div`
     text-transform: uppercase;
     padding: 0 50px;
     height: 3rem;
-    background-color: #1f4388;
+    background-color: #b69148;
     font-weight: bold;
+  }
+
+  input.button:hover {
+    background-color: #e8c174 !important;
   }
 
   .textarea.is-rounded {
@@ -146,7 +169,7 @@ we will be in touch within 24 hours.</p>
                 method="POST"
                 data-netlify-honeypot="bot-field"
               >
-                <h6>PROPOSAL REQUEST FORM</h6>
+                <div className="form-header">PROPOSAL REQUEST FORM</div>
                 <div className="columns">
                   <div className="column is-full">
                     <div className="control">
@@ -155,6 +178,7 @@ we will be in touch within 24 hours.</p>
                         className="input is-rounded"
                         type="text"
                         placeholder="Your Name (required)"
+                        required
                       />
                     </div>
                   </div>
@@ -167,6 +191,7 @@ we will be in touch within 24 hours.</p>
                         className="input is-rounded"
                         type="text"
                         placeholder="Your Email Address (required)"
+                        required
                       />
                     </div>
                   </div>
@@ -189,6 +214,7 @@ we will be in touch within 24 hours.</p>
                         className="input is-rounded"
                         type="text"
                         placeholder="Your Phone Number (required)"
+                        required
                       />
                     </div>
                   </div>
@@ -284,6 +310,18 @@ we will be in touch within 24 hours.</p>
                       checked
                     />
                     <label for="evening">Evening</label>
+                  </div>
+                </div>
+                <div className="columns">
+                  <div className="column is-full">
+                    <div className="control">
+                      <textarea
+                        name="enquiry"
+                        className="input is-rounded enquiry"
+                        type="text"
+                        placeholder="Your enquiry"
+                      />
+                    </div>
                   </div>
                 </div>
                 <input type="hidden" name="form-name" value="request" />
