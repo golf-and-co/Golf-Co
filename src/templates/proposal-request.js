@@ -154,13 +154,17 @@ const ProposalRequest = ({ data }) => {
         <div className="container">
           <div className="header">TEE OFF YOUR IDEAL ITINERARY</div>
           <div className="info">
-            <p>At Golf & Co. we understand that every person is unique, which is
-why we pride ourselves on crafting Bespoke Packages that make
-dreams come true both on and off the course.</p>
-            <p>Please share your personal requirements in the form below and
-we will be in touch within 24 hours.</p>
+            <p>
+              At Golf & Co. we understand that every person is unique, which is
+              why we pride ourselves on crafting Bespoke Packages that make
+              dreams come true both on and off the course.
+            </p>
+            <p>
+              Please share your personal requirements in the form below and we
+              will be in touch within 24 hours.
+            </p>
           </div>
-          <div className="separator"></div>
+          <div className="separator" />
           <div className="columns">
             <div className="column is-fourth-fifths">
               <form
@@ -264,7 +268,7 @@ we will be in touch within 24 hours.</p>
                     </div>
                   </div>
                 </div>
-                
+
                 <h6>METHOD OF CALL BACK</h6>
                 <div className="columns callback">
                   <div className="column is-quarter">
@@ -275,9 +279,7 @@ we will be in touch within 24 hours.</p>
                       value="email"
                       checked
                     />
-                    <label for="email">
-                      Email
-                    </label>
+                    <label for="email">Email</label>
                   </div>
                   <div className="column is-quarter">
                     <input
@@ -287,9 +289,7 @@ we will be in touch within 24 hours.</p>
                       value="morning"
                       checked
                     />
-                    <label for="morning">
-                      Morning
-                    </label>
+                    <label for="morning">Morning</label>
                   </div>
                   <div className="column is-quarter">
                     <input

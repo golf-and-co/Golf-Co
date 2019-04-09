@@ -147,7 +147,7 @@ const BespokePackages = ({ data }) => {
         <Heading>{data.heading2}</Heading>
         <Paragraph>{data.paragraph2}</Paragraph>
         <a
-          href="/send-request"
+          href="/proposal-request"
           className="button is-link is-rounded"
           style={{
             marginTop: "10px",
