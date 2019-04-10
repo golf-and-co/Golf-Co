@@ -179,6 +179,10 @@ const Contact = ({ data, location }) => {
     location.state.addOns = [];
   }
 
+  if (!location.state.image) {
+    location.state.image = {};
+  }
+
   return (
     <Layout>
       <HeroSmall
