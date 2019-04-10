@@ -12,24 +12,22 @@ infographicsContainer:
   infographics:
     - description: Taylor-made itineraries to fulfill your every wish
       heading: Bespoke Golf Experiences
-      image: /img/bespoke_golf_icon_empty.png
+      image: /img/icons-03.svg
       url: /bespoke-golf-holidays
       urlText: Explore more
     - description: Browse and select from our list of exclusive packages
       heading: Golf Packages
-      image: /img/golf_packages_icon_empty.png
+      image: /img/icons-01.svg
       url: /packages
       urlText: Explore more
-    - description: >-
-        Hotels, Transportation and everything that goes with it, we have it all
-        covered
+    - description: Protect yourself and your gear from accidents and liability
       heading: Golf Insurance
-      image: /img/golf_insurance_icon_empty.png
+      image: /img/icons-02.svg
       url: /golf-insurance
       urlText: Explore more
     - description: The perfect way to engage clients and maximize brand value
       heading: Corporate Golf Days
-      image: /img/corporate_golf_icons_empty.png
+      image: /img/icons-04.svg
       url: /corporate
       urlText: Explore more
   infographicsHeader: What we do?
@@ -39,7 +37,7 @@ featured:
 featuredViewAll: View All Golf Courses
 featuredBanner:
   image: /img/bitmap.png
-  heading1: TEE-OFF With Our
+  heading1: COMING SOON
   heading2: Tee-Times Booking App
   mobileImage: /img/mobile_featured_banner.png
 featuredFooter:
@@ -82,10 +80,11 @@ footerColumn2:
     text: Terms of Use
 footerSocialHeading: Connect With Us
 footerSocial:
-  - href: "https://www.facebook.com/GolfandCo.Co/"
+  - href: 'https://www.facebook.com/GolfandCo.Co/'
     text: facebook-f
-  - href: "https://twitter.com/GolfandCo1/"
+  - href: 'https://twitter.com/GolfandCo1/'
     text: twitter
-  - href: "https://www.instagram.com/golfandco/"
+  - href: 'https://www.instagram.com/golfandco/'
     text: instagram
 ---
+
