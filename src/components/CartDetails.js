@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Course } from "../components/Featured";
@@ -31,6 +31,7 @@ const Background = styled.div`
 
 const ShareWrapper = styled.div`
   text-align: right;
+  min-height: 50px;
 `;
 
 const Share = styled.button`
@@ -166,23 +167,13 @@ const Courses = styled.div`
   }
 `;
 
-const addOnChange = ({ id, price }) => {
-  if (!isNaN(parseInt(price))) {
-    if (document.querySelector(`#${id}`).checked) {
-      document.querySelector("#basePrice").innerHTML = (
-        parseInt(document.querySelector("#basePrice").innerHTML) +
-        parseInt(price)
-      ).toString();
-    } else {
-      document.querySelector("#basePrice").innerHTML = (
-        parseInt(document.querySelector("#basePrice").innerHTML) -
-        parseInt(price)
-      ).toString();
-    }
-  }
-};
-
-const AddOns = ({ addOn }) => {
+const AddOns = ({
+  addOn,
+  selectedAddons,
+  setSelectedAddons,
+  price,
+  setPrice
+}) => {
   const slug = addOn.title.replace(/ /g, "-");
 
   const classes = () => {
@@ -198,7 +189,26 @@ const AddOns = ({ addOn }) => {
           type="checkbox"
           name={slug}
           value={addOn.description}
-          onChange={() => addOnChange({ id: slug, price: addOn.price })}
+          onChange={() => {
+            if (!selectedAddons.includes(slug)) {
+              setSelectedAddons(selectedAddons.concat(slug));
+              addOn.price = parseInt(addOn.price);
+              if (addOn.price > 0) {
+                const newPrice = parseInt(price) + addOn.price;
+                setPrice(newPrice.toFixed(0));
+              }
+            } else {
+              setSelectedAddons(
+                selectedAddons.filter(selected => selected !== slug)
+              );
+              addOn.price = parseInt(addOn.price);
+              if (addOn.price > 0) {
+                const newPrice = parseInt(price) - addOn.price;
+                setPrice(newPrice.toFixed(0));
+              }
+            }
+          }}
+          checked={selectedAddons.includes(slug)}
         />
         <label htmlFor={slug}>
           + {addOn.title}
@@ -211,11 +221,14 @@ const AddOns = ({ addOn }) => {
 };
 
 const Cart = ({ data, addOns }) => {
+  const [selectedAddons, setSelectedAddons] = useState([]);
+  const [price, setPrice] = useState(data.basePrice);
+
   return (
     <CartWrap className="menu">
       <CartHeader className="menu-label">
         <h3>Starting from</h3>
-        <p id="basePrice">{data.basePrice}</p>
+        <p id="basePrice">{price}</p>
         <h3>USD / Person</h3>
         <p className="disclaimer">
           (Prices calculated based on twin sharing basis for two people)
@@ -228,15 +241,33 @@ const Cart = ({ data, addOns }) => {
           facilities and excursions
         </p>
       </CartBanner>
-      <form action="/send-request" method="GET">
-        <input type="hidden" name="Course" value={data.title} />
+      <form action="/contact" method="GET">
+        <input type="hidden" name="code" value={data.title} />
+        <input type="hidden" name="city" value={data.city} />
+        <input type="hidden" name="country" value={data.country} />
+        <input type="hidden" name="nights" value={data.statsDescription} />
+        <input type="hidden" name="rounds" value={data.rounds} />
+        <input type="hidden" name="hotel" value={data.hotelType} />
+        <input
+          type="hidden"
+          name="addOns"
+          value={JSON.stringify(selectedAddons)}
+        />
+
         <ul className="menu-list">
           {addOns
             .filter(addOn => {
               return data.addOns.includes(addOn.node.frontmatter.title);
             })
             .map(addOn => (
-              <AddOns addOn={addOn.node.frontmatter} key={v4()} />
+              <AddOns
+                addOn={addOn.node.frontmatter}
+                key={v4()}
+                selectedAddons={selectedAddons}
+                setSelectedAddons={setSelectedAddons}
+                price={price}
+                setPrice={setPrice}
+              />
             ))}
           <li>
             <input
@@ -266,13 +297,26 @@ const CartDetails = ({ data, addOns }) => {
     });
   }
 
+  const [shareThisVisible, setShareThisVisible] = useState("none");
+  const [shareButtonVisible, setshareButtonVisible] = useState("inline-block");
+
   return (
     <Background className="columns">
       <div className="column is-three-quarters">
         <ShareWrapper>
-          <Share>
+          <Share
+            onClick={() => {
+              setShareThisVisible("block");
+              setshareButtonVisible("none");
+            }}
+            style={{ display: shareButtonVisible }}
+          >
             <i className="fas fa-share-square" /> Share
           </Share>
+          <div
+            class="addthis_inline_share_toolbox"
+            style={{ display: shareThisVisible }}
+          />
         </ShareWrapper>
 
         <BodyHeader>{data.bodyHeader}</BodyHeader>

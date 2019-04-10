@@ -61,12 +61,7 @@ footerLogo:
   alt: Golf & Co. white letters
   image: /img/logo.png
 footerColumn1:
-  - children:
-      - href: /courses?country=UAE
-        text: UAE
-      - href: /courses?country=Oman
-        text: Oman
-    href: courses
+  - href: courses
     text: Golf Courses
   - href: /bespoke-golf-holidays
     text: Bespoke Golf Experiences
@@ -87,11 +82,10 @@ footerColumn2:
     text: Terms of Use
 footerSocialHeading: Connect With Us
 footerSocial:
-  - href: 'https://www.facebook.com/GolfandCo.Co/'
+  - href: "https://www.facebook.com/GolfandCo.Co/"
     text: facebook-f
-  - href: 'https://twitter.com/GolfandCo1/'
+  - href: "https://twitter.com/GolfandCo1/"
     text: twitter
-  - href: 'https://www.instagram.com/golfandco/'
+  - href: "https://www.instagram.com/golfandco/"
     text: instagram
 ---
-
