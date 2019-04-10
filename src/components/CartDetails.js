@@ -194,7 +194,16 @@ const AddOns = ({
               setSelectedAddons(selectedAddons.concat(slug));
               addOn.price = parseInt(addOn.price);
               if (addOn.price > 0) {
-                const newPrice = addOn.price + parseInt(price);
+                const newPrice = parseInt(price) + addOn.price;
+                setPrice(newPrice.toFixed(0));
+              }
+            } else {
+              setSelectedAddons(
+                selectedAddons.filter(selected => selected !== slug)
+              );
+              addOn.price = parseInt(addOn.price);
+              if (addOn.price > 0) {
+                const newPrice = parseInt(price) - addOn.price;
                 setPrice(newPrice.toFixed(0));
               }
             }
@@ -237,7 +246,7 @@ const Cart = ({ data, addOns }) => {
         <input type="hidden" name="city" value={data.city} />
         <input type="hidden" name="country" value={data.country} />
         <input type="hidden" name="nights" value={data.statsDescription} />
-        <input type="hidden" name="rounds" value={data.statsDescription} />
+        <input type="hidden" name="rounds" value={data.rounds} />
         <input type="hidden" name="hotel" value={data.hotelType} />
         <input
           type="hidden"

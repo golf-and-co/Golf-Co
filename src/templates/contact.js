@@ -170,7 +170,19 @@ const NumberInput = styled.input`
 `;
 
 const Contact = ({ data, location }) => {
-  const addOns = queryString.parse(location.search);
+  const url = queryString.parse(location.search);
+
+  // to avoid updating the markdown schema for packages
+  let nights = 0;
+  if (!!url.nights) {
+    nights = url.nights.split("+")[0];
+  }
+
+  // to avoid refactoring props and using react router, addons passed as json in URL
+  let addOns = [];
+  if (!!url.addOns) {
+    addOns = JSON.parse(url.addOns);
+  }
 
   return (
     <Layout>
@@ -194,32 +206,32 @@ const Contact = ({ data, location }) => {
                 <ul>
                   <li>
                     <label>Code</label>
-                    <p>{addOns.code}</p>
+                    <p>{url.code}</p>
                   </li>
                   <li>
                     <label>City</label>
-                    <p>{addOns.city}</p>
+                    <p>{url.city}</p>
                   </li>
                   <li>
                     <label>Country</label>
-                    <p>{addOns.country}</p>
+                    <p>{url.country}</p>
                   </li>
                   <li>
                     <label>Nights</label>
-                    <p>{addOns.nights.split("+")[0]}</p>
+                    <p>{nights}</p>
                   </li>
                   <li>
                     <label>Rounds of Golf</label>
-                    <p>{addOns.rounds.split("+")[1]}</p>
+                    <p>{url.rounds}</p>
                   </li>
                   <li>
                     <label>Hotel</label>
-                    <p>{addOns.hotel}</p>
+                    <p>{url.hotel}</p>
                   </li>
                   <li>
                     <label>Add-Ons</label>
                     <ul>
-                      {JSON.parse(addOns.addOns).map(addOn => (
+                      {addOns.map(addOn => (
                         <li>{addOn}</li>
                       ))}
                     </ul>

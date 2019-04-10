@@ -75,7 +75,7 @@ const Item = styled.li`
   .description {
     text-align: left;
     margin-left: 20px;
-    max-width: 220px;
+    max-width: 230px;
     @media (max-width: 768px) {
       margin-left: 0;
       text-align: center;
