@@ -17,7 +17,7 @@ infographicsContainer:
       urlText: Explore more
     - description: Browse and select from our list of exclusive packages
       heading: Golf Packages
-      image: /img/packages-03.svg
+      image: /img/untitled-4-01.svg
       url: /packages
       urlText: Explore more
     - description: >-
