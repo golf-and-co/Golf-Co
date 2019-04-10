@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Course } from "../components/Featured";
@@ -224,6 +225,8 @@ const Cart = ({ data, addOns }) => {
   const [selectedAddons, setSelectedAddons] = useState([]);
   const [price, setPrice] = useState(data.basePrice);
 
+  // @TODO: Need props and react router, or swap out redirection and put form in component
+  // Need to remove passing img src in url
   return (
     <CartWrap className="menu">
       <CartHeader className="menu-label">
@@ -242,18 +245,6 @@ const Cart = ({ data, addOns }) => {
         </p>
       </CartBanner>
       <form action="/contact" method="GET">
-        <input type="hidden" name="code" value={data.title} />
-        <input type="hidden" name="city" value={data.city} />
-        <input type="hidden" name="country" value={data.country} />
-        <input type="hidden" name="nights" value={data.statsDescription} />
-        <input type="hidden" name="rounds" value={data.rounds} />
-        <input type="hidden" name="hotel" value={data.hotelType} />
-        <input
-          type="hidden"
-          name="addOns"
-          value={JSON.stringify(selectedAddons)}
-        />
-
         <ul className="menu-list">
           {addOns
             .filter(addOn => {
@@ -277,6 +268,22 @@ const Cart = ({ data, addOns }) => {
               value="Send Enquiry"
               style={{ margin: "20px auto", display: "block", width: "80%" }}
             />
+
+            <Link
+              to={`/contact/`}
+              state={{
+                code: data.title,
+                city: data.city,
+                country: data.country,
+                nights: data.nights,
+                rounds: data.rounds,
+                hotel: data.hotelName,
+                addOns: selectedAddons,
+                image: data.hero
+              }}
+            >
+              Send Enquiry 2
+            </Link>
           </li>
         </ul>
       </form>

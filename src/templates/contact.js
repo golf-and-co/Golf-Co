@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import styled from "styled-components";
-import queryString from "query-string";
 import Layout from "../components/Layout";
 import HeroSmall from "../components/HeroSmall";
 import Footer from "../components/Footer";
@@ -170,18 +169,18 @@ const NumberInput = styled.input`
 `;
 
 const Contact = ({ data, location }) => {
-  const url = queryString.parse(location.search);
-
-  // to avoid updating the markdown schema for packages
-  let nights = 0;
-  if (!!url.nights) {
-    nights = url.nights.split("+")[0];
+  // handle null values with location
+  //@TODO: replace with Flow
+  if (!location.state) {
+    location.state = {};
   }
 
-  // to avoid refactoring props and using react router, addons passed as json in URL
-  let addOns = [];
-  if (!!url.addOns) {
-    addOns = JSON.parse(url.addOns);
+  if (!location.state.addOns) {
+    location.state.addOns = [];
+  }
+
+  if (!location.state.image) {
+    location.state.image = {};
   }
 
   return (
@@ -197,41 +196,45 @@ const Contact = ({ data, location }) => {
       <Wrap>
         <div className="container">
           <div className="columns">
-            <div className="column is-3 sidebar">
+            <div className="column is-3 sidebar is-hidden-mobile">
               <img
-                src="/static/d6050f4008ae6df127cfe84347ba1644/e139a/abu-dhabi-golf-club_next-golf-1.jpg"
+                src={
+                  !!location.state.image.childImageSharp
+                    ? location.state.image.childImageSharp.fluid.src
+                    : location.state.image
+                }
                 alt="Course landscape for this package"
               />
               <div class="body">
                 <ul>
                   <li>
                     <label>Code</label>
-                    <p>{url.code}</p>
+                    <p>{location.state.code}</p>
                   </li>
                   <li>
                     <label>City</label>
-                    <p>{url.city}</p>
+                    <p>{location.state.city}</p>
                   </li>
                   <li>
                     <label>Country</label>
-                    <p>{url.country}</p>
+                    <p>{location.state.country}</p>
                   </li>
                   <li>
                     <label>Nights</label>
-                    <p>{nights}</p>
+                    <p>{location.state.nights}</p>
                   </li>
                   <li>
                     <label>Rounds of Golf</label>
-                    <p>{url.rounds}</p>
+                    <p>{location.state.rounds}</p>
                   </li>
                   <li>
                     <label>Hotel</label>
-                    <p>{url.hotel}</p>
+                    <p>{location.state.hotel}</p>
                   </li>
                   <li>
                     <label>Add-Ons</label>
                     <ul>
-                      {addOns.map(addOn => (
+                      {location.state.addOns.map(addOn => (
                         <li>{addOn}</li>
                       ))}
                     </ul>

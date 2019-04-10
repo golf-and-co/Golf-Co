@@ -21,9 +21,11 @@ description: >-
   aliquet. Etiam porta cursus urna ac suscipit. Donec et eros nulla.
 city: Dubai
 country: UAE
+hotelName: Park Hyatt
 hotelType: 5 Stars
 duration: 7 Days or More
 rounds: 6 Rounds
+nights: 7 Nights
 price: "4500"
 searchable: true
 stats:
@@ -33,7 +35,7 @@ stats:
   - icon: /img/swing.svg
     label: Par
     value: "72"
-statsDescription: 7 Nights (BB Base) + 4 Rounds
+statsDescription: 7 Nights (BB Base) + 6 Rounds
 courses:
   - course: Abu Dhabi Golf Club (Holes 1-27)
     rounds: "2"
