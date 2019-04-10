@@ -12,22 +12,22 @@ infographicsContainer:
   infographics:
     - description: Taylor-made itineraries to fulfill your every wish
       heading: Bespoke Golf Experiences
-      image: /img/icons-07.svg
+      image: /img/icons-03.svg
       url: /bespoke-golf-holidays
       urlText: Explore more
     - description: Browse and select from our list of exclusive packages
       heading: Golf Packages
-      image: /img/icons-05.svg
+      image: /img/icons-01.svg
       url: /packages
       urlText: Explore more
     - description: Protect yourself and your gear from accidents and liability
       heading: Golf Insurance
-      image: /img/icons-06.svg
+      image: /img/icons-02.svg
       url: /golf-insurance
       urlText: Explore more
     - description: The perfect way to engage clients and maximize brand value
       heading: Corporate Golf Days
-      image: /img/icons-08.svg
+      image: /img/icons-04.svg
       url: /corporate
       urlText: Explore more
   infographicsHeader: What we do?
