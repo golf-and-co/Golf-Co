@@ -169,7 +169,7 @@ const ProposalRequest = ({ data }) => {
             <div className="column is-fourth-fifths">
               <form
                 data-netlify="true"
-                name="request"
+                name="Bespoke"
                 method="POST"
                 data-netlify-honeypot="bot-field"
               >
