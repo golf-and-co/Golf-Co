@@ -335,7 +335,7 @@ const SendRequest = ({ data, location }) => {
             </div>
 
             <div className="control">
-              <input type="hidden" name="form-name" value="request" />
+              <input type="hidden" name="form-name" value="Corporate" />
               <input
                 name="submit"
                 type="submit"

@@ -324,7 +324,7 @@ const ProposalRequest = ({ data }) => {
                     </div>
                   </div>
                 </div>
-                <input type="hidden" name="form-name" value="request" />
+                <input type="hidden" name="form-name" value="Bespoke" />
                 <input
                   name="submit"
                   type="submit"

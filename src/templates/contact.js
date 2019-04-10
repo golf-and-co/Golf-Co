@@ -405,7 +405,7 @@ const Contact = ({ data, location }) => {
                   className="textarea is-rounded"
                   placeholder="Please enter any additional comments (if any)"
                 />
-                <input type="hidden" name="form-name" value="request" />
+                <input type="hidden" name="form-name" value="Package" />
                 <input
                   name="submit"
                   type="submit"
