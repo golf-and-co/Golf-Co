@@ -17,7 +17,7 @@ infographicsContainer:
       urlText: Explore more
     - description: Browse and select from our list of exclusive packages
       heading: Golf Packages
-      image: /img/golf_packages_icon_empty.png
+      image: /img/packages-03-03.svg
       url: /packages
       urlText: Explore more
     - description: >-
@@ -82,10 +82,11 @@ footerColumn2:
     text: Terms of Use
 footerSocialHeading: Connect With Us
 footerSocial:
-  - href: "https://www.facebook.com/GolfandCo.Co/"
+  - href: 'https://www.facebook.com/GolfandCo.Co/'
     text: facebook-f
-  - href: "https://twitter.com/GolfandCo1/"
+  - href: 'https://twitter.com/GolfandCo1/'
     text: twitter
-  - href: "https://www.instagram.com/golfandco/"
+  - href: 'https://www.instagram.com/golfandco/'
     text: instagram
 ---
+
