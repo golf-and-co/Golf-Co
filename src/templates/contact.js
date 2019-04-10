@@ -246,7 +246,7 @@ const Contact = ({ data, location }) => {
               <h2>Booking Enquiry Form</h2>
               <form
                 data-netlify="true"
-                name="request"
+                name="Package"
                 method="POST"
                 data-netlify-honeypot="bot-field"
               >
