@@ -20,9 +20,7 @@ infographicsContainer:
       image: /img/icons-05.svg
       url: /packages
       urlText: Explore more
-    - description: >-
-        Hotels, Transportation and everything that goes with it, we have it all
-        covered
+    - description: Protect yourself and your gear from accidents and liability
       heading: Golf Insurance
       image: /img/icons-06.svg
       url: /golf-insurance
@@ -39,7 +37,7 @@ featured:
 featuredViewAll: View All Golf Courses
 featuredBanner:
   image: /img/bitmap.png
-  heading1: TEE-OFF With Our
+  heading1: COMING SOON
   heading2: Tee-Times Booking App
   mobileImage: /img/mobile_featured_banner.png
 featuredFooter:
