@@ -279,7 +279,9 @@ const ProposalRequest = ({ data }) => {
                       value="email"
                       checked
                     />
-                    <label for="email">Email</label>
+                    <label style={{ width: "95px" }} for="email">
+                      Email
+                    </label>
                   </div>
                   <div className="column is-quarter">
                     <input
@@ -289,7 +291,9 @@ const ProposalRequest = ({ data }) => {
                       value="morning"
                       checked
                     />
-                    <label for="morning">Morning</label>
+                    <label style={{ width: "95px" }} for="morning">
+                      Morning
+                    </label>
                   </div>
                   <div className="column is-quarter">
                     <input
@@ -299,7 +303,9 @@ const ProposalRequest = ({ data }) => {
                       value="afternoon"
                       checked
                     />
-                    <label for="afternoon">Afternoon</label>
+                    <label style={{ width: "95px" }} for="afternoon">
+                      Afternoon
+                    </label>
                   </div>
                   <div className="column is-quarter">
                     <input
@@ -309,7 +315,9 @@ const ProposalRequest = ({ data }) => {
                       value="evening"
                       checked
                     />
-                    <label for="evening">Evening</label>
+                    <label style={{ width: "95px" }} for="evening">
+                      Evening
+                    </label>
                   </div>
                 </div>
                 <div className="columns">
