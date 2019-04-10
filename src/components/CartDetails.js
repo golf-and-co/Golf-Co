@@ -261,14 +261,6 @@ const Cart = ({ data, addOns }) => {
               />
             ))}
           <li>
-            <input
-              name="submit"
-              type="submit"
-              className="button is-link is-rounded"
-              value="Send Enquiry"
-              style={{ margin: "20px auto", display: "block", width: "80%" }}
-            />
-
             <Link
               to={`/contact/`}
               state={{
@@ -281,8 +273,15 @@ const Cart = ({ data, addOns }) => {
                 addOns: selectedAddons,
                 image: data.hero
               }}
+              className="button is-link is-rounded"
+              style={{
+                margin: "20px auto",
+                display: "block",
+                width: "80%",
+                lineHeight: "1rem"
+              }}
             >
-              Send Enquiry 2
+              Send Enquiry
             </Link>
           </li>
         </ul>
