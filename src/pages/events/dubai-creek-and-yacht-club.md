@@ -39,10 +39,16 @@ albums:
       - image: /img/round-217.jpg
       - image: /img/round-218.jpg
     name: 'Jumeriah Golf Estates, Fire course'
-  - date: 'Friday 7th December, 2018'
+  - date: 'Round 3 - Friday 7th December, 2018'
     images:
       - image: /img/events6.jpg
     name: Dubai Creek Golf & Yacht Club
+  - date: 'Round 4 - Friday 8th February, 2019'
+    name: 'Jumeirah Golf Estates, Earth course'
+  - date: 'Round 5 - Saturday 30th March, 2019'
+    name: 'Emirates Golf Club, Majlis Course'
+  - date: 'Final - Friday 19th April, 2019'
+    name: 'Jumeirah Golf Estates, Earth Course'
 imagesPerSlide: '3'
 ---
 
