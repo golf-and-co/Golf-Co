@@ -18,9 +18,9 @@ albums:
       - image: /img/events10.jpg
       - image: /img/events11.jpg
     name: 'Emirates Golf Club, Faldo Course'
-  - date: 'Saturday 3rd November, 2018'
+  - date: 'Round 2 - Saturday 3rd November, 2018'
     images:
-      - image: /img/events5.jpg
+      - image: /img/round-2.jpg
     name: 'Jumeriah Golf Estates, Fire course'
   - date: 'Friday 7th December, 2018'
     images:
