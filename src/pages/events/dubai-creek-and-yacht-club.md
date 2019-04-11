@@ -23,6 +23,21 @@ albums:
       - image: /img/round-2.jpg
       - image: /img/round-22.jpg
       - image: /img/round-23.jpg
+      - image: /img/round-24.jpg
+      - image: /img/round-25.jpg
+      - image: /img/round-26.jpg
+      - image: /img/round-27.jpg
+      - image: /img/round-28.jpg
+      - image: /img/round-29.jpg
+      - image: /img/round-210.jpg
+      - image: /img/round-211.jpg
+      - image: /img/round-212.jpg
+      - image: /img/round-213.jpg
+      - image: /img/round-214.jpg
+      - image: /img/round-215.jpg
+      - image: /img/round-216.jpg
+      - image: /img/round-217.jpg
+      - image: /img/round-218.jpg
     name: 'Jumeriah Golf Estates, Fire course'
   - date: 'Friday 7th December, 2018'
     images:
