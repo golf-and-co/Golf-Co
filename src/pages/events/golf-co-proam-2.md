@@ -1,9 +1,9 @@
 ---
 templateKey: event
 image: /img/ghala_golf_oman.png
-title: Golf & Co. ProAm 2
-location: "Emirates Golf Club, Faldo course"
-date: "SATURDAY, 7 DEC 2018"
+title: Women's Golf Middle East
+location: 'Emirates Golf Club, Faldo course'
+date: 'SATURDAY, 7 DEC 2018'
 type:
   - label: Sponsored Events
 description: >-
@@ -20,13 +20,14 @@ description: >-
   start
 logo: /static/img/events-golfco-logo.png
 albums:
-  - name: GolfCo
-    date: 7 Dec 2018
+  - date: 7 Dec 2018
     images:
       - image: /img/c1e75a955df41e3ac1a36cec3b327647e60105cf.png
       - image: /img/golfco-proam-2.png
       - image: /img/golfco-proam.png
       - image: /img/golfco-proam.png
       - image: /img/golfco-proam-2.png
-imagesPerSlide: "4"
+    name: GolfCo
+imagesPerSlide: '4'
 ---
+
