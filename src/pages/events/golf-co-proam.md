@@ -1,7 +1,7 @@
 ---
 templateKey: event
 image: /img/ghala_golf_oman.png
-title: Golf & Co. ProAm Series
+title: Golf & Co. Pro-Am Series
 location: 'Emirates Golf Club, Faldo course'
 date: 'SATURDAY, 7 DEC 2018'
 type:
