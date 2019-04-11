@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import { v4 } from 'uuid'
+import React from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
+import { v4 } from "uuid";
 
 const Wrap = styled.section`
   background-color: #f6f9f2;
@@ -18,12 +18,12 @@ const Wrap = styled.section`
   }
 
   &.filled.columns {
-    margin-bottom:0;
+    margin-bottom: 0;
     padding-bottom: 50px;
   }
-  
+
   &.filled > div {
-    background: #EAF2E1;
+    background: #eaf2e1;
     border-radius: 237px;
     width: 237px;
     max-width: 237px;
@@ -42,10 +42,10 @@ const Wrap = styled.section`
 
   &.filled .body {
     margin-top: 15px;
-    width: 227px;
+    width: 230px;
     padding: 0 30px;
   }
-`
+`;
 
 const Graphic = styled.div`
   text-align: center;
@@ -59,7 +59,7 @@ const Graphic = styled.div`
     max-width: 200px;
     margin: 20px auto;
   }
-`
+`;
 
 const Heading = styled.p`
   height: 41px;
@@ -70,18 +70,18 @@ const Heading = styled.p`
   margin: 5px auto;
   text-transform: uppercase;
   line-height: 1.125;
-`
+`;
 
 const Button = styled.a`
-    display: block !important;
-    background:none !important;
-    color: #1d8649 !important;
-    font-weight: 300;
-    text-transform: uppercase;
-    border-color: #1d8649 !important;
-    text-align: center;
-    margin: 0 auto;
-    width: 95%;
+  display: block !important;
+  background: none !important;
+  color: #1d8649 !important;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-color: #1d8649 !important;
+  text-align: center;
+  margin: 0 auto;
+  width: 95%;
 `;
 
 const Body = styled.p`
@@ -90,7 +90,7 @@ const Body = styled.p`
   font-weight: 300;
   line-height: 16px;
   height: 80px;
-`
+`;
 
 const InfographicsHeader = styled.p`
   font-weight: 300;
@@ -98,56 +98,90 @@ const InfographicsHeader = styled.p`
   font-size: 26px;
   margin: 50px auto 0px auto;
   text-align: center;
-  max-width:780px;
+  max-width: 780px;
   text-transform: uppercase;
-`
+`;
 
-
-
-const Element = ({data, filled}) => {
+const Element = ({ data, filled }) => {
   const Buttons = () => {
-    if(!filled) {
-      return <Button href={data.url} className="button is-rounded">{data.urlText}</Button>   
+    if (!filled) {
+      return (
+        <Button href={data.url} className="button is-rounded">
+          {data.urlText}
+        </Button>
+      );
     }
-  }
+  };
 
-  return <Graphic className="column is-one-quarter">
-    <img src={data.image.publicURL} alt="Tailor Made" />
-    <Heading className="fillHeading">{data.heading}</Heading>
-    <Body className="body">{data.description}</Body>
-    {Buttons()}
-  </Graphic>;
-}
+  return (
+    <Graphic className="column is-one-quarter">
+      <img src={data.image.publicURL} alt="Tailor Made" />
+      <Heading className="fillHeading">{data.heading}</Heading>
+      <Body className="body">{data.description}</Body>
+      {Buttons()}
+    </Graphic>
+  );
+};
 
 const Infographic = ({ data }) => {
   const classes = () => {
-    if(data.filled) {
-      return "filled columns is-desktop"
+    if (data.filled) {
+      return "filled columns is-desktop";
     } else {
-      return "columns is-desktop"
+      return "columns is-desktop";
     }
-  }
+  };
 
-  if(data.hasOwnProperty("infographicsContainer")) {
-    return <div style={{backgroundColor: "#f6f9f2"}}>
-      <p style={{padding:"30px 0 0 0", maxWidth:"780px", color: "#4a4a4a", margin: "0 auto", textAlign: "center"}}>{data.headingParagraph}</p>
-      <InfographicsHeader>{data.infographicsContainer.infographicsHeader}</InfographicsHeader>
-      <Wrap className={classes()}>
-        {data.infographicsContainer.infographics.map(row => <Element key={v4()} data={row} /> )}
-      </Wrap>
-    </div>;
-  } else {
-    return <div style={{backgroundColor: "#f6f9f2"}}>
-        <p style={{padding:"30px 0 0 0", maxWidth:"780px", color: "#4a4a4a", margin: "0 auto", textAlign: "center"}}>{data.headingParagraph}</p>
+  if (data.hasOwnProperty("infographicsContainer")) {
+    return (
+      <div style={{ backgroundColor: "#f6f9f2" }}>
+        <p
+          style={{
+            padding: "30px 0 0 0",
+            maxWidth: "780px",
+            color: "#4a4a4a",
+            margin: "0 auto",
+            textAlign: "center"
+          }}
+        >
+          {data.headingParagraph}
+        </p>
+        <InfographicsHeader>
+          {data.infographicsContainer.infographicsHeader}
+        </InfographicsHeader>
         <Wrap className={classes()}>
-          {data.infographics.map(row => <Element key={v4()} data={row} filled={data.filled}/> )}
+          {data.infographicsContainer.infographics.map(row => (
+            <Element key={v4()} data={row} />
+          ))}
         </Wrap>
-    </div>
+      </div>
+    );
+  } else {
+    return (
+      <div style={{ backgroundColor: "#f6f9f2" }}>
+        <p
+          style={{
+            padding: "30px 0 0 0",
+            maxWidth: "780px",
+            color: "#4a4a4a",
+            margin: "0 auto",
+            textAlign: "center"
+          }}
+        >
+          {data.headingParagraph}
+        </p>
+        <Wrap className={classes()}>
+          {data.infographics.map(row => (
+            <Element key={v4()} data={row} filled={data.filled} />
+          ))}
+        </Wrap>
+      </div>
+    );
   }
-}
+};
 
 export default Infographic;
 
 Infographic.propTypes = {
-  data: PropTypes.object.isRequired,
-}
+  data: PropTypes.object.isRequired
+};

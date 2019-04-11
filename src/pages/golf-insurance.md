@@ -8,12 +8,8 @@ paragraph1: >-
   responsibilities for accidental injury to anyone or accidental damage to
   property, and even the bar bill if you hit that elusive hole in one.
 infographics:
-  - description: Protection for all your golf equipment both at home and on the course
+  - description: Cover for personal accident and Legal Liability for injury or property damage to a third party or damage to property.
     image: /img/icons8-security_checked.png
-  - description: New for old replacement for items that cannot be repaired
-    image: /img/icons8-replace.png
-  - description: Cover for personal accident or liability
-    image: /img/icons8-watch_your_step.png
 title: Worldwide Golf Cover
 paragraph2: >-
   If you are planning to take your golf clubs and equipment on holiday with you,
@@ -31,7 +27,6 @@ benefits:
     title: Personal Liability and Claims
 limits:
   - description: Legal liability
-    limit: '1,000,000'
+    limit: "1,000,000"
 premium: AED 250
 ---
-

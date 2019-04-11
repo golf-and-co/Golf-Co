@@ -262,9 +262,9 @@ const Cart = ({ data, addOns }) => {
             ))}
           <li>
             <Link
-              to={`/contact/`}
+              to={`/package-contact/`}
               state={{
-                code: data.title,
+                code: data.code,
                 city: data.city,
                 country: data.country,
                 nights: data.nights,
