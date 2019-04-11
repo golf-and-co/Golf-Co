@@ -1,7 +1,7 @@
 ---
 templateKey: event
 image: /img/ghala_golf_oman.png
-title: The Senior Champions’ Tour
+title: Golf & Co. Pro-Am Series
 location: Dubai Creek and Yacht Club
 date: 7 Dec 2018
 type:
