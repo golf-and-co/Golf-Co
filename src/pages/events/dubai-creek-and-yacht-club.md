@@ -21,6 +21,8 @@ albums:
   - date: 'Round 2 - Saturday 3rd November, 2018'
     images:
       - image: /img/round-2.jpg
+      - image: /img/round-22.jpg
+      - image: /img/round-23.jpg
     name: 'Jumeriah Golf Estates, Fire course'
   - date: 'Friday 7th December, 2018'
     images:
