@@ -168,26 +168,30 @@ const galleryDetails = ({ data }) => {
                   infinite: true
                 }}
               >
-                {data.markdownRemark.frontmatter.albums.map(entry => {
-                  return (
-                    <div key={v4()} onClick={() => setGallery(entry.name)}>
-                      <img
-                        style={{ cursor: "pointer" }}
-                        src={entry.images[0].image.replace(
-                          "../../../static",
-                          ""
-                        )}
-                        alt="Gallery"
-                      />
-                      <div style={{ color: "#000", textAlign: "center" }}>
-                        {entry.date}
+                {data.markdownRemark.frontmatter.albums
+                  .filter(entry => {
+                    return entry.images.length > 0;
+                  })
+                  .map(entry => {
+                    return (
+                      <div key={v4()} onClick={() => setGallery(entry.name)}>
+                        <img
+                          style={{ cursor: "pointer" }}
+                          src={entry.images[0].image.replace(
+                            "../../../static",
+                            ""
+                          )}
+                          alt="Gallery"
+                        />
+                        <div style={{ color: "#000", textAlign: "center" }}>
+                          {entry.date}
+                        </div>
+                        <div style={{ color: "#555", textAlign: "center" }}>
+                          {entry.name}
+                        </div>
                       </div>
-                      <div style={{ color: "#555", textAlign: "center" }}>
-                        {entry.name}
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
               </Slider>
             </div>
           </Wrap>
