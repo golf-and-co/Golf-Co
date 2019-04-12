@@ -13,7 +13,7 @@ collections:
         label: "Home"
         name: "home"
         fields:
-          - {label: Hero, name: image, widget: image}
+          - {label: "Hero (1080p)", name: image, widget: image}
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
           - {label: Title, name: title, widget: string}
           - {label: "Heading First Line", name: heading1, widget: string}
@@ -38,7 +38,7 @@ collections:
         name: "courses"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "courses"}
-          - {label: "Hero", name: "image", widget: "image"}
+          - {label: "Hero (1080p)", name: "image", widget: "image"}
           - {label: "Title", name: title, widget: "string"}
           - {label: "Description", name: "description", widget: "string"}
       - file: "src/pages/packages.md"
@@ -46,7 +46,7 @@ collections:
         name: "package"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "packages"}
-          - {label: "Hero", name: "image", widget: "image"}
+          - {label: "Hero (1080p)", name: "image", widget: "image"}
           - {label: "Title", name: title, widget: "string"}
           - {label: "Description", name: "description", widget: "string"}
           - {label: "Location Label", name: "location", widget: "string"}
@@ -57,14 +57,14 @@ collections:
         label: "Event Listings"
         name: "event"
         fields:
-          - {label: "Hero", name: "image", widget: "image"}
+          - {label: "Hero (1080p)", name: "image", widget: "image"}
           - {label: "View Gallery Label", name: "viewGallery", widget: "string"}
       - file: "src/pages/bespoke-golf-holidays.md"
         label: "Bespoke Golf Holidays"
         name: "bespoke"
         fields:
           - {label: Template Key, name: templateKey, widget: hidden, default: bespoke-golf-holidays}
-          - {label: Hero, name: image, widget: image}
+          - {label: "Hero (1080p)", name: image, widget: image}
           - {label: Title, name: title, widget: string}
           - {label: First Heading, name: heading1, widget: string}
           - {label: First Paragraph, name: paragraph1, widget: string}
@@ -78,7 +78,7 @@ collections:
         name: "corporate"
         fields:
           - {label: Template Key, name: templateKey, widget: hidden, default: corporate}
-          - {label: Hero, name: image, widget: image}
+          - {label: "Hero (1080p)", name: image, widget: image}
           - {label: Title, name: title, widget: string}
           - {label: Paragraph1, name: paragraph1, widget: string}
           - {label: Paragraph2, name: paragraph2, widget: string}
@@ -91,14 +91,14 @@ collections:
         name: "sendRequest"
         fields:
           - {label: Template Key, name: templateKey, widget: hidden, default: sendRequest}
-          - {label: Hero, name: image, widget: image}
+          - {label: "Hero (1080p)", name: image, widget: image}
           - {label: Title, name: title, widget: string}
       - file: "src/pages/golf-insurance.md"
         label: "Golf Insurance"
         name: "golfInsurance"
         fields:
           - {label: Template Key, name: templateKey, widget: hidden, default: golfInsurance}
-          - {label: Hero, name: image, widget: image}
+          - {label: "Hero (1080p)", name: image, widget: image}
           - {label: First Paragraph, name: paragraph1, widget: text}
           - {label: Infographics, name: infographics, widget: list, fields:[{label: Icon, name: image, widget: image}, {label: Description, name: description, widget: text}]}
           - {label: Title, name: title, widget: string}
@@ -125,7 +125,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
-      - {label: Hero, name: image, widget: image}
+      - {label: "Hero (1080p)", name: image, widget: image}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Location", name: "location", widget: "string", required: false}
       - {label: "Date", name: "date", widget: "string", required: false}
@@ -150,7 +150,7 @@ collections:
     folder: "src/pages/courses"
     create: true
     fields:
-      - {label: Hero, name: image, widget: image}
+      - {label: "Hero (1080p)", name: image, widget: image}
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "course"}
       - {label: "Name", name: "title", widget: "string"}
       - {label: "City", name: "city", widget: "string"}
@@ -176,7 +176,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "package"}
       - {label: "Code", name: "code", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
-      - {label: "Hero", name: "hero", widget: "image"}
+      - {label: "Hero (1080p)", name: "hero", widget: "image"}
       - {label: Title, name: title, widget: "string"}
       - {label: Page Header, name: pageHeader, widget: "string"}
       - {label: Body Header, name: bodyHeader, widget: "string"}
@@ -223,6 +223,6 @@ collections:
     create: true
     fields:
     - {label: "Template Key", name: "templateKey", widget: "hidden", default: "static"}
-    - {label: Hero, name: image, widget: image}
+    - {label: "Hero (1080p)", name: image, widget: image}
     - {label: "Name", name: title, widget: string}
     - {label: "Content", name: "content", widget: "markdown"}

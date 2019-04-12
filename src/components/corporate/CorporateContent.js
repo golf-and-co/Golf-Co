@@ -1,11 +1,11 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import React from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Wrap = styled.section`
   background-color: #f5f8f1;
   padding: 10px 30px 30px 30px;
-`
+`;
 
 const Paragraph = styled.div`
   max-width: 920px;
@@ -17,7 +17,7 @@ const Paragraph = styled.div`
   @media (max-width: 768px) {
     margin: 5px auto;
   }
-`
+`;
 
 const Heading = styled.h1`
   text-align: center;
@@ -28,7 +28,7 @@ const Heading = styled.h1`
   @media (max-width: 768px) {
     margin: 20px auto 0 auto;
   }
-`
+`;
 
 const Button = styled.div`
   text-align: center;
@@ -41,7 +41,7 @@ const Button = styled.div`
       margin: 20px auto 0 auto;
     }
   }
-`
+`;
 
 const Content = ({ data }) => (
   <Wrap>
@@ -51,12 +51,16 @@ const Content = ({ data }) => (
     <Heading>Why Use Our Corporate Golf Service?</Heading>
     <Paragraph>{data.paragraph3}</Paragraph>
     <Paragraph>{data.paragraph4}</Paragraph>
-    <Button><a href="/send-request" className="button is-link is-rounded">{data.sendEnquiry}</a></Button>
+    <Button>
+      <a href="/contact" className="button is-link is-rounded">
+        {data.sendEnquiry}
+      </a>
+    </Button>
   </Wrap>
-)
+);
 
-export default Content
+export default Content;
 
 Content.propTypes = {
-  data: PropTypes.object.isRequired,
-}
+  data: PropTypes.object.isRequired
+};

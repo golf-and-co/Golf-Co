@@ -9,10 +9,8 @@ export const Wrap = styled.div`
   .doubleLine {
     :after {
       content: "";
-      position: absolute;
-      width: 100%;
+      width: 70%;
       height: 1px;
-      bottom: -2.75rem;
       left: 0;
       background-color: #1d8649;
       visibility: hidden;
@@ -20,13 +18,17 @@ export const Wrap = styled.div`
       transform: scaleX(0);
       -webkit-transition: all 0.3s ease-in-out 0s;
       transition: all 0.3s ease-in-out 0s;
-      display: inline-block;
+      display: block;
     }
 
     :hover:after {
       visibility: visible;
       -webkit-transform: scaleX(1);
       transform: scaleX(1);
+    }
+
+    :hover:before {
+      visibility: hidden;
     }
   }
 
@@ -109,7 +111,7 @@ const LinkParent = styled.a`
     position: absolute;
     width: 100%;
     height: 1px;
-    bottom: 2px;
+    bottom: 0;
     left: 0;
     background-color: #1d8649;
     visibility: hidden;
@@ -144,7 +146,7 @@ const LinkChild = styled.a`
     position: absolute;
     width: 100%;
     height: 1px;
-    bottom: 2px;
+    bottom: 0;
     left: 0;
     background-color: #1d8649;
     visibility: hidden;

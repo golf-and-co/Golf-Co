@@ -80,6 +80,7 @@ export const packageDetailsQuery = graphql`
       rawMarkdownBody
       frontmatter {
         title
+        code
         pageHeader
         bodyHeader
         description
