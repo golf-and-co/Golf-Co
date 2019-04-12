@@ -250,6 +250,33 @@ const PackageContact = ({ data, location }) => {
                 method="POST"
                 data-netlify-honeypot="bot-field"
               >
+                <input name="code" type="hidden" value={location.state.code} />
+                <input name="city" type="hidden" value={location.state.city} />
+                <input
+                  name="country"
+                  type="hidden"
+                  value={location.state.country}
+                />
+                <input
+                  name="nights"
+                  type="hidden"
+                  value={location.state.nights}
+                />
+                <input
+                  name="rounds"
+                  type="hidden"
+                  value={location.state.rounds}
+                />
+                <input
+                  name="hotel"
+                  type="hidden"
+                  value={location.state.hotel}
+                />
+                <input
+                  name="addOns"
+                  type="hidden"
+                  value={location.state.addOns.join(", ")}
+                />
                 <div className="columns">
                   <div className="column is-one-fifth">
                     <div className="control">
