@@ -126,6 +126,10 @@ const galleryDetails = ({ data }) => {
                   displayValue = "none";
                 }
 
+                if (!entry.images) {
+                  entry.images = [];
+                }
+
                 return (
                   <div style={{ display: displayValue }}>
                     <Slider
