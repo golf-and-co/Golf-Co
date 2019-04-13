@@ -50,7 +50,7 @@ recentPosts:
   heading1: LET’S TALK GOLF
   heading2: WITH GOLF NEWS & BLOG
 recentCalendar:
-  heading1: Golf & Co
+  heading1: Golf & Co.
   heading2: Events
 menuLogo:
   alt: Two tone green and blue shield with golf ball and swoosh
@@ -80,10 +80,11 @@ footerColumn2:
     text: Terms of Use
 footerSocialHeading: Connect With Us
 footerSocial:
-  - href: "https://www.facebook.com/GolfandCo.Co/"
+  - href: 'https://www.facebook.com/GolfandCo.Co/'
     text: facebook-f
-  - href: "https://twitter.com/GolfandCo1/"
+  - href: 'https://twitter.com/GolfandCo1/'
     text: twitter
-  - href: "https://www.instagram.com/golfandco/"
+  - href: 'https://www.instagram.com/golfandco/'
     text: instagram
 ---
+
